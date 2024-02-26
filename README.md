@@ -10,6 +10,8 @@
 
 ### Variables
 
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/variables)
+
 #### 💠 Declaration
 
 ```js
@@ -28,6 +30,8 @@ A variable declared with `const` cannot be reassigned
 
 #### 💠 Naming
 
+> 📖 [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#keywords)
+
 Varaible name may contain:
 - letters (non-latin are not recommended)
 - digits (except on the first position)
@@ -43,15 +47,13 @@ Hard-coded values may be stored in uppercase constants:
 const COLOR_WHITE = "#FFF";
 ```
 
-References:
-- [The Modern JavaScript Tutorial](https://javascript.info/variables)
-- [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#keywords)
-
 ## Runtime Environments
 
 ### Browser
 
 #### 💠 Execution
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/hello-world#the-script-tag)
 
 ```html
 <!DOCTYPE html>
@@ -74,9 +76,6 @@ References:
 
 `src` attribute: Allows loading external scripts (from a file/URL) that will be cached by the browser; the `<script>` content is ignored when `src` is set
 
-References:
-- [The Modern JavaScript Tutorial](https://javascript.info/hello-world#the-script-tag)
-
 ## Miscellaneous
 
 ### 💠 ES5 & 'use strict'
@@ -84,6 +83,8 @@ References:
 `'use strict'` enables modifications introduced in ES5
 
 #### Usage
+
+> 📖 [The Modern JavaScript Tutorial: The modern mode, "use strict"](https://javascript.info/strict-mode)
 
 Must be placed at the beginning of a script or a function
 
@@ -93,17 +94,21 @@ Not used in the browser console by default
 
 #### Effects
 
+##### Variable declaration
+
+> 📖 [The Modern JavaScript Tutorial: Variables](https://javascript.info/variables#variable-naming)
+
 Forces variable declaration, as it's possible to simply assign a value without a declaration when not using `'use strict'`:
 
 ```js
 a = 1;
 ```
 
-References:
-- [The Modern JavaScript Tutorial: The modern mode, "use strict"](https://javascript.info/strict-mode)
-- [The Modern JavaScript Tutorial: Variables](https://javascript.info/variables#variable-naming)
-
 ### 💠 Automatic semicolon insertion
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/structure#semicolon)
+> 
+> 📖 [ECMA-262](https://tc39.es/ecma262/#sec-automatic-semicolon-insertion)
 
 Occurs an a line break in most cases
 
@@ -132,7 +137,3 @@ is transformed into:
 ```js
 a()[b, c].d()
 ```
-
-References:
-- [The Modern JavaScript Tutorial](https://javascript.info/structure#semicolon)
-- [ECMA-262](https://tc39.es/ecma262/#sec-automatic-semicolon-insertion)
