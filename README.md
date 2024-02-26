@@ -80,11 +80,11 @@ const COLOR_WHITE = "#FFF";
 
 ### 💠 ES5 & 'use strict'
 
-`'use strict'` enables modifications introduced in ES5
-
 #### Usage
 
 > 📖 [The Modern JavaScript Tutorial: The modern mode, "use strict"](https://javascript.info/strict-mode)
+
+`'use strict'` enables modifications introduced in ES5
 
 Must be placed at the beginning of a script or a function
 
