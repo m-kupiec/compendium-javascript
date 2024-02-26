@@ -23,13 +23,15 @@
         <p>Paragraph after</p>
       </body>
     </html>
-  ```
+```
 
-> The old HTML standard, HTML4, required a script to have a type. Usually it was `type="text/javascript"`. It’s not required anymore. . . .
-> 
-> `<script language=…>` This attribute was meant to show the language of the script. This attribute no longer makes sense because JavaScript is the default language. There is no need to use it.
-> 
-> — [The Modern JavaScript Tutorial](https://javascript.info/hello-world#the-script-tag)
+`type="text/javascript"`: Not required anymore (was required in HTML4)
+
+`<script language=…>`: Not used anymore (JavaScript has become the default language)
+
+`<script type="text/javascript"><!-- ... //--></script>`: Hid the code from browsers that didn't support the `<script>` tag
+
+`src` attribute: Allows loading external scripts (from a file/URL) that will be cached by the browser; the `<script>` content is ignored when `src` is set
 
 References:
 - [The Modern JavaScript Tutorial](https://javascript.info/hello-world#the-script-tag)
