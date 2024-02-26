@@ -13,16 +13,16 @@
 ##### HTML <script> Tag
 
 ```html
-    <!DOCTYPE html>
-    <html>
-      <body>
-        <p>Paragraph before</p>
-        <script>
-          console.log("Script");
-        </script>
-        <p>Paragraph after</p>
-      </body>
-    </html>
+<!DOCTYPE html>
+<html>
+  <body>
+    <p>Paragraph before</p>
+    <script>
+      console.log("Script");
+    </script>
+    <p>Paragraph after</p>
+  </body>
+</html>
 ```
 
 `type="text/javascript"`: Not required anymore (was required in HTML4)
