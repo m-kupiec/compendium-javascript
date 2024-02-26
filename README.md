@@ -24,3 +24,6 @@
       </body>
     </html>
   ```
+
+References:
+- [The Modern JavaScript Tutorial](https://javascript.info/hello-world#the-script-tag)
