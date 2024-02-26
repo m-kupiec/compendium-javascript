@@ -158,9 +158,9 @@ typeof alert // "function" (*)
 
 ## Miscellaneous
 
-### ES5 & 'use strict'
+### 💠 ES5 & 'use strict'
 
-#### 💠 Usage
+#### Usage
 
 > 📖 [The Modern JavaScript Tutorial: The modern mode, "use strict"](https://javascript.info/strict-mode)
 
@@ -172,7 +172,7 @@ Used in classes and modules by default
 
 Not used in the browser console by default
 
-#### 💠 Effects
+#### Effects
 
 ##### Variable declaration
 
