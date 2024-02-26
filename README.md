@@ -101,6 +101,32 @@ Represent not assigned value
 
 It's recommended to assing `null` instead of `undefined` to a variable
 
+### Data Type Operations
+
+#### 💠 The typeof Operator
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/types#type-typeof)
+
+Syntax:
+- `typeof x`
+- `typeof(x)`
+
+Returns a string
+
+```js
+typeof 1 // "number"
+typeof 1n // "bigint"
+typeof true // "boolean"
+typeof "a" // "string"
+typeof null // "object" (*)
+typeof undefined // "undefined"
+typeof Symbol("id") // "symbol"
+typeof Math // "object"
+typeof alert // "function" (*)
+
+// * Incorrect behavior
+```
+
 ## Runtime Environments
 
 ### Browser
