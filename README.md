@@ -83,14 +83,25 @@ References:
 
 `'use strict'` enables modifications introduced in ES5
 
+#### Usage
+
 Must be placed at the beginning of a script or a function
 
 Used in classes and modules by default
 
 Not used in the browser console by default
 
+#### Effects
+
+Forces variable declaration, as it's possible to simply assign a value without a declaration when not using `'use strict'`:
+
+```js
+a = 1;
+```
+
 References:
-- [The Modern JavaScript Tutorial](https://javascript.info/strict-mode)
+- [The Modern JavaScript Tutorial: The modern mode, "use strict"](https://javascript.info/strict-mode)
+- [The Modern JavaScript Tutorial: Variables](https://javascript.info/variables#variable-naming)
 
 ### 💠 Automatic semicolon insertion
 
