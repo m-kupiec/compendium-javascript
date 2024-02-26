@@ -8,9 +8,7 @@
 
 ### Browser
 
-#### Execution
-
-##### 💠 HTML <script> Tag
+#### 💠 Execution
 
 ```html
 <!DOCTYPE html>
