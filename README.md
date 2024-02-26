@@ -38,6 +38,19 @@ References:
 
 ## Miscellaneous
 
+### ES5 & 'use strict'
+
+`'use strict'` enables modifications introduced in ES5
+
+Must be placed at the beginning of a script or a function
+
+Used in classes and modules by default
+
+Not used in the browser console by default
+
+References:
+- [The Modern JavaScript Tutorial](https://javascript.info/strict-mode)
+
 ### Automatic semicolon insertion
 
 Occurs an a line break in most cases
