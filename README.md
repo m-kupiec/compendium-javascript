@@ -35,3 +35,39 @@
 
 References:
 - [The Modern JavaScript Tutorial](https://javascript.info/hello-world#the-script-tag)
+
+## Miscellaneous
+
+### Automatic semicolon insertion
+
+Occurs an a line break in most cases
+
+**Example exception #1**
+
+```js
+a = b + c
+(d + e).f()
+```
+
+is transformed into:
+
+```js
+a = b + c(d + e).f()
+```
+
+**Example exception #2**
+
+```js
+a()
+[b, c].d()
+```
+
+is transformed into:
+
+```js
+a()[b, c].d()
+```
+
+References:
+- [The Modern JavaScript Tutorial](https://javascript.info/structure#semicolon)
+- [ECMA-262](https://tc39.es/ecma262/#sec-automatic-semicolon-insertion)
