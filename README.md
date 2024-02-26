@@ -10,7 +10,7 @@
 
 #### Execution
 
-##### HTML <script> Tag
+##### 💠 HTML <script> Tag
 
 ```html
 <!DOCTYPE html>
@@ -38,7 +38,7 @@ References:
 
 ## Miscellaneous
 
-### ES5 & 'use strict'
+### 💠 ES5 & 'use strict'
 
 `'use strict'` enables modifications introduced in ES5
 
@@ -51,7 +51,7 @@ Not used in the browser console by default
 References:
 - [The Modern JavaScript Tutorial](https://javascript.info/strict-mode)
 
-### Automatic semicolon insertion
+### 💠 Automatic semicolon insertion
 
 Occurs an a line break in most cases
 
