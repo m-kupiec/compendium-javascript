@@ -2,8 +2,50 @@
 
 ## TOC
 
+- [Data](#data)
 - [Runtime Environments](#runtime-environments)
 - [Miscellaneous](#miscellaneous)
+
+## Data
+
+### Variables
+
+#### 💠 Declaration
+
+```js
+let a = 1;
+let b = 2;
+```
+
+or:
+
+```js
+let a = 1,
+  b = 2;
+```
+
+A variable declared with `const` cannot be reassigned
+
+#### 💠 Naming
+
+Varaible name may contain:
+- letters (non-latin are not recommended)
+- digits (except on the first position)
+- select symbols ('$', '_')
+
+Variable name must not be a keyword
+
+Variable name is case-sensitive
+
+Hard-coded values may be stored in uppercase constants:
+
+```js
+const COLOR_WHITE = "#FFF";
+```
+
+References:
+- [The Modern JavaScript Tutorial](https://javascript.info/variables)
+- [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#keywords)
 
 ## Runtime Environments
 
