@@ -133,6 +133,53 @@ typeof alert // "function" (*)
 // * Incorrect behavior
 ```
 
+#### 💠 Type Conversion
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/type-conversions)
+
+##### String
+
+Value is converted to string automatically when the string form is needed in a function
+
+`String(value)`: converts a value to string explicitly
+
+Rules:
+- `false` is converted to `"false"`
+- `null` is convertet to `"null"`
+- etc.
+
+##### Numeric
+
+Value is converted to number automatically in mathematical functions and expressions
+
+`Number(value)`: converts a value to number explicitly
+
+Rules:
+- Strings
+  - Whitespace (spaces, `\t`, `\n`, etc.) from the beginning and the end of the string are removed
+  - `"10"` is converted to `10`
+  - Empty string is converted to `0`
+  - String that doesn't represent a valid number is converted to `NaN`
+- `true`/`false` is converted to `1`/`0`
+- `null` is converted to `0`
+- `undefined` is converted to `NaN`
+
+##### Boolean
+
+Value is converted to boolean automatically in logical operations
+
+`Boolean(value)`: converts a value to boolean explicitly
+
+Rules:
+- Numbers
+  - `1`/`0` is converted to `true`/`false`
+  - `NaN` is converted to `false`
+- Strings
+  - Empty string is converted to `false`
+  - Non-empty string (e.g. `"0"`) is coverted to `true`
+- `null` is converted to `false`
+- `undefined` is converted to `false`
+
 ## Miscellaneous
 
 ### 💠 ES5 & 'use strict'
