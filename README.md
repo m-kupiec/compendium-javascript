@@ -452,6 +452,12 @@ Forces variable declaration, as it's possible to simply assign a value without a
 a = 1;
 ```
 
+##### Function Declaration
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/function-expressions#function-expression-vs-function-declaration)
+
+Makes the function visible only within the block scope in which it was declared
+
 ### 💠 Automatic semicolon insertion
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/structure#semicolon)
