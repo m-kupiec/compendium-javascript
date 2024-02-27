@@ -177,6 +177,8 @@ Rules:
 
 Value is converted to boolean automatically in logical operations
 
+`!!` operator converts the operand to boolean
+
 `Boolean(value)`: converts a value to boolean explicitly
 
 Rules:
@@ -236,6 +238,26 @@ Values of different types are compared after being converted to numbers - this a
 - `null` and `undefined` does not equal `==` any other value
 
 Values of different types are compared without being converted to numbers when the strict equality operator `===` is used
+
+### 💠 Logical Operators
+
+#### OR/AND Operators
+
+`||` evaluates operands from left to right, converts each to boolean, and returns the original value of the first truthy operand (returns the last one if all are false); used for:
+- getting the first truthy value from a given list
+- short-circuit evaluation, e.g. `false || console.log('Ok!')`
+
+`&&` evaluates operands from left to right, converts each to boolean, and returns the original value of the first falsy operand (returns the last one of all are true)
+
+The precedence of `&&` is higher than `||`
+
+It's not recommended to replace `if` statements with `||`/`&&`
+
+#### NOT Operator
+
+`!` converts its operand to bolean and inverts the value
+
+`!!` is used to convert a value to boolean
 
 ## Control Flow
 
