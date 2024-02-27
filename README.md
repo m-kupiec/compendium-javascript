@@ -3,6 +3,7 @@
 ## TOC
 
 - [Data](#data)
+- [Basic Operators](#basic-operators)
 - [Miscellaneous](#miscellaneous)
 - [Runtime Environments](#runtime-environments)
 
@@ -186,6 +187,41 @@ Rules:
   - Non-empty string (e.g. `"0"`) is coverted to `true`
 - `null` is converted to `false`
 - `undefined` is converted to `false`
+
+## Basic Operators
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/operators)
+
+### 💠 Comma
+
+Each of the expressions separated with comma is evaluated and the result of the last one is returned, e.g. `(1 + 2, 3 + 4)` returns `7`
+
+`,` has lower precedence than `=` operator
+
+### 💠 Assignment Operator
+
+`=` operator returns the assigned value
+
+Chained assignments are evaluated from right to left.
+
+For each arithmetical and bitwise operator there is a corresponding modify-and-assign operator, e.g. `*=`
+
+### 💠 Increment/Decrement Operator
+
+`++a` returns the new value, while `a++` return the old value
+
+### 💠 Bitwise Operators
+
+Operands are treated as 32-bit integers
+
+Operators:
+- AND ( & )
+- OR ( | )
+- XOR ( ^ )
+- NOT ( ~ )
+- LEFT SHIFT ( << )
+- RIGHT SHIFT ( >> )
+- ZERO-FILL RIGHT SHIFT ( >>> )
 
 ## Miscellaneous
 
