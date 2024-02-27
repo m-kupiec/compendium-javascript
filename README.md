@@ -5,6 +5,7 @@
 - [Data](#data)
 - [Basic Operators](#basic-operators)
 - [Control Flow](#control-flow)
+- [Functions](#functions)
 - [Miscellaneous](#miscellaneous)
 - [Runtime Environments](#runtime-environments)
 
@@ -388,6 +389,26 @@ a:
 ```
 
 `continue` directive must be placed inside a loop
+
+## Functions
+
+### 💠 Function Declaration
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/function-basics)
+
+```js
+function a(b) {
+  ...
+}
+```
+
+### 💠 Returned Value
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/function-basics)
+
+`return;` or no `return` at all effects in returning `undefined`
+
+JavaScript assumes a semicolon after `return`, so it's not possible to place the returned value in a new line
 
 ## Miscellaneous
 
