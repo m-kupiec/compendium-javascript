@@ -416,6 +416,8 @@ let a = function(b) {
 
 Can be called only after its creation
 
+Function expressions can be used when a conditional declaration is needed or when a function expression doesn't fit the situation
+
 ### 💠 Returned Value
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/function-basics)
