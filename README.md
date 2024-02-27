@@ -47,6 +47,12 @@ Hard-coded values may be stored in uppercase constants:
 const COLOR_WHITE = "#FFF";
 ```
 
+#### 💠 Typing
+
+> [The Modern JavaScript Tutorial](https://javascript.info/types)
+
+Dynamic typing: variable can change its data type
+
 ### Data Types
 
 #### Primitives
