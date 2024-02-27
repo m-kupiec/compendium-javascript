@@ -462,7 +462,7 @@ Not used in the browser console by default
 
 #### Effects
 
-##### Variable declaration
+##### Variable Declaration
 
 > 📖 [The Modern JavaScript Tutorial: Variables](https://javascript.info/variables#variable-naming)
 
@@ -486,7 +486,7 @@ Makes the function visible only within the block scope in which it was declared
 
 Occurs an a line break in most cases
 
-**Example exception #1**
+#### Example Exception #1
 
 ```js
 a = b + c
@@ -499,7 +499,7 @@ is transformed into:
 a = b + c(d + e).f()
 ```
 
-**Example exception #2**
+#### Example Exception #2
 
 ```js
 a()
