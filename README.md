@@ -217,3 +217,26 @@ a()[b, c].d()
 `<script type="text/javascript"><!-- ... //--></script>`: Hid the code from browsers that didn't support the `<script>` tag
 
 `src` attribute: Allows loading external scripts (from a file/URL) that will be cached by the browser; the `<script>` content is ignored when `src` is set
+
+#### 💠 Global Objects
+
+#### window
+
+##### Instance Methods
+
+###### Modal Window
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/alert-prompt-confirm)
+
+`alert(string)`:
+- displays a message in a modal window with 'Ok' button
+- returns `undefined`
+
+`prompt(string, [optionalDefaultInputFieldValue])`:
+- Internet Explorer inserts `'undefined'` in the input field when no parameter is provided, so it's good to provide an empty string `prompt(string, '')`
+- displays a message in a modal window with 'Ok' and 'Cancel' buttons
+- returns input field's value or `null`
+
+`confirm(string)`:
+- displays a message in a modal window with 'Ok' and 'Cancel' buttons
+- return `true` or `false`
