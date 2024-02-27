@@ -4,6 +4,7 @@
 
 - [Data](#data)
 - [Basic Operators](#basic-operators)
+- [Control Flow](#control-flow)
 - [Miscellaneous](#miscellaneous)
 - [Runtime Environments](#runtime-environments)
 
@@ -235,6 +236,38 @@ Values of different types are compared after being converted to numbers - this a
 - `null` and `undefined` does not equal `==` any other value
 
 Values of different types are compared without being converted to numbers when the strict equality operator `===` is used
+
+## Control Flow
+
+### 💠 Conditionals
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/ifelse)
+
+`if` statement: used when execturing different branches of code
+
+Conditional `?` operator (ternary operator): used when returning one of the two values
+
+`switch` statement: used when comparing different value variants
+
+Equality check in `switch` statemt is strict
+
+Example:
+
+```js
+switch(x) {
+  case 1:
+    ...
+    [break;]
+
+  case 2:
+    ...
+    [break;]
+
+  default:
+    ...
+    [break;]
+}
+```
 
 ## Miscellaneous
 
