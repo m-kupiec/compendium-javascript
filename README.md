@@ -302,6 +302,28 @@ switch(x) {
 }
 ```
 
+### 💠 Loops
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/while-for)
+
+```js
+while (condition) {
+  ...
+}
+```
+
+```js
+do {
+  ...
+} while (condition);
+```
+
+```js
+for (;;) {
+  ...
+}
+```
+
 ## Miscellaneous
 
 ### 💠 ES5 & 'use strict'
