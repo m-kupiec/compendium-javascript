@@ -190,7 +190,8 @@ Rules:
 
 ## Basic Operators
 
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/operators)
+> 📖 [The Modern JavaScript Tutorial: Basic operators, maths](https://javascript.info/operators)
+> 📖 [The Modern JavaScript Tutorial: Comparisons](https://javascript.info/comparison)
 
 ### 💠 Comma
 
@@ -222,6 +223,18 @@ Operators:
 - LEFT SHIFT ( << )
 - RIGHT SHIFT ( >> )
 - ZERO-FILL RIGHT SHIFT ( >>> )
+
+### 💠 Comparison Operators
+
+Comparison operation returns a boolean
+
+Strings are compared in Unicode order
+
+Values of different types are compared after being converted to numbers - this also applies to regular equality check operator `==` with the exceptions:
+- `null == undefined` is true
+- `null` and `undefined` does not equal `==` any other value
+
+Values of different types are compared without being converted to numbers when the strict equality operator `===` is used
 
 ## Miscellaneous
 
