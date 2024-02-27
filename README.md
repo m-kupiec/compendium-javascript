@@ -241,7 +241,8 @@ Values of different types are compared without being converted to numbers when t
 
 ### 💠 Logical Operators
 
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/logical-operators)
+> 📖 [The Modern JavaScript Tutorial: Logical operators](https://javascript.info/logical-operators)
+> 📖 [The Modern JavaScript Tutorial: Nullish coalescing operator '??'](https://javascript.info/nullish-coalescing-operator)
 
 #### OR/AND Operators
 
@@ -260,6 +261,14 @@ It's not recommended to replace `if` statements with `||`/`&&`
 `!` converts its operand to bolean and inverts the value
 
 `!!` is used to convert a value to boolean
+
+#### Nullish Coalescing Operator
+
+`??` is used to return the first value that isn't `null`/`undefined` (while in contrast to `||` operator, the value may be `0`, `NaN`, `''`, `false`)
+
+`??` has the same precedence as `||`
+
+It's forbidden to use `??` together with `&&`/`||` without parentheses
 
 ## Control Flow
 
