@@ -418,6 +418,24 @@ Can be called only after its creation
 
 Function expressions can be used when a conditional declaration is needed or when a function expression doesn't fit the situation
 
+### 💠 Arrow Function
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/arrow-functions-basics)
+
+```js
+let a = (b, c) => {
+  return d;
+}
+
+let e = (f, g) => h;
+
+let i = j => k;
+
+let l = () => m;
+```
+
+Are convenient for simple one-line actions or being used as callbacks
+
 ### 💠 Returned Value
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/function-basics)
