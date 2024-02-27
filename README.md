@@ -324,6 +324,71 @@ for (;;) {
 }
 ```
 
+### 💠 Control Transfer
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/while-for)
+
+#### Operation
+
+`break` directive breaks the loop
+
+`break` directive combined with an infinite loop is used when the loop condition must be evaluated in the middle instead of the beginning or the end of the loop
+
+`continue` directive break the current iteration of the loop
+
+#### Use Cases
+
+`continue` directive is used to decrease nesting, for example:
+
+```js
+while (a) {
+  if (b) {
+    c();
+  }
+}
+```
+
+may be replaced with:
+
+```js
+while (a) {
+  if (!b) continue;
+
+  c();
+}
+```
+
+`break`/`continue` is not allowed to use with the ternary operator `?`
+
+#### Labels
+
+Labels are used to break from a nested loop, for example:
+
+```js
+a:
+while (b) {
+  while (c) {
+    if (d) break a;
+  }
+}
+```
+
+`continue` breaks the current iteration of the outer loop
+
+#### Possible Placement
+
+`break` directive must be placed inside a block:
+
+```js
+a:
+{
+  ...
+  break a;
+}
+```
+
+`continue` directive must be placed inside a loop
+
 ## Miscellaneous
 
 ### 💠 ES5 & 'use strict'
