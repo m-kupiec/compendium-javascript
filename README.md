@@ -241,6 +241,8 @@ Values of different types are compared without being converted to numbers when t
 
 ### 💠 Logical Operators
 
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/logical-operators)
+
 #### OR/AND Operators
 
 `||` evaluates operands from left to right, converts each to boolean, and returns the original value of the first truthy operand (returns the last one if all are false); used for:
