@@ -135,11 +135,16 @@ typeof alert // "function" (*)
 
 #### 💠 Type Conversion
 
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/type-conversions)
+> 📖 [The Modern JavaScript Tutorial: Type Conversions](https://javascript.info/type-conversions)
+> 📖 [The Modern JavaScript Tutorial: Basic operators, maths](https://javascript.info/operators)
 
 ##### String
 
 Value is converted to string automatically when the string form is needed in a function
+
+If one of the operands of the `+` operator is a string, the second one is also converted to a string
+- `1 + 1 + '1'` is converted to `'21'`
+- `'1' + 1 + 1` is converted to `'111'`
 
 `String(value)`: converts a value to string explicitly
 
@@ -151,6 +156,8 @@ Rules:
 ##### Numeric
 
 Value is converted to number automatically in mathematical functions and expressions
+
+Unary `+` operator converts the operand to number
 
 `Number(value)`: converts a value to number explicitly
 
