@@ -402,6 +402,20 @@ function a(b) {
 }
 ```
 
+Can be called before its declaration
+
+### 💠 Function Expression
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/function-expressions)
+
+```js
+let a = function(b) {
+  ...
+};
+```
+
+Can be called only after its creation
+
 ### 💠 Returned Value
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/function-basics)
