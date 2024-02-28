@@ -182,6 +182,16 @@ for (key in obj) {
 }
 ```
 
+##### 💠 Referencing
+
+> 📘 [The Modern JavaScript Tutorial](https://javascript.info/object-copy)
+
+Variable assigned to an object stores its reference not the object itself
+
+Copying a variable assigne to an object copies the reference
+
+Objects declared with `const` can be modified since `const` applies to the reference
+
 ### Data Type Operations
 
 #### 💠 The typeof Operator
