@@ -135,6 +135,21 @@ Square bracket notation is used when dot acceess notation doesn't work:
 
 `delete` operator is used to remove a property
 
+##### 💠 Property Value Shorthand
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/object#property-value-shorthand)
+
+Used when property key is the same as the property value
+
+```js
+function a(b, c) {
+  return {
+    b,
+    c: d
+  };
+}
+```
+
 ### Data Type Operations
 
 #### 💠 The typeof Operator
