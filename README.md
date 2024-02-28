@@ -6,6 +6,7 @@
 - [Basic Operators](#basic-operators)
 - [Control Flow](#control-flow)
 - [Functions](#functions)
+- [Built-In Objects](#built-in-objects)
 - [Miscellaneous](#miscellaneous)
 - [Runtime Environments](#runtime-environments)
 
@@ -528,6 +529,16 @@ Are convenient for simple one-line actions or being used as callbacks
 `return;` or no `return` at all effects in returning `undefined`
 
 JavaScript assumes a semicolon after `return`, so it's not possible to place the returned value in a new line
+
+## Built-In Objects
+
+### Object
+
+#### 💠 Cloning
+
+> 📘 [The Modern JavaScript Tutorial](https://javascript.info/object-copy)
+
+`Object.assign(target, ...sources)` returns modified `target` (now containing copied properties from all the sources; object properties are copied by reference)
 
 ## Miscellaneous
 
