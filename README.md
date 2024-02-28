@@ -110,6 +110,31 @@ Represent not assigned value
 
 It's recommended to assing `null` instead of `undefined` to a variable
 
+#### Object
+
+##### 💠 Creation Syntax
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/object)
+
+```js
+let a = {}; // Object literal
+
+let b = new Object(); // Object contructor
+```
+
+#### 💠 Properties
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/object)
+
+In object literal, multiword property names must be placed within quotes
+
+Square bracket notation is used when dot acceess notation doesn't work:
+- multiword property names
+- property name returned from an expression
+- computed properties: property name returned from an expression and used in object literal
+
+`delete` operator is used to remove a property
+
 ### Data Type Operations
 
 #### 💠 The typeof Operator
