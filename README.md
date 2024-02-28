@@ -278,6 +278,7 @@ Rules:
 
 > 📖 [The Modern JavaScript Tutorial: Basic operators, maths](https://javascript.info/operators)
 > 📖 [The Modern JavaScript Tutorial: Comparisons](https://javascript.info/comparison)
+> 📖 [The Modern JavaScript Tutorial: Object references and copying](https://javascript.info/object-copy)
 
 ### 💠 Comma
 
@@ -321,6 +322,8 @@ Values of different types are compared after being converted to numbers - this a
 - `null` and `undefined` does not equal `==` any other value
 
 Values of different types are compared without being converted to numbers when the strict equality operator `===` is used
+
+Objects are compared with other objects or with other types after being converted to primitives
 
 ### 💠 Logical Operators
 
