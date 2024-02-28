@@ -7,6 +7,7 @@
 - [Control Flow](#control-flow)
 - [Functions](#functions)
 - [Built-In Objects](#built-in-objects)
+- [Programming](#programming)
 - [Miscellaneous](#miscellaneous)
 - [Runtime Environments](#runtime-environments)
 
