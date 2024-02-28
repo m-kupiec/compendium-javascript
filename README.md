@@ -98,6 +98,28 @@ Three type of quotes:
 
 Has one of the two values: `true`/`false`
 
+##### 💠 Symbol
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/symbol)
+
+###### Nature
+
+Represents a unique identifier
+
+```js
+let id = Symbol("description");
+```
+
+Symbol's description doesn't affect anything but is useful for debugging purposes (is accessible via `Symbol('').description`)
+
+Symbols are not automatically converted to strings and in some environments such attempts may result in TypeError (e.g. when using alert())
+
+###### Use in Objects
+
+When used as a property name in an object literal, it must be enclosed in square brackets because it's then passed as a variable
+
+Properties with symbolic names are skipped by `for...in` loops and `Object.keys()` but not by `Object.assign()`
+
 ##### 💠 null
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/types)
