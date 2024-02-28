@@ -122,7 +122,7 @@ let a = {}; // Object literal
 let b = new Object(); // Object contructor
 ```
 
-#### 💠 Properties
+##### 💠 Properties
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/object)
 
