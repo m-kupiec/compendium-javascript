@@ -128,6 +128,14 @@ let b = new Object(); // Object contructor
 
 In object literal, multiword property names must be placed within quotes
 
+The dot notation may be used when property name follows the rules for naming variables (no spaces, no digits on the first position, letters and `$`/`_` allowed) with the exception that the accessed property name may be a keyword
+
+Generally, property name doesn't have to follow the rules for naming variables (can be a keyword, can contain spaces/digits on the first position/special characters) - it can be any string or symbol
+
+Property name of a type other than string/symbol is automatically converted to string (whether used in object literal or square bracket notation)
+
+Property named `__proto__` must have an object for its value
+
 Square bracket notation is used when dot acceess notation doesn't work:
 - multiword property names
 - property name returned from an expression
@@ -139,7 +147,7 @@ Square bracket notation is used when dot acceess notation doesn't work:
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/object#property-value-shorthand)
 
-Used when property key is the same as the property value
+Used when property name is the same as the property value
 
 ```js
 function a(b, c) {
