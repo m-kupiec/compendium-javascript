@@ -230,6 +230,26 @@ Copying a variable assigne to an object copies the reference
 
 Objects declared with `const` can be modified since `const` applies to the reference
 
+##### 💠 Optional Chaining
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/optional-chaining)
+
+`?.` is not an operator but a syntax construct
+
+`?.` stops the evaluation if the preceeding value is `undefined`/`null` and returns `undefined`
+
+Works only for declared variables
+
+May be used for short-cirtuit evaluations, e.g. `a?.b(c)`
+
+`?.[]` is used when square bracket notation is needed
+
+`?.()` is used to call a function that may not exist
+
+Can be used for reading and deleting property but not for setting property value
+
+Overusing `?.` may result in more difficult debugging, so it should be used only when the existence of the preceding property is optional
+
 ### Data Type Operations
 
 #### 💠 The typeof Operator
