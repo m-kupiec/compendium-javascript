@@ -744,7 +744,7 @@ let abc = Abc();
 
 #### Miscellaneous
 
-##### Immediately Invoked Function Expression (IIFE)
+##### 💠 Immediately Invoked Function Expression (IIFE)
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/constructor-new#constructor-function)
 
