@@ -610,6 +610,14 @@ a = 1;
 
 Makes the function visible only within the block scope in which it was declared
 
+##### this Value
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/object-methods#this-is-not-bound)
+
+When a function is called without an object, the value of `this` is:
+- `undefined` when in strinct mode
+- global object when not in strinct mode
+
 ### 💠 Automatic semicolon insertion
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/structure#semicolon)
