@@ -158,6 +158,42 @@ Square bracket notation is used when dot acceess notation doesn't work:
 - property name returned from an expression
 - computed properties: property name returned from an expression and used in object literal
 
+##### 💠 Methods
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/object-methods)
+
+###### Syntax
+
+```js
+let obj = {
+  a: function() {
+    ...
+  }
+}
+```
+
+is almost equivalent (with some differencec related to inheritance) to the following:
+
+```js
+let obj = {
+  a() {
+    ...
+  }
+}
+```
+
+###### this Keyword
+
+`this` is used to access the method-calling object
+
+`this` is evaluated at runtime (can be used in functions, not only in object methods)
+
+`this` inside an arrow function is refering to the outer context
+
+When a function is called without an object, the value of `this` is:
+- `undefined` when in strinct mode
+- global object when not in strinct mode
+
 ##### 💠 Property Value Shorthand
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/object#property-value-shorthand)
