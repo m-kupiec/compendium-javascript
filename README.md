@@ -698,6 +698,22 @@ function Abc() {
 let abc = Abc();
 ```
 
+### Design Patterns
+
+#### Miscellaneous
+
+##### Immediately Invoked Function Expression (IIFE)
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/constructor-new#constructor-function)
+
+```js
+let abc = new function() {
+  ...
+}
+```
+
+Used when performing complex initialization for a single object to keep the code organized and to avoid polluting the global scope with temporary variables or functions
+
 ## Runtime Environments
 
 ### Browser
