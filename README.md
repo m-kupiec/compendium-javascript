@@ -756,6 +756,18 @@ let abc = new function() {
 
 Used when performing complex initialization for a single object to keep the code organized and to avoid polluting the global scope with temporary variables or functions
 
+##### 💠 Symbol-Based Encapsulation
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/symbol#hidden-properties)
+
+Used for third-party code objects when it's unsafe to add properties to them in danger of affecting pre-defined behavior
+
+##### 💠 Private Members
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/symbol#hidden-properties)
+
+Used when exposing object to scripts which may add their own properties
+
 ## Runtime Environments
 
 ### Browser
