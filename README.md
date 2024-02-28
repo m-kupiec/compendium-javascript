@@ -126,9 +126,9 @@ let b = new Object(); // Object contructor
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/object)
 
-In object literal, multiword property names must be placed within quotes
+###### Naming
 
-The dot notation may be used when property name follows the rules for naming variables (no spaces, no digits on the first position, letters and `$`/`_` allowed) with the exception that the accessed property name may be a keyword
+In object literal, multiword property names must be placed within quotes
 
 Generally, property name doesn't have to follow the rules for naming variables (can be a keyword, can contain spaces/digits on the first position/special characters) - it can be any string or symbol
 
@@ -136,16 +136,26 @@ Property name of a type other than string/symbol is automatically converted to s
 
 Property named `__proto__` must have an object for its value
 
-Square bracket notation is used when dot acceess notation doesn't work:
-- multiword property names
-- property name returned from an expression
-- computed properties: property name returned from an expression and used in object literal
+###### Order
+
+Properties which names would be valid integers (after conversion to number) are sorted, while the other properties are kept in creation order
+
+###### Availability
 
 Accessing non-existing property will result in getting `undefined`
 
 `in` operator checks if a property with the given name exists in the object (even if its value is `undefined`)
 
 `delete` operator is used to remove a property
+
+###### Access Notations
+
+The dot notation may be used when property name follows the rules for naming variables (no spaces, no digits on the first position, letters and `$`/`_` allowed) with the exception that the accessed property name may be a keyword
+
+Square bracket notation is used when dot acceess notation doesn't work:
+- multiword property names
+- property name returned from an expression
+- computed properties: property name returned from an expression and used in object literal
 
 ##### 💠 Property Value Shorthand
 
@@ -159,6 +169,16 @@ function a(b, c) {
     b,
     c: d
   };
+}
+```
+
+##### 💠 for...in Loop
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/object#forin)
+
+```js
+for (key in obj) {
+  ...
 }
 ```
 
