@@ -619,6 +619,16 @@ JavaScript assumes a semicolon after `return`, so it's not possible to place the
 
 `Object.assign(target, ...sources)` returns modified `target` (now containing copied properties from all the sources; object properties are copied by reference)
 
+### Symbol
+
+#### 💠 Global Symbol Registry
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/symbol#global-symbols)
+
+Global symbol registry allow to create an access global symbols (accessible from anywhere in the code) with unique desccriptions
+
+`Symbol.for(descriptionString)` is used to access (or create when absent) 
+
 ## Miscellaneous
 
 ### 💠 ES5 & 'use strict'
