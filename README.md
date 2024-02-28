@@ -652,6 +652,51 @@ is transformed into:
 a()[b, c].d()
 ```
 
+## Programming
+
+### OOP
+
+#### 💠 Constructor Function
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/constructor-new)
+
+The first letter of the function name must by capital
+
+Should be executed with the `new` operator
+
+When executing with the `new` operator, parentheses may be omitted, but it's not a good practice
+
+Does not have the `return` statement as it returns `this`
+
+If there is `return` statement then it returns:
+- object called with `return`
+- `this` if `return` is not calling an object
+
+```js
+function Abc() {
+  this.d = e;
+  this.f = g;
+}
+
+let abc = new Abc();
+```
+
+`new.target` is sometimes used to test whether the function was called with `new` by returning:
+- `undefined` if the function was called without `new`
+- the function itself if it was called with `new`
+
+```js
+function Abc() {
+  if (!new.target) {
+    return new Abc();
+  }
+
+  this.a = b;
+}
+
+let abc = Abc();
+```
+
 ## Runtime Environments
 
 ### Browser
