@@ -222,7 +222,7 @@ for (key in obj) {
 
 ##### 💠 Referencing
 
-> 📘 [The Modern JavaScript Tutorial](https://javascript.info/object-copy)
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/object-copy)
 
 Variable assigned to an object stores its reference not the object itself
 
@@ -573,7 +573,7 @@ JavaScript assumes a semicolon after `return`, so it's not possible to place the
 
 #### 💠 Cloning
 
-> 📘 [The Modern JavaScript Tutorial](https://javascript.info/object-copy)
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/object-copy)
 
 `Object.assign(target, ...sources)` returns modified `target` (now containing copied properties from all the sources; object properties are copied by reference)
 
