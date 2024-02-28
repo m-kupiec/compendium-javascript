@@ -141,6 +141,10 @@ Square bracket notation is used when dot acceess notation doesn't work:
 - property name returned from an expression
 - computed properties: property name returned from an expression and used in object literal
 
+Accessing non-existing property will result in getting `undefined`
+
+`in` operator checks if a property with the given name exists in the object (even if its value is `undefined`)
+
 `delete` operator is used to remove a property
 
 ##### 💠 Property Value Shorthand
