@@ -85,7 +85,7 @@ May have the following values:
 - floating point
 - `Infinity`
 - `-Infinity`
-- `NaN` (represents a computational error)
+- `NaN` (represents a computational error; `NaN !== NaN`)
 
 May be written in the following ways:
 - `1000000`
