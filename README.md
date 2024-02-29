@@ -671,6 +671,14 @@ console.log(255..toString(16)); // ff
 console.log((255).toString(16)); // ff
 ```
 
+#### 💠 Rounding to Float
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/number#rounding)
+
+```js
+console.log((1.2345).toFixed(2)); // "1.23" (string)
+```
+
 ### Symbol
 
 #### 💠 Global Symbol Registry
