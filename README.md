@@ -644,6 +644,26 @@ console.log(new Number(0) ? 1 : 2); // 1
 
 `Object.assign(target, ...sources)` returns modified `target` (now containing copied properties from all the sources; object properties are copied by reference)
 
+### Number
+
+#### 💠 General
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/number#tostring-base)
+
+To call a method dorectly on a number, `..` must be used
+
+```js
+console.log(255..toString(16)); // ff
+```
+
+#### 💠 Numeral System Conversion
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/number#tostring-base)
+
+```js
+console.log((255).toString(16)); // ff
+```
+
 ### Symbol
 
 #### 💠 Global Symbol Registry
@@ -653,6 +673,19 @@ console.log(new Number(0) ? 1 : 2); // 1
 Global symbol registry allow to create an access global symbols (accessible from anywhere in the code) with unique desccriptions
 
 `Symbol.for(descriptionString)` is used to access (or create when absent) 
+
+### Math
+
+#### 💠 Rounding to Integer
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/number#rounding)
+
+```js
+console.log(Math.floor(1.5), Math.floor(-1.5)); // 1, -2
+console.log(Math.ceil(1.5), Math.ceil(-1.5)); // 2, -1
+console.log(Math.round(1.5), Math.round(-1.5)); // 2, -1
+console.log(Math.trunc(1.5), Math.trunc(-1.5)); // 1, -1
+```
 
 ## Miscellaneous
 
