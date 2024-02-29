@@ -675,6 +675,19 @@ console.log(isFinite("1")); // true
 
 ### Object
 
+#### 💠 Comparison
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/number#tests-isfinite-and-isnan)
+> 
+> 📖 [ECMA-262](https://tc39.es/ecma262/#sec-samevalue)
+
+Comparison using `Object.is` differs from strict comparison `===` in two edge cases:
+
+```js
+console.log(Object.is(NaN, NaN)); // true
+console.log(Object.is(0, -0)); // false
+```
+
 #### 💠 Cloning
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/object-copy)
