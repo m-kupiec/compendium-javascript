@@ -788,6 +788,10 @@ console.log("123".at(-1)); // "3"
 #### 💠 Searching for a Substring
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/string#searching-for-a-substring)
+>
+> 📖 [MDN: String.prototype.startsWith()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith)
+>
+> 📖 [MDN: String.prototype.endsWith()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith)
 
 ```js
 console.log("abcd-abcd".indexOf("e")); // -1
@@ -799,6 +803,17 @@ console.log("abcd-abcd".lastIndexOf("e")); // -1
 console.log("abcd-abcd".lastIndexOf("ab")); // 5
 console.log("abcd-abcd".lastIndexOf("ab", 4)); // 0
 console.log("abcd-abcd".lastIndexOf("ab", -99)); // 0
+```
+
+```js
+console.log("abcd".includes("ab")); // true
+console.log("abcd".includes("ab", 1)); // false
+
+console.log("abcd".startsWith("ab")); // true
+console.log("abcd".startsWith("bc", 1)); // true
+
+console.log("abcd".endsWith("cd")); // true
+console.log("abcd".endsWith("bc", 3)); // true
 ```
 
 #### 💠 Changing the Case
