@@ -445,7 +445,7 @@ Operators:
 
 Comparison operation returns a boolean
 
-Strings are compared in Unicode order
+Strings are compared according to the UTF-16 order
 
 Values of different types are compared after being converted to numbers - this also applies to regular equality check operator `==` with the exceptions:
 - `null == undefined` is true
