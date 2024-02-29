@@ -782,6 +782,21 @@ console.log(Math.round(1.5), Math.round(-1.5)); // 2, -1
 console.log(Math.trunc(1.5), Math.trunc(-1.5)); // 1, -1
 ```
 
+#### 💠 Getting Random Number
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/number#other-math-functions)
+
+`Math.random()` returns a random number from the interval <0; 1)
+
+#### 💠 Getting Min/Max Value
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/number#other-math-functions)
+
+```js
+console.log(Math.min(1, 2, 3)); // 1
+console.log(Math.max(1, 2, 3)); // 3
+```
+
 ## Miscellaneous
 
 ### 💠 ES5 & 'use strict'
