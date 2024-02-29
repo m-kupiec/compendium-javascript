@@ -774,6 +774,42 @@ console.log((255).toString(16)); // ff
 console.log((1.2345).toFixed(2)); // "1.23" (string)
 ```
 
+### String
+
+#### 💠 Accessing Characters
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/string#accessing-characters)
+
+```js
+console.log("123".at(0)); // "1"
+console.log("123".at(-1)); // "3"
+```
+
+#### 💠 Searching for a Substring
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/string#searching-for-a-substring)
+
+```js
+console.log("abcd-abcd".indexOf("e")); // -1
+console.log("abcd-abcd".indexOf("ab")); // 0
+console.log("abcd-abcd".indexOf("ab", 1)); // 5
+console.log("abcd-abcd".indexOf("ab", -99)); // 0
+
+console.log("abcd-abcd".lastIndexOf("e")); // -1
+console.log("abcd-abcd".lastIndexOf("ab")); // 5
+console.log("abcd-abcd".lastIndexOf("ab", 4)); // 0
+console.log("abcd-abcd".lastIndexOf("ab", -99)); // 0
+```
+
+#### 💠 Changing the Case
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/string#changing-the-case)
+
+```js
+console.log("ABC".toLowerCase()); // "abc"
+console.log("abc".toUpperCase()); // "ABC"
+```
+
 ### Symbol
 
 #### 💠 Global Symbol Registry
