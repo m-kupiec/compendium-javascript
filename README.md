@@ -409,6 +409,8 @@ Rules:
 > 📖 [The Modern JavaScript Tutorial: Comparisons](https://javascript.info/comparison)
 > 
 > 📖 [The Modern JavaScript Tutorial: Object references and copying](https://javascript.info/object-copy)
+>
+> 📖 [The Modern JavaScript Tutorial: Strings](https://javascript.info/string#comparing-strings)
 
 ### 💠 Comma
 
