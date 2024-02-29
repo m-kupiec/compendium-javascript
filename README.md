@@ -838,6 +838,22 @@ console.log("ABC".toLowerCase()); // "abc"
 console.log("abc".toUpperCase()); // "ABC"
 ```
 
+#### 💠 Comparing Strings
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/string#comparing-strings)
+>
+> 📖 [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare)
+
+`String.prototype.localeCompare()` compares two strings according to the ECMA-402 internationalization standard
+
+```js
+console.log("a".localeCompare("b") < 0); // true
+console.log("b".localeCompare("b") === 0); // true
+console.log("b".localeCompare("a") > 0); // true
+```
+
+Behavior of `String.prototype.localeCompare()` can be customized by additional parameters
+
 ### Symbol
 
 #### 💠 Global Symbol Registry
