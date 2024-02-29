@@ -693,6 +693,23 @@ To call a method dorectly on a number, `..` must be used
 console.log(255..toString(16)); // ff
 ```
 
+#### 💠 Testing Numbers
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/number#tests-isfinite-and-isnan)
+
+`Number.isNaN(value)` tests if the value belongs to the `number` type and is `NaN`:
+
+```js
+console.log(Number.isNaN(NaN)); // true
+```
+
+`Number.isFinite(value)` tests if the value belongs to the `number` type and is not `NaN`/`Infinity`/`-Infinity`:
+
+```js
+console.log(Number.isFinite(1)); // true
+console.log(Number.isFinite("1")); // false
+```
+
 #### 💠 Numeral System Conversion
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/number#tostring-base)
