@@ -65,6 +65,7 @@ Dynamic typing: variable can change its data type
 ##### 💠 Number
 
 > 📖 [The Modern JavaScript Tutorial: Data types](https://javascript.info/types)
+> 
 > 📖 [The Modern JavaScript Tutorial: Numbers](https://javascript.info/number)
 
 Is stored in 64-bit format IEEE-754 (double precision floating point number)
@@ -331,6 +332,7 @@ typeof alert // "function" (*)
 #### 💠 Type Conversion
 
 > 📖 [The Modern JavaScript Tutorial: Type Conversions](https://javascript.info/type-conversions)
+> 
 > 📖 [The Modern JavaScript Tutorial: Basic operators, maths](https://javascript.info/operators)
 
 ##### String
@@ -388,7 +390,9 @@ Rules:
 ## Basic Operators
 
 > 📖 [The Modern JavaScript Tutorial: Basic operators, maths](https://javascript.info/operators)
+> 
 > 📖 [The Modern JavaScript Tutorial: Comparisons](https://javascript.info/comparison)
+> 
 > 📖 [The Modern JavaScript Tutorial: Object references and copying](https://javascript.info/object-copy)
 
 ### 💠 Comma
@@ -440,6 +444,7 @@ Objects are compared with other objects or with other types after being converte
 ### 💠 Logical Operators
 
 > 📖 [The Modern JavaScript Tutorial: Logical operators](https://javascript.info/logical-operators)
+> 
 > 📖 [The Modern JavaScript Tutorial: Nullish coalescing operator '??'](https://javascript.info/nullish-coalescing-operator)
 
 #### OR/AND Operators
