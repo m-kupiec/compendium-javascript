@@ -678,6 +678,21 @@ console.log(isNaN("a")); // true
 console.log(isFinite("1")); // true
 ```
 
+#### 💠 Extracting Number
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/number#parseint-and-parsefloat)
+
+```js
+console.log(parseInt("1 USD")); // 1
+console.log(parseFloat("1.5 USD")); // 1.5
+
+console.log(parseInt("$1")); // NaN
+console.log(parseFloat("$1.5")); // NaN
+
+console.log(parseInt("0xff")); // 255
+console.log(parseInt("111", 2)); // 7
+```
+
 ### Object
 
 #### 💠 Comparison
