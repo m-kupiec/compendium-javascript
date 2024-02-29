@@ -69,8 +69,19 @@ Dynamic typing: variable can change its data type
 
 Is stored in 64-bit format IEEE-754 (double precision floating point number)
 
+Is stored in a binary form, rounding given number to the nearest possible value, resulting in a loss of precision:
+
+```js
+console.log((0.1).toFixed(20)); // "0.10000000000000000555"
+
+// Multiply-and-divide method does not fix the problem:
+console.log(((0.1 * 1e2) / 1e2).toFixed(20)); // "0.10000000000000000555"
+
+// It's recommended to cut the 'tail' using toFixed()
+```
+
 May have the following values:
-- integer
+- integer (including `0` and `-0`)
 - floating point
 - `Infinity`
 - `-Infinity`
@@ -86,7 +97,7 @@ Supported non-decimal numeral systems:
 - octal (e.g. `0o52` for `42`)
 - hexadecimal (e.g. (`0x2A` for `42`)
 
-Multiply-and-Divide method of rounding a number to float:
+Multiply-and-divide method of rounding a number to float:
 
 ```js
 console.log(Math.round(1.2345 * 1e2) / 1e2); // 1.23
