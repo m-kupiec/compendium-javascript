@@ -353,6 +353,7 @@ Rules:
   - Non-empty string (e.g. `"0"`) is coverted to `true`
 - `null` is converted to `false`
 - `undefined` is converted to `false`
+- Objects are not converted to boolean but are always `true`
 
 ## Basic Operators
 
