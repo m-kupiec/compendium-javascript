@@ -612,6 +612,18 @@ JavaScript assumes a semicolon after `return`, so it's not possible to place the
 
 ## Built-In Objects
 
+### General
+
+#### 💠 Constructors
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/primitives-methods)
+
+Constructors (functions called with `new`) for `Number`/`String`/`Boolean` objects are for internal use only
+
+```js
+console.log(new Number(0) ? 1 : 2); // 1
+```
+
 ### Object
 
 #### 💠 Cloning
