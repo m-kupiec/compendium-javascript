@@ -816,6 +816,17 @@ console.log("abcd".endsWith("cd")); // true
 console.log("abcd".endsWith("bc", 3)); // true
 ```
 
+#### 💠 Getting a Substring
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/string#getting-a-substring)
+
+```js
+console.log("abcd".slice(1)); // "bcd"
+console.log("abcd".slice(1, 2)); // "b"
+console.log("abcd".slice(-1)); // "d"
+console.log("abcd".slice(-3, -1)); // "bc"
+```
+
 #### 💠 Changing the Case
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/string#changing-the-case)
