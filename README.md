@@ -654,6 +654,24 @@ Constructors (functions called with `new`) for `Number`/`String`/`Boolean` objec
 console.log(new Number(0) ? 1 : 2); // 1
 ```
 
+### Global Object
+
+#### 💠 Testing Numbers
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/number#tests-isfinite-and-isnan)
+
+`isNaN(value)` tests if the value converted to number is `NaN`:
+
+```js
+console.log(isNaN("a")); // true
+```
+
+`isFinite(value)` tests if the value converted to number is not `NaN`/`Infinity`/`-Infinity`:
+
+```js
+console.log(isFinite("1")); // true
+```
+
 ### Object
 
 #### 💠 Cloning
