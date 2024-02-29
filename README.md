@@ -64,7 +64,8 @@ Dynamic typing: variable can change its data type
 
 ##### 💠 Number
 
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/types)
+> 📖 [The Modern JavaScript Tutorial: Data types](https://javascript.info/types)
+> 📖 [The Modern JavaScript Tutorial: Numbers](https://javascript.info/number)
 
 Is stored in 64-bit format IEEE-754 (double precision floating point number)
 
@@ -84,6 +85,12 @@ Supported non-decimal numeral systems:
 - binary (e.g. `0b101010` for `42`)
 - octal (e.g. `0o52` for `42`)
 - hexadecimal (e.g. (`0x2A` for `42`)
+
+Multiply-and-Divide method of rounding a number to float:
+
+```js
+console.log(Math.round(1.2345 * 1e2) / 1e2); // 1.23
+```
 
 ##### 💠 BigInt
 
