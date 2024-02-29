@@ -116,12 +116,27 @@ Not supported in Internet Explorer
 
 ##### 💠 String
 
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/types)
+> 📖 [The Modern JavaScript Tutorial: Data types](https://javascript.info/types)
+> 
+> 📖 [The Modern JavaScript Tutorial: Strings](https://javascript.info/string)
+
+Is stored in UTF-16 format
 
 Three type of quotes:
 - Single
 - Double
 - Backticks
+  - Used for template literals `${…}` and tagged templates (a string and ebmbedded expressions being processed by a function)
+  - Allow multiline strings
+
+Special characters:
+- `\n`: new line
+- `\t`: new line
+- `\`: special character escaping
+
+Accessing char at an non-found index result in `undefined`
+
+Is immutable (characters cannot be changed)
 
 ##### 💠 Boolean
 
