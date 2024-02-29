@@ -66,12 +66,24 @@ Dynamic typing: variable can change its data type
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/types)
 
+Is stored in 64-bit format IEEE-754 (double precision floating point number)
+
 May have the following values:
 - integer
 - floating point
 - `Infinity`
 - `-Infinity`
 - `NaN` (represents a computational error)
+
+May be written in the following ways:
+- `1000000`
+- `1_000_000`
+- `1e6` (or `1e-6` for the opposite)
+
+Supported non-decimal numeral systems:
+- binary (e.g. `0b101010` for `42`)
+- octal (e.g. `0o52` for `42`)
+- hexadecimal (e.g. (`0x2A` for `42`)
 
 ##### 💠 BigInt
 
