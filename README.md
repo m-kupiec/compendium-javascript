@@ -1031,6 +1031,41 @@ console.log(Array.isArray({})); // false
 console.log(Array.isArray([])); // true
 ```
 
+#### 💠 Iterative Methods
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/array-methods)
+>
+> 📖 [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods)
+
+All iterative methods except `reduce`/`reduceRight` accept `thisArg` as an argument in addition to a callback function - `thisArg` becomes `this` for the callback function
+
+```js
+arr = [{a: 1}, {a: 2}, {a: 3}];
+
+arr.forEach((item, index, array) => console.log(item.a)); // 1 2 3
+
+console.log(arr.find((item, index, array) => item.a === 2)); // [object Object] { a: 2 }
+console.log(arr.find((item, index, array) => item.a === 4)); // undefined
+console.log(arr.findLast((item, index, array) => item.a < 3)); // [object Object] { a: 2 }
+
+console.log(arr.findIndex((item, index, array) => item.a === 2)); // 1
+console.log(arr.findIndex((item, index, array) => item.a === 4)); // -1
+console.log(arr.findLastIndex((item, index, array) => item.a === 2)); // 1
+console.log(arr.findLastIndex((item, index, array) => item.a === 4)); // -1
+
+console.log(arr.some((item, index, array) => item.a < 3)); // true
+console.log(arr.every((item, index, array) => item.a > 0)); // true
+
+console.log(arr.filter((item, index, array) => item.a !== 1)); // [[object Object] { a: 2 }, [object Object] { a: 3 }]
+
+console.log(arr.map((item, index, array) => item.a * 2)); // [2, 4, 6]
+
+console.log([].reduce((accumulator, item, index, array) => accumulator += 1)); // TypeError: Reduce of empty array with no initial value
+console.log(arr.reduce((accumulator, item, index, array) => accumulator += item.a)); // "[object Object]23"
+console.log(arr.reduce((accumulator, item, index, array) => accumulator += item.a, 100)); // 106
+console.log(arr.reduceRight((accumulator, item, index, array) => accumulator += item.a, 100)); // 106
+```
+
 ### Math
 
 #### 💠 Rounding to Integer
