@@ -938,12 +938,97 @@ console.log(arr.shift()); // 0
 console.log(arr); // [1, 2, 3]
 ```
 
+#### 💠 Modifying/Cloning Array
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/array-methods#slice)
+
+```js
+const arr = [1, 2, 3, 4];
+
+console.log(arr.slice()); // [1, 2, 3, 4] (clone of the array)
+console.log(arr.slice(1)); // [2, 3, 4]
+console.log(arr.slice(1, 2)); // [2]
+console.log(arr.slice(-1)); // [4]
+console.log(arr.slice(-3, -1)); // [2, 3]
+```
+
+#### 💠 Concatenating Arrays
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/array-methods#concat)
+
+```js
+console.log([1, 2].concat([3, 4], 5, 6)); // [1, 2, 3, 4, 5, 6]
+```
+
+#### 💠 Reordering Elements
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/array-methods)
+
+Both `Array.prototype.reverse()` and `Array.prototype.sort()` modify the array and return it
+
+`Array.prototype.sort()` sorts the elements as being converted to strings so an ordering function may be needed:
+
+```js
+console.log([1, 2, 11].sort()); // [1, 11, 2]
+console.log([1, 2, 11].sort((a, b) => a - b)); // [1, 2, 11]
+```
+
+An ordering function may also be needed when dealing with special characters:
+
+```js
+console.log(["a", "ą", "z"].sort()); // ["a", "z", "ą"]
+console.log(["a", "ą", "z"].sort((a, b) => a.localeCompare(b))); // ["a", "ą", "z"]
+```
+
+#### 💠 Searching for an Element
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/array-methods#indexof-lastindexof-and-includes)
+
+```js
+const arr = [1, 2, 3, 1];
+
+console.log(arr.indexOf(4)); // -1
+console.log(arr.indexOf(1)); // 0
+console.log(arr.indexOf(1, 1)); // 3
+console.log(arr.indexOf(1, -99)); // 0
+
+console.log(arr.lastIndexOf(4)); // -1
+console.log(arr.lastIndexOf(1)); // 3
+console.log(arr.lastIndexOf(1, 1)); // 0
+console.log(arr.lastIndexOf(1, -99)); // -1
+
+console.log(arr.includes(2)); // true
+console.log(arr.includes(2, 2)); // false
+
+console.log([NaN].indexOf(NaN)); // -1 (doesn't work for NaN)
+console.log([NaN].includes(NaN)); // true (works for NaN)
+```
+
 #### 💠 Array/String Conversion
 
 > 📖 [The Modern JavaScript Tutorial: Array](https://javascript.info/array#tostring)
+>
+> 📖 [The Modern JavaScript Tutorial: Array methods](https://javascript.info/array-methods#split-and-join)
 
 ```js
 console.log([1, 2, 3].toString()); // "1,2,3"
+
+console.log([1, 2, 3].join(", ")); // "1, 2, 3"
+console.log("1, 2, 3".split(", ", 2)); // ["1", "2"]
+```
+
+#### 💠 Checking Type
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/array-methods#array-isarray)
+
+```js
+// typeof does not help for arrays:
+console.log(typeof {}); // "object"
+console.log(typeof []); // "object"
+
+// Array.isArray() must be used:
+console.log(Array.isArray({})); // false
+console.log(Array.isArray([])); // true
 ```
 
 ### Math
