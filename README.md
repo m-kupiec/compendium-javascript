@@ -278,6 +278,19 @@ function a(b, c) {
 }
 ```
 
+##### 💠 Destructuring Assignment
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/destructuring-assignment#array-destructuring)
+
+```js
+let [a, b = Math.random().toFixed()] = [];
+let [name, , surname, ...business] = 'John Albert Doe CEO MicroMedix'.split(' ');
+
+console.log(a, b); // undefined, "1"
+console.log(name, surname); // "John" "Doe"
+console.log(business); // ["CEO", "MicroMedix"]
+```
+
 ##### 💠 for...in Loop
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/object#forin)
