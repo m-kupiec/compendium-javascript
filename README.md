@@ -278,19 +278,6 @@ function a(b, c) {
 }
 ```
 
-##### 💠 Destructuring Assignment
-
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/destructuring-assignment#array-destructuring)
-
-```js
-let [a, b = Math.random().toFixed()] = [];
-let [name, , surname, ...business] = 'John Albert Doe CEO MicroMedix'.split(' ');
-
-console.log(a, b); // undefined, "1"
-console.log(name, surname); // "John" "Doe"
-console.log(business); // ["CEO", "MicroMedix"]
-```
-
 ##### 💠 for...in Loop
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/object#forin)
@@ -424,6 +411,8 @@ Rules:
 #### Array
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/array)
+> 
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/destructuring-assignment#array-destructuring)
 
 Ia a kind of object
 
@@ -446,6 +435,17 @@ for (el of [1, 2, 3]) {
 ```
 
 Array may be truncated by decreasing `length` property (or cleared by assigning `0` to it)
+
+Array destructuring assignment:
+
+```js
+let [a, b = Math.random().toFixed()] = [];
+let [name, , surname, ...business] = 'John Albert Doe CEO MicroMedix'.split(' ');
+
+console.log(a, b); // undefined, "1"
+console.log(name, surname); // "John" "Doe"
+console.log(business); // ["CEO", "MicroMedix"]
+```
 
 ## Basic Operators
 
