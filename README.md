@@ -406,7 +406,7 @@ Rules:
 - `undefined` is converted to `false`
 - Objects are not converted to boolean but are always `true`
 
-### Data Collections
+### Data Structures
 
 #### Array
 
