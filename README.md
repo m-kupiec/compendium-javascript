@@ -406,6 +406,8 @@ Rules:
 
 #### Array
 
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/array)
+
 Ia a kind of object
 
 ```js
