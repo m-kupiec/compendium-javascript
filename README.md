@@ -119,6 +119,8 @@ Not supported in Internet Explorer
 > 📖 [The Modern JavaScript Tutorial: Data types](https://javascript.info/types)
 > 
 > 📖 [The Modern JavaScript Tutorial: Strings](https://javascript.info/string)
+> 
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/destructuring-assignment#array-destructuring)
 
 Is stored in UTF-16 format
 
@@ -137,6 +139,14 @@ Special characters:
 Accessing char at an non-found index results in `undefined`
 
 Is immutable (characters cannot be changed)
+
+String destructuring assignment:
+
+```js
+let [a, b, c] = "123";
+
+console.log(a, b, c); // "1" "2" "3"
+```
 
 ##### 💠 Boolean
 
