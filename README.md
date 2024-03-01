@@ -365,6 +365,8 @@ Rules:
 - `null` is convertet to `"null"`
 - etc.
 
+`[1, 2, 3]` is converted to `"1,2,3"`
+
 ##### Numeric
 
 Value is converted to number automatically in mathematical functions and expressions
