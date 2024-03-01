@@ -443,6 +443,8 @@ Array may be truncated by decreasing `length` property (or cleared by assigning 
 > 📖 [The Modern JavaScript Tutorial: Object references and copying](https://javascript.info/object-copy)
 >
 > 📖 [The Modern JavaScript Tutorial: Strings](https://javascript.info/string#comparing-strings)
+>
+> 📖 [The Modern JavaScript Tutorial: Arrays](https://javascript.info/array)
 
 ### 💠 Comma
 
@@ -489,6 +491,15 @@ Values of different types are compared after being converted to numbers - this a
 Values of different types are compared without being converted to numbers when the strict equality operator `===` is used
 
 Objects are compared with other objects or with other types after being converted to primitives
+
+Arrays are compared with other arrays or with other types after being converted to strings:
+
+```js
+console.log([] == []); // false
+console.log([1, 2] < [3, 4]); // true
+console.log([] == 0); // true
+console.log([1] == '1'); // true
+```
 
 ### 💠 Logical Operators
 
