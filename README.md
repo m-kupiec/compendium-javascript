@@ -788,6 +788,12 @@ console.log(Object.values(obj)); // [1, 2, 3]
 console.log(Object.entries(obj)); // [["a", 1], ["b", 2], ["c", 3]]
 ```
 
+```js
+const arr = [["a", 1], ["b", 2], ["c", 3]];
+
+console.log(Object.fromEntries(arr)); // [object Object] { a: 1, b: 2, c: 3 }
+```
+
 ### Number
 
 #### 💠 General
