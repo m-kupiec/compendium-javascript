@@ -770,9 +770,11 @@ console.log(Object.is(0, -0)); // false
 
 #### 💠 Cloning
 
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/object-copy)
+> 📖 [The Modern JavaScript Tutorial: Object references and copying](https://javascript.info/object-copy)
+>
+> 📖 [The Modern JavaScript Tutorial: Symbol type](https://javascript.info/symbol#symbols-are-skipped-by-for-in)
 
-`Object.assign(target, ...sources)` returns modified `target` (now containing copied properties from all the sources; object properties are copied by reference)
+`Object.assign(target, ...sources)` returns modified `target` (now containing copied properties from all the sources; both string and symbol properties are copied; object properties are copied by reference)
 
 ### Number
 
