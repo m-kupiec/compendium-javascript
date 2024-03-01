@@ -288,6 +288,51 @@ function a(b, c) {
 }
 ```
 
+##### 💠 Destructuring Assignment
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/destructuring-assignment)
+
+```js
+const {
+  cVal,
+  aVal: a,
+  dVal: d = Math.random().toFixed(),
+  ...more
+} = {
+  aVal: 1,
+  bVal: 2,
+  cVal: 3,
+  eMore: 5
+};
+
+let x, y;
+({x, y} = {x: 1, y: 2}); // Expression wrapped in parentheses to avoid treating {x, y} as a code block
+
+console.log(a, cVal, d, more); // 1 3 "1" [object Object] { bVal: 2, eMore: 5 }
+console.log(x, y);
+```
+
+Nested destructuring:
+
+```js
+const {
+  a: {
+    a1,
+    a2
+  },
+  b
+} = {
+  a: {
+    a1: 1,
+    a2: 2
+  },
+  b: 3
+};
+
+// console.log(a); // ReferenceError: a is not defined
+console.log(a1, a2, b); // 1, 2, 3
+```
+
 ##### 💠 for...in Loop
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/object#forin)
