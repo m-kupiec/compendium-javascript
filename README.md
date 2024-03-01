@@ -134,7 +134,7 @@ Special characters:
 - `\t`: new line
 - `\`: special character escaping
 
-Accessing char at an non-found index result in `undefined`
+Accessing char at an non-found index results in `undefined`
 
 Is immutable (characters cannot be changed)
 
