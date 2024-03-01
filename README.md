@@ -907,6 +907,45 @@ Global symbol registry allow to create an access global symbols (accessible from
 
 `Symbol.for(descriptionString)` is used to access (or create when absent) 
 
+### Array
+
+#### 💠 Accessing Elements
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/array#get-last-elements-with-at)
+
+```js
+console.log([1, 2, 3].at(0)); // "1"
+console.log([1, 2, 3].at(-1)); // "3"
+```
+
+#### 💠 Adding/Removing Elements
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/array)
+
+```js
+const arr = [1, 2, 3];
+
+console.log(arr.push(4)); // 4
+console.log(arr); // [1, 2, 3, 4]
+
+console.log(arr.pop()); // 4
+console.log(arr); // [1, 2, 3]
+
+console.log(arr.unshift(0)); // 0 (length)
+console.log(arr); // [0, 1, 2, 3]
+
+console.log(arr.shift()); // 0
+console.log(arr); // [1, 2, 3]
+```
+
+#### 💠 Array/String Conversion
+
+> 📖 [The Modern JavaScript Tutorial: Array](https://javascript.info/array#tostring)
+
+```js
+console.log([1, 2, 3].toString()); // "1,2,3"
+```
+
 ### Math
 
 #### 💠 Rounding to Integer
