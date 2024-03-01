@@ -402,6 +402,32 @@ Rules:
 - `undefined` is converted to `false`
 - Objects are not converted to boolean but are always `true`
 
+### Data Collections
+
+#### Array
+
+Ia a kind of object
+
+```js
+let arr1 = [];
+let arr2 = new Array();
+
+let arr3 = [1, 2, 3];
+let arr4 = new Array(1, 2, 3);
+```
+
+`new Array(n)` creates an array with n `undefined` elements
+
+Accessing array element at an non-found index results in `undefined`
+
+```js
+for (el of [1, 2, 3]) {
+  console.log(el); // 1 2 3
+}
+```
+
+Array may be truncated by decreasing `length` property (or cleared by assigning `0` to it)
+
 ## Basic Operators
 
 > 📖 [The Modern JavaScript Tutorial: Basic operators, maths](https://javascript.info/operators)
