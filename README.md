@@ -349,6 +349,8 @@ typeof alert // "function" (*)
 > 📖 [The Modern JavaScript Tutorial: Type Conversions](https://javascript.info/type-conversions)
 > 
 > 📖 [The Modern JavaScript Tutorial: Basic operators, maths](https://javascript.info/operators)
+>
+> 📖 [The Modern JavaScript Tutorial: Arrays](https://javascript.info/array)
 
 ##### String
 
