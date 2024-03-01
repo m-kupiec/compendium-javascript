@@ -776,6 +776,18 @@ console.log(Object.is(0, -0)); // false
 
 `Object.assign(target, ...sources)` returns modified `target` (now containing copied properties from all the sources; both string and symbol properties are copied; object properties are copied by reference)
 
+#### 💠 Object/Array Conversion
+
+`Object.keys`/`Object.values`/`Object.entries` do not include properties that use symbols as keys
+
+```js
+const obj = {a: 1, b: 2, c: 3};
+
+console.log(Object.keys(obj)); // ["a", "b", "c"]
+console.log(Object.values(obj)); // [1, 2, 3]
+console.log(Object.entries(obj)); // [["a", 1], ["b", 2], ["c", 3]]
+```
+
 ### Number
 
 #### 💠 General
