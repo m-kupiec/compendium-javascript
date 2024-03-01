@@ -774,6 +774,19 @@ Are convenient for simple one-line actions or being used as callbacks
 
 JavaScript assumes a semicolon after `return`, so it's not possible to place the returned value in a new line
 
+### 💠 Destructuring Parameters Object
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/destructuring-assignment#smart-function-parameters)
+
+```js
+function f({aVal: a = true, bVal = true} = {}) {
+  console.log(a, bVal);
+}
+
+f(); // true true
+f({aVal: false}); // false true
+```
+
 ## Built-In Objects
 
 ### General
