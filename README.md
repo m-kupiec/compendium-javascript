@@ -1385,6 +1385,17 @@ Forces variable declaration, as it's possible to simply assign a value without a
 a = 1;
 ```
 
+Prevents accidental creation of global variables when assigning value without declaration inside a function that is called afterwards:
+
+```js
+function f() {
+  a = 1;
+}
+
+f();
+console.log(a); // 1
+```
+
 ##### Function Declaration
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/function-expressions#function-expression-vs-function-declaration)
