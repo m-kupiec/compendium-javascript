@@ -469,7 +469,7 @@ Rules:
 > 
 > 📖 [The Modern JavaScript Tutorial: Destructuring assignment](https://javascript.info/destructuring-assignment#array-destructuring)
 >
-> 📖 [The Modern JavaScript Tutorial: Rest parameters and spread syntax](https://javascript.info/rest-parameters-spread#spread-syntax)
+> 📖 [The Modern JavaScript Tutorial: Rest parameters and spread syntax](https://javascript.info/rest-parameters-spread)
 
 Ia a kind of object
 
@@ -504,9 +504,11 @@ console.log(name, surname); // "John" "Doe"
 console.log(business); // ["CEO", "MicroMedix"]
 ```
 
-Arrays may be merged using spread syntax:
+Arrays may be copied or merged using spread syntax:
 
 ```js
+console.log([...[1, 2, 3]]); // [1, 2, 3]
+
 console.log([...[1, 2], 3, ...[4, 5]]); // [1, 2, 3, 4, 5]
 ```
 
