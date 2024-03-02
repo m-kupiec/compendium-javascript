@@ -471,6 +471,12 @@ Rules:
 - `undefined` is converted to `false`
 - Objects are not converted to boolean but are always `true`
 
+##### Type-Coercion Side-Effect
+
+```js
+console.log("1" + 2); // "12" (not 3 as intended)
+```
+
 ### Data Structures
 
 #### Array
