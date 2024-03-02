@@ -353,6 +353,16 @@ Copying a variable assigne to an object copies the reference
 
 Objects declared with `const` can be modified since `const` applies to the reference
 
+##### 💠 Copying
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/rest-parameters-spread#copy-an-array-object)
+
+An object may be copied (in a non-nested way) using spread syntax:
+
+```js
+console.log({...{ a: 1, b: 2, c: 3 }}); // [object Object] { a: 1, b: 2, c: 3 }
+```
+
 ##### 💠 Optional Chaining
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/optional-chaining)
