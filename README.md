@@ -870,6 +870,8 @@ console.log(Math.max(0, ...a, 4, 5, 6, ...b)); // 9
 ## Scope
 
 > 📖 [The Modern JavaScript Tutorial: Variable scope, closure](https://javascript.info/closure)
+>
+> 📖 [The Modern JavaScript Tutorial: The old "var"](https://javascript.info/var)
 
 ### 💠 Global/Block/Function Scope
 
@@ -879,6 +881,21 @@ console.log(Math.max(0, ...a, 4, 5, 6, ...b)); // 9
   console.log(a); // 1
 }
 
+// console.log(a); // ReferenceError: a is not defined
+```
+
+`var` is not restricted by a code block (conditionals, loops), but by a function it is:
+
+```js
+function f() {
+  {
+    var a = 0;
+  }
+  
+  console.log(a);
+}
+
+f(); // 0
 // console.log(a); // ReferenceError: a is not defined
 ```
 
