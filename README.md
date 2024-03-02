@@ -884,15 +884,15 @@ console.log(Math.max(0, ...a, 4, 5, 6, ...b)); // 9
 
 ### 💠 Lexical Environment
 
-Every running scope (global, block, function) has its associated lexical environment (theoretical object existing in the specification) which consists of:
+Every running scope (global, block, function) has its associated Lexical Environment (theoretical object existing in the specification) which consists of:
 - `Environment Record` object: stores local variables, `this`, and local function declarations as its properties
 - Reference to the outer lexical environment
 
 ### 💠 Closure
 
-Returned nested functions retain access to their outer variables, because in a hidden `[[Environment]]` property they store reference to the lexical environment in which these nested functions were created
+Returned nested functions retain access to their outer variables, because in a hidden `[[Environment]]` property they store reference to the Lexical Environment in which these nested functions were created
 
-Variables are stored and updated in their corresponding lexical environments
+Variables are stored and updated in their corresponding Lexical Environments
 
 ```js
 function f1() {
