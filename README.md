@@ -890,7 +890,9 @@ Every running scope (global, block, function) has its associated lexical environ
 
 ### 💠 Closure
 
-Returned nested functions retain access to their outer variables
+Returned nested functions retain access to their outer variables, because in a hidden `[[Environment]]` property they store reference to the lexical environment in which these nested functions were created
+
+Variables are stored and updated in their corresponding lexical environments
 
 ```js
 function f1() {
@@ -906,6 +908,8 @@ const f2 = f1();
 f2(); // 0
 f2(); // 1
 ```
+
+All functions in JavaScript (if not created with `new`) are closures, i.e. they remember where they were created and can access their outer variables
 
 ## Built-In Objects
 
