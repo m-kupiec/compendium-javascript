@@ -18,7 +18,7 @@
 
 > 📖 [The Modern JavaScript Tutorial: Variables](https://javascript.info/variables)
 >
-> 📖 [The Modern JavaScript Tutorial: The old "var"](https://javascript.info/var#var-tolerates-redeclarations)
+> 📖 [The Modern JavaScript Tutorial: The old "var"](https://javascript.info/var)
 
 #### 💠 Declaration
 
@@ -43,6 +43,14 @@ var a = 1;
 var a = 2;
 
 console.log(a); // 2
+```
+
+`var` declarations (without the assignment) are hoisted (raised) to the top of the function or global script:
+
+```js
+console.log(a); // undefined (declared but not yet assigned)
+
+var a = 1;
 ```
 
 #### 💠 Naming
