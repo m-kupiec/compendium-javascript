@@ -1482,7 +1482,7 @@ let abc = Abc();
 
 #### Miscellaneous
 
-##### 💠 Immediately Invoked Function Expression (IIFE)
+##### 💠 Immediately Called Constructor Function
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/constructor-new#constructor-function)
 
