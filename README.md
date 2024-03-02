@@ -465,9 +465,11 @@ Rules:
 
 #### Array
 
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/array)
+> 📖 [The Modern JavaScript Tutorial: Arrays](https://javascript.info/array)
 > 
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/destructuring-assignment#array-destructuring)
+> 📖 [The Modern JavaScript Tutorial: Destructuring assignment](https://javascript.info/destructuring-assignment#array-destructuring)
+>
+> 📖 [The Modern JavaScript Tutorial: Rest parameters and spread syntax](https://javascript.info/rest-parameters-spread#spread-syntax)
 
 Ia a kind of object
 
@@ -500,6 +502,12 @@ let [name, , surname, ...business] = 'John Albert Doe CEO MicroMedix'.split(' ')
 console.log(a, b); // undefined, "1"
 console.log(name, surname); // "John" "Doe"
 console.log(business); // ["CEO", "MicroMedix"]
+```
+
+Arrays may be merged using spread syntax:
+
+```js
+console.log([...[1, 2], 3, ...[4, 5]]); // [1, 2, 3, 4, 5]
 ```
 
 ## Basic Operators
