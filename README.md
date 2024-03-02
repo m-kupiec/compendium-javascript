@@ -787,6 +787,48 @@ f(); // true true
 f({aVal: false}); // false true
 ```
 
+### 💠 Gathering Remaining Parameters
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/rest-parameters-spread)
+
+#### Using `...`
+
+`...` gathers arguments into an array
+
+```js
+function f(a, b, ...c) {
+  console.log(a, b, c);
+}
+
+f(1, 2, 3, 4, 5, 6); // 1 2 [3, 4, 5, 6]
+```
+
+`...` must be at the end of the list of parameters
+
+#### Using `arguments`
+
+`arguments` is an array-like object
+
+```js
+function f(a, b) {
+  console.log(arguments);
+}
+
+f(1, 2, 3, 4, 5, 6); // [object Arguments] { 0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6 }
+```
+
+Does not work in arrow functions:
+
+```js
+function f(a, b) {
+  const arrow = (a, b) => console.log(arguments);
+  
+  arrow();
+}
+
+f(1, 2, 3, 4, 5, 6); // [object Arguments] { 0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6 }
+```
+
 ## Built-In Objects
 
 ### General
