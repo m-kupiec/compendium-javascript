@@ -871,12 +871,6 @@ console.log(Math.max(0, ...a, 4, 5, 6, ...b)); // 9
 
 > 📖 [The Modern JavaScript Tutorial: Variable scope, closure](https://javascript.info/closure)
 
-### 💠 Lexical Environment
-
-Every running scope (global, block, function) has its associated lexical environment (internal hidden object) which consists of:
-- `Environment Record` object: stores local variables, `this`, and local function declarations as its properties
-- Reference to the outer lexical environment
-
 ### 💠 Global/Block/Function Scope
 
 ```js
@@ -887,6 +881,12 @@ Every running scope (global, block, function) has its associated lexical environ
 
 // console.log(a); // ReferenceError: a is not defined
 ```
+
+### 💠 Lexical Environment
+
+Every running scope (global, block, function) has its associated lexical environment (internal hidden object) which consists of:
+- `Environment Record` object: stores local variables, `this`, and local function declarations as its properties
+- Reference to the outer lexical environment
 
 ### 💠 Closure
 
