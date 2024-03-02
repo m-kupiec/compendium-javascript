@@ -1379,7 +1379,7 @@ Not used in the browser console by default
 
 > 📖 [The Modern JavaScript Tutorial: Variables](https://javascript.info/variables#variable-naming)
 
-Forces variable declaration (in the global scope), as it's possible to simply assign a value without a declaration when not using `'use strict'`:
+Forces variable declaration, as it's possible to simply assign a value without a declaration when not using `'use strict'`:
 
 ```js
 a = 1;
