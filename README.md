@@ -16,7 +16,9 @@
 
 ### Variables
 
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/variables)
+> 📖 [The Modern JavaScript Tutorial: Variables](https://javascript.info/variables)
+>
+> 📖 [The Modern JavaScript Tutorial: The old "var"](https://javascript.info/var#var-tolerates-redeclarations)
 
 #### 💠 Declaration
 
@@ -33,6 +35,15 @@ let a = 1,
 ```
 
 A variable declared with `const` cannot be reassigned
+
+A varable declared with `var` can be redeclared:
+
+```js
+var a = 1;
+var a = 2;
+
+console.log(a); // 2
+```
 
 #### 💠 Naming
 
