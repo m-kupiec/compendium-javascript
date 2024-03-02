@@ -829,6 +829,17 @@ function f(a, b) {
 f(1, 2, 3, 4, 5, 6); // [object Arguments] { 0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6 }
 ```
 
+### 💠 Spread Syntax
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/rest-parameters-spread#spread-syntax)
+
+```js
+const a = [1, 2, 3];
+const b = [7, 8, 9];
+
+console.log(Math.max(0, ...a, 4, 5, 6, ...b)); // 9
+```
+
 ## Built-In Objects
 
 ### General
