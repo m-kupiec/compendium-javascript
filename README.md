@@ -1482,6 +1482,38 @@ let abc = Abc();
 
 #### Miscellaneous
 
+##### 💠 Immediately Invoked Function Expression (IIFE)
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/var#iife)
+
+Used in the past to emulate code block with `var`
+
+```js
+(function () {
+  var a = 1;
+  
+  console.log(a); // 1
+})();
+
+// console.log(a); // ReferenceError: a is not defined
+```
+
+This may be also accomplished in several other ways:
+
+```js
+(function () {
+  ...
+}());
+
+!function () {
+  ...
+}();
+
++function () {
+  ...
+}();
+```
+
 ##### 💠 Immediately Called Constructor Function
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/constructor-new#constructor-function)
