@@ -888,6 +888,8 @@ Every running scope (global, block, function) has its associated Lexical Environ
 - `Environment Record` object: stores local variables, `this`, and local function declarations as its properties
 - Reference to the outer lexical environment
 
+Lexical Envirnonment is cleaned from memory by the garbage collector when it becomes unreachable
+
 ### 💠 Closure
 
 Returned nested functions retain access to their outer variables, because in a hidden `[[Environment]]` property they store reference to the Lexical Environment in which these nested functions were created
