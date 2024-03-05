@@ -497,7 +497,7 @@ Rules:
 console.log("1" + 2); // "12" (not 3 as intended)
 ```
 
-### Data Structures
+### Data Collections
 
 #### Array
 
