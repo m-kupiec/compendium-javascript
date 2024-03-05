@@ -1730,4 +1730,25 @@ Real time interval when using `setInterval` is less then the specified value as 
 
 Time intercal when using nested `setTimeout` is more then the specified calue as the time of callback function execution is added to the specified value
 
+Interval depends on the operating system performance, so the exact value is not guaranteed
+
+In browser runtime environemnt, interval (both for `setInterval` and `setTimeout`) becomes 4+ ms after five nested timers:
+
+```js
+function f(callTime) {
+  let interval = Date.now() - callTime;
+  
+  console.log(interval);
+  
+  if (interval < 10) {
+    setTimeout(f, 0, Date.now());
+  }
+}
+
+setTimeout(f, 0, Date.now());
+// 1 1 0 0 714
+// 1 1 0 1 898
+// 2 1 0 1 5
+```
+
 The callback function and its outer variables are kept in memory until the scheduling is cleared using `clearTimeout`/`clearInterval`
