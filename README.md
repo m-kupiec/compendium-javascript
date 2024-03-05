@@ -1686,7 +1686,7 @@ Used when exposing object to scripts which may add their own properties
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/call-apply-decorators)
 
-Call forwarding is a technique in which the context and all arguments of a function are passed to another function
+It's a technique in which the context and all arguments of a function are passed to another function
 
 ```js
 function f(a, b) {
@@ -1703,6 +1703,24 @@ function wrapper(func, ...args) {
 }
 
 wrapper(f, 1, 2); // [object Object] { a: 1, b: 2, c: 3 }
+```
+
+#### 💠 Method Borrowing
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/call-apply-decorators#method-borrowing)
+
+It's a technique in which a method is called in the context of another object
+
+```js
+const arrayLike = {
+  0: 'a',
+  1: 'b',
+  2: 'c',
+  length: 3
+};
+
+// console.log(arrayLike.join()); // TypeError: arrayLike.join is not a function
+console.log([].join.call(arrayLike)); // "a,b,c"
 ```
 
 ## Runtime Environments
