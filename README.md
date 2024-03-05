@@ -886,6 +886,48 @@ const b = [7, 8, 9];
 console.log(Math.max(0, ...a, 4, 5, 6, ...b)); // 9
 ```
 
+### 💠 Function Object
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/function-object)
+
+`name` of the function/method:
+
+```js
+function f() {}
+
+console.log(f.name); // "f"
+```
+
+`length` returns the number of function/method parameters:
+
+```js
+function f(a, b, ...handlers) {
+  for (let handler of handlers) {
+    if (handler.length == 0) {
+      handler();
+    } else {
+      handler(a, b);
+    }
+  }
+}
+
+f(2, 3, (a, b) => console.log(a * b), () => console.log(0)); // 6 0
+```
+
+Custom properties may be added as well:
+
+```js
+function f() {
+  f.a = f.a != undefined ? f.a + 1 : 0;
+}
+
+console.log(f.a); // undefined
+f();
+console.log(f.a); // 0
+f();
+console.log(f.a); // 1
+```
+
 ## Scope
 
 > 📖 [The Modern JavaScript Tutorial: Variable scope, closure](https://javascript.info/closure)
