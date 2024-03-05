@@ -1596,11 +1596,9 @@ function Abc() {
 let abc = Abc();
 ```
 
-### Design Patterns
+### Techniques
 
-#### Miscellaneous
-
-##### 💠 Immediately Invoked Function Expression (IIFE)
+#### 💠 Immediately Invoked Function Expression (IIFE)
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/var#iife)
 
@@ -1632,7 +1630,7 @@ This may be also accomplished in several other ways:
 }();
 ```
 
-##### 💠 Immediately Called Constructor Function
+#### 💠 Immediately Called Constructor Function
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/constructor-new#constructor-function)
 
@@ -1644,13 +1642,13 @@ let abc = new function() {
 
 Used when performing complex initialization for a single object to keep the code organized and to avoid polluting the global scope with temporary variables or functions
 
-##### 💠 Symbol-Based Encapsulation
+#### 💠 Symbol-Based Encapsulation
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/symbol#hidden-properties)
 
 Used for third-party code objects when it's unsafe to add properties to them in danger of affecting pre-defined behavior
 
-##### 💠 Private Members
+#### 💠 Private Members
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/symbol#hidden-properties)
 
