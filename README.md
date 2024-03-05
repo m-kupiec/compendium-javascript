@@ -1682,6 +1682,29 @@ Used for third-party code objects when it's unsafe to add properties to them in 
 
 Used when exposing object to scripts which may add their own properties
 
+#### 💠 Call Forwarding
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/call-apply-decorators)
+
+Call forwarding is a technique in which the context and all arguments of a function are passed to another function
+
+```js
+function f(a, b) {
+  this.a = a;
+  this.b = b;
+  
+  console.log(this);
+}
+
+function wrapper(func, ...args) {
+  const obj = {c: 3};
+  
+  func.call(obj, ...args);
+}
+
+wrapper(f, 1, 2); // [object Object] { a: 1, b: 2, c: 3 }
+```
+
 ## Runtime Environments
 
 ### Browser
