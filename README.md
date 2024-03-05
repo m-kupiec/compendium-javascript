@@ -794,6 +794,26 @@ Can be called only after its creation
 
 Function expressions can be used when a conditional declaration is needed or when a function expression doesn't fit the situation
 
+### 💠 Named Function Expression (NFE)
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/function-object#named-function-expression)
+
+Allows the function to call itself:
+
+```js
+const a = function f(arg) {
+  if (arg != undefined) {
+    console.log(arg);
+  } else {
+    f('abc');
+  }
+}
+
+// f(); // ReferenceError: f is not defined
+a(); // "abc"
+a('def'); // "def"
+```
+
 ### 💠 Arrow Function
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/arrow-functions-basics)
