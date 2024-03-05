@@ -1464,6 +1464,34 @@ console.log(Math.min(1, 2, 3)); // 1
 console.log(Math.max(1, 2, 3)); // 3
 ```
 
+### Function
+
+#### 💠 Calling Function With a Context
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/call-apply-decorators)
+>
+> 📖 [MDN: Function.prototype.call()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
+>
+> 📖 [MDN: Function.prototype.apply()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
+
+Arguments for `call()` are provided infividually while for `apply()` as an array/array-like object
+
+```js
+function printObj(ifUpperCase = false) {
+  console.log(ifUpperCase ? this.a.toUpperCase() : this.a);
+}
+
+const obj = { a: 'abc' };
+
+printObj.call(); // undefined ('a' is not a property of [object Window])
+printObj.call(obj); // "abc"
+printObj.call(obj, true); // "ABC"
+
+printObj.apply(); // undefined ('a' is not a property of [object Window])
+printObj.apply(obj); // "abc"
+printObj.apply(obj, [true]); // "ABC"
+```
+
 ## Miscellaneous
 
 ### 💠 ES5 & 'use strict'
