@@ -965,6 +965,33 @@ console.log(new Number(0) ? 1 : 2); // 1
 
 ### Global Object
 
+#### 💠 General
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/global-object)
+
+`globalThis` is a standarized name for the global object (`window` in a browser or `global` in Node.js)
+
+Function declarations and global functions/variables declared with `var` become methods/properties of the global object (not applicable in modules)
+
+It is also possible to add a property to the global object directly:
+
+```js
+window.a = {b: 1};
+
+console.log(window.a.b); // 1
+console.log(a.b); // 1
+```
+
+It is used to test modern language features support and to create polyfills:
+
+```js
+if (!window.Promise) {
+  console.log("Promise is not supported - Creating polyfill..");
+  
+  // window.Promise = ... // Polyfill implementation
+}
+```
+
 #### 💠 Testing Numbers
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/number#tests-isfinite-and-isnan)
