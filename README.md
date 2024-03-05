@@ -814,6 +814,24 @@ a(); // "abc"
 a('def'); // "def"
 ```
 
+### 💠 Function Constructor
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/new-function)
+
+Converts strings into a function parameters and body:
+
+```js
+const funcBody1 = 'console.log(a * b)';
+const funcBody2 = 'console.log(true)';
+const f1 = new Function('a', 'b', funcBody1);
+const f2 = new Function(funcBody2);
+
+f1(2, 3); // 6
+f2(); // true
+```
+
+`[[Environment]]` then references the global Lexical Environment
+
 ### 💠 Arrow Function
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/arrow-functions-basics)
