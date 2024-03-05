@@ -1694,13 +1694,20 @@ function f(a, b) {
   console.log(this);
 }
 
-function wrapper(func, ...args) {
+function wrapper1(func, ...args) {
   const obj = {c: 3};
   
   func.call(obj, ...args);
 }
 
-wrapper(f, 1, 2); // [object Object] { a: 1, b: 2, c: 3 }
+function wrapper2(func, ...args) {
+  const obj = {c: 3};
+  
+  func.apply(obj, args);
+}
+
+wrapper1(f, 1, 2); // [object Object] { a: 1, b: 2, c: 3 }
+wrapper2(f, 1, 2); // [object Object] { a: 1, b: 2, c: 3 }
 ```
 
 #### 💠 Method Borrowing
