@@ -1707,3 +1707,30 @@ Used when exposing object to scripts which may add their own properties
 `confirm(string)`:
 - displays a message in a modal window with 'Ok' and 'Cancel' buttons
 - return `true` or `false`
+
+###### Scheduling
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/settimeout-setinterval)
+
+```js
+function f1(a, b) {
+  console.log(a * b);
+}
+
+const f2 = "console.log('abc')";
+
+setTimeout(f1, 1000, 2, 3);
+setTimeout(f2, 1000);
+```
+
+```js
+function f(a, b) {
+  console.log(a * b);
+}
+
+const timerId1 = setTimeout(f, 1000, 2, 3);
+const timerId2 = setInterval(f, 1000, 4, 5);
+
+setTimeout(clearTimeout, 1500, timerId1);
+setTimeout(clearInterval, 2500, timerId2);
+```
