@@ -1713,17 +1713,6 @@ Used when exposing object to scripts which may add their own properties
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/settimeout-setinterval)
 
 ```js
-function f1(a, b) {
-  console.log(a * b);
-}
-
-const f2 = "console.log('abc')";
-
-setTimeout(f1, 1000, 2, 3);
-setTimeout(f2, 1000);
-```
-
-```js
 function f(a, b) {
   console.log(a * b);
 }
@@ -1733,4 +1722,12 @@ const timerId2 = setInterval(f, 1000, 4, 5);
 
 setTimeout(clearTimeout, 1500, timerId1);
 setTimeout(clearInterval, 2500, timerId2);
+
+setTimeout("console.log('abc')", 1000);
 ```
+
+Real time interval when using `setInterval` is less then the specified value as the time of callback function execution is included in the specified value
+
+Time intercal when using nested `setTimeout` is more then the specified calue as the time of callback function execution is added to the specified value
+
+The callback function and its outer variables are kept in memory until the scheduling is cleared using `clearTimeout`/`clearInterval`
