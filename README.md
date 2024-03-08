@@ -1363,6 +1363,20 @@ Object.defineProperty(obj, 'b', { enumerable: false });
 console.log(Object.getOwnPropertyDescriptors(obj));
 ```
 
+#### 💠 Setting Permissions for the Entire Object
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/property-descriptors#sealing-an-object-globally)
+
+Although rarely used, these methods work for the whole object:
+- `Object.preventExtensions()` disallows adding new properties to the object
+- `Object.seal()` sets `configurable` attribute to `false` for all properties of the object
+- `Object.freeze()` sets `configurable` and `writable` attributes to `false` for all properties of the object
+
+These corresponding methods return `true` or `false`:
+- `Object.isExtensible()`
+- `Object.isSealed()`
+- `Object.isFrozen()`
+
 #### 💠 Object/Array Conversion
 
 `Object.keys`/`Object.values`/`Object.entries` do not include properties that use symbols as keys
