@@ -1533,6 +1533,41 @@ printObj.apply(obj); // "abc"
 printObj.apply(obj, [true]); // "ABC"
 ```
 
+#### 💠 Binding Context or Arguments to a Function
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/bind)
+
+Context bound using `Function.prototype.bind()`:
+
+```js
+let obj = {
+  a: 1,
+  
+  m(b) {
+    console.log(this.a + b);
+  }
+};
+
+let n = obj.m.bind(obj);
+
+setTimeout(n, 0, 100); // 101
+setTimeout(() => obj = null); // Will not break after this change in the original object
+setTimeout(n, 0, 100); // 101
+```
+
+Arguments bound using `Function.prototype.bind()`:
+
+```js
+function greet(name) {
+  console.log(`Hello, ${name}`);
+}
+
+let greetAdmin = greet.bind(null, 'Admin');
+
+greet('Admin'); // "Hello, Admin"
+greetAdmin(); // "Hello, Admin"
+```
+
 ## Miscellaneous
 
 ### 💠 ES5 & 'use strict'
