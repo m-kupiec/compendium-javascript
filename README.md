@@ -973,7 +973,19 @@ console.log(Math.max(0, ...a, 4, 5, 6, ...b)); // 9
 
 ### 💠 Function Object
 
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/function-object)
+> 📖 [The Modern JavaScript Tutorial: Function object, NFE](https://javascript.info/function-object)
+>
+> 📖 [The Modern JavaScript Tutorial: Function expressions](https://javascript.info/function-expressions#function-is-a-value)
+
+Function is a value that can be printed:
+
+```js
+function f(a) {
+  alert(a);
+}
+
+console.log(f); // function f(a) { alert(a); }
+```
 
 `name` of the function/method:
 
