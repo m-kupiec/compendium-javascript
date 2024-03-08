@@ -819,6 +819,8 @@ a('def'); // "def"
 ### 💠 Constructor Function
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/constructor-new)
+>
+> 📖 [The Modern JavaScript Tutorial: Arrow functions revisited](https://javascript.info/arrow-functions)
 
 The first letter of the function name must by capital
 
@@ -840,6 +842,8 @@ function Abc() {
 
 let abc = new Abc();
 ```
+
+Arrow function cannot be used as a constructor function because of not supporting `this` for the immediate outer context
 
 `new.target` is sometimes used to test whether the function was called with `new` by returning:
 - `undefined` if the function was called without `new`
