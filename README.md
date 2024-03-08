@@ -1273,8 +1273,79 @@ console.log(Object.is(0, -0)); // false
 > 📖 [The Modern JavaScript Tutorial: Object references and copying](https://javascript.info/object-copy)
 >
 > 📖 [The Modern JavaScript Tutorial: Symbol type](https://javascript.info/symbol#symbols-are-skipped-by-for-in)
+>
+> 📖 [The Modern JavaScript Tutorial: Property flags and descriptors](https://javascript.info/property-descriptors#object-getownpropertydescriptors)
 
-`Object.assign(target, ...sources)` returns modified `target` (now containing copied properties from all the sources; both string and symbol properties are copied; object properties are copied by reference)
+`Object.assign(target, ...sources)` returns modified `target` (now containing copied properties from all the sources; both string and symbol properties are copied; object properties are copied by reference; non-enumerable properties are not copied)
+
+Combination of `Object.defineProperties` and `Object.getOwnPropertyDescriptors` allows to copy both symbolic and non-enumerable properties (including property attributes)
+
+```js
+const id = Symbol("description");
+const obj = {
+  a: 1,
+  b: 2,
+  [id]: 3
+};
+const clonedObj1 = {};
+const clonedObj2 = {};
+
+Object.defineProperty(obj, 'b', { enumerable: false });
+console.log(Object.getOwnPropertyDescriptors(obj));
+/*
+
+[object Object] {
+  a: [object Object] {
+    configurable: true,
+    enumerable: true,
+    value: 1,
+    writable: true
+  },
+  b: [object Object] {
+    configurable: true,
+    enumerable: false,
+    value: 2,
+    writable: true
+  }
+}
+*/
+
+Object.assign(clonedObj1, obj);
+console.log(Object.getOwnPropertyDescriptors(clonedObj1));
+console.log(clonedObj1[id]);
+/*
+[object Object] {
+  a: [object Object] {
+    configurable: true,
+    enumerable: true,
+    value: 1,
+    writable: true
+  }
+}
+3
+*/
+
+Object.defineProperties(clonedObj2, Object.getOwnPropertyDescriptors(obj));
+console.log(Object.getOwnPropertyDescriptors(clonedObj2));
+console.log(clonedObj2[id]);
+/*
+[object Object] {
+  a: [object Object] {
+    configurable: true,
+    enumerable: true,
+    value: 1,
+    writable: true
+  },
+  b: [object Object] {
+    configurable: true,
+    enumerable: false,
+    value: 2,
+    writable: true
+  }
+}
+3
+*/
+```
 
 #### 💠 Accessing Non-Enumerable Properties
 
