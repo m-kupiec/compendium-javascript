@@ -1767,6 +1767,23 @@ setTimeout(() => obj = null); // Will not break after this change in the origina
 setTimeout(n, 0, 100); // 101
 ```
 
+#### 💠 Partial Application
+
+> 📖 [The Modern JavaScript Tutorial]()
+
+It's a technique in which a new function is created based on another one with some fixed parameters:
+
+```js
+function greet(name) {
+  console.log(`Hello, ${name}`);
+}
+
+let greetAdmin = greet.bind(null, 'Admin');
+
+greet('Admin'); // "Hello, Admin"
+greetAdmin(); // "Hello, Admin"
+```
+
 ## Runtime Environments
 
 ### Browser
