@@ -1831,6 +1831,12 @@ When a function is called without an object, the value of `this` is:
 - `undefined` when in strinct mode
 - global object when not in strinct mode
 
+##### Writing to a Non-Writible Property
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/property-descriptors#non-writable)
+
+When not in strict mode, writing to a non-writable property will not result in an error, although the operation will not succeed
+
 ### 💠 Automatic semicolon insertion
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/structure#semicolon)
