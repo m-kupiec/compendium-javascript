@@ -1769,7 +1769,7 @@ setTimeout(n, 0, 100); // 101
 
 #### 💠 Partial Application
 
-> 📖 [The Modern JavaScript Tutorial]()
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/bind#partial-functions)
 
 It's a technique in which a new function is created based on another one with some fixed parameters:
 
