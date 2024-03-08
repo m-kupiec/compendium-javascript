@@ -1276,6 +1276,22 @@ console.log(Object.is(0, -0)); // false
 
 `Object.assign(target, ...sources)` returns modified `target` (now containing copied properties from all the sources; both string and symbol properties are copied; object properties are copied by reference)
 
+#### 💠 Accessing Non-Enumerable Properties
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/property-descriptors#object-getownpropertydescriptors)
+
+`Object.getOwnPropertyDescriptors` allows to list non-enumerable property descriptors:
+
+```js
+const obj = {
+  a: 1,
+  b: 2
+};
+
+Object.defineProperty(obj, 'b', { enumerable: false });
+console.log(Object.getOwnPropertyDescriptors(obj));
+```
+
 #### 💠 Object/Array Conversion
 
 `Object.keys`/`Object.values`/`Object.entries` do not include properties that use symbols as keys
