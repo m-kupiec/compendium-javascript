@@ -1728,6 +1728,45 @@ const arrayLike = {
 console.log([].join.call(arrayLike)); // "a,b,c"
 ```
 
+#### 💠 Passing a Method Without Losing `this`
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/bind)
+
+`this` is lost when a method is passed as a callback:
+
+```js
+let obj = {
+  a: 1,
+  
+  m() {
+    console.log(this.a);
+  }
+};
+
+setTimeout(obj.m); // undefined (no "m" property - in window object for broser or in timer object for Node.js)
+setTimeout(() => obj.m()); // 1 (works when called inside a wrapping function)
+setTimeout(() => obj = null); // Will break after this change in the original object
+// setTimeout(() => obj.m()); // TypeError: Cannot read properties of null (reading 'm')
+```
+
+The solution is to use `Function.prototype.bind()`:
+
+```js
+let obj = {
+  a: 1,
+  
+  m(b) {
+    console.log(this.a + b);
+  }
+};
+
+let n = obj.m.bind(obj);
+
+setTimeout(n, 0, 100); // 101
+setTimeout(() => obj = null); // Will not break after this change in the original object
+setTimeout(n, 0, 100); // 101
+```
+
 ## Runtime Environments
 
 ### Browser
