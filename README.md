@@ -843,7 +843,7 @@ function Abc() {
 let abc = new Abc();
 ```
 
-Arrow function cannot be used as a constructor function because of not supporting `this` for the immediate outer context
+Arrow function cannot be used as a constructor function because of not having `this` but rather taking it from the global Lexical Environment
 
 `new.target` is sometimes used to test whether the function was called with `new` by returning:
 - `undefined` if the function was called without `new`
