@@ -405,6 +405,69 @@ Can be used for reading and deleting property but not for setting property value
 
 Overusing `?.` may result in more difficult debugging, so it should be used only when the existence of the preceding property is optional
 
+##### 💠 Property Descriptor
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/property-descriptors)
+
+Each property has three attributes ("flags"), all set to `true` by default:
+- `writable` (specifying if the property value can be changed)
+- `enumerable` (specifying if the property is to be listed in loops)
+- `configurable` (specifying if the property can be deleted or its attributes modified)
+  - it does not affect the possibility to change the property value which is regulated by the `writable` attribute
+  - even if set to `false`, it still allows to change `writable` from `true` to `false` (only in this direction) to strengthen security
+
+Property desciptor (an object containing the property value and its all flags) can be get using `Object.getOwnPropertyDescriptor()`
+
+Flags can be changed using `Object.defineProperty()`
+
+```js
+let obj = {
+  a: 1,
+  b: 2
+};
+
+console.log(Object.getOwnPropertyDescriptor(obj, 'a'));
+/*
+[object Object] {
+  configurable: true,
+  enumerable: true,
+  value: 1,
+  writable: true
+}
+*/
+
+Object.defineProperty(obj, 'a', { value: 3, writable: false });
+console.log(Object.getOwnPropertyDescriptor(obj, 'a'));
+/*
+[object Object] {
+  configurable: true,
+  enumerable: true,
+  value: 3,
+  writable: false
+}
+*/
+```
+
+Property created using `Object.defineProperty()` has all the flags set to `false` by default:
+
+```js
+let obj = {
+  a: 1,
+  b: 2
+};
+
+Object.defineProperty(obj, 'c', { value: 3 });
+console.log(Object.getOwnPropertyDescriptor(obj, 'c'));
+/*
+[object Object] {
+  configurable: false,
+  enumerable: false,
+  value: 3,
+  writable: false
+}
+*/
+```
+
 ### Data Type Operations
 
 #### 💠 The typeof Operator
