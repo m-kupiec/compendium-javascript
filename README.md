@@ -259,7 +259,9 @@ Square bracket notation is used when dot acceess notation doesn't work:
 
 ##### 💠 Methods
 
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/object-methods)
+> 📖 [The Modern JavaScript Tutorial: Object methods, "this"](https://javascript.info/object-methods)
+>
+> 📖 [The Modern JavaScript Tutorial: Arrow functions revisited](https://javascript.info/arrow-functions)
 
 ###### Syntax
 
