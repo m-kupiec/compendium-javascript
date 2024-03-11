@@ -442,6 +442,8 @@ obj.ab = 345;
 console.log(obj.a, obj.b); // "3" "45"
 ```
 
+Accessor property has no `value` (and in consequence no `writable`), but does have `get` and `set` (in addition to `enumerable` and `configurable`)
+
 ### Data Type Operations
 
 #### 💠 The typeof Operator
