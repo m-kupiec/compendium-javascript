@@ -2252,9 +2252,11 @@ wrapper2(f, 1, 2); // [object Object] { a: 1, b: 2, c: 3 }
 
 #### 💠 Method Borrowing
 
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/call-apply-decorators#method-borrowing)
+> 📖 [The Modern JavaScript Tutorial: Decorators and forwarding, call/apply](https://javascript.info/call-apply-decorators#method-borrowing)
+>
+> 📖 [The Modern JavaScript Tutorial: Native prototypes](https://javascript.info/native-prototypes#borrowing-from-prototypes)
 
-It's a technique in which a method is called in the context of another object
+It's a technique in which a method is called in the context of another object:
 
 ```js
 const arrayLike = {
@@ -2267,6 +2269,22 @@ const arrayLike = {
 // console.log(arrayLike.join()); // TypeError: arrayLike.join is not a function
 console.log([].join.call(arrayLike)); // "a,b,c"
 ```
+
+May be also achieved using native prototypes:
+
+```js
+const arrayLike = {
+  0: 'a',
+  1: 'b',
+  2: 'c',
+  length: 3
+};
+
+arrayLike.join = Array.prototype.join;
+console.log(arrayLike.join()); // "a,b,c"
+```
+
+Object can have only one prototype but it can inherit single methods from multiple objects at the same time
 
 #### 💠 Passing a Method Without Losing `this`
 
