@@ -1303,6 +1303,18 @@ Constructors (functions called with `new`) for `Number`/`String`/`Boolean` objec
 console.log(new Number(0) ? 1 : 2); // 1
 ```
 
+#### 💠 Inheritance
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/native-prototypes)
+
+```js
+console.log(Function.prototype.__proto__ === Object.prototype); // true
+console.log(Number.prototype.__proto__ === Object.prototype); // true
+console.log(String.prototype.__proto__ === Object.prototype); // true
+console.log(Array.prototype.__proto__ === Object.prototype); // true
+// ...
+```
+
 ### Global Object
 
 #### 💠 General
