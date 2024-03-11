@@ -74,7 +74,7 @@ const COLOR_WHITE = "#FFF";
 
 #### 💠 Typing
 
-> [The Modern JavaScript Tutorial](https://javascript.info/types)
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/types)
 
 Dynamic typing: variable can change its data type
 
