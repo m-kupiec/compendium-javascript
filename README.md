@@ -1018,6 +1018,38 @@ abc = new Abc();
 console.log(abc); // [object Object] { a: 1, b: 2 }
 ```
 
+Every function has a `prototype` property which value is an object containing only one property (`constructor`) that points to the function itself:
+
+```js
+function f() {}
+
+function Abc() {}
+
+console.log(f.prototype.constructor == f); // true
+console.log(Abc.prototype.constructor == Abc); // true
+
+let abc = new Abc();
+console.log(abc.constructor == Abc); // true
+
+abc = new abc.constructor();
+console.log(abc.constructor == Abc); // true
+```
+
+`constructor` value is not determined by the language, so the property can be modified:
+
+```js
+function Abc() {}
+
+console.log(Abc.prototype.constructor == Abc); // true
+
+let abc = new Abc();
+console.log(abc.constructor == Abc); // true
+
+Abc.prototype = {};
+abc = new Abc();
+console.log(abc.constructor == Abc); // false
+```
+
 ### 💠 Function Constructor
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/new-function)
