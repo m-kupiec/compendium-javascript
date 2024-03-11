@@ -959,6 +959,8 @@ a('def'); // "def"
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/constructor-new)
 >
 > 📖 [The Modern JavaScript Tutorial: Arrow functions revisited](https://javascript.info/arrow-functions)
+>
+> 📖 [The Modern JavaScript Tutorial: F.prototype](https://javascript.info/function-prototype)
 
 The first letter of the function name must by capital
 
@@ -997,6 +999,23 @@ function Abc() {
 }
 
 let abc = Abc();
+```
+
+If a constructor function has `prototype` property which value is an object, then this object will be used as the prototype for the object created with the constructor function:
+
+```js
+function Abc() {
+  this.b = 2;
+}
+
+const obj = { a: 1 };
+
+let abc = new Abc();
+console.log(abc); // [object Object] { b: 2 }
+
+Abc.prototype = obj;
+abc = new Abc();
+console.log(abc); // [object Object] { a: 1, b: 2 }
 ```
 
 ### 💠 Function Constructor
