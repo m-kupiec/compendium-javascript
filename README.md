@@ -416,86 +416,6 @@ Each property has three attributes ("flags"), all set to `true` by default:
   - it does not affect the possibility to change the property value which is regulated by the `writable` attribute
   - even if set to `false`, it still allows to change `writable` from `true` to `false` (only in this direction) to strengthen security
 
-Property desciptor (an object containing the property value and its all flags) can be get using `Object.getOwnPropertyDescriptor()` while all descriptors can be get using `Object.getOwnPropertyDescriptors`
-
-Flags can be changed using `Object.defineProperty()` or `Object.defineProperties()`
-
-```js
-let obj = {
-  a: 1,
-  b: 2
-};
-
-console.log(Object.getOwnPropertyDescriptor(obj, 'a'));
-/*
-[object Object] {
-  configurable: true,
-  enumerable: true,
-  value: 1,
-  writable: true
-}
-*/
-
-Object.defineProperty(obj, 'a', { value: 3, writable: false });
-console.log(Object.getOwnPropertyDescriptor(obj, 'a'));
-/*
-[object Object] {
-  configurable: true,
-  enumerable: true,
-  value: 3,
-  writable: false
-}
-*/
-
-Object.defineProperties(obj, {
-  b: { value: -2, writable: false },
-  c: { value: 4, writable: true }
-});
-console.log(Object.getOwnPropertyDescriptors(obj));
-/*
-[object Object] {
-  a: [object Object] {
-    configurable: true,
-    enumerable: true,
-    value: 3,
-    writable: false
-  },
-  b: [object Object] {
-    configurable: true,
-    enumerable: true,
-    value: -2,
-    writable: false
-  },
-  c: [object Object] {
-    configurable: false,
-    enumerable: false,
-    value: 4,
-    writable: true
-  }
-}
-*/
-```
-
-Property created using `Object.defineProperty()` has all the flags set to `false` by default:
-
-```js
-let obj = {
-  a: 1,
-  b: 2
-};
-
-Object.defineProperty(obj, 'c', { value: 3 });
-console.log(Object.getOwnPropertyDescriptor(obj, 'c'));
-/*
-[object Object] {
-  configurable: false,
-  enumerable: false,
-  value: 3,
-  writable: false
-}
-*/
-```
-
 ### Data Type Operations
 
 #### 💠 The typeof Operator
@@ -1266,6 +1186,90 @@ Comparison using `Object.is` differs from strict comparison `===` in two edge ca
 ```js
 console.log(Object.is(NaN, NaN)); // true
 console.log(Object.is(0, -0)); // false
+```
+
+#### 💠 Accessing Property Descriptors
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/property-descriptors)
+
+Property desciptor (an object containing the property value and its all flags) can be get using `Object.getOwnPropertyDescriptor()` while all descriptors can be get using `Object.getOwnPropertyDescriptors`
+
+Flags can be changed using `Object.defineProperty()` or `Object.defineProperties()`
+
+```js
+let obj = {
+  a: 1,
+  b: 2
+};
+
+console.log(Object.getOwnPropertyDescriptor(obj, 'a'));
+/*
+[object Object] {
+  configurable: true,
+  enumerable: true,
+  value: 1,
+  writable: true
+}
+*/
+
+Object.defineProperty(obj, 'a', { value: 3, writable: false });
+console.log(Object.getOwnPropertyDescriptor(obj, 'a'));
+/*
+[object Object] {
+  configurable: true,
+  enumerable: true,
+  value: 3,
+  writable: false
+}
+*/
+
+Object.defineProperties(obj, {
+  b: { value: -2, writable: false },
+  c: { value: 4, writable: true }
+});
+console.log(Object.getOwnPropertyDescriptors(obj));
+/*
+[object Object] {
+  a: [object Object] {
+    configurable: true,
+    enumerable: true,
+    value: 3,
+    writable: false
+  },
+  b: [object Object] {
+    configurable: true,
+    enumerable: true,
+    value: -2,
+    writable: false
+  },
+  c: [object Object] {
+    configurable: false,
+    enumerable: false,
+    value: 4,
+    writable: true
+  }
+}
+*/
+```
+
+Property created using `Object.defineProperty()` has all the flags set to `false` by default:
+
+```js
+let obj = {
+  a: 1,
+  b: 2
+};
+
+Object.defineProperty(obj, 'c', { value: 3 });
+console.log(Object.getOwnPropertyDescriptor(obj, 'c'));
+/*
+[object Object] {
+  configurable: false,
+  enumerable: false,
+  value: 3,
+  writable: false
+}
+*/
 ```
 
 #### 💠 Cloning
