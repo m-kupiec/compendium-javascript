@@ -416,6 +416,32 @@ Each property has three attributes ("flags"), all set to `true` by default:
   - it does not affect the possibility to change the property value which is regulated by the `writable` attribute
   - even if set to `false`, it still allows to change `writable` from `true` to `false` (only in this direction) to strengthen security
 
+##### 💠 Accessor Properties
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/property-accessors)
+
+Accessor properties are functions that execute on getting or setting a data property value
+
+```js
+const obj = {
+  a: 1,
+  b: 2,
+  
+  get ab() {
+    return this.a + this.b;
+  },
+  
+  set ab(value) {
+    this.a = String(value)[0];
+    this.b = String(value).slice(1);
+  }
+};
+
+console.log(obj.ab); // 3
+obj.ab = 345;
+console.log(obj.a, obj.b); // "3" "45"
+```
+
 ### Data Type Operations
 
 #### 💠 The typeof Operator
