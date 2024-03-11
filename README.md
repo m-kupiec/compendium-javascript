@@ -444,6 +444,34 @@ console.log(obj.a, obj.b); // "3" "45"
 
 Accessor property has no `value` (and in consequence no `writable`), but does have `get` and `set` (in addition to `enumerable` and `configurable`)
 
+##### 💠 Prototypal Inheritance
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/prototype-inheritance)
+
+`[[Prototype]]` is a hideen property that either references to another object (the prototype) or is `null`
+
+`__proto__` is an outdated getter/setter for `[[Prototype]]` (it's preferable to use `Object.getPrototypeOf`/`Object.setPrototypeOf` instead)
+
+```js
+const obj1 = { a: 1 };
+const obj2 = { b: 2 };
+
+obj2.__proto__ = obj1;
+console.log(obj2); // [object Object] { a: 1, b: 2 }
+```
+
+Assigning `__proto__` in a circle will result in error
+
+`__proto__` can be assigned either an object or `null`, as other assignments are ignored:
+
+```js
+const obj1 = { a: 1 };
+const obj2 = { b: 2 };
+
+obj2.__proto__ = 3;
+console.log(obj2); // [object Object] { b: 2 }
+```
+
 ### Data Type Operations
 
 #### 💠 The typeof Operator
