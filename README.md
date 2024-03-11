@@ -1951,6 +1951,30 @@ let abc = new function() {
 
 Used when performing complex initialization for a single object to keep the code organized and to avoid polluting the global scope with temporary variables or functions
 
+#### 💠 Property-Based Encapsulation
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/property-accessors#smarter-getters-setters)
+
+The convention is to treat the properties with name starting with `_` as internal properties
+
+```js
+const obj = {
+  _a: 1,
+  
+  get a() {
+    return this._a;
+  },
+  
+  set a(value) {
+    this._a = Number(value);
+  }
+};
+
+console.log(obj.a); // 1
+obj.a = "23";
+console.log(obj.a); // 23
+```
+
 #### 💠 Symbol-Based Encapsulation
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/symbol#hidden-properties)
