@@ -1497,7 +1497,7 @@ These corresponding methods return `true` or `false`:
 
 #### 💠 Object/Array Conversion
 
-`Object.keys`/`Object.values`/`Object.entries` do not include properties that use symbols as keys
+Object to array conversion:
 
 ```js
 const obj = {a: 1, b: 2, c: 3};
@@ -1507,10 +1507,30 @@ console.log(Object.values(obj)); // [1, 2, 3]
 console.log(Object.entries(obj)); // [["a", 1], ["b", 2], ["c", 3]]
 ```
 
+Array to object conversion:
+
 ```js
 const arr = [["a", 1], ["b", 2], ["c", 3]];
 
 console.log(Object.fromEntries(arr)); // [object Object] { a: 1, b: 2, c: 3 }
+```
+
+`Object.keys`/`Object.values`/`Object.entries` do not include properties that use symbols as keys nor inherited properties:
+
+```js
+const obj1 = { a: 1 };
+
+const obj2 = { b: 2, __proto__: obj1 };
+
+for (let key in obj2) {
+  console.log(`${key}: ${obj2[key]}`); // "b: 2" "a: 1"
+}
+
+console.log(obj2); // [object Object] { a: 1, b: 2 }
+
+console.log(Object.keys(obj2)); // ["b"]
+console.log(Object.values(obj2)); // [2]
+console.log(Object.entries(obj2)); // [["b", 2]]
 ```
 
 ### Number
