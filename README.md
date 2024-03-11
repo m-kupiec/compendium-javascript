@@ -1497,44 +1497,41 @@ console.log(Object.getOwnPropertyDescriptor(obj, 'c'));
 > 📖 [The Modern JavaScript Tutorial: Symbol type](https://javascript.info/symbol#symbols-are-skipped-by-for-in)
 >
 > 📖 [The Modern JavaScript Tutorial: Property flags and descriptors](https://javascript.info/property-descriptors#object-getownpropertydescriptors)
+>
+> 📖 [The Modern JavaScript Tutorial: Prototype methods, objects without __proto__](https://javascript.info/prototype-methods)
 
-`Object.assign(target, ...sources)` returns modified `target` (now containing copied properties from all the sources; both string and symbol properties are copied; object properties are copied by reference; non-enumerable properties are not copied)
+Method #1: `Object.assign(target, ...sources)` returns modified `target` (now containing copied properties from all the sources; both string and symbol properties are copied; object properties are copied by reference; non-enumerable, accessor, and `[[Prototype]]` properties are not copied)
 
-Combination of `Object.defineProperties` and `Object.getOwnPropertyDescriptors` allows to copy both symbolic and non-enumerable properties (including property attributes)
+Method #2: Combination of `Object.defineProperties` and `Object.getOwnPropertyDescriptors` allows to copy symbolic, non-enumerable, and accessor properties; includes property attributes; `[[Prototype]]` property is not copied
+
+Method #3: Combination of `Object.create`, `Object.getPrototypeOf`, and `Object.getOwnPropertyDescriptors` allows to copy symbolic, non-enumerable, accessor and `[[Prototype]]` properties; includes property attributes
 
 ```js
 const id = Symbol("description");
+const objProto = { p: 99 };
 const obj = {
   a: 1,
   b: 2,
-  [id]: 3
+  [id]: 3,
+  __proto__: objProto,
+  
+  get c() {
+    return this._c | 0;
+  }
 };
-const clonedObj1 = {};
-const clonedObj2 = {};
+let clonedObj1 = {};
+let clonedObj2 = {};
+let clonedObj3 = {};
 
 Object.defineProperty(obj, 'b', { enumerable: false });
-console.log(Object.getOwnPropertyDescriptors(obj));
-/*
 
-[object Object] {
-  a: [object Object] {
-    configurable: true,
-    enumerable: true,
-    value: 1,
-    writable: true
-  },
-  b: [object Object] {
-    configurable: true,
-    enumerable: false,
-    value: 2,
-    writable: true
-  }
-}
-*/
+// METHOD #1: Object.assign()
+//
+// Clones accessor and symbolic properties
+// Does not clone non-enumerable nor [[Prototype]] properties
 
 Object.assign(clonedObj1, obj);
 console.log(Object.getOwnPropertyDescriptors(clonedObj1));
-console.log(clonedObj1[id]);
 /*
 [object Object] {
   a: [object Object] {
@@ -1542,14 +1539,25 @@ console.log(clonedObj1[id]);
     enumerable: true,
     value: 1,
     writable: true
+  },
+  c: [object Object] {
+    configurable: true,
+    enumerable: true,
+    value: 0,
+    writable: true
   }
 }
-3
 */
+console.log(clonedObj1[id]); // 3
+console.log(clonedObj1.__proto__); // [object Object] { ... }
+
+// METHOD #2: Object.defineProperties() + Object.getOwnPropertyDescriptors()
+//
+// Clones accessor, non-enumerable, and symbolic properties
+// Does not clone [[Prototype]] property
 
 Object.defineProperties(clonedObj2, Object.getOwnPropertyDescriptors(obj));
 console.log(Object.getOwnPropertyDescriptors(clonedObj2));
-console.log(clonedObj2[id]);
 /*
 [object Object] {
   a: [object Object] {
@@ -1563,10 +1571,52 @@ console.log(clonedObj2[id]);
     enumerable: false,
     value: 2,
     writable: true
+  },
+  c: [object Object] {
+    configurable: true,
+    enumerable: true,
+    get: get c() {
+      return this._c | 0;
+    },
+    set: undefined
   }
 }
-3
 */
+console.log(clonedObj2[id]); // 3
+console.log(clonedObj2.__proto__); // [object Object] { ... }
+
+// METHOD #3: Object.create() + Object.getPrototypeOf() + Object.getOwnPropertyDescriptors()
+//
+// Clones accessor, non-enumerable, symbolic, and [[Prototype]] properties
+
+clonedObj3 = Object.create(Object.getPrototypeOf(obj), Object.getOwnPropertyDescriptors(obj));
+console.log(Object.getOwnPropertyDescriptors(clonedObj3));
+/*
+[object Object] {
+  a: [object Object] {
+    configurable: true,
+    enumerable: true,
+    value: 1,
+    writable: true
+  },
+  b: [object Object] {
+    configurable: true,
+    enumerable: false,
+    value: 2,
+    writable: true
+  },
+  c: [object Object] {
+    configurable: true,
+    enumerable: true,
+    get: get c() {
+      return this._c | 0;
+    },
+    set: undefined
+  }
+}
+*/
+console.log(clonedObj3[id]); // 3
+console.log(clonedObj3.__proto__); // [object Object] { p: 99 }
 ```
 
 #### 💠 Accessing Non-Enumerable Properties
