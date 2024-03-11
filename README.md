@@ -461,6 +461,8 @@ Accessor property has no `value` (and in consequence no `writable`), but does ha
 
 `[[Prototype]]` is a hideen property that either references to another object (the prototype) or is `null`
 
+All objects inherit from `Object.prototype`; the value of `[[Prototype]]` for `Object.prototype` is `null`
+
 `__proto__` is an outdated getter/setter for `[[Prototype]]` (it's preferable to use `Object.getPrototypeOf`/`Object.setPrototypeOf` instead)
 
 ```js
