@@ -457,11 +457,11 @@ Accessor property has no `value` (and in consequence no `writable`), but does ha
 
 ##### 💠 Prototypal Inheritance
 
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/prototype-inheritance)
+> 📖 [The Modern JavaScript Tutorial: Prototypal inheritance](https://javascript.info/prototype-inheritance)
+>
+> 📖 [The Modern JavaScript Tutorial: Native prototypes](https://javascript.info/native-prototypes)
 
 `[[Prototype]]` is a hideen property that either references to another object (the prototype) or is `null`
-
-All objects inherit from `Object.prototype`; the value of `[[Prototype]]` for `Object.prototype` is `null`
 
 `__proto__` is an outdated getter/setter for `[[Prototype]]` (it's preferable to use `Object.getPrototypeOf`/`Object.setPrototypeOf` instead)
 
@@ -483,6 +483,18 @@ const obj2 = { b: 2 };
 
 obj2.__proto__ = 3;
 console.log(obj2); // [object Object] { b: 2 }
+```
+
+All objects inherit from `Object.prototype`; the value of `[[Prototype]]` for `Object.prototype` is `null`:
+
+```js
+const obj = {};
+
+console.log(obj.__proto__ === Object.prototype); // true
+console.log(obj.toString === Object.prototype.toString); // true
+console.log(obj.toString === Object.prototype.toString); // true
+
+console.log(Object.prototype.__proto__); // null
 ```
 
 Assigning value to a non-existing property (which does exist in the prototype) will result in adding this property to the immediate object (not the prototype) as long as accessor properties are not used:
