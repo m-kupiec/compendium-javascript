@@ -472,6 +472,35 @@ obj2.__proto__ = 3;
 console.log(obj2); // [object Object] { b: 2 }
 ```
 
+Assigning value to a non-existing property (which does exist in the prototype) will result in adding this property to the immediate object (not the prototype) as long as accessor properties are not used:
+
+```js
+const obj1 = {
+  a: 1,
+  
+  set d(val) {
+    this._d = val;
+  },
+  
+  get d() {
+    return this._d;
+  }
+};
+
+const obj2 = {
+  b: 2,
+  __proto__: obj1
+};
+
+console.log(obj2); // [object Object] { a: 1, b: 2, d: undefined }
+
+obj2.c = 3;
+console.log(obj2); // [object Object] { a: 1, b: 2, c: 3, d: undefined }
+
+obj2.d = 4;
+console.log(obj2); // [object Object] { _d: 4, a: 1, b: 2, c: 3, d: 4 }
+```
+
 ### Data Type Operations
 
 #### 💠 The typeof Operator
