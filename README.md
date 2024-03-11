@@ -355,13 +355,24 @@ const {
 console.log(a1, a2, b); // 1, 2, 3
 ```
 
-##### 💠 for...in Loop
+##### 💠 `for...in` Loop
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/object#forin)
 
 ```js
 for (key in obj) {
   ...
+}
+```
+
+Inherited properties are included:
+
+```js
+const obj1 = { a: 1 };
+const obj2 = { b: 2, __proto__: obj1 };
+
+for (let key in obj2) {
+  console.log(`${key}: ${obj2[key]}`); // "b: 2" "a: 1"
 }
 ```
 
