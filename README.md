@@ -1315,6 +1315,22 @@ console.log(Array.prototype.__proto__ === Object.prototype); // true
 // ...
 ```
 
+#### 💠 Native Prototype Modification
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/native-prototypes#native-prototype-change)
+
+Modifying native prototypes is recommended only when creating polyfills:
+
+```js
+if(!String.prototype.abc) {
+  String.prototype.abc = function() {
+    return `abc_${this}`;
+  };
+}
+
+console.log("def".abc()); // "abc_def"
+```
+
 ### Global Object
 
 #### 💠 General
