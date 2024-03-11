@@ -1530,7 +1530,6 @@ console.log(Object.fromEntries(arr)); // [object Object] { a: 1, b: 2, c: 3 }
 
 ```js
 const obj1 = { a: 1 };
-
 const obj2 = { b: 2, __proto__: obj1 };
 
 for (let key in obj2) {
