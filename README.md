@@ -478,27 +478,56 @@ Assigning value to a non-existing property (which does exist in the prototype) w
 const obj1 = {
   a: 1,
   
-  set d(val) {
-    this._d = val;
+  set b(val) {
+    this._b = val;
   },
   
-  get d() {
-    return this._d;
+  get b() {
+    return this._b;
   }
 };
 
 const obj2 = {
-  b: 2,
   __proto__: obj1
 };
 
-console.log(obj2); // [object Object] { a: 1, b: 2, d: undefined }
+console.log(obj1); // [object Object] { a: 1, b: undefined }
+console.log(obj2); // [object Object] { a: 1, b: undefined }
 
-obj2.c = 3;
-console.log(obj2); // [object Object] { a: 1, b: 2, c: 3, d: undefined }
+obj2.a = 0;
+console.log(obj1); // [object Object] { a: 1, b: undefined }
+console.log(obj2); // [object Object] { a: 0, b: undefined }
 
-obj2.d = 4;
-console.log(obj2); // [object Object] { _d: 4, a: 1, b: 2, c: 3, d: 4 }
+obj2.b = 2;
+console.log(obj1); // [object Object] { a: 1, b: undefined }
+console.log(obj2); // [object Object] { _b: 2, a: 0, b: 2 }
+```
+
+Between the prototype and the inheriring object, methods are shared but the state is not:
+
+```js
+const obj1 = {
+  _a: 1,
+  
+  set a(val) {
+    this._a = val;
+  },
+  
+  get a() {
+    return this._a;
+  }
+};
+
+const obj2 = {
+  __proto__: obj1
+};
+
+console.log(obj1); // [object Object] { _a: 1, a: 1 }
+console.log(obj2); // [object Object] { _a: 1, a: 1 }
+
+obj2.a = 0;
+console.log(obj1); // [object Object] { _a: 1, a: 1 }
+console.log(obj2); // [object Object] { _a: 0, a: 0 }
 ```
 
 ### Data Type Operations
