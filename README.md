@@ -1951,6 +1951,30 @@ let abc = new function() {
 
 Used when performing complex initialization for a single object to keep the code organized and to avoid polluting the global scope with temporary variables or functions
 
+#### 💠 Property Backward Compatibility
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/property-accessors#using-for-compatibility)
+
+When a property is no longer needed, instead of changing all relevant places in the code, a getter may be used:
+
+```js
+function Abc(a, c) {
+  this.a = a;
+  this.c = c;
+  
+  Object.defineProperty(this, 'b', {
+    get() {
+      return 2;
+    }
+  })
+}
+
+const abc = new Abc(1, 3);
+
+console.log(abc); // [object Object] { a: 1, c: 3 }
+console.log(abc.b); // 2
+```
+
 #### 💠 Property-Based Encapsulation
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/property-accessors#smarter-getters-setters)
