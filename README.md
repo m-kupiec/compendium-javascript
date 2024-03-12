@@ -1383,6 +1383,8 @@ cl.a = 1;
 console.log(cl.a); // 1
 ```
 
+Getters and setters are created in the class `prototype`
+
 ## Scope
 
 > 📖 [The Modern JavaScript Tutorial: Variable scope, closure](https://javascript.info/closure)
