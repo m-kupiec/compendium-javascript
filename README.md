@@ -1686,6 +1686,40 @@ console.log(Object.values(obj2)); // [2]
 console.log(Object.entries(obj2)); // [["b", 2]]
 ```
 
+#### 💠 Working With Object `[[Prototype]]` Property
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/prototype-methods)
+
+`Object.setPrototypeOf`/`Object.getPrototypeOf` allow to set/get object `[[Prototype]]` in a modern way
+
+`Object.create` allows to create a new object with a specified `[[Prototype]]` and optionally with additional specified property descriptors
+
+```js
+const objProto = { a: 1 };
+const obj1 = { b: 2 };
+
+Object.setPrototypeOf(obj1, objProto);
+console.log(Object.getPrototypeOf(obj1)); // [object Object] { a: 1 }
+
+const obj2 = Object.create(objProto, {
+  c: {
+    value: 3
+  }
+});
+console.log(Object.getPrototypeOf(obj2)); // [object Object] { a: 1 }
+console.log(Object.getOwnPropertyDescriptors(obj2));
+/*
+[object Object] {
+  c: [object Object] {
+    configurable: false,
+    enumerable: false,
+    value: 3,
+    writable: false
+  }
+}
+*/
+```
+
 ### Number
 
 #### 💠 General
