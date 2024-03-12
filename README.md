@@ -6,6 +6,7 @@
 - [Basic Operators](#basic-operators)
 - [Control Flow](#control-flow)
 - [Functions](#functions)
+- [Classes](#classes)
 - [Scope](#scope)
 - [Built-In Objects](#built-in-objects)
 - [Miscellaneous](#miscellaneous)
