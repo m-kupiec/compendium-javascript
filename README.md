@@ -1385,6 +1385,22 @@ console.log(cl.a); // 1
 
 Getters and setters are created in the class `prototype`
 
+### 💠 Computed Method Name
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/class#computed-names)
+
+```js
+class Cl {
+  ['a' + 'b'](c) {
+    console.log(c);
+  }
+}
+
+const cl = new Cl();
+
+cl.ab(1); // 1
+```
+
 ## Scope
 
 > 📖 [The Modern JavaScript Tutorial: Variable scope, closure](https://javascript.info/closure)
