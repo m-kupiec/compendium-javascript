@@ -1232,6 +1232,38 @@ f();
 console.log(f.a); // 1
 ```
 
+## Classes
+
+### 💠 Definition
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/class)
+
+```js
+class Cl {
+  
+  constructor(a) {
+    this.a = a;
+  }
+  
+  f() {
+    console.log(this.a);
+  }
+
+}
+  
+const cl = new Cl(1);
+cl.f(); // 1
+```
+
+There's no comma between class methods
+
+`new` calls `constructor` method
+
+`class` creates a function:
+- the function name is taken from the class name
+- the function code is taken from `contructor` method
+- the function stores class methods in `prototype`
+
 ## Scope
 
 > 📖 [The Modern JavaScript Tutorial: Variable scope, closure](https://javascript.info/closure)
