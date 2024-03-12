@@ -1265,6 +1265,28 @@ There's no comma between class methods
 - the function code is taken from `contructor` method
 - the function stores class methods in `prototype`
 
+```js
+class Cl {
+  
+  constructor(a) {
+    this.a = a;
+  }
+  
+  f() {
+    alert(this.a);
+  }
+
+}
+  
+const cl = new Cl(1);
+cl.f(); // 1
+
+console.log(typeof Cl); // "function"
+console.log(Cl === Cl.prototype.constructor); // true
+console.log(Cl.prototype.f); // f() { alert(this.a); }
+console.log(Object.getOwnPropertyNames(Cl.prototype)); // ["constructor", "f"]
+```
+
 ## Scope
 
 > 📖 [The Modern JavaScript Tutorial: Variable scope, closure](https://javascript.info/closure)
