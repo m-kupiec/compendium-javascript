@@ -2434,6 +2434,40 @@ greet('Admin'); // "Hello, Admin"
 greetAdmin(); // "Hello, Admin"
 ```
 
+#### 💠 'Very Plain'/'Pure Dictionary' Objects
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/prototype-methods#very-plain)
+
+Used in associative arrays to avoid the defualt inheritance of built-in methods and `__proto__` getter/setter from `Object.prototype` which could cause side effects (hard-to-notice bugs or even vulnerabilities in the server-side JavaScript code)
+
+```js
+let obj = {};
+
+obj.__proto__ = 0;
+console.log(obj.__proto__); // [object Object] { ... } --> Not 0
+
+obj = { __proto__: null };
+
+obj.__proto__ = 0;
+console.log(obj.__proto__); // 0
+```
+
+Can be also created using `Object.create(null)`:
+
+```js
+let obj = {};
+
+obj.__proto__ = 0;
+console.log(obj.__proto__); // [object Object] { ... } --> Not 0
+
+obj = Object.create(null);
+
+obj.__proto__ = 0;
+console.log(obj.__proto__); // 0
+```
+
+Such implementations result in the absence of any built-in object methods (e.g. `Object.prototype.toString()`) in the created 'very plain' object; however, methods that are not in the prototype (e.g. `Object.keys`) are still accessible
+
 ## Runtime Environments
 
 ### Browser
