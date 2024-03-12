@@ -460,10 +460,16 @@ Accessor property has no `value` (and in consequence no `writable`), but does ha
 > 📖 [The Modern JavaScript Tutorial: Prototypal inheritance](https://javascript.info/prototype-inheritance)
 >
 > 📖 [The Modern JavaScript Tutorial: Native prototypes](https://javascript.info/native-prototypes)
+>
+> 📖 [The Modern JavaScript Tutorial: Prototype methods, objects without __proto__](https://javascript.info/prototype-methods#brief-history)
 
 `[[Prototype]]` is a hideen property that either references to another object (the prototype) or is `null`
 
-`__proto__` is an outdated getter/setter for `[[Prototype]]` (it's preferable to use `Object.getPrototypeOf`/`Object.setPrototypeOf` instead)
+`__proto__` is an outdated (moved to Annex B - optional for non-browser environments) getter/setter for `[[Prototype]]` (it's preferable to use `Object.getPrototypeOf`/`Object.setPrototypeOf` instead)
+
+Since 2022 is it allowed to used `__proto__` in object literals
+
+Changing `[[Prototype]]` of existing objects is a very slow operation; `[[Prototype]]` usually should be set at the time of object creation
 
 ```js
 const obj1 = { a: 1 };
