@@ -1700,6 +1700,8 @@ console.log(Object.entries(obj2)); // [["b", 2]]
 
 `Object.create` allows to create a new object with a specified `[[Prototype]]` and optionally with additional specified property descriptors
 
+Changing `[[Prototype]]` of existing objects is a very slow operation; `[[Prototype]]` usually should be set at the time of object creation
+
 ```js
 const objProto = { a: 1 };
 const obj1 = { b: 2 };
