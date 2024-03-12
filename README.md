@@ -1363,6 +1363,26 @@ const cl1 = new Cl();
 cl1.g(1); // 1
 ```
 
+### 💠 Getters/Setters
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/class#getters-setters)
+
+```js
+class Cl {
+  get a() {
+    return this._a;
+  }
+  
+  set a(val) {
+    this._a = val;
+  }
+}
+
+const cl = new Cl();
+cl.a = 1;
+console.log(cl.a); // 1
+```
+
 ## Scope
 
 > 📖 [The Modern JavaScript Tutorial: Variable scope, closure](https://javascript.info/closure)
