@@ -1239,23 +1239,6 @@ console.log(f.a); // 1
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/class)
 
-```js
-class Cl {
-  
-  constructor(a) {
-    this.a = a;
-  }
-  
-  f() {
-    console.log(this.a);
-  }
-
-}
-  
-const cl = new Cl(1);
-cl.f(); // 1
-```
-
 There's no comma between class methods
 
 `new` calls `constructor` method
@@ -1286,6 +1269,46 @@ console.log(Cl === Cl.prototype.constructor); // true
 console.log(Cl.prototype.f); // f() { alert(this.a); }
 console.log(Object.getOwnPropertyNames(Cl.prototype)); // ["constructor", "f"]
 ```
+
+`class` syntax can be rewritten in the following way:
+
+```js
+class Cl1 {
+  
+  constructor(a) {
+    this.a = a;
+  }
+  
+  f() {
+    console.log(this.a);
+  }
+
+}
+  
+const cl1 = new Cl1(1);
+cl1.f(); // 1
+
+// ---
+// Rewritten without using `class` syntax:
+// ---
+
+function Cl2(a) {
+  this.a = a;
+}
+
+Cl2.prototype.f = function() {
+  console.log(this.a);
+}
+
+const cl2 = new Cl2(1);
+cl2.f(); // 1
+```
+
+However, `class` is not just a 'syntactic sugar' for defining constructor function together with its `prototype` methods:
+- the function created using `class` syntax has an internal `[[IsClassConstructor]]` property set to `true` which requires the function to be called with `new` (among other things)
+- all class methods are non-enumerable
+- class uses strict mode
+- there are also many other features brought by the `class` syntax
 
 ## Scope
 
