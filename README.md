@@ -2532,6 +2532,24 @@ Global symbol registry allow to create an access global symbols (accessible from
 
 `Symbol.for(descriptionString)` is used to access (or create when absent) 
 
+#### 💠 Customizing `Object.prototype.toString`
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/instanceof#bonus-object-prototype-tostring-for-the-type)
+
+```js
+class A {}
+class B extends A {
+  [Symbol.toStringTag] = "B";
+}
+
+const a = new A();
+const b = new B();
+
+console.log({}.toString.call(a)); // "[object Object]"
+console.log({}.toString.call(b)); // "[object B]
+console.log(Object.prototype.toString.call(b)); // "[object B]
+```
+
 ### Array
 
 #### 💠 Accessing Elements
