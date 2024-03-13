@@ -1757,6 +1757,30 @@ Cl.c = 3;
 console.log(Cl.c); // 3
 ```
 
+#### Static Properties/Methods Inheritance
+
+Static properties/methods are inherited
+
+```js
+class Abc {
+  constructor(val) {
+    this.val = val;
+  }
+  
+  static f(a, b) {
+    return +a.val - +b.val;
+  }
+}
+
+class Def extends Abc {}
+
+const objA = new Abc(1);
+const objB = new Abc(2);
+
+console.log(Abc.f(objA, objB)); // -1
+console.log(Def.f(objA, objB)); // -1
+```
+
 ## Scope
 
 > 📖 [The Modern JavaScript Tutorial: Variable scope, closure](https://javascript.info/closure)
