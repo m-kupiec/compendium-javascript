@@ -1568,6 +1568,32 @@ b.f(); // "B"
 c.f(); // "A" "C" "A.g" "C.g"
 ```
 
+#### Using `super` in Arrow Functions
+
+```js
+class A {
+  f() {
+    console.log("A");
+  }
+}
+
+class B extends A {
+  f() {
+    setTimeout(() => super.f());
+    console.log("B");
+  }
+  
+  g() {
+    // setTimeout(function() { super.f(); }); // SyntaxError: 'super' keyword unexpected here
+    console.log("B");
+  }
+}
+
+const b = new B();
+
+b.f(); // "B" "A"
+```
+
 ## Scope
 
 > 📖 [The Modern JavaScript Tutorial: Variable scope, closure](https://javascript.info/closure)
