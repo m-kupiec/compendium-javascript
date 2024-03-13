@@ -1489,6 +1489,8 @@ setTimeout(cl3.f); // 1
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/class-inheritance)
 
+#### Extending Classes
+
 In the example below, `B.prototype.[[Prototype]]` is `A.prototype`:
 
 ```js
@@ -1523,6 +1525,47 @@ const b = new B();
 b.a(); // "A"
 
 console.log(B.prototype.__proto__ === A.prototype); // true
+```
+
+#### Extending Methods
+
+```js
+class A {
+  f() {
+    console.log("A");
+  }
+  
+  g() {
+    console.log("A.g");
+  }
+}
+
+class B extends A {
+  f() {
+    console.log("B");
+  }
+}
+
+class C extends A {
+  f() {
+    super.f();
+    console.log("C");
+    super.g();
+    this.g();
+  }
+  
+  g() {
+    console.log("C.g");
+  }
+}
+
+const a = new A();
+const b = new B();
+const c = new C();
+
+a.f(); // "A"
+b.f(); // "B"
+c.f(); // "A" "C" "A.g" "C.g"
 ```
 
 ## Scope
