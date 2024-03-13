@@ -1604,7 +1604,7 @@ constructor(...args) {
 }
 ```
 
-Inheriting class contructor has an internal `[[ConstructorKind]]` property set to `"derived"`, so when it is executed with `new`, it doesn't assign an empty object to `this` (as is done with regular functions executed with `new`) but leaves this job to the parent constructor; that's why it must call `super` (to create the object for `this`) and do this before using `this`:
+Inheriting class contructor has an internal `[[ConstructorKind]]` property set to `"derived"`, so when it is executed with `new`, it doesn't assign an empty object to `this` (as is done with regular functions executed with `new`) but leaves this job to the base class constructor; that's why it must call `super` (to create the object for `this`) and do this before using `this`:
 
 ```js
 class A {
@@ -1622,6 +1622,91 @@ class B extends A {
 const b = new B(1);
 
 console.log(b); // [object Object] { a: 1 }
+```
+
+#### Overriding Class Fields
+
+In the parent class, fields are initialized before constructor; however, in an inheriting classes, fields are initialized immediately after `super()`; that's why the parent class constructor uses its own fields (not the overriding ones) but still uses overriding methods:
+
+```js
+class A {
+  val = "A";
+
+  constructor() {
+    console.log(this.val);
+    this.f();
+  }
+
+  f() {
+    console.log("f: A");
+  }
+}
+
+class B extends A {
+  val = "B";
+  val2 = "B2";
+
+  constructor() {
+    super();
+    console.log(this.val2);
+  }
+
+  f() {
+    console.log("f: B");
+  }
+}
+
+class C extends B {
+  val = "C";
+  val2 = "C2";
+
+  f() {
+    console.log("f: C");
+  }
+}
+
+new A(); // "A" "f: A"
+new B(); // "A" "f: B" "B2"
+new C(); // "A" "f: C" "B2"
+```
+
+The above situation occurs only when fields are used by the parent class constructor; it can be "fixed" by using methods or accessor properties instead of fields:
+
+```js
+class A {
+  val = "A";
+
+  f() {
+    console.log(this.val);
+    console.log("f: A");
+  }
+}
+
+class B extends A {
+  val = "B";
+  val2 = "B2";
+
+  f() {
+    console.log(this.val);
+    console.log("f: B");
+    console.log(this.val2);
+  }
+}
+
+class C extends B {
+  val = "C";
+  val2 = "C2";
+
+  f() {
+    console.log(this.val);
+    console.log("f: C");
+    console.log(this.val2);
+  }
+}
+
+(new A()).f(); // "A" "f: A"
+(new B()).f(); // "B" "f: B" "B2"
+(new C()).f(); // "C" "f: C" "C2"
 ```
 
 ## Scope
