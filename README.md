@@ -1711,7 +1711,9 @@ class C extends B {
 
 ### 💠 Static Properties and Methods
 
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/static-properties-methods)
+> 📖 [The Modern JavaScript Tutorial: Static properties and methods](https://javascript.info/static-properties-methods)
+>
+> 📖 [The Modern JavaScript Tutorial: Extending built-in classes](https://javascript.info/extend-natives#no-static-inheritance-in-built-ins)
 
 #### Static Methods
 
@@ -1779,6 +1781,14 @@ const objB = new Abc(2);
 
 console.log(Abc.f(objA, objB)); // -1
 console.log(Def.f(objA, objB)); // -1
+```
+
+This does not apply to built-in objects for which static fields are not inherited:
+
+```js
+console.log(Array.prototype.__proto__ === Object.prototype); // true
+console.log(Object.keys); // function keys() { [native code] }
+console.log(Array.keys); // undefined
 ```
 
 ### 💠 Public, Protected, and Private Properties/Methods
