@@ -2399,6 +2399,34 @@ console.log(Object.getOwnPropertyDescriptors(obj2));
 */
 ```
 
+#### 💠 Using `Object.prototype.toString` for Advanced Type Checking
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/instanceof#bonus-object-prototype-tostring-for-the-type)
+
+`Object.prototype.toString` can display type of primitives, objects with `Symbol.toStringTag`, and built-in objects:
+
+```js
+class A {}
+class B extends A {
+  [Symbol.toStringTag] = "B";
+}
+
+const a = new A();
+const b = new B();
+
+console.log({}.toString === Object.prototype.toString); // true
+console.log({}.toString.call(1)); // "[object Number]"
+console.log({}.toString.call(1n)); // "[object BigInt]"
+console.log({}.toString.call(true)); // "[object Boolean]"
+console.log({}.toString.call("")); // "[object String]"
+console.log({}.toString.call(null)); // "[object Null]"
+console.log({}.toString.call(undefined)); // "[object Undefined]"
+console.log({}.toString.call(a)); // "[object Object]"
+console.log({}.toString.call(b)); // "[object B]
+//console.log({}.toString.call(new Symbol())); // TypeError: Symbol is not a constructor
+console.log({}.toString.call(new Array())); // "[object Array]
+```
+
 ### Number
 
 #### 💠 General
