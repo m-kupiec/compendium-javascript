@@ -1594,6 +1594,36 @@ const b = new B();
 b.f(); // "B" "A"
 ```
 
+#### Extending Contructor
+
+A default constructor is created when a class extending another class has none:
+
+```js
+constructor(...args) {
+  super(...args);
+}
+```
+
+Inheriting class contructor has an internal `[[ConstructorKind]]` property set to `"derived"`, so when it is executed with `new`, it doesn't assign an empty object to `this` (as is done with regular functions executed with `new`) but leaves this job to the parent constructor; that's why it must call `super` (to create the object for `this`) and do this before using `this`:
+
+```js
+class A {
+  constructor(a) {
+    this.a = a;
+  }
+}
+
+class B extends A {
+  constructor(a) {
+    super(a);
+  }
+}
+
+const b = new B(1);
+
+console.log(b); // [object Object] { a: 1 }
+```
+
 ## Scope
 
 > 📖 [The Modern JavaScript Tutorial: Variable scope, closure](https://javascript.info/closure)
