@@ -2407,7 +2407,7 @@ console.log(Object.getOwnPropertyDescriptors(obj2));
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/instanceof#bonus-object-prototype-tostring-for-the-type)
 
-`Object.prototype.toString` can display type of primitives, objects with `Symbol.toStringTag`, and built-in objects:
+`Object.prototype.toString` can display the type of primitives, objects with `Symbol.toStringTag`, and built-in objects:
 
 ```js
 class A {}
