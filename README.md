@@ -1487,7 +1487,9 @@ setTimeout(cl3.f); // 1
 
 ### 💠 Class Inheritance
 
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/class-inheritance)
+> 📖 [The Modern JavaScript Tutorial: Class inheritance](https://javascript.info/class-inheritance)
+>
+> 📖 [The Modern JavaScript Tutorial: Extending built-in classes](https://javascript.info/extend-natives)
 
 #### Extending Classes
 
@@ -1525,6 +1527,25 @@ const b = new B();
 b.a(); // "A"
 
 console.log(B.prototype.__proto__ === A.prototype); // true
+```
+
+#### Extending Built-In Classes
+
+When extendin built-in classes, their methods (like `filter`, `map`, etc.) use the inherited class object constructor for createing the returned object:
+
+```js
+class MyArray extends Array {
+  f() {
+    return this.map(el => '*');
+  }
+}
+
+const myArr = new MyArray(3).fill(true);
+const newArr = myArr.filter(() => true);
+
+console.log(newArr.constructor === MyArray); // true
+console.log(newArr.__proto__ === MyArray.prototype); // true
+console.log(newArr.f()); // ["*", "*", "*"]
 ```
 
 #### Overriding/Extending Methods
