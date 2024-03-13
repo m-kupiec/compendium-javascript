@@ -590,7 +590,7 @@ typeof alert // "function" (*)
 // * Incorrect behavior
 ```
 
-When `typeof` is not sufficient, `Object.prototype.toString` can display the type of primitives, objects with Symbol.toStringTag, and built-in objects
+When `typeof` is not sufficient, `Object.prototype.toString` can display the type of primitives, objects with `Symbol.toStringTag`, and built-in objects
 
 #### 💠 Type Conversion
 
