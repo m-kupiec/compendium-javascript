@@ -2405,7 +2405,7 @@ console.log(Object.getOwnPropertyDescriptors(obj2));
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/number#tostring-base)
 
-To call a method dorectly on a number, `..` must be used
+To call a method directly on a number, `..` must be used
 
 ```js
 console.log(255..toString(16)); // ff
