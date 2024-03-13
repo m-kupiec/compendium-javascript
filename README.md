@@ -1709,6 +1709,34 @@ class C extends B {
 (new C()).f(); // "C" "f: C" "C2"
 ```
 
+### 💠 Static Properties and Methods
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/static-properties-methods)
+
+#### Static Methods
+
+Static methods are such that do not belong to particular class objects but rather to the whole class itself:
+
+```js
+class Abc {
+  constructor(val) {
+    this.val = val;
+  }
+  
+  static f(a, b) {
+    return +a.val - +b.val;
+  }
+}
+
+const objA = new Abc(1);
+const objB = new Abc(2);
+
+console.log(Abc.f(objA, objB)); // -1
+console.log(objA.f); // undefined
+```
+
+Static methods may be used as factory methods or for executing database operations (search, save, remove)
+
 ## Scope
 
 > 📖 [The Modern JavaScript Tutorial: Variable scope, closure](https://javascript.info/closure)
