@@ -1781,6 +1781,20 @@ console.log(Abc.f(objA, objB)); // -1
 console.log(Def.f(objA, objB)); // -1
 ```
 
+### 💠 Public, Protected, and Private Properties/Methods
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/private-protected-properties-methods)
+
+Public fields are accessible from anywhere; protected fields are accessible only inside the class and the inheriting classes; private fields are accessible only inside the class
+
+Protected fields are emulated in JavaScript usually by prefixing their names with `_`
+
+A property can be made "read-only" (with value set at the time of creation):
+- by providing a getter without a corresponding setter (shorter syntax), or
+- by providing getter/setter methods (e.g. getValue, setValue; allows to pass multiple arguments)
+
+Private fields names are prefixed with `#`; `this['#fieldName']` syntax is not supported for private fields
+
 ## Scope
 
 > 📖 [The Modern JavaScript Tutorial: Variable scope, closure](https://javascript.info/closure)
