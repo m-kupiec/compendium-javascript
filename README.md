@@ -1490,6 +1490,8 @@ setTimeout(cl3.f); // 1
 > 📖 [The Modern JavaScript Tutorial: Class inheritance](https://javascript.info/class-inheritance)
 >
 > 📖 [The Modern JavaScript Tutorial: Extending built-in classes](https://javascript.info/extend-natives)
+>
+> 📖 [The Modern JavaScript Tutorial: Class checking: "instanceof"](https://javascript.info/instanceof)
 
 #### Extending Classes
 
@@ -1752,6 +1754,57 @@ class C extends B {
 (new A()).f(); // "A" "f: A"
 (new B()).f(); // "B" "f: B" "B2"
 (new C()).f(); // "C" "f: C" "C2"
+```
+
+#### Checking Class Instance
+
+`instanceof` operator take inheritance into account:
+
+```js
+class A {}
+class B extends A {}
+class C extends B {}
+
+const a = new A();
+const b = new B();
+const c = new C();
+
+console.log(a instanceof A); // true
+console.log(b instanceof A); // true
+console.log(c instanceof A); // true
+console.log(b instanceof B); // true
+console.log(c instanceof B); // true
+console.log(c instanceof C); // true
+
+console.log(A.prototype.isPrototypeOf(a)); // true
+console.log(A.prototype.isPrototypeOf(b)); // true
+console.log(A.prototype.isPrototypeOf(c)); // true
+console.log(B.prototype.isPrototypeOf(b)); // true
+console.log(B.prototype.isPrototypeOf(c)); // true
+console.log(C.prototype.isPrototypeOf(c)); // true
+```
+
+Checking rules may be modified using `Symbol.hasInstance` static method:
+
+```js
+class A {
+  static [Symbol.hasInstance](obj) {
+    return Boolean(obj.f);
+  }
+}
+class B extends A {}
+class C extends B { f() {} }
+
+const a = new A();
+const b = new B();
+const c = new C();
+
+console.log(a instanceof A); // false
+console.log(b instanceof A); // false
+console.log(c instanceof A); // true
+console.log(b instanceof B); // false
+console.log(c instanceof B); // true
+console.log(c instanceof C); // true
 ```
 
 ### 💠 Static Properties and Methods
