@@ -1304,6 +1304,27 @@ const cl2 = new Cl2(1);
 cl2.f(); // 1
 ```
 
+The relationship between a class and its instance is that of an object that inherits properties and methods from the class:
+
+```js
+class Cl {
+  constructor(a) {
+    this.a = a;
+  }
+  
+  f() {}
+}
+
+const cl = new Cl(1);
+
+console.log(cl); // [object Object] { a: 1 }
+console.log(cl.__proto__ === Cl.prototype); // true
+console.log(cl.__proto__.constructor === Cl); // true
+console.log(cl.__proto__.constructor === Cl.prototype.constructor); // true
+console.log(cl.__proto__.f === cl.f); // true
+console.log(cl.__proto__.f === Cl.prototype.f); // true
+```
+
 However, `class` is not just a 'syntactic sugar' for defining constructor function together with its `prototype` methods:
 - the function created using `class` syntax has an internal `[[IsClassConstructor]]` property set to `true` which requires the function to be called with `new` (among other things)
 - all class methods are non-enumerable
