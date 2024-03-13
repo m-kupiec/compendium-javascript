@@ -1548,6 +1548,30 @@ console.log(newArr.__proto__ === MyArray.prototype); // true
 console.log(newArr.f()); // ["*", "*", "*"]
 ```
 
+This can be modified using `Symbol.species` static getter which returns the constructor to be used for new object creation:
+
+```js
+class MyArray extends Array {
+  static get [Symbol.species]() {
+    return Array;
+  }
+
+  f() {
+    return this.map(el => '*');
+  }
+}
+
+const myArr = new MyArray(3).fill(true);
+const newArr = myArr.filter(() => true);
+
+console.log(newArr.constructor === MyArray); // false
+console.log(newArr.__proto__ === MyArray.prototype); // false
+// console.log(newArr.f()); // ["*", "*", "*"] // TypeError: newArr.f is not a function
+
+console.log(newArr.constructor === Array); // true
+console.log(newArr.__proto__ === Array.prototype); // true
+```
+
 #### Overriding/Extending Methods
 
 ```js
