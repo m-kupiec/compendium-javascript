@@ -564,9 +564,11 @@ console.log(obj2); // [object Object] { _a: 0, a: 0 }
 
 ### Data Type Operations
 
-#### 💠 The typeof Operator
+#### 💠 `typeof` Operator
 
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/types#type-typeof)
+> 📖 [The Modern JavaScript Tutorial: Data types](https://javascript.info/types#type-typeof)
+>
+> 📖 [The Modern JavaScript Tutorial: Class checking: "instanceof"](https://javascript.info/instanceof#bonus-object-prototype-tostring-for-the-type)
 
 Syntax:
 - `typeof x`
@@ -587,6 +589,8 @@ typeof alert // "function" (*)
 
 // * Incorrect behavior
 ```
+
+When `typeof` is not sufficient, `Object.prototype.toString` can display the type of primitives, objects with Symbol.toStringTag, and built-in objects
 
 #### 💠 Type Conversion
 
