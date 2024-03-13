@@ -1737,6 +1737,26 @@ console.log(objA.f); // undefined
 
 Static methods may be used as factory methods or for executing database operations (search, save, remove)
 
+#### Static Properties
+
+```js
+class Cl {
+  a = 1;
+  static b = 2;
+}
+
+const cl = new Cl();
+
+console.log(cl.a); // 1
+console.log(cl.b); // undefined
+
+console.log(Cl.a); // undefined
+console.log(Cl.b); // 2
+
+Cl.c = 3;
+console.log(Cl.c); // 3
+```
+
 ## Scope
 
 > 📖 [The Modern JavaScript Tutorial: Variable scope, closure](https://javascript.info/closure)
