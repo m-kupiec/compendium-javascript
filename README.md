@@ -1527,7 +1527,7 @@ b.a(); // "A"
 console.log(B.prototype.__proto__ === A.prototype); // true
 ```
 
-#### Extending Methods
+#### Overriding/Extending Methods
 
 ```js
 class A {
@@ -1594,7 +1594,7 @@ const b = new B();
 b.f(); // "B" "A"
 ```
 
-#### Extending Contructor
+#### Overriding/Extending Contructor
 
 A default constructor is created when a class extending another class has none:
 
