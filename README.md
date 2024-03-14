@@ -1279,6 +1279,18 @@ function callbackF(error, val) {
 asyncF("Step 1", callbackF); // "Step 1" "Step 2" OR "Step 1" "Error message" OR "Error message"
 ```
 
+#### Promises
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/promise-basics)
+
+##### Basic Usage
+
+The executor function is passed as an argument to the promise constructor and is executed automatically; two callbacks passed as the executor function arguments (`resolve` and `reject`) are provided by the language; the executor function calls one of the two callback functions (`resolve(value)` or `reject(error)`) after obtaining the result of its operation
+
+The promise is either pending or settled; The object returned by the promise constructor has `state` (which value is `pending`/`fulfilled`/`rejected`) and `result` (which value is `undefined`/`value`/`error`) internal properties (cannot be accessed)
+
+Consuming functions can be registered using `then` and `catch` methods
+
 ## Functions
 
 ### 💠 Function Declaration
