@@ -929,6 +929,66 @@ a:
 
 `continue` directive must be placed inside a loop
 
+### 💠 Handling Errors
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/error-handling)
+
+#### Syntax
+
+```js
+try {
+  console.log(1);
+  error;
+  console.log(2);
+} catch (err) {
+  console.log(err);
+}
+/*
+1
+[object Error] { ... }
+*/
+```
+
+`try...catch` works for runtime errors (exceptions) but not for parse-time ones (wrong syntax)
+
+#### Handling Scheduled Functions
+
+Scheduled function is executed after the engine ahs already left `try...catch` construct
+
+```js
+try {
+  console.log(1);
+  setTimeout(() => error);
+  console.log(2);
+} catch (err) {
+  console.log(err);
+}
+/*
+1
+2
+ReferenceError: error is not defined
+*/
+```
+
+The above code should be fixed as follows:
+
+```js
+console.log(1);
+setTimeout(() => {
+  try {
+    error;
+  } catch (err) {
+    console.log(err);
+  }
+});
+console.log(2);
+/*
+1
+2
+[object Error] { ... }
+*/
+```
+
 ## Functions
 
 ### 💠 Function Declaration
