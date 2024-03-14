@@ -2892,6 +2892,33 @@ greet('Admin'); // "Hello, Admin"
 greetAdmin(); // "Hello, Admin"
 ```
 
+### Error
+
+#### 💠 Properties
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/try-catch#error-object)
+
+```js
+try {
+  console.log(1);
+  error;
+  console.log(2);
+} catch (err) {
+  console.log(err.name);
+  console.log(err.message);
+  console.log(err.stack);
+}
+/*
+1
+"ReferenceError"
+"error is not defined"
+"ReferenceError: error is not defined
+    at bayorocida.js:3:3
+    at https://static.jsbin.com/js/prod/runner-4.1.8.min.js:1:13924
+    at https://static.jsbin.com/js/prod/runner-4.1.8.min.js:1:10866"
+*/
+```
+
 ## Miscellaneous
 
 ### 💠 ES5 & 'use strict'
