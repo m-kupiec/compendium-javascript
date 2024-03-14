@@ -1240,6 +1240,45 @@ asyncF("Test", callbackF); // "Error message"
 asyncF("Test", callbackF); // "Test"
 ```
 
+##### Nested Callbacks
+
+```js
+function asyncF(string, callback) {
+  const error = Math.random() > 0.85 ? new Error("Error message") : null;
+  
+  setTimeout(() => {
+    if(error) {
+      callback(error);
+    } else {
+      console.log(string);
+      nextAsyncF("Step 2", callbackF);
+    }
+  });
+}
+
+function nextAsyncF(string, callback) {
+  const error = Math.random() > 0.85 ? new Error("Error message") : null;
+  
+  setTimeout(() => {
+    if(error) {
+      callback(error);
+    } else {
+      callback(null, string);
+    }
+  });
+}
+
+function callbackF(error, val) {
+  if(error) {
+    console.log(error.message);
+  } else {
+    console.log(val);
+  }
+}
+
+asyncF("Step 1", callbackF); // "Step 1" "Step 2" OR "Step 1" "Error message" OR "Error message"
+```
+
 ## Functions
 
 ### 💠 Function Declaration
