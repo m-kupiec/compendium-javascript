@@ -3526,6 +3526,79 @@ new Cl(1).f(1); // 1
 
 Because mixins can override existing class methods, their naming must be carefully considered.
 
+#### 💠 Wrapping Exceptions
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/custom-errors#wrapping-exceptions)
+
+It's a technique in which particular errors are wrapped into a more absctract one:
+
+```js
+class WrappingError extends Error {
+  constructor(message, cause) {
+    super(message);
+    this.cause = cause;
+    this.name = this.constructor.name;
+  }
+}
+
+class ParticularError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = this.constructor.name;
+  }
+}
+
+class AnotherParticularError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = this.constructor.name;
+  }
+}
+
+function f() {
+  try {
+    console.log(1);
+  } catch (err) {
+    if (err instanceof ParticularError) {
+      throw new WrappingError("Particular Error...", err)
+    } else {
+      throw err;
+    }
+  }
+  
+  try {
+    throw new AnotherParticularError("Bad...");
+    console.log(2);
+  } catch (err) {
+    if (err instanceof AnotherParticularError) {
+      throw new WrappingError("Another Particular Error...", err)
+    } else {
+      throw err;
+    }
+  }
+}
+
+try {
+  f();
+} catch (err) {
+  if (err instanceof WrappingError) {
+    console.log(err);
+  } else {
+    throw err;
+  }
+}
+
+/*
+1
+[object Error] {
+  cause: [object Error] {
+    name: "AnotherParticularError"
+  },
+  name: "WrappingError"
+}
+*/
+```
+
 ## Runtime Environments
 
 ### Browser
