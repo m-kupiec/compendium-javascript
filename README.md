@@ -1109,6 +1109,85 @@ try {
 */
 ```
 
+#### `finally` Clause
+
+```js
+try {
+  console.log(1);
+  error;
+  console.log(2);
+} catch (err) {
+  console.log(err.name);
+} finally {
+  console.log(3);
+}
+
+/*
+1
+"ReferenceError"
+3
+*/
+```
+
+The clause works for any exit from `try...catch`:
+
+```js
+(function f() {
+  try {
+    console.log(1);
+    return;
+    console.log(2);
+  } catch (err) {
+    console.log(err.name);
+  } finally {
+    console.log(3);
+  }
+}())
+
+/*
+1
+3
+*/
+```
+
+```js
+(function f() {
+  try {
+    console.log(1);
+    error;
+    console.log(2);
+  } catch (err) {
+    return;
+    console.log(err.name);
+  } finally {
+    console.log(3);
+  }
+}())
+
+/*
+1
+3
+*/
+```
+
+Can be used even without `catch` to ensure execution of the code inside `finally`:
+
+```js
+try {
+  console.log(1);
+  error;
+  console.log(2);
+} finally {
+  console.log(3);
+}
+
+/*
+1
+3
+ReferenceError: error is not defined
+*/
+```
+
 ## Functions
 
 ### 💠 Function Declaration
