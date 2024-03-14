@@ -1005,6 +1005,85 @@ console.log(2);
 */
 ```
 
+#### Throwing an Error
+
+Although even a primitive value can be thrown as an error...
+
+```js
+try {
+  throw 1;
+} catch (err) {
+  console.log(err); // 1
+}
+
+try {
+  throw 1n;
+} catch (err) {
+  console.log(err); // [object BigInt] { ... }
+}
+
+try {
+  throw "1";
+} catch (err) {
+  console.log(err); // "1"
+}
+
+try {
+  throw true;
+} catch (err) {
+  console.log(err); // true
+}
+
+try {
+  throw null;
+} catch (err) {
+  console.log(err); // null
+}
+
+try {
+  throw undefined;
+} catch (err) {
+  console.log(err); // undefined
+}
+
+try {
+  throw new Symbol();
+} catch (err) {
+  console.log(err); // [object Error] { ... }
+}
+
+try {
+  throw {};
+} catch (err) {
+  console.log(err); // [object Object] { ... }
+}
+
+try {
+  throw function(a) { alert(a); };
+} catch (err) {
+  console.log(err); // function(a) { alert(a); }
+}
+```
+
+... it's recommended to be compatibile with the built-in Error object (having `name` and `message` properties); built-in error constructors (Error, SyntaxError, ReferenceError, TypeError, etc.) may be used (error `name` is then derived from the contructor name while error `message` is passed as an argument to the contructor):
+
+```js
+try {
+  throw SyntaxError("Invalid data provided");
+} catch (err) {
+  console.log(err.name, err.message, err.stack);
+}
+
+/*
+"SyntaxError"
+"Invalid data provided"
+"SyntaxError: Invalid data provided
+    at bayorocida.js:2:9
+    at https://static.jsbin.com/js/prod/runner-4.1.8.min.js:1:13924
+    at https://static.jsbin.com/js/prod/runner-4.1.8.min.js:1:10866"
+*/
+```
+
 ## Functions
 
 ### 💠 Function Declaration
