@@ -1370,6 +1370,50 @@ function logError(err) {
 promise.catch(logError); // "Error happened..."
 ```
 
+`finally` handler (designed for executing finilizing procedures, e.g. turning loading indicator off) is executed whether the promise was resolved or rejected; it doesn't return anything (any returns are ignored) except a possible thrown error (that's passed to the next handler instead of any previous result/error):
+
+```js
+function logResult(result) { console.log(result); }
+function logError(err) { console.log(err.message); }
+
+new Promise(function(resolve, reject) {
+  setTimeout(() => {
+    if (Math.random() > 0.5) {
+      reject(new Error("Error happened..."));
+    } else {
+      resolve("Fulfilled value");
+    }
+  }, 1000);
+})
+  .finally(() => console.log("Finished"))
+  .then(logResult, logError);
+// "Finished" "Error happened..." OR "Finished" "Fulfilled value"
+
+new Promise(function(resolve, reject) {
+  resolve("Ok");
+})
+  .finally(() => console.log("Finally..."))
+  .then(logResult, logError);
+// "Finally..." "Ok"
+
+new Promise(function(resolve, reject) {
+  resolve("Ok");
+})
+  .finally(() => { throw new Error("Error message") })
+  .then(logResult, logError);
+// "Error message"
+
+/*
+ACTUAL LOG SEQUENCE:
+
+"Finally..."
+"Error message"
+"Ok"
+"Finished"
+"Fulfilled value"
+*/
+```
+
 ## Functions
 
 ### 💠 Function Declaration
