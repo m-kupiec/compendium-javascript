@@ -1192,7 +1192,9 @@ ReferenceError: error is not defined
 
 #### Callback-Based Style
 
-> 📖 [The Modern JavaScript Tutorial: Introduction: callbacks](https://javascript.info/callbacks)
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/callbacks)
+
+##### Basic Usage
 
 Callback function is passed as an argument to the function that has asynchronous code:
 
@@ -1205,6 +1207,36 @@ function callbackF(val) {
   console.log(val);
 }
 
+asyncF("Test", callbackF); // "Test"
+```
+
+##### Handling Errors
+
+The first arguments of the callback functions is reserved for an error:
+
+```js
+function asyncF(string, callback) {
+  const error = Math.random() > 0.5 ? new Error("Error message") : null;
+  
+  setTimeout(() => {
+    if(error) {
+      callback(error);
+    } else {
+      callback(null, string);
+    }
+  }, 0, string);
+}
+
+function callbackF(error, val) {
+  if(error) {
+    console.log(error.message);
+  } else {
+    console.log(val);
+  }
+}
+
+asyncF("Test", callbackF); // "Test"
+asyncF("Test", callbackF); // "Error message"
 asyncF("Test", callbackF); // "Test"
 ```
 
