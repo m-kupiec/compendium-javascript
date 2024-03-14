@@ -1188,6 +1188,26 @@ ReferenceError: error is not defined
 */
 ```
 
+### 💠 Asynchronous Flow
+
+#### Callback-Based Style
+
+> 📖 [The Modern JavaScript Tutorial: Introduction: callbacks](https://javascript.info/callbacks)
+
+Callback function is passed as an argument to the function that has asynchronous code:
+
+```js
+function asyncF(string, callback) {
+  setTimeout(callback, 0, string);
+}
+
+function callbackF(val) {
+  console.log(val);
+}
+
+asyncF("Test", callbackF); // "Test"
+```
+
 ## Functions
 
 ### 💠 Function Declaration
