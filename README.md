@@ -1291,6 +1291,85 @@ The promise is either pending or settled; The object returned by the promise con
 
 Consuming functions can be registered using `then` and `catch` methods
 
+`then` receives two callbacks as its arguments - the first callback receives the result if the promise was resolved while the second callback receives the error if the promise was rejected
+
+```js
+const promise = new Promise(function(resolve, reject) {
+  setTimeout(() => {
+    if (Math.random() > 0.5) {
+      reject(new Error("Error happened..."));
+    } else {
+      resolve("Fulfilled value");
+    }
+  }, 1000);
+});
+
+promise.then(
+  result => console.log(result), // "Fulfilled value"
+  error => console.log(error.message) // "Error happened..."
+);
+```
+
+It's possible to handle only resolved promises...
+
+```js
+const promise = new Promise(function(resolve, reject) {
+  setTimeout(() => {
+    if (Math.random() > 0.95) {
+      reject(new Error("Error happened..."));
+    } else {
+      resolve("Fulfilled value");
+    }
+  }, 1000);
+});
+
+function logResult(result) {
+  console.log(result);
+}
+
+promise.then(logResult); // "Fulfilled value"
+```
+
+... or to handle only rejected promises passing `null` as the first argument...
+
+```js
+const promise = new Promise(function(resolve, reject) {
+  setTimeout(() => {
+    if (Math.random() > 0.05) {
+      reject(new Error("Error happened..."));
+    } else {
+      resolve("Fulfilled value");
+    }
+  }, 1000);
+});
+
+function logError(err) {
+  console.log(err.message);
+}
+
+promise.then(null, logError); // "Error happened..."
+```
+
+... or to handle only rejected promises using `catch`:
+
+```js
+const promise = new Promise(function(resolve, reject) {
+  setTimeout(() => {
+    if (Math.random() > 0.05) {
+      reject(new Error("Error happened..."));
+    } else {
+      resolve("Fulfilled value");
+    }
+  }, 1000);
+});
+
+function logError(err) {
+  console.log(err.message);
+}
+
+promise.catch(logError); // "Error happened..."
+```
+
 ## Functions
 
 ### 💠 Function Declaration
