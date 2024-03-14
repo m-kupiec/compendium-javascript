@@ -931,7 +931,7 @@ a:
 
 ### 💠 Handling Errors
 
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/error-handling)
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/try-catch)
 
 #### Syntax
 
@@ -3359,7 +3359,7 @@ try {
 
 #### 💠 Extending Error Object
 
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/error-handling)
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/custom-errors)
 
 ```js
 class MyError extends Error {
