@@ -3189,6 +3189,34 @@ console.log(obj.__proto__); // 0
 
 Such implementations result in the absence of any built-in object methods (e.g. `Object.prototype.toString()`) in the created 'very plain' object; however, methods that are not in the prototype (e.g. `Object.keys`) are still accessible
 
+#### 💠 Mixin
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/mixins)
+
+Mixin is a class with methods to be used by other classes (not using inheritance)
+
+A simple example would be an object assigned to a class prototype:
+
+```js
+let mixin = {
+  f() {
+    console.log(this.val);
+  }
+};
+
+class Cl {
+  constructor(val) {
+    this.val = val;
+  }
+}
+
+Object.assign(Cl.prototype, mixin);
+
+new Cl(1).f(1); // 1
+```
+
+Because mixins can override existing class methods, their naming must be carefully considered.
+
 ## Runtime Environments
 
 ### Browser
