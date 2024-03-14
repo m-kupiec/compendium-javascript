@@ -951,6 +951,22 @@ try {
 
 `try...catch` works for runtime errors (exceptions) but not for parse-time ones (wrong syntax)
 
+The following syntax (optional `catch` binding) is a relatively recent addition:
+
+```js
+try {
+  console.log(1);
+  error;
+  console.log(2);
+} catch {
+  console.log(3);
+}
+/*
+1
+3
+*/
+```
+
 #### Handling Scheduled Functions
 
 Scheduled function is executed after the engine ahs already left `try...catch` construct
