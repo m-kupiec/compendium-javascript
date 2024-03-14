@@ -1414,6 +1414,19 @@ ACTUAL LOG SEQUENCE:
 */
 ```
 
+If a handler (`then`/`catch`/`finally`) is added to an already settled promise, it will run immediately:
+
+```js
+const promise = new Promise(resolve => resolve("Resolved value"));
+
+promise.finally(() => console.log("Finilizing..."));
+promise.then(result => console.log(result));
+/*
+"Finilizing..."
+"Resolved value"
+*/
+```
+
 ## Functions
 
 ### 💠 Function Declaration
