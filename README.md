@@ -3599,3 +3599,23 @@ setTimeout(f, 0, Date.now());
 ```
 
 The callback function and its outer variables are kept in memory until the scheduling is cleared using `clearTimeout`/`clearInterval`
+
+##### Events
+
+###### `error` Event
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/try-catch#global-catch)
+
+It allows to inform the user about an error that stopped the code execution:
+
+```js
+window.onerror = function(message, url, line, column, error) {
+  alert(`${url}:${line}:${column} ${message} | ${error}`);
+}
+
+error;
+
+/*
+"bayorocida.js:10:19 Uncaught ReferenceError: error is not defined | ReferenceError: error is not defined"
+*/
+```
