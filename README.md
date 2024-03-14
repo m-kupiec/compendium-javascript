@@ -1224,7 +1224,7 @@ function asyncF(string, callback) {
     } else {
       callback(null, string);
     }
-  }, 0, string);
+  });
 }
 
 function callbackF(error, val) {
