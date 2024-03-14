@@ -1084,6 +1084,31 @@ try {
 */
 ```
 
+#### Rethrowing an Error
+
+Unexpected errors my be rethrown:
+
+```js
+try {
+  try {
+    if(error) {
+      throw SyntaxError("Invalid data provided");
+    }
+  } catch (err) {
+    if (err instanceof SyntaxError) {
+      console.log("SyntaxError", err.message);
+    } else {
+      throw err;
+    }
+  }
+} catch (err) {
+  console.log(err.name);
+}
+/*
+"ReferenceError"
+*/
+```
+
 ## Functions
 
 ### 💠 Function Declaration
