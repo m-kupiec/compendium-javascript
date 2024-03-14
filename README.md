@@ -3118,6 +3118,29 @@ try {
 */
 ```
 
+#### 💠 Extending Error Object
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/error-handling)
+
+```js
+class MyError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = this.constructor.name;
+  }
+}
+
+class MyParticularError extends MyError {
+  constructor(message) {
+    super(message);
+  }
+}
+
+const err = new MyParticularError("Something went wrong...");
+
+console.log(err.name, err.message); // "MyParticularError" "Something went wrong..."
+```
+
 ## Miscellaneous
 
 ### 💠 ES5 & 'use strict'
