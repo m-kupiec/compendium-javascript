@@ -1499,6 +1499,30 @@ new Promise(function(resolve, reject) {
 // OBSERVATION: Rejected promise error passed through the first 'then' (which doesn't have an error handler)
 ```
 
+##### Handling Errors
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/promise-error-handling)
+
+Errors coming from the code of the executor function or the promise handlers are automatically treated as a promise rejection:
+
+```js
+new Promise(resolve => error1)
+  .then(
+    null,
+    (err) => console.log(err.message)
+  );
+
+// "error1 is not defined"
+
+new Promise(resolve => resolve("Ok"))
+  .then(
+    result => { throw new Error("Another error happened...") }
+  )
+  .catch((err) => console.log(err.message));
+
+// "Another error happened..."
+```
+
 ## Functions
 
 ### 💠 Function Declaration
