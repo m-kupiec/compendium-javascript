@@ -3605,6 +3605,20 @@ Promise.any([
 // [[object Error] { ... }, [object Error] { ... }, [object Error] { ... }]
 ```
 
+#### 💠 `Promise.resolve`
+
+```js
+Promise.resolve("Ok")
+  .then(result => console.log(result));
+// "Ok"
+
+new Promise(resolve => resolve("Ok"))
+  .then(result => console.log(result));
+// "Ok"
+```
+
+Used when `async`/`await` is not supported but a function must return a promise.
+
 ### Error
 
 #### 💠 Properties
