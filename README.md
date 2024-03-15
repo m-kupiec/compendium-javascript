@@ -1281,9 +1281,9 @@ asyncF("Step 1", callbackF); // "Step 1" "Step 2" OR "Step 1" "Error message" OR
 
 #### Promises
 
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/promise-basics)
-
 ##### Basic Usage
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/promise-basics)
 
 The executor function is passed as an argument to the promise constructor and is executed automatically; two callbacks passed as the executor function arguments (`resolve` and `reject`) are provided by the language; the executor function calls one of the two callback functions (`resolve(value)` or `reject(error)`) after obtaining the result of its operation
 
@@ -1425,6 +1425,78 @@ promise.then(result => console.log(result));
 "Finilizing..."
 "Resolved value"
 */
+```
+
+##### Promise Chaining
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/promise-chaining)
+
+Handler used in `then` may craate and return a promise:
+
+```js
+new Promise(function(resolve, reject) {
+  reject(new Error("Error happened..."));
+})
+  .then(
+    result => { return new Promise(resolve => resolve(result)) },
+    error => { return new Promise(resolve => resolve("Error fixed")) }
+  )
+  .then(
+    result => console.log(result),
+    error => console.log(error.message)
+  );
+
+// "Error fixed"
+```
+
+A "thenable" object (an object containing `then` method) may also be created and returned (which will be treated as a promise):
+
+```js
+class Thenable {
+  constructor(val) {
+    this.val = val;
+  }
+  
+  then(resolve, reject) {
+    console.log(typeof resolve); // "function"
+    
+    setTimeout(() => {
+      if (Math.random() > 0.5) {
+        reject(new Error("Error happened..."));
+      } else {
+        resolve("Fulfilled value");
+      }
+    });
+  }
+}
+
+new Promise(function(resolve, reject) {
+  resolve("Ok");
+})
+  .then(
+    result => { return new Thenable(resolve => resolve(result)) }
+  )
+  .then(
+    result => console.log(result),
+    error => console.log(error.message)
+  );
+
+// "Error happened..." OR "Fulfilled value"
+// OBSERVATION: Resolved promise result ("OK") does not make it to the second 'then' method
+
+new Promise(function(resolve, reject) {
+  reject(new Error("Error happened again..."));
+})
+  .then(
+    result => console.log(1)
+  )
+  .then(
+    result => console.log(result),
+    error => console.log(error.message)
+  );
+
+// "Error happened again..."
+// OBSERVATION: Rejected promise error passed through the first 'then' (which doesn't have an error handler)
 ```
 
 ## Functions
