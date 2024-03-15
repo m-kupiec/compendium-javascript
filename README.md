@@ -1523,6 +1523,31 @@ new Promise(resolve => resolve("Ok"))
 // "Another error happened..."
 ```
 
+If an error is successfully handled by a handler, the next success handler runs; if an error is not handled, the next failure handler runs:
+
+```js
+new Promise((resolve, reject) => reject(new Error()))
+  .catch(err => { if (err instanceof Error) console.log("Error successfully handled...") })
+  .then(() => console.log("Success!"));
+/*
+"Error successfully handled..."
+"Success!"
+*/
+
+new Promise((resolve, reject) => reject(new Error()))
+  .catch(err => {
+    if (err instanceof TypeError)
+      console.log("Error successfully handled...");
+    else
+      throw err;
+  })
+  .then(
+    () => console.log("Success!"),
+    (err) => console.log("Failure!", err.name)
+  );
+// "Failure!" "Error"
+```
+
 ## Functions
 
 ### 💠 Function Declaration
