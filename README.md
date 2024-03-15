@@ -4043,6 +4043,30 @@ try {
 */
 ```
 
+#### 💠 Mapping Data For Concurrent Asynchronous Execution
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/promise-api#promise-all)
+
+It's a technique in which an array of data for the asynchronous operations is mapped into an array of promises passed to `Promise.all`:
+
+```js
+function asyncProcess(string) {
+  return new Promise(resolve => setTimeout(() => console.log(string.toLowerCase(string)), 1000));
+}
+
+const data = ["A", "B", "C"];
+const requests = data.map(el => asyncProcess(el));
+
+Promise.all(requests);
+
+/*
+PRINTED ALL AT ONCE AFTER 1000ms:
+"a"
+"b"
+"c"
+*/
+```
+
 ## Runtime Environments
 
 ### Browser
