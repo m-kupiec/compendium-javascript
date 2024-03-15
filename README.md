@@ -3560,6 +3560,20 @@ Promise.allSettled([
 */
 ```
 
+#### 💠 `Promise.race`
+
+Differs from `Promise.all` in that it resolves with the first resolved promise:
+
+```js
+Promise.race([
+  new Promise(resolve => setTimeout(() => resolve(1), Math.random()*1000)),
+  new Promise(resolve => setTimeout(() => resolve(2), Math.random()*1000)),
+  new Promise(resolve => setTimeout(() => resolve(3), Math.random()*1000))
+])
+  .then(result => console.log(result));
+// 1 OR 2 OR 3
+```
+
 ### Error
 
 #### 💠 Properties
