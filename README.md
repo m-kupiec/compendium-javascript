@@ -3492,6 +3492,49 @@ greet('Admin'); // "Hello, Admin"
 greetAdmin(); // "Hello, Admin"
 ```
 
+### Promise
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/promise-api)
+
+#### 💠 `Promise.all`
+
+`Promise.all` allows to execute many promises in parallel until all are resolved or any of them is rejected (if any is rejected, the resulting promise is immediately rejected while remaining source promises operations continue with their results being ignored); it takes an iterable (of promises; or values to be passed "as is" to the resulting promise) and returns a promise which resolves with an array of results from the resolved source promises (in the same order):
+
+```js
+Promise.all([
+  new Promise(resolve => setTimeout(() => resolve(1), 1000)),
+  new Promise(resolve => setTimeout(() => resolve(2), 100)),
+  3,
+  new Promise(resolve => setTimeout(() => resolve(4), 500))
+])
+  .then(resultArray => console.log("1: Resolved!", resultArray));
+// "1: Resolved!" [1, 2, 3, 4]
+
+Promise.all([
+  new Promise(resolve => setTimeout(() => resolve(1), 1000)),
+  new Promise(resolve => setTimeout(() => resolve(2), 100)),
+  new Error(),
+  new Promise(resolve => setTimeout(() => resolve(4), 500))
+])
+  .then(
+    resultArray => console.log("2: Resolved!", resultArray),
+    err => console.log("2: Rejected!", err)
+  );
+// "2: Resolved!" [1, 2, [object Error] { ... }, 4]
+
+Promise.all([
+  new Promise(resolve => setTimeout(() => resolve(1), 1000)),
+  new Promise(resolve => setTimeout(() => resolve(2), 100)),
+  new Promise((resolve, reject) => setTimeout(() => reject(new Error()), 200)),
+  new Promise(resolve => setTimeout(() => resolve(4), 500))
+])
+  .then(
+    resultArray => console.log("3: Resolved!", resultArray),
+    err => console.log("3: Rejected!", err)
+  );
+// "3: Rejected!" [object Error] { ... }
+```
+
 ### Error
 
 #### 💠 Properties
