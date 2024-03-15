@@ -3577,6 +3577,34 @@ Promise.race([
 // 1 OR [object Error] { ... } OR 3
 ```
 
+#### 💠 `Promise.any`
+
+Differs from `Promise.all` in that it either resolves with the first resolved promise while ignoring other results/errors or (if all source promises were rejected) it rejects with `AggregateError` object (stores an array of all the source promises errors in its `errors` property):
+
+```js
+Promise.any([
+  new Promise(resolve => setTimeout(() => resolve(1), Math.random()*1000)),
+  new Promise((resolve, reject) => setTimeout(() => reject(new Error()), Math.random()*1000)),
+  new Promise(resolve => setTimeout(() => resolve(3), Math.random()*1000))
+])
+  .then(
+    result => console.log(result),
+    error => console.log(error)
+   );
+// 1 OR 3
+
+Promise.any([
+  new Promise((resolve, reject) => setTimeout(() => reject(new Error()), Math.random()*1000)),
+  new Promise((resolve, reject) => setTimeout(() => reject(new Error()), Math.random()*1000)),
+  new Promise((resolve, reject) => setTimeout(() => reject(new Error()), Math.random()*1000))
+])
+  .then(
+    result => console.log(result),
+    error => console.log(error.errors)
+   );
+// [[object Error] { ... }, [object Error] { ... }, [object Error] { ... }]
+```
+
 ### Error
 
 #### 💠 Properties
