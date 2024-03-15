@@ -3562,7 +3562,7 @@ Promise.allSettled([
 
 #### 💠 `Promise.race`
 
-Differs from `Promise.all` in that it resolves with the first resolved promise while ignoring other results/errors:
+Differs from `Promise.all` in that it resolves with the first settled (whether resolved or rejected) promise while ignoring other results/errors:
 
 ```js
 Promise.race([
