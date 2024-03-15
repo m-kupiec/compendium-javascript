@@ -1449,7 +1449,7 @@ new Promise(function(resolve, reject) {
 // "Error fixed"
 ```
 
-A "thenable" object (an object containing `then` method) may also be created and returned (which will be treated as a promise):
+A "thenable" object (an object containing `then` method; doesn't need to inherit from Promise) may also be created and returned (which will be treated as a promise):
 
 ```js
 class Thenable {
