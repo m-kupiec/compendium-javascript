@@ -3619,6 +3619,22 @@ new Promise(resolve => resolve("Ok"))
 
 Used when `async`/`await` is not supported but a function must return a promise.
 
+#### 💠 `Promise.reject`
+
+Returns a promise rejected with the given error:
+
+```js
+Promise.reject(new Error())
+  .catch(console.log);
+// [object Error] { ... }
+
+new Promise((resolve, reject) => reject(new Error))
+  .catch(console.log);
+// [object Error] { ... }
+```
+
+Almost never used.
+
 ### Error
 
 #### 💠 Properties
