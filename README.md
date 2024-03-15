@@ -3498,7 +3498,7 @@ greetAdmin(); // "Hello, Admin"
 
 #### 💠 `Promise.all`
 
-`Promise.all` allows to execute many promises in parallel until all are resolved or any of them is rejected (if any is rejected, the resulting promise is immediately rejected while remaining source promises operations continue with their results being ignored); it takes an iterable (of promises; or values to be passed "as is" to the resulting promise) and returns a promise which resolves with an array of results from the resolved source promises (in the same order):
+`Promise.all` allows to execute many promises concurrently until all are resolved or any of them is rejected (if any is rejected, the resulting promise is immediately rejected while remaining source promises operations continue with their results being ignored); it takes an iterable (of promises; or values to be passed "as is" to the resulting promise) and returns a promise which resolves with an array of results from the resolved source promises (in the same order):
 
 ```js
 Promise.all([
