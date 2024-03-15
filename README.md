@@ -1565,6 +1565,11 @@ new Promise((resolve, reject) => reject(new Error()))
 */
 ```
 
+Rules for handling errors:
+- `catch` should be used where/when handling expected errors is possible; unknown errors should be rethrown
+- `catch` may be ommitted if errors cannot be handled
+- `unhandledrejection` (in the browser runtime environment) event handler should be used to inform (users, server) about unhandled errors
+
 ## Functions
 
 ### 💠 Function Declaration
