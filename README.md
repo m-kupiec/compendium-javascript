@@ -3535,6 +3535,31 @@ Promise.all([
 // "3: Rejected!" [object Error] { ... }
 ```
 
+#### 💠 `Promise.allSettled`
+
+`Promise.allSettled` allows to execute many promises concurrently until all are settled (whether resolved or rejected); it takes an iterable (of promises; or values to be passed "as is" to the resulting promise) and returns a promise which resolves with an array of results from the resolved source promises (in the same order); each result in the arrays is an object, `{ status: "fulfilled", value: result }` for each fulfilled promise, or `{ status: "rejected", reason: error }` for each rejected promise:
+
+```js
+Promise.allSettled([
+  new Promise(resolve => resolve(1)),
+  new Promise((resolve, reject) => reject(new Error())),
+  new Promise(resolve => resolve(3))
+])
+  .then(result => console.log(result));
+/*
+[[object Object] {
+  status: "fulfilled",
+  value: 1
+}, [object Object] {
+  reason: [object Error] { ... },
+  status: "rejected"
+}, [object Object] {
+  status: "fulfilled",
+  value: 3
+}]
+*/
+```
+
 ### Error
 
 #### 💠 Properties
