@@ -1449,6 +1449,25 @@ new Promise(function(resolve, reject) {
 // "Error fixed"
 ```
 
+Other scenarions:
+
+```js
+new Promise(resolve => resolve("Ok"))
+  .then(result => { })
+  .then(result => console.log(result));
+// undefined
+
+new Promise(resolve => resolve("Ok"))
+  .then(result => { return 0; })
+  .then(result => console.log(result));
+// 0
+
+new Promise(resolve => resolve("Ok"))
+  .then(result => { return new Promise(resolve => resolve(result)); })
+  .then(result => console.log(result));
+// "Ok"
+```
+
 A "thenable" object (an object containing `then` method; doesn't need to inherit from Promise) may also be created and returned (which will be treated as a promise):
 
 ```js
