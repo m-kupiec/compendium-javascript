@@ -1548,6 +1548,23 @@ new Promise((resolve, reject) => reject(new Error()))
 // "Failure!" "Error"
 ```
 
+If a promise rejection is not handled, a global error occurs which in the browser can be caught using `unhandledrejection` event:
+
+```js
+window.addEventListener('unhandledrejection', (e) => {
+  console.log("Gloabl error occured!", e.promise, e.reason);
+});
+
+new Promise((resolve, reject) => reject(new Error()))
+  .then(() => console.log("Success!"));
+
+/*
+"Gloabl error occured!"
+[object Promise] { ... }
+[object Error] { ... }
+*/
+```
+
 ## Functions
 
 ### 💠 Function Declaration
