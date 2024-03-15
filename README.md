@@ -3607,6 +3607,8 @@ Promise.any([
 
 #### 💠 `Promise.resolve`
 
+Returns a promise resolved with the given result:
+
 ```js
 Promise.resolve("Ok")
   .then(result => console.log(result));
