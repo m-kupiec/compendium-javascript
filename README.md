@@ -1615,6 +1615,51 @@ Promise.resolve().then(() => console.log(3))
 // 1 2 3 4 5
 ```
 
+##### `async`/`await` Syntax
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/async-await)
+
+`async` function always return a promise - values other than a promise are wrapped in a resolved promise:
+
+```js
+async function asyncF() {
+  return "Ok";
+}
+
+asyncF().then(console.log); // "Ok"
+```
+
+`await` pauses the function execution until the promise is settled (whether resolved or rejected) and returns the result/error:
+
+```js
+async function asyncF() {
+  let val = await new Promise(resolve => setTimeout(() => resolve(Math.random() > 0.5 ? new Error() : "Ok!"), 1000));
+  
+  return val;
+}
+
+asyncF().then(console.log); // "Ok" OR [object Error] { ... }
+```
+
+To avoid `SyntaxError`, `await` must be either:
+- placed in an `async` function
+- used at a module top level
+- wrapped into an anonymous `async` function
+
+```js
+// let val = await new Promise(resolve => setTimeout(() => resolve(Math.random() > 0.5 ? new Error() : "Ok!"), 1000));
+// console.log(val);
+
+// SyntaxError: await is only valid in async functions and the top level bodies of modules
+
+(async () => {
+  let val = await new Promise(resolve => setTimeout(() => resolve("Ok!"), 1000));
+  console.log(val);
+})();
+
+// "Ok!"
+```
+
 ## Functions
 
 ### 💠 Function Declaration
