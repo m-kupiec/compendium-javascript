@@ -1633,12 +1633,12 @@ asyncF().then(console.log); // "Ok"
 
 ```js
 async function asyncF() {
-  let val = await new Promise(resolve => setTimeout(() => resolve(Math.random() > 0.5 ? new Error() : "Ok!"), 1000));
+  let val = await new Promise((resolve, reject) => setTimeout(() => Math.random() > 0.5 ? reject(new Error()) : resolve("Ok!"), 1000));
   
   return val;
 }
 
-asyncF().then(console.log); // "Ok" OR [object Error] { ... }
+asyncF().then(console.log, console.log); // "Ok" OR [object Error] { ... }
 ```
 
 To avoid `SyntaxError`, `await` must be either:
@@ -1647,7 +1647,7 @@ To avoid `SyntaxError`, `await` must be either:
 - wrapped into an anonymous `async` function
 
 ```js
-// let val = await new Promise(resolve => setTimeout(() => resolve(Math.random() > 0.5 ? new Error() : "Ok!"), 1000));
+// let val = await new Promise(resolve => setTimeout(() => resolve("Ok!"), 1000));
 // console.log(val);
 
 // SyntaxError: await is only valid in async functions and the top level bodies of modules
