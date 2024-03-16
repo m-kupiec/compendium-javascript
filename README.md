@@ -1660,6 +1660,20 @@ To avoid `SyntaxError`, `await` must be either:
 // "Ok!"
 ```
 
+The syntax also works with classes:
+
+```js
+class Cl {
+  async f() {
+    return await Promise.resolve("Ok!");
+  }
+}
+
+new Cl()
+  .f()
+  .then(console.log); // "Ok!"
+```
+
 ## Functions
 
 ### 💠 Function Declaration
