@@ -1589,6 +1589,30 @@ Rules for handling errors:
 - `catch` may be ommitted if errors cannot be handled
 - `unhandledrejection` (in the browser runtime environment) event handler should be used to inform (users, server) about unhandled errors
 
+##### Microtask Queue
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/microtask-queue)
+
+Asynchronous tasks are placed in the internal `PromiseJobs' queue ("microtask queue" as called in V8) and are executed (in FIFO order) after the engine has already executed the current synchronous code
+
+```js
+Promise.resolve().then(() => console.log(1));
+Promise.resolve().then(() => console.log(2));
+Promise.resolve().then(() => console.log(3));
+console.log(4);
+console.log(5);
+// 4 5 1 2 3
+
+// FIXED ORDER:
+
+Promise.resolve().then(() => console.log(1));
+Promise.resolve().then(() => console.log(2));
+Promise.resolve().then(() => console.log(3))
+  .then(() => console.log(4))
+  .then(() => console.log(5));
+// 1 2 3 4 5
+```
+
 ## Functions
 
 ### 💠 Function Declaration
