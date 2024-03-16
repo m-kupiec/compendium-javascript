@@ -1674,6 +1674,44 @@ new Cl()
   .then(console.log); // "Ok!"
 ```
 
+`await` can be also used with "thenables"
+
+Errors need to be catched (either by `try...catch` or `catch` method)
+
+```js
+class Thenable {
+  then(resolve, reject) {
+    setTimeout(() => {
+      if (Math.random() > 0.5) {
+        reject(new Error("Thenable error"));
+      } else {
+        resolve("Ok!");
+      }
+    }, 100);
+  }
+}
+
+(async () => {
+  try {
+    let val = await new Thenable();
+
+    console.log(val);
+  } catch (err) {
+    console.log(err.message);
+  }
+})();
+
+// "Ok!" OR "Thenable error"
+
+async function f() {
+  return await Promise.reject(new Error("Error happened..."));
+}
+
+f().catch(err => console.log(err.message));
+
+// "Error happened..."
+```
+
 ## Functions
 
 ### 💠 Function Declaration
