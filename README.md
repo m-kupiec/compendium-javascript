@@ -1520,7 +1520,9 @@ new Promise(function(resolve, reject) {
 
 ##### Handling Errors
 
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/promise-error-handling)
+> 📖 [The Modern JavaScript Tutorial: Error handling with promises](https://javascript.info/promise-error-handling)
+>
+> 📖 [The Modern JavaScript Tutorial: Microtasks](https://javascript.info/microtask-queue#unhandled-rejection)
 
 Errors coming from the code of the executor function or the promise handlers are automatically treated as a promise rejection:
 
@@ -1567,7 +1569,7 @@ new Promise((resolve, reject) => reject(new Error()))
 // "Failure!" "Error"
 ```
 
-If a promise rejection is not handled, a global error occurs which in the browser can be caught using `unhandledrejection` event:
+If a promise rejection is not handled, a global error occurs, which can be caught in the browser using the `unhandledrejection` event (which would fire when the microtask queue is empty):
 
 ```js
 window.addEventListener('unhandledrejection', (e) => {
