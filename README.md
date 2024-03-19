@@ -663,7 +663,9 @@ There are three hints (variants of type conversion):
 - `"number"` when using arithmetic operators (except binary plus) or greater/less comparison
 - `"default"` when using binary plus or loose comparison (with a string/number/symbol); implemented for all built-in objects except `Date` in the same way as `"number"`
 
-Firstly, `[Symbol.toPrimitive](hint)` is called (if exists); otherwise, for `"string"` hint, `toString`/`valueOf` is called; or, for `"number"`/`"default"` hint, `valueOf`/`toString` is called
+Firstly, `[Symbol.toPrimitive](hint)` is called (if exists); otherwise, for `"string"` hint, `toString`/`valueOf` (depending on which is found and returns a primitive; `valueOf` returns the calling object itself by default, so then it's ignored) is called; or, for `"number"`/`"default"` hint, `valueOf`/`toString` is called
+
+Using `[Symbol.toPrimitive](hint)`:
 
 ```js
 const obj = {
