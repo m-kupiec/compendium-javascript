@@ -3849,6 +3849,24 @@ console.log(arr.reduce((accumulator, item, index, array) => accumulator += item.
 console.log(arr.reduceRight((accumulator, item, index, array) => accumulator += item.a, 100)); // 106
 ```
 
+### Map
+
+#### 💠 Map/Iterable Conversion
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/map-set#iteration-over-map)
+
+`Map.prototype.keys`, `Map.prototype.values`, and `Map.prototype.entries` can be used to get an iterable from a map:
+
+```js
+const map = new Map()
+  .set(1, 'a')
+  .set(2, 'b');
+
+console.log(...map.keys()); // 1 2
+console.log(...map.values()); // "a" "b"
+console.log(...map.entries()); // [1, "a"] [2, "b"]
+```
+
 ### Math
 
 #### 💠 Rounding to Integer
