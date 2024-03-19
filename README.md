@@ -4344,6 +4344,57 @@ JavaScript engines can use the following algorithms to release/clear memory:
 - Reference counting (counts references stored in the stack; releses allocated memory when the count is zero)
 - Mark-and-sweep (starts from the global object traversing all variables and marking the reachable ones; unmarked variables are garbage collected during the sweep phase)
 
+#### 💠 Memory Issues
+
+> 📖 [Codecademy | Learn Intermediate JavaScript](https://www.codecademy.com/courses/learn-intermediate-javascript/articles/javascript-intro-to-memory-management)
+
+##### Memory Leak
+
+Occurs when when unneeded memory persists
+
+###### Improper use of closure
+
+```js
+function f() {
+  const obj = {};
+  objRef = obj;
+  
+  return (key, value) => obj[key] = value;
+}
+
+let objRef;
+let fClient = f();
+
+Array(5).fill(null).map((el, i) => fClient(Math.random(), el));
+console.log(objRef);
+/*
+[object Object] {
+  0.015052069172389881: null,
+  0.13197042074765353: null,
+  0.3760346483058761: null,
+  0.7320972499204941: null,
+  0.7908977615944583: null
+}
+*/
+
+Array(5).fill(null).map((el, i) => fClient(Math.random(), el));
+console.log(objRef);
+/*
+[object Object] {
+  0.015052069172389881: null,
+  0.13197042074765353: null,
+  0.13960590007031048: null,
+  0.3760346483058761: null,
+  0.44942327222905365: null,
+  0.4809711814293085: null,
+  0.5490505986665013: null,
+  0.5692808372579412: null,
+  0.7320972499204941: null,
+  0.7908977615944583: null
+}
+*/
+```
+
 ## Miscellaneous
 
 ### 💠 ES5 & 'use strict'
