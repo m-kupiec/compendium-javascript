@@ -873,6 +873,69 @@ while (true) {
 // "a" "b" "c"
 ```
 
+#### Map
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/map-set)
+
+Is a keyed collection that allows keys of any type
+
+Creation syntax:
+
+```js
+const map1 = new Map()
+  .set(1, 'a')
+  .set(2, 'b');
+const map2 = new Map([
+  [1, 'a'],
+  [2, 'b']
+]);
+const map3 = new Map(Object.entries({
+  '1': 'a',
+  '2': 'b'
+}));
+
+for (let entry of map1) console.log(`map1: ${entry}`);
+/*
+"map1: 1,a"
+"map1: 2,b"
+*/
+for (let entry of map2) console.log(`map2: ${entry}`);
+/*
+"map2: 1,a"
+"map2: 2,b"
+*/
+for (let entry of map3) console.log(`map3: ${entry}`);
+/*
+"map2: 1,a"
+"map2: 2,b"
+*/
+```
+
+Available methods and properties:
+
+```js
+const obj = {
+  a: 1,
+  b: 2
+};
+
+const map = new Map();
+
+map.set(obj, 3)
+  .set(NaN, 4)
+  .set(obj, 5);
+console.log(map.size); // 2
+console.log(map.has(obj)); // true
+console.log(map.get(obj)); // 5
+console.log(map[obj]); // undefined
+
+map.delete(obj);
+console.log(map.has(obj)); // false
+
+map.clear();
+console.log(map.size); // 0
+```
+
 ## Basic Operators
 
 > 📖 [The Modern JavaScript Tutorial: Basic operators, maths](https://javascript.info/operators)
