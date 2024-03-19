@@ -711,6 +711,21 @@ console.log([...[1, 2, 3]]); // [1, 2, 3]
 console.log([...[1, 2], 3, ...[4, 5]]); // [1, 2, 3, 4, 5]
 ```
 
+#### Array-Like Object
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/iterable#array-like)
+
+Array-like object has numeric indices and `length` property
+
+```js
+const arrayLike = {
+  0: 'a',
+  1: 'b',
+  2: 'c',
+  length: 3
+};
+```
+
 #### Iterable Object
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/iterable)
