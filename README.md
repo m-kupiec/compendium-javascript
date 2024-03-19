@@ -942,7 +942,9 @@ console.log(map.size); // 0
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/map-set)
 
-Is a set of unique values
+Is a collection of unique values
+
+Preserves value insertion order
 
 Creation syntax and iteration using `for...of`:
 
