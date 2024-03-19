@@ -938,6 +938,65 @@ map.clear();
 console.log(map.size); // 0
 ```
 
+#### Set
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/map-set)
+
+Is a set of unique values
+
+Creation syntax:
+
+```js
+const set1 = new Set()
+  .add(1)
+  .add(2)
+  .add(2);
+const set2 = new Set([1, 2, 2]);
+
+console.log(...set1); // 1 2
+console.log(...set2); // 1 2
+```
+
+Some methods and properties:
+
+```js
+const set = new Set([1, 2, 3]);
+
+console.log(set.size); // 3
+console.log(set.has(1)); // true
+
+set.delete(1);
+console.log(set.has(1)); // false
+console.log(set.size); // 2
+
+set.clear();
+console.log(set.size); // 0
+```
+
+Working with objects:
+
+```js
+const obj = {b: 2};
+const set = new Set()
+  .add({a: 1})
+  .add({a: 1})
+  .add(obj)
+  .add(obj);
+
+console.log(...set);
+/*
+[object Object] {
+  a: 1
+}
+[object Object] {
+  a: 1
+}
+[object Object] {
+  b: 2
+}
+*/
+```
+
 ## Basic Operators
 
 > 📖 [The Modern JavaScript Tutorial: Basic operators, maths](https://javascript.info/operators)
