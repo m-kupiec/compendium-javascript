@@ -4319,6 +4319,31 @@ Used for dynamic memory allocation at runtime
 
 Size of the stored data is unknown (e.g. objects, functions)
 
+#### 💠 Memory Life Cycle
+
+> 📖 [Codecademy | Learn Intermediate JavaScript](https://www.codecademy.com/courses/learn-intermediate-javascript/articles/javascript-intro-to-memory-management)
+
+##### Memory Allocation
+
+Memory is allocated on:
+- Variable declaration or assignment
+- Object property declaration or assignment
+- Function declaration
+- Function call
+
+##### Memory in Use
+
+Memory is used when reading or writing the allocated memory:
+- Variable reassignment
+- Using variables
+- Passing arguments to functions
+
+##### Garbage Collection
+
+JavaScript engines can use the following algorithms to release/clear memory:
+- Reference counting (counts references stored in the stack; releses allocated memory when the count is zero)
+- Mark-and-sweep (starts from the global object traversing all variables and marking the reachable ones; unmarked variables are garbage collected during the sweep phase)
+
 ## Miscellaneous
 
 ### 💠 ES5 & 'use strict'
