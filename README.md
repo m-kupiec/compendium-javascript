@@ -9,6 +9,7 @@
 - [Classes](#classes)
 - [Scope](#scope)
 - [Built-In Objects](#built-in-objects)
+- [Internal Mechanics](#internal-mechanics)
 - [Miscellaneous](#miscellaneous)
 - [Programming](#programming)
 - [Runtime Environments](#runtime-environments)
@@ -4295,6 +4296,28 @@ const err = new MyParticularError("Something went wrong...");
 
 console.log(err.name, err.message); // "MyParticularError" "Something went wrong..."
 ```
+
+## Internal Mechanics
+
+### Memory Management
+
+#### 💠 Memory Data Structures
+
+> 📖 [Codecademy | Learn JavaScript](https://www.codecademy.com/courses/learn-intermediate-javascript/articles/javascript-intro-to-memory-management)
+
+##### The Stack
+
+Used for static storage
+
+Size of the data type is known when the code is compiled and a fixed amount of memory is reserved for it
+
+Stores primitive values, references to non-primitive values, and function call frames
+
+##### The Heap
+
+Used for dynamic memory allocation at runtime
+
+Size of the stored data is unknown (e.g. objects, functions)
 
 ## Miscellaneous
 
