@@ -711,6 +711,69 @@ console.log([...[1, 2, 3]]); // [1, 2, 3]
 console.log([...[1, 2], 3, ...[4, 5]]); // [1, 2, 3, 4, 5]
 ```
 
+#### Iterable Object
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/iterable)
+
+Iterables can be looped over using `for...of`
+
+Arrays and string are iterable
+
+To make an object iterable:
+- Add `Symbol.iterator` method
+- `Symbol.iterator` method must return an iterator object with the `next` method
+- `next` method must return an object in the following form: `{done: Boolean, value: nextValue}`
+
+```js
+const iterable = {
+  start: 100,
+  finish: 110,
+  
+  [Symbol.iterator]() {
+    return {
+      nextValue: this.start,
+      endValue: this.finish,
+      
+      next() {
+        if (this.nextValue > this.endValue) {
+          return {
+            done: true
+          }
+        } else {
+          return {
+            done: false,
+            value: this.nextValue++
+          }
+        }
+      }
+    }
+  }
+};
+
+for (let el of iterable) {
+  console.log(el)
+}
+
+// 100 101 102 103 104 105 106 107 108 109 110
+```
+
+Iterator can be used explicitly:
+
+```js
+const string = "abc";
+
+const iterator = string[Symbol.iterator]();
+
+while (true) {
+  let result = iterator.next();
+  
+  if (result.done) break;
+  console.log(result.value);
+}
+
+// "a" "b" "c"
+```
+
 ## Basic Operators
 
 > 📖 [The Modern JavaScript Tutorial: Basic operators, maths](https://javascript.info/operators)
