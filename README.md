@@ -944,7 +944,7 @@ console.log(map.size); // 0
 
 Is a set of unique values
 
-Creation syntax:
+Creation syntax and iteration using `for...of`:
 
 ```js
 const set1 = new Set()
@@ -955,6 +955,8 @@ const set2 = new Set([1, 2, 2]);
 
 console.log(...set1); // 1 2
 console.log(...set2); // 1 2
+
+for (let value of set1) console.log(value); // 1 2
 ```
 
 Some methods and properties:
