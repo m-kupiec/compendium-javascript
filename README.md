@@ -3855,7 +3855,7 @@ console.log(arr.reduceRight((accumulator, item, index, array) => accumulator += 
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/map-set#iteration-over-map)
 
-`Map.prototype.keys`, `Map.prototype.values`, and `Map.prototype.entries` can be used to get an iterable from a map:
+`Map.prototype.keys`, `Map.prototype.values`, and `Map.prototype.entries` can be used to get an iterable from a map (map insertion order is preserved):
 
 ```js
 const map = new Map()
@@ -3865,6 +3865,24 @@ const map = new Map()
 console.log(...map.keys()); // 1 2
 console.log(...map.values()); // "a" "b"
 console.log(...map.entries()); // [1, "a"] [2, "b"]
+```
+
+#### 💠 Iterating Over Map
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/map-set#iteration-over-map)
+
+`Map.prototype.forEach` can be used to iterate over a map (map insertion order is preserved):
+
+```js
+const map1 = new Map()
+  .set(1, 'a')
+  .set(2, 'b');
+
+map1.forEach((value, key, map) => console.log(`${key}: ${value}`));
+/*
+"1: a"
+"2: b"
+*/
 ```
 
 ### Math
