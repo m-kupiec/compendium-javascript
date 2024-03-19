@@ -879,6 +879,8 @@ while (true) {
 
 Is a keyed collection that allows keys of any type
 
+Preserves entry insertion order
+
 Creation syntax:
 
 ```js
