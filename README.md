@@ -797,9 +797,29 @@ while (true) {
 > 
 > 📖 [The Modern JavaScript Tutorial: Object references and copying](https://javascript.info/object-copy)
 >
+> 📖 [The Modern JavaScript Tutorial: Object to primitive conversion](https://javascript.info/object-toprimitive)
+>
 > 📖 [The Modern JavaScript Tutorial: Strings](https://javascript.info/string#comparing-strings)
 >
 > 📖 [The Modern JavaScript Tutorial: Arrays](https://javascript.info/array)
+
+### 💠 Arithmetic Operators
+
+When used with objects, these objects are converted to primitive values:
+
+```js
+const obj1 = {
+  a: 1,
+  b: 2
+};
+const obj2 = {
+  c: 3,
+  d: 4
+};
+
+console.log(obj1 + obj2); // "[object Object][object Object]"
+console.log(+obj1 + +obj2); // NaN
+```
 
 ### 💠 Comma
 
