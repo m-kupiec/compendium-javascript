@@ -730,7 +730,7 @@ const arrayLike = {
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/iterable)
 
-Iterables can be looped over using `for...of`
+Iterables can be looped over using `for...of` and work with spread `...` syntax (while array-likes cannot)
 
 Arrays and string are iterable
 
