@@ -3948,6 +3948,40 @@ map1.forEach((value, key, map) => console.log(`${key}: ${value}`));
 */
 ```
 
+### Set
+
+#### 💠 Set/Iterable Conversion
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/map-set#iteration-over-set)
+
+`Set.prototype.keys`, `Set.prototype.values`, and `Set.prototype.entries` can be used to get an iterable from a set (set insertion order is preserved); they work in a way that preserves compatibility with the corresponding `Map.prototype` methods:
+
+```js
+const set = new Set()
+  .add(2)
+  .add(3)
+  .add(1);
+
+console.log(...set.keys()); // 2 3 1
+console.log(...set.values()); // 2 3 1
+console.log(...set.entries()); // [2, 2] [3, 3] [1, 1]
+```
+
+#### 💠 Iterating Over Set
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/map-set#iteration-over-set)
+
+`Set.prototype.forEach` can be used to iterate over a set (set insertion order is preserved); it works in a way that preserves compatibility with the corresponding `Map.prototype` method:
+
+```js
+const set1 = new Set()
+  .add(2)
+  .add(3)
+  .add(1);
+
+set1.forEach((value, valueAgain, set) => console.log(value)); // 2 3 1
+```
+
 ### Math
 
 #### 💠 Rounding to Integer
