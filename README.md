@@ -938,6 +938,19 @@ map.clear();
 console.log(map.size); // 0
 ```
 
+Destructuring a map:
+
+```js
+const map = new Map()
+  .set(3, "Three")
+  .set(1, "One")
+  .set(2, "Two");
+
+const [d, e, f] = map;
+
+console.log(d, e, f); // [3, "Three"] [1, "One"] [2, "Two"]
+```
+
 #### Set
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/map-set)
