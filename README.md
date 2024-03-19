@@ -598,6 +598,8 @@ When `typeof` is not sufficient, `Object.prototype.toString` can display the typ
 > 
 > 📖 [The Modern JavaScript Tutorial: Basic operators, maths](https://javascript.info/operators)
 >
+> 📖 [The Modern JavaScript Tutorial: Object to primitive conversion](https://javascript.info/object-toprimitive)
+>
 > 📖 [The Modern JavaScript Tutorial: Arrays](https://javascript.info/array)
 
 ##### String
@@ -653,6 +655,46 @@ Rules:
 - `null` is converted to `false`
 - `undefined` is converted to `false`
 - Objects are not converted to boolean but are always `true`
+
+##### Object-to-Primitive Conversion
+
+There are three hints (variants of type conversion):
+- `"string"` when doing operations that expect string (e.g. alert, obj[indexingObj])
+- `"number"` when using arithmetic operators (except binary plus) or greater/less comparison
+- `"default"` when using binary plus or loose comparison (with a string/number/symbol); implemented for all built-in objects except `Date` in the same way as `"number"`
+
+Firstly, `[Symbol.toPrimitive](hint)` is called (if exists); otherwise, for `"string"` hint, `toString`/`valueOf` is called; or, for `"number"`/`"default"` hint, `valueOf`/`toString` is called
+
+```js
+const obj = {
+  a: 'Aaa',
+  b: 100,
+  Aaa: "!",
+  
+  [Symbol.toPrimitive](hint) {
+    console.log(hint);
+    return hint == "string" ? this.a : this.b;
+  }
+};
+
+console.log(obj[obj]);
+/*
+"string"
+"!"
+*/
+
+console.log(obj - 1);
+/*
+"number"
+99
+*/
+
+console.log(obj + " USD");
+/*
+"default"
+"100 USD"
+*/
+```
 
 ##### Type-Coercion Side-Effect
 
