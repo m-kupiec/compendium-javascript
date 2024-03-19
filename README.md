@@ -3395,6 +3395,47 @@ console.log(Object.values(obj2)); // [2]
 console.log(Object.entries(obj2)); // [["b", 2]]
 ```
 
+#### 💠 Object/Map Conversion
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/map-set)
+
+`Object.entries` can be used to convert a plain object to a map:
+
+```js
+const map = new Map(Object.entries({
+  '1': 'a',
+  '2': 'b'
+}));
+
+for (let entry of map) console.log(`map: ${entry}`);
+/*
+"map: 1,a"
+"map: 2,b"
+*/
+```
+
+`Object.fromEntries` (with or without `Map.prototype.entries`) can be used to convert a map to a plain object:
+
+```js
+const map = new Map()
+  .set(1, 'a')
+  .set(2, 'b');
+
+const obj1 = Object.fromEntries(map.entries());
+const obj2 = Object.fromEntries(map);
+      
+for (let key in obj1) console.log(`${key}: ${obj1[key]}`);
+/*
+"1: a"
+"2: b"
+*/
+for (let key in obj2) console.log(`${key}: ${obj2[key]}`);
+/*
+"1: a"
+"2: b"
+*/
+```
+
 #### 💠 Working With Object `[[Prototype]]` Property
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/prototype-methods)
