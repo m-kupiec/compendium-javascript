@@ -881,7 +881,7 @@ Is a keyed collection that allows keys of any type
 
 Preserves entry insertion order
 
-Creation syntax:
+Creation syntax and iteration using `for...of`:
 
 ```js
 const map1 = new Map()
