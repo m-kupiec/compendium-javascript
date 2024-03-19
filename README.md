@@ -4303,7 +4303,7 @@ console.log(err.name, err.message); // "MyParticularError" "Something went wrong
 
 #### 💠 Memory Data Structures
 
-> 📖 [Codecademy | Learn JavaScript](https://www.codecademy.com/courses/learn-intermediate-javascript/articles/javascript-intro-to-memory-management)
+> 📖 [Codecademy | Learn Intermediate JavaScript](https://www.codecademy.com/courses/learn-intermediate-javascript/articles/javascript-intro-to-memory-management)
 
 ##### The Stack
 
