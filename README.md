@@ -1014,6 +1014,19 @@ console.log(...set);
 */
 ```
 
+Destructuring a set:
+
+```js
+const set = new Set()
+  .add(2)
+  .add(3)
+  .add(1);
+
+const [a, b, c] = set;
+
+console.log(a, b, c); // 2 3 1
+```
+
 ## Basic Operators
 
 > 📖 [The Modern JavaScript Tutorial: Basic operators, maths](https://javascript.info/operators)
