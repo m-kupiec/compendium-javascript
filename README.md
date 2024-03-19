@@ -3540,6 +3540,45 @@ console.log([NaN].indexOf(NaN)); // -1 (doesn't work for NaN)
 console.log([NaN].includes(NaN)); // true (works for NaN)
 ```
 
+#### 💠 Converting to Array
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/iterable#array-from)
+
+`Array.from` allows to make an array (shallow copy) from an iterable or array-like object:
+
+```js
+const arrayLike = {
+  0: 'a',
+  1: {
+    0: 'b1',
+    1: 'b2'
+  },
+  2: 'c',
+  length: 3
+};
+
+console.log(arrayLike);
+/*
+[object Object] {
+  0: "a",
+  1: [object Object] {
+    0: "b1",
+    1: "b2"
+  },
+  2: "c",
+  length: 3
+}
+*/
+
+console.log(Array.from(arrayLike));
+/*
+["a", [object Object] {
+  0: "b1",
+  1: "b2"
+}, "c"]
+*/
+```
+
 #### 💠 Array/String Conversion
 
 > 📖 [The Modern JavaScript Tutorial: Array](https://javascript.info/array#tostring)
