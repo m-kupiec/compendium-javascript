@@ -388,6 +388,21 @@ Copying a variable assigned to an object copies the reference
 
 Objects declared with `const` can be modified since `const` applies to the reference
 
+```js
+let sourceObj = { a: 1 };
+
+let arr = [sourceObj];
+let obj = sourceObj;
+console.log(sourceObj === arr[0]); // true
+console.log(sourceObj === obj); // true
+
+sourceObj = null;
+console.log(sourceObj === arr[0]); // false
+console.log(sourceObj === obj); // false
+console.log(arr[0]); // [object Object] { a: 1 }
+console.log(obj); // [object Object] { a: 1 }
+```
+
 ##### 💠 Copying
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/rest-parameters-spread#copy-an-array-object)
