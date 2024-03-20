@@ -384,7 +384,7 @@ for (let key in obj2) {
 
 Variable assigned to an object stores its reference not the object itself
 
-Copying a variable assigne to an object copies the reference
+Copying a variable assigned to an object copies the reference
 
 Objects declared with `const` can be modified since `const` applies to the reference
 
