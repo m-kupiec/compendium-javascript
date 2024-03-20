@@ -4297,6 +4297,14 @@ const err = new MyParticularError("Something went wrong...");
 console.log(err.name, err.message); // "MyParticularError" "Something went wrong..."
 ```
 
+#### 💠 Built-In `Error` Subclasses
+
+```js
+console.log(new SyntaxError() instanceof Error); // true
+console.log(new TypeError() instanceof Error); // true
+console.log(new ReferenceError() instanceof Error); // true
+```
+
 ## Internal Mechanics
 
 ### Memory Management
