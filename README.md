@@ -4352,7 +4352,7 @@ JavaScript engines can use the following algorithms to release/clear memory:
 
 Occurs when when unneeded memory persists
 
-###### Improper use of closure
+###### Improper Use of Closure
 
 ```js
 function f() {
@@ -4394,6 +4394,35 @@ console.log(objRef);
 }
 */
 ```
+
+###### Improper Use of Scheduling Functions
+
+The callback function and its outer variables are kept in memory until the scheduling is cleared using `clearTimeout`/`clearInterval`
+
+###### Improper Use of Event Listeners
+
+Anonymous functions used in event listeners can be the cause of momory leaks in certain cases
+
+###### Circular References
+
+If a browser uses reference counting algorithm for garbage collection, circular references can cause memory leaks
+
+##### Global Scope Variables
+
+```js
+function f() {
+  a = 1;
+  this.b = 2;
+}
+
+f();
+
+console.log(window.a, window.b); // 1 2
+```
+
+##### Frequent Garbage Collection
+
+High object churn can slow down application execution due to frequent garbage collection; object pool design pattern may be used to improve performance
 
 ## Miscellaneous
 
