@@ -4334,7 +4334,7 @@ Used for static storage
 
 Size of the data type is known when the code is compiled and a fixed amount of memory is reserved for it
 
-Stores primitive values, references to non-primitive values, and function call frames
+Stores primitive values, references to non-primitive values, and function call frames (in the LIFO order)
 
 ##### The Heap
 
