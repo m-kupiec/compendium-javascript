@@ -4327,20 +4327,20 @@ console.log(new ReferenceError() instanceof Error); // true
 #### 💠 Memory Data Structures
 
 > 📖 [Codecademy | Learn Intermediate JavaScript](https://www.codecademy.com/courses/learn-intermediate-javascript/articles/javascript-intro-to-memory-management)
+>
+> 📖 [Codedamn | Memory Management in JavaScript – Complete guide](https://codedamn.com/news/javascript/memory-management-complete-guide)
 
 ##### The Stack
 
-Used for static storage
+Used for static memory allocation - size of the data type (primitive data types) is known at compile time and a fixed amount of memory is reserved for it
 
-Size of the data type is known when the code is compiled and a fixed amount of memory is reserved for it
-
-Stores primitive values, references to non-primitive values, and function call frames (in the LIFO order)
+Stores (in the LIFO order) primitive values, references to non-primitive values, and function call frames
 
 ##### The Heap
 
 Used for dynamic memory allocation at runtime
 
-Size of the stored data is unknown (e.g. objects, functions)
+Size of the stored data is unknown at compile time or may change during runtime (e.g. objects, functions, arrays)
 
 #### 💠 Memory Life Cycle
 
