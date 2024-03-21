@@ -2962,7 +2962,7 @@ console.log(c instanceof C); // true
 
 #### Static Methods
 
-Static methods are such that do not belong to particular class objects but rather to the whole class itself:
+Static methods are such that do not belong to particular class objects but rather to the whole class itself (are not available in particular instances of the class but rather are called from the class itself):
 
 ```js
 class Abc {
