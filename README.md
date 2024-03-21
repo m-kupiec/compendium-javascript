@@ -1651,7 +1651,7 @@ The promise is either pending or settled; The object returned by the promise con
 
 Consuming functions can be registered using `then` and `catch` methods
 
-`then` receives two callbacks as its arguments - the first callback receives the result if the promise was resolved while the second callback receives the error if the promise was rejected
+`then` receives two callbacks as its arguments - the first callback (success handler, `onFulfilled`) receives the result if the promise was resolved while the second callback (failure handler, `onRejected`) receives the error if the promise was rejected
 
 ```js
 const promise = new Promise(function(resolve, reject) {
@@ -1790,6 +1790,8 @@ promise.then(result => console.log(result));
 ##### Promise Chaining
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/promise-chaining)
+
+AKA promise composition
 
 Handler used in `then` may craate and return a promise:
 
