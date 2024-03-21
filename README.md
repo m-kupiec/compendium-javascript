@@ -47,12 +47,20 @@ var a = 2;
 console.log(a); // 2
 ```
 
-`var` declarations (without the assignment) are hoisted (raised) to the top of the function or global script:
+`var` declarations (but not assignments without decalration) are hoisted (without the assignment) to the top of the function or global script:
 
 ```js
-console.log(a); // undefined (declared but not yet assigned)
+// console.log(a); // ReferenceError: a is not defined
+a = 1;
+console.log(a); // 1
 
-var a = 1;
+console.log(b); // undefined (declared but not yet assigned)
+var b = 2;
+console.log(b); // 2
+
+// console.log(c); // ReferenceError: Cannot access 'c' before initialization
+let c = 3;
+console.log(c); // 3
 ```
 
 #### 💠 Naming
