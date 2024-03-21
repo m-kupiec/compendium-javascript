@@ -4322,6 +4322,33 @@ console.log(new ReferenceError() instanceof Error); // true
 
 ## Internal Mechanics
 
+### Process/Execution Management
+
+#### 💠 Event Loop
+
+> 📖 [Codecademy | Learn Intermediate JavaScript](https://www.codecademy.com/courses/learn-intermediate-javascript/articles/javascript-concurrency-model-and-event-loop)
+>
+> 📖 [Felix Gerschau | JavaScript Event Loop And Call Stack Explained](https://felixgerschau.com/javascript-event-loop-call-stack/)
+
+JavaScript is single-threaded; the Event Loop (which is a code execution management system) allows to emulate concurrency:
+1. Memory Heap and Call Stack (parts of JavaScript engine) interact with Node.js or Web APIs
+2. Node.js or Web APIs send tasks to the Event Queue
+3. Event Loop manages sending tasks from the Event Queue to the Call Stack in the FIFO order
+
+`PromiseJobs` queue ("microtask queue" as called in V8) has higher priority than the callback queue:
+
+```js
+console.log(1);
+
+setTimeout(() => console.log(2));
+
+Promise.resolve(3).then(console.log);
+
+console.log(4);
+
+// 1 4 3 2
+```
+
 ### Memory Management
 
 #### 💠 Memory Data Structures
