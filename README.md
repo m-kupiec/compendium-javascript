@@ -1980,6 +1980,8 @@ Promise.resolve().then(() => console.log(3))
 ##### `async`/`await` Syntax
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/async-await)
+>
+> 📖 [Codecademy | Learn Intermediate JavaScript](https://www.codecademy.com/courses/learn-intermediate-javascript/lessons/async-await/exercises/multiple-awaits)
 
 `async` function always return a promise - values other than a promise are wrapped in a resolved promise:
 
@@ -2072,6 +2074,24 @@ async function f() {
 f().catch(err => console.log(err.message));
 
 // "Error happened..."
+```
+
+Chained promises look like this:
+
+```js
+// USING 'THEN' METHOD:
+new Promise(resolve => resolve("Ok!"))
+  .then(result => { return new Promise(resolve => resolve (result)) })
+  .then(result => console.log(result));
+// "Ok!"
+
+// USING ASYNC/AWAIT SYNTAX:
+(async () => {
+  const result1 = await new Promise(resolve => resolve("Ok!"));
+  const result2 = await new Promise(resolve => resolve(result1));
+  console.log(result2);
+})();
+// "Ok!"
 ```
 
 ## Functions
