@@ -4383,6 +4383,21 @@ console.log(b); // ReferenceError: Cannot access 'b' before initialization
 let b = 2;
 ```
 
+Functions declared by function expressions follow the same rules as variables:
+
+```js
+console.log(typeof f1); // "function"
+function f1() {}
+
+// console.log(typeof f2); // ReferenceError: Cannot access 'f2' before initialization
+const f2 = function() {};
+console.log(typeof f2); // "function"
+
+// console.log(typeof f3); // ReferenceError: Cannot access 'f3' before initialization
+const f3 = () => {};
+console.log(typeof f3); // "function"
+```
+
 #### 💠 Execution Context
 
 > 📖 [Codecademy | Learn Intermediate JavaScript](https://www.codecademy.com/courses/learn-intermediate-javascript/articles/javascript-concurrency-model-and-event-loop)
