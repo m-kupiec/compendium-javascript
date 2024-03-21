@@ -4324,6 +4324,22 @@ console.log(new ReferenceError() instanceof Error); // true
 
 ### Process/Execution Management
 
+#### 💠 Execution Context
+
+> 📖 [Codecademy | Learn Intermediate JavaScript](https://www.codecademy.com/courses/learn-intermediate-javascript/articles/javascript-concurrency-model-and-event-loop)
+>
+> 📖 [Felix Gerschau | JavaScript Event Loop And Call Stack Explained](https://felixgerschau.com/javascript-event-loop-call-stack/)
+>
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/recursion#the-execution-context-and-stack)
+
+AKA execution context stack
+
+Execution context data structure stores information about a given function call, including:
+- current place in the control flow
+- current variables, value of `this`
+
+Nested execution contexts are stored in the call stack (LIFO order) as frames
+
 #### 💠 Event Loop
 
 > 📖 [Codecademy | Learn Intermediate JavaScript](https://www.codecademy.com/courses/learn-intermediate-javascript/articles/javascript-concurrency-model-and-event-loop)
