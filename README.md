@@ -2925,6 +2925,45 @@ class C extends B {
 (new C()).f(); // "C" "f: C" "C2"
 ```
 
+#### Limitations of `super` and `this`
+
+```js
+class A {
+  a = 1;
+
+  constructor() {
+    this.b = 2;
+  }
+
+  f() {
+    console.log(this.a, this.b); // 1, 2
+  }
+};
+
+class B extends A {
+  f() {
+    console.log(super.a); // undefined (not a [[Prototype]] property)
+    console.log(super.b); // undefined (not a [[Prototype]] property)
+    console.log(this.a); // 1 (an instance property)
+    console.log(this.b); // 2 (an instance property)
+  }
+  
+  static g() {
+    console.log(super.a); // undefined (not a [[Prototype]] property)
+    console.log(super.b); // undefined (not a [[Prototype]] property)
+    console.log(this.a); // undefined (not accessible in a static context)
+    console.log(this.b); // undefined (not accessible in a static context)
+  }
+};
+
+const objA = new A();
+const objB = new B();
+
+objA.f(); 
+objB.f();
+B.g();
+```
+
 #### Checking Class Instance
 
 `instanceof` operator take inheritance into account:
