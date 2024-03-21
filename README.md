@@ -4543,6 +4543,24 @@ console.log(a); // 1
 
 Makes the function visible only within the block scope in which it was declared
 
+```js
+if (true) {
+  function f() {}
+}
+
+console.log(typeof f); // "function"
+```
+
+```js
+"use strict";
+
+if (true) {
+  function f() {}
+}
+
+console.log(typeof f); // undefined
+```
+
 ##### this Value
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/object-methods#this-is-not-bound)
