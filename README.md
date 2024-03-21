@@ -3055,6 +3055,8 @@ Private fields names are prefixed with `#`; `this['#fieldName']` syntax is not s
 > 📖 [The Modern JavaScript Tutorial: Variable scope, closure](https://javascript.info/closure)
 >
 > 📖 [The Modern JavaScript Tutorial: The old "var"](https://javascript.info/var)
+>
+> 📖 [Felix Gerschau | JavaScript's Memory Management Explained](https://felixgerschau.com/javascript-memory-management/#global-variables)
 
 ### 💠 Global/Block/Function Scope
 
@@ -3080,6 +3082,38 @@ function f() {
 
 f(); // 0
 // console.log(a); // ReferenceError: a is not defined
+```
+
+Function declarations (i.e. using  `function` keyword) and variable declarations using `var` or no keyword will result in adding the function/variable to the global object:
+
+```js
+// Browser runtime environment
+
+let a = 1;
+console.log(window.a); // undefined
+
+var b = 2;
+c = 3;
+console.log(window.b); // 2
+console.log(window.c); // 3
+
+function fAbc() {}
+console.log(window.fAbc === fAbc); // true
+```
+
+```js
+// Node.js runtime environment
+
+let a = 1;
+console.log(global.a); // undefined
+
+var b = 2;
+c = 3;
+console.log(global.b); // 2
+console.log(global.c); // 3
+
+function fAbc() {}
+console.log(global.fAbc === fAbc); // true
 ```
 
 ### 💠 Lexical Environment
