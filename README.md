@@ -4539,10 +4539,25 @@ Prevents accidental creation of global variables when assigning value without de
 ```js
 function f() {
   a = 1;
+  var b = 2;
 }
 
 f();
 console.log(a); // 1
+// console.log(b); // ReferenceError: b is not defined
+```
+
+```js
+"use strict";
+
+function f() {
+  a = 1;
+  var b = 2;
+}
+
+f();
+// console.log(a); // ReferenceError: a is not defined
+// console.log(b); // ReferenceError: b is not defined
 ```
 
 ##### Function Declaration
