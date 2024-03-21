@@ -4532,6 +4532,14 @@ Forces variable declaration, as it's possible to simply assign a value without a
 
 ```js
 a = 1;
+console.log(a); // 1
+```
+
+```js
+"use strict";
+
+a = 1;
+console.log(a); // ReferenceError: a is not defined
 ```
 
 Prevents accidental creation of global variables when assigning value without declaration inside a function that is called afterwards:
