@@ -4324,6 +4324,10 @@ console.log(new ReferenceError() instanceof Error); // true
 
 ### Process/Execution Management
 
+#### 💠 Hoisting
+
+> 📖 [Codecademy | Learn Intermediate JavaScript](https://www.codecademy.com/courses/learn-intermediate-javascript/articles/javascript-hoisting)
+
 #### 💠 Execution Context
 
 > 📖 [Codecademy | Learn Intermediate JavaScript](https://www.codecademy.com/courses/learn-intermediate-javascript/articles/javascript-concurrency-model-and-event-loop)
