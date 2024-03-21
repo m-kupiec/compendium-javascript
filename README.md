@@ -4328,6 +4328,10 @@ console.log(new ReferenceError() instanceof Error); // true
 
 > 📖 [Codecademy | Learn Intermediate JavaScript](https://www.codecademy.com/courses/learn-intermediate-javascript/articles/javascript-hoisting)
 
+At compile time the engine allocase memory by hoisting variable and function declarations to the top of their corresponding scopes
+
+Functions are initialized immediately while variable assignments are done in-place
+
 #### 💠 Execution Context
 
 > 📖 [Codecademy | Learn Intermediate JavaScript](https://www.codecademy.com/courses/learn-intermediate-javascript/articles/javascript-concurrency-model-and-event-loop)
