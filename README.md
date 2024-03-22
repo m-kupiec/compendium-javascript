@@ -991,7 +991,7 @@ console.log(weakMap); // [object WeakMap] { ... }
 
 A key is removed from the WeakMap and memmory when there's no reference to it
 
-Doesn't support iteration nor `keys`/`values`/`entries` methods - it's not possible to list all its keys/values
+Doesn't support `clear`/`size` nor iteration nor `keys`/`values`/`entries` methods - it's not possible to list all its keys/values
 
 Supports only `set`/`get`/`delete`/`has` methods
 
@@ -1070,6 +1070,26 @@ const [a, b, c] = set;
 
 console.log(a, b, c); // 2 3 1
 ```
+
+#### WeakSet
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/weakmap-weakset#weakset)
+
+Requires an object for a value:
+
+```js
+const weakSet = new WeakSet()
+  .add({a: 1});
+console.log(weakSet); // [object WeakSet] { ... }
+
+// weakSet.add("b"); // TypeError: Invalid value used in weak set
+```
+
+A value is removed from the WeakMap and memmory when there's no reference to it
+
+Doesn't support `size` nor iteration nor `keys`/`values`/`entries` methods - it's not possible to list all its values
+
+Supports only `add`/`delete`/`has` methods
 
 ## Basic Operators
 
