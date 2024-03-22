@@ -975,6 +975,26 @@ const [d, e, f] = map;
 console.log(d, e, f); // [3, "Three"] [1, "One"] [2, "Two"]
 ```
 
+#### WeakMap
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/weakmap-weakset)
+
+Requires an object for a property:
+
+```js
+const weakMap = new WeakMap()
+  .set({}, 1);
+console.log(weakMap); // [object WeakMap] { ... }
+
+// weakMap.set("b", 2); // TypeError: Invalid value used as weak map key
+```
+
+A key is removed from the WeakMap and memmory when there's no reference to it
+
+Doesn't support iteration nor `keys`/`values`/`entries` methods - it's not possible to list all its keys/values
+
+Supports only `set`/`get`/`delete`/`has` methods
+
 #### Set
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/map-set)
