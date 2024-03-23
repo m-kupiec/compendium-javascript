@@ -3004,6 +3004,57 @@ objB.f();
 B.g();
 ```
 
+```js
+const objA = {
+    val: 'A',
+
+    f() {
+        console.log(this.val);
+    }
+};
+
+const objB = {
+    __proto__: objA,
+    val: 'B',
+
+    f() {
+        this.__proto__.f();
+    }
+};
+objB.f(); // A
+
+const objC = {
+    __proto__: objA,
+    val: 'C',
+
+    f() {
+        this.__proto__.f.call(this); // (**)
+    }
+};
+objC.f(); // C
+
+const objD = {
+    __proto__: objC,
+    val: 'D',
+
+    f() {
+        this.__proto__.f.call(this); // (*)
+    }
+};
+// objD.f(); // RangeError: Maximum call stack size exceeded
+// "this" refers to objD both in line (*) and line (**) resulting in an endless reference loop
+
+const objE = {
+    __proto__: objC,
+    val: 'E',
+
+    f() {
+        this.__proto__.__proto__.f.call(this);
+    }
+};
+objE.f(); // E
+```
+
 #### Checking Class Instance
 
 `instanceof` operator take inheritance into account:
