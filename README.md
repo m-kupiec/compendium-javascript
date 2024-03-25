@@ -4918,6 +4918,21 @@ a()[b, c].d()
 
 ## Programming Techniques
 
+### 💠 Swapping Two Variables
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/destructuring-assignment)
+
+Two variables can be swapped using a destructuring assignment:
+
+```js
+let a = 1;
+let b = 2;
+
+console.log(a, b); // 1 2
+[a, b] = [b, a];
+console.log(a, b); // 2 1
+```
+
 ### 💠 Transforming Object Key/Value Pairs
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/keys-values-entries#transforming-objects)
