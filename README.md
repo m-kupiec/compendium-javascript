@@ -2478,6 +2478,36 @@ const child2 = {
 child2.f(); // "Parent 1 line"
 ```
 
+For object methods (but not for class methods), `[[HomeObject]]` internal property is set only when using `f()` (not `f: function()`) syntax for defining the method:
+
+```js
+const parent = {
+    f: function() {
+        console.log('Parent method');
+    }
+};
+
+const child1 = {
+    __proto__: parent,
+
+    f() {
+        super.f();
+    }
+};
+
+child1.f();  // "Parent method"
+
+const child2 = {
+    __proto__: parent,
+
+    f: function() {
+        super.f();
+    }
+};
+
+child2.f(); // SyntaxError: 'super' keyword unexpected here
+```
+
 ## Classes
 
 ### 💠 Definition
