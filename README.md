@@ -4918,11 +4918,11 @@ a()[b, c].d()
 
 ## Programming Techniques
 
-### 💠 Swapping Two Variables
+### 💠 Swapping the Values of Two Variables
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/destructuring-assignment)
 
-Two variables can be swapped using a destructuring assignment:
+The values of two variables can be swapped using a destructuring assignment:
 
 ```js
 let a = 1;
