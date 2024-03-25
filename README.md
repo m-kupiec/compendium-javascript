@@ -4631,6 +4631,30 @@ date.setDate(date.getDate() + 1);
 console.log(date); // 1985-02-01T00:00:00.000Z
 ```
 
+#### 💠 Date-to-Primitive Conversions
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/date#date-to-number-date-diff)
+
+To string:
+
+```js
+let date = new Date('1985-01-31');
+
+console.log(date); // 1985-01-31T00:00:00.000Z
+date += ' !!! ';
+console.log(date); // Fri Feb 01 1985 01:00:00 GMT+0100 (czas środkowoeuropejski standardowy) !!!
+```
+
+To number (milliseconds):
+
+```js
+let date = new Date('1985-01-31');
+
+console.log(date); // 1985-01-31T00:00:00.000Z
+console.log(+date); // 475977600000
+console.log((+date + 100) - date); // 100
+```
+
 ### Error
 
 #### 💠 Properties
