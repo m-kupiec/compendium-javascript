@@ -4546,6 +4546,17 @@ console.log(new Date(2024, 0)); // 2023-12-31T23:00:00.000Z
 console.log(new Date(2024, 3, 25, 16, 10, 15, 900)); // 2024-04-25T14:10:15.900Z
 ```
 
+#### 💠 Parsing Date from a String
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/date#date-parse-from-a-string)
+
+To parse the date (number of milliseconds from 01.01.1970 UTC+0) from a string using `Date.parse`, the string must be in the `YYYY-MM-DDTHH:mm:ss.sssZ` format (or in its shorter variants, the shortest one being `YYYY`); `T` is the delimeter; `Z` accepts `+-hh:mm` format to denote time zone other than UTC+0
+
+```js
+console.log(Date.parse('1985-01-01T16:00:45.800Z')); // 473443245800
+console.log(Date.parse('1985-01-01_16:00:45.800Z')); // NaN
+```
+
 #### 💠 Accessing Date Components
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/date#access-date-components)
