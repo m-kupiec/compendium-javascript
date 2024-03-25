@@ -4943,6 +4943,27 @@ console.log(
 ); // { a: 1 }
 ```
 
+### 💠 Looping Over Object Key/Value Pairs
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/destructuring-assignment)
+
+Object keys or values can be looped over using a combination of a destructuring assignment and `Object.entries`:
+
+```js
+const obj = {
+    a: 1,
+    b: 2
+};
+
+for (let [key, value] of Object.entries(obj)) {
+    console.log(key, value);
+}
+/*
+a 1
+b 2
+*/
+```
+
 ### 💠 Immediately Invoked Function Expression (IIFE)
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/var#iife)
