@@ -4655,6 +4655,18 @@ console.log(+date); // 475977600000
 console.log((+date + 100) - date); // 100
 ```
 
+#### 💠 Time Measurement
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/date#date-now)
+
+`Date.now` static method doesn't create a new object so it's faster and more memory-efficient than its semantically equivalent `new Date().getTime()`
+
+```js
+let start = Date.now();
+
+setTimeout(() => console.log(Date.now() - start), 1000); // 1008
+```
+
 ### Error
 
 #### 💠 Properties
