@@ -4918,6 +4918,31 @@ a()[b, c].d()
 
 ## Programming Techniques
 
+### 💠 Transforming Object Key/Value Pairs
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/keys-values-entries#transforming-objects)
+
+Object keys or values can be transformed (using Array methods like `Array.prototype.map`, `Array.prototype.filter` etc.) by employing a combination of `Object.entries` and `Object.fromEntries`:
+
+```js
+const obj = {
+    a: 1,
+    b: 2
+};
+
+console.log(
+    Object.fromEntries(Object.entries(obj)
+        .map((entry, index, entries) => [entry[0].toUpperCase(), entry[1] * 10])
+    )
+); // { A: 10, B: 20 }
+
+console.log(
+    Object.fromEntries(Object.entries(obj)
+        .filter((entry, index, entries) => entry[1] < 2)
+    )
+); // { a: 1 }
+```
+
 ### 💠 Immediately Invoked Function Expression (IIFE)
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/var#iife)
