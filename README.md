@@ -2444,7 +2444,39 @@ f();
 console.log(f.a); // 1
 ```
 
-For a function that is an object/class method, `[[HomeObject]]` internal property referers to that object
+For a function that is an object/class method, `[[HomeObject]]` internal property referers to that object; `[[HomeObject]]` is used only when using `super`; a copied method that uses `super`, will use `super` in reference to its original parent object/class:
+
+```js
+const parent1 = {
+    f() {
+        console.log('Parent 1 line');
+    }
+};
+
+const child1 = {
+    __proto__: parent1,
+
+    f() {
+        super.f();
+    }
+};
+
+child1.f(); // "Parent 1 line"
+
+const parent2 = {
+    f() {
+        console.log('Parent 2 line');
+    }
+}
+
+const child2 = {
+    __proto__: parent2,
+    
+    f: child1.f
+};
+
+child2.f(); // "Parent 1 line"
+```
 
 ## Classes
 
