@@ -4529,7 +4529,7 @@ Almost never used.
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/date#creation)
 
 ```js
-// The result is 1 hour less:
+// The result is in GMT/UTC+0:
 
 console.log(new Date()); // 2024-03-25T15:12:21.469Z
 
@@ -4539,7 +4539,7 @@ console.log(new Date(-1000 * 60 * 60 * 24)); // 1969-12-31T00:00:00.000Z
 console.log(new Date('2024-03-25')); //2024-03-25T00:00:00.000Z
 console.log(new Date('2024-03-25 16:00')); // 2024-03-25T15:00:00.000Z
 
-// The result is 2 hours less:
+// The result is in GTM/UTC+0 (but could be 1 hour less if during daylight saving time (DTS)):
 
 // The month is provided as a 0-11 number
 console.log(new Date(2024, 0)); // 2023-12-31T23:00:00.000Z
