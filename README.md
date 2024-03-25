@@ -2393,6 +2393,8 @@ console.log(Math.max(0, ...a, 4, 5, 6, ...b)); // 9
 > 📖 [The Modern JavaScript Tutorial: Function object, NFE](https://javascript.info/function-object)
 >
 > 📖 [The Modern JavaScript Tutorial: Function expressions](https://javascript.info/function-expressions#function-is-a-value)
+>
+> 📖 [The Modern JavaScript Tutorial: Class inheritance](https://javascript.info/class-inheritance#homeobject)
 
 Function is a value that can be printed:
 
@@ -2441,6 +2443,8 @@ console.log(f.a); // 0
 f();
 console.log(f.a); // 1
 ```
+
+For a function that is an object/class method, `[[HomeObject]]` internal property referers to that object
 
 ## Classes
 
