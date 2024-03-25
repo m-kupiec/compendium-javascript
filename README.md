@@ -47,7 +47,7 @@ var a = 2;
 console.log(a); // 2
 ```
 
-`var` declarations (but not assignments without decalration) are hoisted (without the assignment) to the top of the function or global script:
+`var` declarations (but not assignments without declaration) are hoisted (without the assignment) to the top of the function or global script:
 
 ```js
 // console.log(a); // ReferenceError: a is not defined
@@ -67,9 +67,9 @@ console.log(c); // 3
 
 > 📖 [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#keywords)
 
-Varaible name may contain:
-- letters (non-latin are not recommended)
-- digits (except on the first position)
+Variable name may contain:
+- letters (non-Latin are not recommended)
+- digits (except in the first position)
 - select symbols ('$', '_')
 
 Variable name must not be a keyword
@@ -100,7 +100,7 @@ Dynamic typing: variable can change its data type
 
 Is stored in 64-bit format IEEE-754 (double precision floating point number)
 
-Is stored in a binary form, rounding given number to the nearest possible value, resulting in a loss of precision:
+Is stored in a binary form, rounding the given number to the nearest possible value, resulting in a loss of precision:
 
 ```js
 console.log((0.1).toFixed(20)); // "0.10000000000000000555"
@@ -154,11 +154,11 @@ Not supported in Internet Explorer
 
 Is stored in UTF-16 format
 
-Three type of quotes:
+Three types of quotes:
 - Single
 - Double
 - Backticks
-  - Used for template literals `${…}` and tagged templates (a string and ebmbedded expressions being processed by a function)
+  - Used for template literals `${…}` and tagged templates (a string and embedded expressions being processed by a function)
   - Allow multiline strings
 
 Special characters:
@@ -166,7 +166,7 @@ Special characters:
 - `\t`: new line
 - `\`: special character escaping
 
-Accessing char at an non-found index results in `undefined`
+Accessing char at a non-found index results in an `undefined` value
 
 Is immutable (characters cannot be changed)
 
@@ -210,7 +210,7 @@ Properties with symbolic names are skipped by `for...in` loops and `Object.keys(
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/types)
 
-Represents empty or unknown value
+Represents an empty or unknown value
 
 ##### 💠 undefined
 
@@ -218,7 +218,7 @@ Represents empty or unknown value
 
 Represent not assigned value
 
-It's recommended to assing `null` instead of `undefined` to a variable
+It's recommended to assign `null` instead of `undefined` to a variable
 
 #### Object
 
@@ -229,7 +229,7 @@ It's recommended to assing `null` instead of `undefined` to a variable
 ```js
 let a = {}; // Object literal
 
-let b = new Object(); // Object contructor
+let b = new Object(); // Object constructor
 ```
 
 ##### 💠 Properties
@@ -252,7 +252,7 @@ Properties which names would be valid integers (after conversion to number) are 
 
 ###### Availability
 
-Accessing non-existing property will result in getting `undefined`
+Accessing non-existing properties will result in getting `undefined` values
 
 `in` operator checks if a property with the given name exists in the object (even if its value is `undefined`)
 
@@ -260,7 +260,7 @@ Accessing non-existing property will result in getting `undefined`
 
 ###### Access Notations
 
-The dot notation may be used when property name follows the rules for naming variables (no spaces, no digits on the first position, letters and `$`/`_` allowed) with the exception that the accessed property name may be a keyword
+The dot notation may be used when the property name follows the rules for naming variables (no spaces, no digits on the first position, letters and `$`/`_` allowed) with the exception that the accessed property name may be a keyword
 
 Square bracket notation is used when dot acceess notation doesn't work:
 - multiword property names
@@ -283,7 +283,7 @@ let obj = {
 }
 ```
 
-is almost equivalent (with some differencec related to inheritance) to the following:
+is almost equivalent (with some differences related to inheritance) to the following:
 
 ```js
 let obj = {
@@ -299,17 +299,17 @@ let obj = {
 
 `this` is evaluated at runtime (can be used in functions, not only in object methods)
 
-`this` inside an arrow function is refering to the outer context
+`this` inside an arrow function is referring to the outer context
 
 When a function is called without an object, the value of `this` is:
-- `undefined` when in strinct mode
-- global object when not in strinct mode
+- `undefined` when in strict mode
+- global object when not in strict mode
 
 ##### 💠 Property Value Shorthand
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/object#property-value-shorthand)
 
-Used when property name is the same as the property value
+Used when the property name is the same as the property value
 
 ```js
 function a(b, c) {
@@ -390,7 +390,7 @@ for (let key in obj2) {
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/object-copy)
 
-Variable assigned to an object stores its reference not the object itself
+Variable assigned to an object stores its reference, not the object itself
 
 Copying a variable assigned to an object copies the reference
 
@@ -427,17 +427,17 @@ console.log({...{ a: 1, b: 2, c: 3 }}); // [object Object] { a: 1, b: 2, c: 3 }
 
 `?.` is not an operator but a syntax construct
 
-`?.` stops the evaluation if the preceeding value is `undefined`/`null` and returns `undefined`
+`?.` stops the evaluation if the preceding value is `undefined`/`null` and returns `undefined`
 
 Works only for declared variables
 
-May be used for short-cirtuit evaluations, e.g. `a?.b(c)`
+May be used for short-circuit evaluations, e.g. `a?.b(c)`
 
 `?.[]` is used when square bracket notation is needed
 
 `?.()` is used to call a function that may not exist
 
-Can be used for reading and deleting property but not for setting property value
+Can be used for reading and deleting property but not for setting the property value
 
 Overusing `?.` may result in more difficult debugging, so it should be used only when the existence of the preceding property is optional
 
@@ -449,7 +449,7 @@ Each property has three attributes ("flags"), all set to `true` by default:
 - `writable` (specifying if the property value can be changed)
 - `enumerable` (specifying if the property is to be listed in loops)
 - `configurable` (specifying if the property can be deleted or its attributes modified)
-  - it does not affect the possibility to change the property value which is regulated by the `writable` attribute
+  - it does not affect the possibility of changing the property value which is regulated by the `writable` attribute
   - even if set to `false`, it still allows to change `writable` from `true` to `false` (only in this direction) to strengthen security
 
 ##### 💠 Accessor Properties
@@ -478,7 +478,7 @@ obj.ab = 345;
 console.log(obj.a, obj.b); // "3" "45"
 ```
 
-Accessor property has no `value` (and in consequence no `writable`), but does have `get` and `set` (in addition to `enumerable` and `configurable`)
+Accessor property has no `value` (and in consequence no `writable`) but does have `get` and `set` (in addition to `enumerable` and `configurable`)
 
 ##### 💠 Prototypal Inheritance
 
@@ -488,7 +488,7 @@ Accessor property has no `value` (and in consequence no `writable`), but does ha
 >
 > 📖 [The Modern JavaScript Tutorial: Prototype methods, objects without __proto__](https://javascript.info/prototype-methods#brief-history)
 
-`[[Prototype]]` is a hideen property that either references to another object (the prototype) or is `null`
+`[[Prototype]]` is a hidden property that either references to another object (the prototype) or is `null`
 
 `__proto__` is an outdated (moved to Annex B - optional for non-browser environments) getter/setter for `[[Prototype]]` (it's preferable to use `Object.getPrototypeOf`/`Object.setPrototypeOf` instead)
 
@@ -504,7 +504,7 @@ obj2.__proto__ = obj1;
 console.log(obj2); // [object Object] { a: 1, b: 2 }
 ```
 
-Assigning `__proto__` in a circle will result in error
+Assigning `__proto__` in a circle will result in an error
 
 `__proto__` can be assigned either an object or `null`, as other assignments are ignored:
 
@@ -559,7 +559,7 @@ console.log(obj1); // [object Object] { a: 1, b: undefined }
 console.log(obj2); // [object Object] { _b: 2, a: 0, b: 2 }
 ```
 
-Between the prototype and the inheriring object, methods are shared but the state is not:
+Between the prototype and the inheriting object, methods are shared but the state is not:
 
 ```js
 const obj1 = {
@@ -634,20 +634,20 @@ If one of the operands of the `+` operator is a string, the second one is also c
 - `1 + 1 + '1'` is converted to `'21'`
 - `'1' + 1 + 1` is converted to `'111'`
 
-`String(value)`: converts a value to string explicitly
+`String(value)`: converts a value to a string explicitly
 
 Rules:
 - `false` is converted to `"false"`
-- `null` is convertet to `"null"`
+- `null` is converted to `"null"`
 - etc.
 
 `[1, 2, 3]` is converted to `"1,2,3"`
 
 ##### Numeric
 
-Value is converted to number automatically in mathematical functions and expressions
+Value is converted to a number automatically in mathematical functions and expressions
 
-Unary `+` operator converts the operand to number
+Unary `+` operator converts the operand to a number
 
 `Number(value)`: converts a value to number explicitly
 
@@ -655,7 +655,7 @@ Rules:
 - Strings
   - Whitespace (spaces, `\t`, `\n`, etc.) from the beginning and the end of the string are removed
   - `"10"` is converted to `10`
-  - Empty string is converted to `0`
+  - An empty string is converted to `0`
   - String that doesn't represent a valid number is converted to `NaN`
 - `true`/`false` is converted to `1`/`0`
 - `null` is converted to `0`
@@ -663,18 +663,18 @@ Rules:
 
 ##### Boolean
 
-Value is converted to boolean automatically in logical operations
+Value is converted to a boolean automatically in logical operations
 
-`!!` operator converts the operand to boolean
+`!!` operator converts the operand to a boolean
 
-`Boolean(value)`: converts a value to boolean explicitly
+`Boolean(value)`: converts a value to a boolean explicitly
 
 Rules:
 - Numbers
   - `1`/`0` is converted to `true`/`false`
   - `NaN` is converted to `false`
 - Strings
-  - Empty string is converted to `false`
+  - An empty string is converted to `false`
   - Non-empty string (e.g. `"0"`) is coverted to `true`
 - `null` is converted to `false`
 - `undefined` is converted to `false`
@@ -685,7 +685,7 @@ Rules:
 There are three hints (variants of type conversion):
 - `"string"` when doing operations that expect string (e.g. alert, obj[indexingObj])
 - `"number"` when using arithmetic operators (except binary plus) or greater/less comparison
-- `"default"` when using binary plus or loose comparison (with a string/number/symbol); implemented for all built-in objects except `Date` in the same way as `"number"`
+- `"default"` when using the binary plus or loose comparison (with a string/number/symbol); implemented for all built-in objects except `Date` in the same way as `"number"`
 
 Firstly, `[Symbol.toPrimitive](hint)` is called (if exists; must return a primitive value or will result in error); otherwise, for `"string"` hint, `toString`/`valueOf` (depending on which is found and returns a primitive; `valueOf` returns the calling object itself by default, so then it's ignored; these functions may return a non-primitive value without causing an error but simply the result being ignored) is called; or, for `"number"`/`"default"` hint, `valueOf`/`toString` is called
 
@@ -790,7 +790,7 @@ let arr4 = new Array(1, 2, 3);
 
 `new Array(n)` creates an array with n `undefined` elements
 
-Accessing array element at an non-found index results in `undefined`
+Accessing an array element at a non-found index results in getting an `undefined` value
 
 ```js
 for (el of [1, 2, 3]) {
@@ -798,7 +798,7 @@ for (el of [1, 2, 3]) {
 }
 ```
 
-Array may be truncated by decreasing `length` property (or cleared by assigning `0` to it)
+An array may be truncated by decreasing `length` property (or cleared by assigning `0` to it)
 
 Array destructuring assignment:
 
@@ -823,7 +823,7 @@ console.log([...[1, 2], 3, ...[4, 5]]); // [1, 2, 3, 4, 5]
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/iterable#array-like)
 
-Array-like object has numeric indices and `length` property
+An array-like object has numeric indices and `length` property
 
 ```js
 const arrayLike = {
@@ -840,7 +840,7 @@ const arrayLike = {
 
 Iterables can be looped over using `for...of` and work with spread `...` syntax (while array-likes cannot)
 
-Arrays and string are iterable
+Arrays and strings are iterable
 
 To make an object iterable:
 - Add `Symbol.iterator` method
@@ -989,7 +989,7 @@ console.log(weakMap); // [object WeakMap] { ... }
 // weakMap.set("b", 2); // TypeError: Invalid value used as weak map key
 ```
 
-A key is removed from the WeakMap and memmory when there's no reference to it
+A key is removed from the WeakMap and memory when there's no reference to it
 
 Doesn't support `clear`/`size` nor iteration nor `keys`/`values`/`entries` methods - it's not possible to list all its keys/values
 
@@ -1085,9 +1085,9 @@ console.log(weakSet); // [object WeakSet] { ... }
 // weakSet.add("b"); // TypeError: Invalid value used in weak set
 ```
 
-A value is removed from the WeakMap and memmory when there's no reference to it
+A value is removed from the WeakMap and memory when there's no reference to it
 
-Doesn't support `size` nor iteration nor `keys`/`values`/`entries` methods - it's not possible to list all its values
+Doesn't support `size` nor iteration or `keys`/`values`/`entries` methods - it's not possible to list all its values
 
 Supports only `add`/`delete`/`has` methods
 
@@ -1125,7 +1125,7 @@ console.log(+obj1 + +obj2); // NaN
 
 ### 💠 Comma
 
-Each of the expressions separated with comma is evaluated and the result of the last one is returned, e.g. `(1 + 2, 3 + 4)` returns `7`
+Each of the expressions separated with a comma is evaluated and the result of the last one is returned, e.g. `(1 + 2, 3 + 4)` returns `7`
 
 `,` has lower precedence than `=` operator
 
@@ -1135,11 +1135,11 @@ Each of the expressions separated with comma is evaluated and the result of the 
 
 Chained assignments are evaluated from right to left.
 
-For each arithmetical and bitwise operator there is a corresponding modify-and-assign operator, e.g. `*=`
+For each arithmetical and bitwise operator, there is a corresponding modify-and-assign operator, e.g. `*=`
 
 ### 💠 Increment/Decrement Operator
 
-`++a` returns the new value, while `a++` return the old value
+`++a` returns the new value, while `a++` returns the old value
 
 ### 💠 Bitwise Operators
 
@@ -1163,7 +1163,7 @@ Strings are compared according to the UTF-16 order
 Values of different types are compared after being converted to numbers - this also applies to regular equality check operator `==` with the exceptions:
 - `null == undefined` is true
 - `null` and `undefined` does not equal `==` any other value
-- `NaN` does not equal `NaN` nor any other value
+- `NaN` does not equal `NaN` or any other value
 
 Values of different types are compared without being converted to numbers when the strict equality operator `===` is used
 
@@ -1186,11 +1186,11 @@ console.log([1] == '1'); // true
 
 #### OR/AND Operators
 
-`||` evaluates operands from left to right, converts each to boolean, and returns the original value of the first truthy operand (returns the last one if all are false); used for:
+`||` evaluates operands from left to right, converts each to a boolean, and returns the original value of the first truthy operand (returns the last one if all are false); used for:
 - getting the first truthy value from a given list
 - short-circuit evaluation, e.g. `false || console.log('Ok!')`
 
-`&&` evaluates operands from left to right, converts each to boolean, and returns the original value of the first falsy operand (returns the last one of all are true)
+`&&` evaluates operands from left to right, converts each to a boolean, and returns the original value of the first falsy operand (returns the last one of all are true)
 
 The precedence of `&&` is higher than `||`
 
@@ -1198,9 +1198,9 @@ It's not recommended to replace `if` statements with `||`/`&&`
 
 #### NOT Operator
 
-`!` converts its operand to bolean and inverts the value
+`!` converts its operand to a boolean and inverts the value
 
-`!!` is used to convert a value to boolean
+`!!` is used to convert a value to a boolean
 
 #### Nullish Coalescing Operator
 
@@ -1216,13 +1216,13 @@ It's forbidden to use `??` together with `&&`/`||` without parentheses
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/ifelse)
 
-`if` statement: used when execturing different branches of code
+`if` statement: used when executing different branches of code
 
 Conditional `?` operator (ternary operator): used when returning one of the two values
 
 `switch` statement: used when comparing different value variants
 
-Equality check in `switch` statemt is strict
+The equality check in `switch` statement is strict
 
 Example:
 
@@ -1298,7 +1298,7 @@ while (a) {
 }
 ```
 
-`break`/`continue` is not allowed to use with the ternary operator `?`
+`break`/`continue` is not allowed to be used with the ternary operator (`?`)
 
 #### Labels
 
@@ -1369,7 +1369,7 @@ try {
 
 #### Handling Scheduled Functions
 
-Scheduled function is executed after the engine ahs already left `try...catch` construct
+A scheduled function is executed after the engine has already left `try...catch` construct
 
 ```js
 try {
@@ -1465,7 +1465,7 @@ try {
 }
 ```
 
-... it's recommended to be compatibile with the built-in Error object (having `name` and `message` properties); built-in error constructors (Error, SyntaxError, ReferenceError, TypeError, etc.) may be used (error `name` is then derived from the contructor name while error `message` is passed as an argument to the contructor):
+... it's recommended to be compatible with the built-in Error object (having `name` and `message` properties); built-in error constructors (Error, SyntaxError, ReferenceError, TypeError, etc.) may be used (error `name` is then derived from the constructor name while the error `message` is passed as an argument to the constructor):
 
 ```js
 try {
@@ -1486,7 +1486,7 @@ try {
 
 #### Rethrowing an Error
 
-Unexpected errors my be rethrown:
+Unexpected errors may be rethrown:
 
 ```js
 try {
@@ -1596,7 +1596,7 @@ ReferenceError: error is not defined
 
 ##### Basic Usage
 
-Callback function is passed as an argument to the function that has asynchronous code:
+A callback function is passed as an argument to the function that has asynchronous code:
 
 ```js
 function asyncF(string, callback) {
@@ -1612,7 +1612,7 @@ asyncF("Test", callbackF); // "Test"
 
 ##### Handling Errors
 
-The first arguments of the callback functions is reserved for an error:
+The first argument of the callback functions is reserved for an error:
 
 ```js
 function asyncF(string, callback) {
@@ -1770,7 +1770,7 @@ function logError(err) {
 promise.catch(logError); // "Error happened..."
 ```
 
-`finally` handler (designed for executing finilizing procedures, e.g. turning loading indicator off) is executed whether the promise was resolved or rejected; it doesn't return anything (any returns are ignored) except a possible thrown error (that's passed to the next handler instead of any previous result/error):
+`finally` handler (designed for executing finalizing procedures, e.g. turning the loading indicator off) is executed whether the promise was resolved or rejected; it doesn't return anything (any returns are ignored) except a possible thrown error (that's passed to the next handler instead of any previous result/error):
 
 ```js
 function logResult(result) { console.log(result); }
@@ -1833,7 +1833,7 @@ promise.then(result => console.log(result));
 
 AKA promise composition
 
-Handler used in `then` may craate and return a promise:
+Handler used in `then` may create and return a promise:
 
 ```js
 new Promise(function(resolve, reject) {
@@ -1851,7 +1851,7 @@ new Promise(function(resolve, reject) {
 // "Error fixed"
 ```
 
-Other scenarions:
+Other scenarios:
 
 ```js
 new Promise(resolve => resolve("Ok"))
@@ -1990,7 +1990,7 @@ new Promise((resolve, reject) => reject(new Error()))
 
 Rules for handling errors:
 - `catch` should be used where/when handling expected errors is possible; unknown errors should be rethrown
-- `catch` may be ommitted if errors cannot be handled
+- `catch` may be omitted if errors cannot be handled
 - `unhandledrejection` (in the browser runtime environment) event handler should be used to inform (users, server) about unhandled errors
 
 ##### Microtask Queue
@@ -2023,7 +2023,7 @@ Promise.resolve().then(() => console.log(3))
 >
 > 📖 [Codecademy | Learn Intermediate JavaScript](https://www.codecademy.com/courses/learn-intermediate-javascript/lessons/async-await/exercises/multiple-awaits)
 
-`async` function always return a promise - values other than a promise are wrapped in a resolved promise:
+`async` function always returns a promise - values other than a promise are wrapped in a resolved promise:
 
 ```js
 async function asyncF() {
@@ -2047,7 +2047,7 @@ asyncF().then(console.log, console.log); // "Ok" OR [object Error] { ... }
 
 To avoid `SyntaxError`, `await` must be either:
 - placed in an `async` function
-- used at a module top level
+- used at a module top-level
 - wrapped into an anonymous `async` function
 
 ```js
@@ -2080,7 +2080,7 @@ new Cl()
 
 `await` can be also used with "thenables"
 
-Errors need to be catched (either by `try...catch` or `catch` method)
+Errors need to be caught (either by `try...catch` or `catch` method)
 
 ```js
 class Thenable {
@@ -2190,7 +2190,7 @@ a('def'); // "def"
 >
 > 📖 [The Modern JavaScript Tutorial: F.prototype](https://javascript.info/function-prototype)
 
-The first letter of the function name must by capital
+The first letter of the function name must be capital
 
 Should be executed with the `new` operator
 
@@ -2198,9 +2198,9 @@ When executing with the `new` operator, parentheses may be omitted, but it's not
 
 Does not have the `return` statement as it returns `this`
 
-If there is `return` statement then it returns:
-- object called with `return`
-- `this` if `return` is not calling an object
+If there is a `return` statement then it returns:
+- an object passed with the `return`
+- `this`, if the `return` is not passing an object
 
 ```js
 function Abc() {
@@ -2229,7 +2229,7 @@ function Abc() {
 let abc = Abc();
 ```
 
-If a constructor function has `prototype` property which value is an object, then this object will be used as the prototype for the object created with the constructor function:
+If a constructor function has a `prototype` property which value is an object, then this object will be used as the prototype for the object created with the constructor function:
 
 ```js
 function Abc() {
@@ -2396,7 +2396,7 @@ console.log(Math.max(0, ...a, 4, 5, 6, ...b)); // 9
 >
 > 📖 [The Modern JavaScript Tutorial: Class inheritance](https://javascript.info/class-inheritance#homeobject)
 
-Function is a value that can be printed:
+A function is a value that can be printed:
 
 ```js
 function f(a) {
@@ -2444,7 +2444,7 @@ f();
 console.log(f.a); // 1
 ```
 
-For a function that is an object/class method, `[[HomeObject]]` internal property referers to that object; `[[HomeObject]]` is used only when using `super`; a copied method that uses `super`, will use `super` in reference to its original parent object/class:
+For a function that is an object/class method, `[[HomeObject]]` internal property refers to that object; `[[HomeObject]]` is used only when using `super`; a copied method that uses `super`, will use `super` in reference to its original parent object/class:
 
 ```js
 const parent1 = {
@@ -2520,8 +2520,8 @@ There's no comma between class methods
 
 `class` creates a function:
 - the function name is taken from the class name
-- the function code is taken from `contructor` method
-- the function stores class methods in `prototype`
+- the function code is taken from the `constructor` method
+- the function stores class methods in the `prototype`
 
 ```js
 class Cl {
@@ -2603,7 +2603,7 @@ console.log(cl.__proto__.f === Cl.prototype.f); // true
 However, `class` is not just a 'syntactic sugar' for defining constructor function together with its `prototype` methods:
 - the function created using `class` syntax has an internal `[[IsClassConstructor]]` property set to `true` which requires the function to be called with `new` (among other things)
 - all class methods are non-enumerable
-- class uses strict mode
+- a class uses the strict mode
 - there are also many other features brought by the `class` syntax
 
 ### 💠 Class Expression
@@ -2718,7 +2718,7 @@ console.log(cl); // [object Object] { a: 1 }
 cl.f(); // 1
 ```
 
-This allows to define methods (using `f = () => {...}`) that will not loose `this` when passed as callbacks to another context:
+This allows to define methods (using `f = () => {...}`) that will not lose `this` when passed as callbacks to another context:
 
 ```js
 class Cl1 {
@@ -2808,7 +2808,7 @@ console.log(B.prototype.__proto__ === A.prototype); // true
 
 #### Extending Built-In Classes
 
-When extendin built-in classes, their methods (like `filter`, `map`, etc.) use the inherited class object constructor for createing the returned object:
+When extending built-in classes, their methods (like `filter`, `map`, etc.) use the inherited class object constructor for creating the returned object:
 
 ```js
 class MyArray extends Array {
@@ -2916,7 +2916,7 @@ const b = new B();
 b.f(); // "B" "A"
 ```
 
-#### Overriding/Extending Contructor
+#### Overriding/Extending Constructor
 
 A default constructor is created when a class extending another class has none:
 
@@ -2926,7 +2926,7 @@ constructor(...args) {
 }
 ```
 
-Inheriting class contructor has an internal `[[ConstructorKind]]` property set to `"derived"`, so when it is executed with `new`, it doesn't assign an empty object to `this` (as is done with regular functions executed with `new`) but leaves this job to the base class constructor; that's why it must call `super` (to create the object for `this`) and do this before using `this`:
+Inheriting class constructor has an internal `[[ConstructorKind]]` property set to `"derived"`, so when it is executed with `new`, it doesn't assign an empty object to `this` (as is done with regular functions executed with `new`) but leaves this job to the base class constructor; that's why it must call `super` (to create the object for `this`) and do this before using `this`:
 
 ```js
 class A {
@@ -2948,7 +2948,7 @@ console.log(b); // [object Object] { a: 1 }
 
 #### Overriding Class Fields
 
-In the parent class, fields are initialized before constructor; however, in an inheriting classes, fields are initialized immediately after `super()`; that's why the parent class constructor uses its own fields (not the overriding ones) but still uses overriding methods:
+In the parent class, fields are initialized before the constructor; however, in inheriting classes, fields are initialized immediately after `super()`; that's why the parent class constructor uses its own fields (not the overriding ones) but still uses overriding methods:
 
 ```js
 class A {
@@ -3123,7 +3123,7 @@ objE.f(); // E
 
 #### Checking Class Instance
 
-`instanceof` operator take inheritance into account:
+`instanceof` operator takes inheritance into account:
 
 ```js
 class A {}
@@ -3149,7 +3149,7 @@ console.log(B.prototype.isPrototypeOf(c)); // true
 console.log(C.prototype.isPrototypeOf(c)); // true
 ```
 
-Checking rules may be modified using `Symbol.hasInstance` static method:
+Checking rules may be modified using the `Symbol.hasInstance` static method:
 
 ```js
 class A {
@@ -3287,7 +3287,7 @@ Private fields names are prefixed with `#`; `this['#fieldName']` syntax is not s
 // console.log(a); // ReferenceError: a is not defined
 ```
 
-`var` is not restricted by a code block (conditionals, loops), but by a function it is:
+`var` is not restricted by a code block (conditionals, loops), but is by a function:
 
 ```js
 function f() {
@@ -3340,11 +3340,11 @@ Every running scope (global, block, function) has its associated Lexical Environ
 - `Environment Record` object: stores local variables, `this`, and local function declarations as its properties
 - Reference to the outer lexical environment
 
-Lexical Envirnonment is cleaned from memory by the garbage collector when it becomes unreachable
+Lexical Environment is cleaned from memory by the garbage collector when it becomes unreachable
 
 ### 💠 Closure
 
-Returned nested functions retain access to their outer variables, because in a hidden `[[Environment]]` property they store reference to the Lexical Environment in which these nested functions were created
+Returned nested functions retain access to their outer variables because in a hidden `[[Environment]]` property they store a reference to the Lexical Environment in which these nested functions were created
 
 Variables are stored and updated in their corresponding Lexical Environments
 
@@ -3413,7 +3413,7 @@ console.log("def".abc()); // "abc_def"
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/global-object)
 
-`globalThis` is a standarized name for the global object (`window` in a browser or `global` in Node.js)
+`globalThis` is a standardized name for the global object (`window` in a browser or `global` in Node.js)
 
 Function declarations and global functions/variables declared with `var` become methods/properties of the global object (not applicable in modules)
 
@@ -3440,13 +3440,13 @@ if (!window.Promise) {
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/number#tests-isfinite-and-isnan)
 
-`isNaN(value)` tests if the value converted to number is `NaN`:
+`isNaN(value)` tests if the value converted to a number is `NaN`:
 
 ```js
 console.log(isNaN("a")); // true
 ```
 
-`isFinite(value)` tests if the value converted to number is not `NaN`/`Infinity`/`-Infinity`:
+`isFinite(value)` tests if the value converted to a number is not `NaN`/`Infinity`/`-Infinity`:
 
 ```js
 console.log(isFinite("1")); // true
@@ -3486,7 +3486,7 @@ console.log(Object.is(0, -0)); // false
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/property-descriptors)
 
-Property desciptor (an object containing the property value and its all flags) can be get using `Object.getOwnPropertyDescriptor()` while all descriptors can be get using `Object.getOwnPropertyDescriptors`
+Property descriptor (an object containing the property value and its all flags) can be obtained using `Object.getOwnPropertyDescriptor()` while all descriptors can be obtained using `Object.getOwnPropertyDescriptors`
 
 Flags can be changed using `Object.defineProperty()` or `Object.defineProperties()`
 
@@ -3807,7 +3807,7 @@ for (let key in obj2) console.log(`${key}: ${obj2[key]}`);
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/prototype-methods)
 
-`Object.setPrototypeOf`/`Object.getPrototypeOf` allow to set/get object `[[Prototype]]` in a modern way
+`Object.setPrototypeOf`/`Object.getPrototypeOf` allows to set/get object `[[Prototype]]` in a modern way
 
 `Object.create` allows to create a new object with a specified `[[Prototype]]` and optionally with additional specified property descriptors
 
@@ -3996,7 +3996,7 @@ Behavior of `String.prototype.localeCompare()` can be customized by additional p
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/symbol#global-symbols)
 
-Global symbol registry allow to create an access global symbols (accessible from anywhere in the code) with unique desccriptions
+Global symbol registry allows the creation and access of global symbols (accessible from anywhere in the code) with unique descriptions
 
 `Symbol.for(descriptionString)` is used to access (or create when absent) 
 
@@ -4222,7 +4222,7 @@ console.log(arr.reduceRight((accumulator, item, index, array) => accumulator += 
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/map-set#iteration-over-map)
 
-`Map.prototype.keys`, `Map.prototype.values`, and `Map.prototype.entries` can be used to get an iterable from a map (map insertion order is preserved):
+`Map.prototype.keys`, `Map.prototype.values`, and `Map.prototype.entries` can be used to get an iterable object from a map (map insertion order is preserved):
 
 ```js
 const map = new Map()
@@ -4258,7 +4258,7 @@ map1.forEach((value, key, map) => console.log(`${key}: ${value}`));
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/map-set#iteration-over-set)
 
-`Set.prototype.keys`, `Set.prototype.values`, and `Set.prototype.entries` can be used to get an iterable from a set (set insertion order is preserved); they work in a way that preserves compatibility with the corresponding `Map.prototype` methods:
+`Set.prototype.keys`, `Set.prototype.values`, and `Set.prototype.entries` can be used to get an iterable object from a set (set insertion order is preserved); they work in a way that preserves compatibility with the corresponding `Map.prototype` methods:
 
 ```js
 const set = new Set()
@@ -4324,7 +4324,7 @@ console.log(Math.max(1, 2, 3)); // 3
 >
 > 📖 [MDN: Function.prototype.apply()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
 
-Arguments for `call()` are provided infividually while for `apply()` as an array/array-like object
+Arguments for `call()` are provided individually while for `apply()` as an array/array-like object
 
 ```js
 function printObj(ifUpperCase = false) {
@@ -4422,7 +4422,7 @@ Promise.all([
 
 #### 💠 `Promise.allSettled`
 
-`Promise.allSettled` allows to execute many promises concurrently until all are settled (whether resolved or rejected); it takes an iterable (of promises; or values to be passed "as is" to the resulting promise) and returns a promise which resolves with an array of results from the resolved source promises (in the same order); each result in the arrays is an object, `{ status: "fulfilled", value: result }` for each fulfilled promise, or `{ status: "rejected", reason: error }` for each rejected promise:
+`Promise.allSettled` allows the execution of many promises concurrently until all are settled (whether resolved or rejected); it takes an iterable (of promises; or values to be passed "as is" to the resulting promise) and returns a promise that resolves with an array of results from the resolved source promises (in the same order); each result in the arrays is an object, `{ status: "fulfilled", value: result }` for each fulfilled promise, or `{ status: "rejected", reason: error }` for each rejected promise:
 
 ```js
 Promise.allSettled([
@@ -4588,7 +4588,7 @@ console.log(new ReferenceError() instanceof Error); // true
 
 > 📖 [Codecademy | Learn Intermediate JavaScript](https://www.codecademy.com/courses/learn-intermediate-javascript/articles/javascript-hoisting)
 
-At compile time the engine allocase memory by hoisting variable names and function declarations to the top of their corresponding scopes; functions are initialized immediately while variable initializations are done in-place:
+At compile time the engine allocate memory by hoisting variable names and function declarations to the top of their corresponding scopes; functions are initialized immediately while variable initializations are done in-place:
 
 ```js
 console.log(typeof f); // "function"
@@ -4628,7 +4628,7 @@ AKA execution context stack
 
 Execution context data structure stores information about a given function call, including:
 - current place in the control flow
-- current variables, value of `this`
+- current variables, the value of `this`
 
 Nested execution contexts are stored in the call stack (LIFO order) as frames
 
@@ -4667,7 +4667,7 @@ console.log(4);
 
 ##### The Stack
 
-Used for static memory allocation - size of the data type (primitive data types) is known at compile time and a fixed amount of memory is reserved for it
+Used for static memory allocation - the size of the data type (primitive data types) is known at compile time and a fixed amount of memory is reserved for it
 
 Stores (in the LIFO order) primitive values, references to non-primitive values, and function call frames
 
@@ -4675,7 +4675,7 @@ Stores (in the LIFO order) primitive values, references to non-primitive values,
 
 Used for dynamic memory allocation at runtime
 
-Size of the stored data is unknown at compile time or may change during runtime (e.g. objects, functions, arrays)
+The size of the stored data is unknown at compile time or may change during runtime (e.g. objects, functions, arrays)
 
 #### 💠 Memory Life Cycle
 
@@ -4699,7 +4699,7 @@ Memory is used when reading or writing the allocated memory:
 ##### Garbage Collection
 
 JavaScript engines can use the following algorithms to release/clear memory:
-- Reference counting (counts references stored in the stack; releses allocated memory when the count is zero)
+- Reference counting (counts references stored in the stack; releases allocated memory when the count is zero)
 - Mark-and-sweep (starts from the global object traversing all variables and marking the reachable ones; unmarked variables are garbage collected during the sweep phase)
 
 #### 💠 Memory Issues
@@ -4708,7 +4708,7 @@ JavaScript engines can use the following algorithms to release/clear memory:
 
 ##### Memory Leak
 
-Occurs when when unneeded memory persists
+Occurs when unneeded memory persists
 
 ###### Improper Use of Closure
 
@@ -4759,11 +4759,11 @@ The callback function and its outer variables are kept in memory until the sched
 
 ###### Improper Use of Event Listeners
 
-Anonymous functions used in event listeners can be the cause of momory leaks in certain cases
+Anonymous functions used in event listeners can be the cause of memory leaks in certain cases
 
 ###### Circular References
 
-If a browser uses reference counting algorithm for garbage collection, circular references can cause memory leaks
+If a browser uses the reference counting algorithm for garbage collection, circular references can cause memory leaks
 
 ##### Global Scope Variables
 
@@ -4780,7 +4780,7 @@ console.log(window.a, window.b); // 1 2
 
 ##### Frequent Garbage Collection
 
-High object churn can slow down application execution due to frequent garbage collection; object pool design pattern may be used to improve performance
+High object churn can slow down application execution due to frequent garbage collection; the object pool design pattern may be used to improve performance
 
 ## Miscellaneous
 
@@ -4818,7 +4818,7 @@ a = 1;
 console.log(a); // ReferenceError: a is not defined
 ```
 
-Prevents accidental creation of global variables when assigning value without declaration inside a function that is called afterwards:
+Prevents accidental creation of global variables when assigning value without declaration inside a function that is called afterward:
 
 ```js
 function f() {
@@ -4873,8 +4873,8 @@ console.log(typeof f); // undefined
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/object-methods#this-is-not-bound)
 
 When a function is called without an object, the value of `this` is:
-- `undefined` when in strinct mode
-- global object when not in strinct mode
+- `undefined` when in the strict mode
+- global object when not in the strict mode
 
 ##### Writing to a Non-Writible Property
 
@@ -5051,7 +5051,7 @@ console.log(abc.b); // 2
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/property-accessors#smarter-getters-setters)
 
-The convention is to treat the properties with name starting with `_` as internal properties
+The convention is to treat the properties with names starting with `_` as internal properties
 
 ```js
 const obj = {
@@ -5081,7 +5081,7 @@ Used for third-party code objects when it's unsafe to add properties to them in 
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/symbol#hidden-properties)
 
-Used when exposing object to scripts which may add their own properties
+Used when exposing an object to scripts that may add their own properties
 
 ### 💠 Call Forwarding
 
@@ -5209,7 +5209,7 @@ greetAdmin(); // "Hello, Admin"
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/prototype-methods#very-plain)
 
-Used in associative arrays to avoid the defualt inheritance of built-in methods and `__proto__` getter/setter from `Object.prototype` which could cause side effects (hard-to-notice bugs or even vulnerabilities in the server-side JavaScript code)
+Used in associative arrays to avoid the default inheritance of built-in methods and `__proto__` getter/setter from `Object.prototype` which could cause side effects (hard-to-notice bugs or even vulnerabilities in the server-side JavaScript code)
 
 ```js
 let obj = {};
@@ -5271,7 +5271,7 @@ Because mixins can override existing class methods, their naming must be careful
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/custom-errors#wrapping-exceptions)
 
-It's a technique in which particular errors are wrapped into a more absctract one:
+It's a technique in which particular errors are wrapped into a more abstract one:
 
 ```js
 class WrappingError extends Error {
@@ -5404,16 +5404,16 @@ PRINTED ALL AT ONCE AFTER 1000ms:
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/alert-prompt-confirm)
 
 `alert(string)`:
-- displays a message in a modal window with 'Ok' button
+- displays a message in a modal window with the `Ok` button
 - returns `undefined`
 
 `prompt(string, [optionalDefaultInputFieldValue])`:
 - Internet Explorer inserts `'undefined'` in the input field when no parameter is provided, so it's good to provide an empty string `prompt(string, '')`
-- displays a message in a modal window with 'Ok' and 'Cancel' buttons
+- displays a message in a modal window with the `Ok` and `Cancel` buttons
 - returns input field's value or `null`
 
 `confirm(string)`:
-- displays a message in a modal window with 'Ok' and 'Cancel' buttons
+- displays a message in a modal window with the `Ok` and `Cancel` buttons
 - return `true` or `false`
 
 ###### Scheduling
@@ -5434,13 +5434,13 @@ setTimeout(clearInterval, 2500, timerId2);
 setTimeout("console.log('abc')", 1000);
 ```
 
-Real time interval when using `setInterval` is less then the specified value as the time of callback function execution is included in the specified value
+The real interval time when using `setInterval` is less than the specified value as the time of callback function execution is included in the specified value
 
-Time intercal when using nested `setTimeout` is more then the specified calue as the time of callback function execution is added to the specified value
+The interval time when using nested `setTimeout` is more than the specified value as the time of callback function execution is added to the specified value
 
-Interval depends on the operating system performance, so the exact value is not guaranteed
+An interval depends on the operating system's performance, so the exact value is not guaranteed
 
-In browser runtime environemnt, interval (both for `setInterval` and `setTimeout`) becomes 4+ ms after five nested timers:
+In the browser runtime environemnt, an interval (both for `setInterval` and `setTimeout`) becomes 4+ ms after five nested timers:
 
 ```js
 function f(callTime) {
