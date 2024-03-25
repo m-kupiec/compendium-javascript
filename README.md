@@ -4916,11 +4916,9 @@ is transformed into:
 a()[b, c].d()
 ```
 
-## Programming
+## Programming Techniques
 
-### Techniques
-
-#### 💠 Immediately Invoked Function Expression (IIFE)
+### 💠 Immediately Invoked Function Expression (IIFE)
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/var#iife)
 
@@ -4952,7 +4950,7 @@ This may be also accomplished in several other ways:
 }();
 ```
 
-#### 💠 Immediately Called Constructor Function
+### 💠 Immediately Called Constructor Function
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/constructor-new#constructor-function)
 
@@ -4964,7 +4962,7 @@ let abc = new function() {
 
 Used when performing complex initialization for a single object to keep the code organized and to avoid polluting the global scope with temporary variables or functions
 
-#### 💠 Property Backward Compatibility
+### 💠 Property Backward Compatibility
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/property-accessors#using-for-compatibility)
 
@@ -4988,7 +4986,7 @@ console.log(abc); // [object Object] { a: 1, c: 3 }
 console.log(abc.b); // 2
 ```
 
-#### 💠 Property-Based Encapsulation
+### 💠 Property-Based Encapsulation
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/property-accessors#smarter-getters-setters)
 
@@ -5012,19 +5010,19 @@ obj.a = "23";
 console.log(obj.a); // 23
 ```
 
-#### 💠 Symbol-Based Encapsulation
+### 💠 Symbol-Based Encapsulation
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/symbol#hidden-properties)
 
 Used for third-party code objects when it's unsafe to add properties to them in danger of affecting pre-defined behavior
 
-#### 💠 Private Members
+### 💠 Private Members
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/symbol#hidden-properties)
 
 Used when exposing object to scripts which may add their own properties
 
-#### 💠 Call Forwarding
+### 💠 Call Forwarding
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/call-apply-decorators)
 
@@ -5054,7 +5052,7 @@ wrapper1(f, 1, 2); // [object Object] { a: 1, b: 2, c: 3 }
 wrapper2(f, 1, 2); // [object Object] { a: 1, b: 2, c: 3 }
 ```
 
-#### 💠 Method Borrowing
+### 💠 Method Borrowing
 
 > 📖 [The Modern JavaScript Tutorial: Decorators and forwarding, call/apply](https://javascript.info/call-apply-decorators#method-borrowing)
 >
@@ -5090,7 +5088,7 @@ console.log(arrayLike.join()); // "a,b,c"
 
 Object can have only one prototype but it can inherit single methods from multiple objects at the same time
 
-#### 💠 Passing a Method Without Losing `this`
+### 💠 Passing a Method Without Losing `this`
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/bind)
 
@@ -5129,7 +5127,7 @@ setTimeout(() => obj = null); // Will not break after this change in the origina
 setTimeout(n, 0, 100); // 101
 ```
 
-#### 💠 Partial Application
+### 💠 Partial Application
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/bind#partial-functions)
 
@@ -5146,7 +5144,7 @@ greet('Admin'); // "Hello, Admin"
 greetAdmin(); // "Hello, Admin"
 ```
 
-#### 💠 'Very Plain'/'Pure Dictionary' Objects
+### 💠 'Very Plain'/'Pure Dictionary' Objects
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/prototype-methods#very-plain)
 
@@ -5180,7 +5178,7 @@ console.log(obj.__proto__); // 0
 
 Such implementations result in the absence of any built-in object methods (e.g. `Object.prototype.toString()`) in the created 'very plain' object; however, methods that are not in the prototype (e.g. `Object.keys`) are still accessible
 
-#### 💠 Mixin
+### 💠 Mixin
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/mixins)
 
@@ -5208,7 +5206,7 @@ new Cl(1).f(1); // 1
 
 Because mixins can override existing class methods, their naming must be carefully considered.
 
-#### 💠 Wrapping Exceptions
+### 💠 Wrapping Exceptions
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/custom-errors#wrapping-exceptions)
 
@@ -5281,7 +5279,7 @@ try {
 */
 ```
 
-#### 💠 Mapping Data For Concurrent Asynchronous Execution
+### 💠 Mapping Data For Concurrent Asynchronous Execution
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/promise-api#promise-all)
 
