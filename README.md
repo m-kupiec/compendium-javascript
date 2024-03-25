@@ -4577,6 +4577,41 @@ console.log(date.getTime()); // 1711381126686 (a number of milliseconds from 01-
 console.log(date.getTimezoneOffset()); // -60 (the difference between UTC and the local time zone, in minutes)
 ```
 
+#### 💠 Setting Date Components
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/date#setting-date-components)
+
+```js
+const date = new Date();
+
+// The result is in GMT/UTC+0:
+
+console.log(date); // 2024-03-25T16:03:15.146Z
+
+date.setFullYear(1985); console.log(date); // 1985-03-25T16:03:15.146Z
+date.setUTCFullYear(1985); console.log(date); //1985-03-25T16:03:15.146Z
+
+date.setMonth(0, 10); console.log(date); // 1985-01-10T16:03:15.146Z
+date.setUTCMonth(0, 10); console.log(date); // 1985-01-10T16:03:15.146Z
+
+date.setDate(5); console.log(date); // 1985-01-05T16:03:15.146Z
+date.setUTCDate(5); console.log(date); // 1985-01-05T16:03:15.146Z
+
+date.setHours(0); console.log(date); // 1985-01-04T23:03:15.146Z (subtracted 1 hour from the UTC+1 to UTC+0)
+date.setUTCHours(0); console.log(date); // 1985-01-04T00:03:15.146Z
+
+date.setMinutes(10, 50, 800); console.log(date); // 1985-01-04T00:10:50.800Z
+date.setUTCMinutes(10, 50, 800); console.log(date); // 1985-01-04T00:10:50.800Z
+
+date.setSeconds(45, 750); console.log(date); // 1985-01-04T00:10:45.750Z
+date.setUTCSeconds(45, 750); console.log(date); // 1985-01-04T00:10:45.750Z
+
+date.setMilliseconds(700); console.log(date); // 1985-01-04T00:10:45.700Z
+date.setUTCMilliseconds(700); console.log(date); // 1985-01-04T00:10:45.700Z
+
+date.setTime(0); console.log(date); // 1970-01-01T00:00:00.000Z
+```
+
 ### Error
 
 #### 💠 Properties
