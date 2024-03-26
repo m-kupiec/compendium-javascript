@@ -2207,6 +2207,31 @@ const iterable = {
 // 100 101 102 103 104 105 106 107 108 109 110
 ```
 
+To make the same async iterable object as above, but using a generator:
+
+```js
+const iterable = {
+  start: 100,
+  finish: 110,
+
+  async *[Symbol.asyncIterator]() {
+    for (let value = this.start; value <= this.finish; value++) {
+      await new Promise(resolve => setTimeout(resolve, 200));
+
+      yield value;
+    }
+  }
+};
+
+(async () => {
+  for await (let el of iterable) {
+    console.log(el)
+  }
+})();
+
+// 100 101 102 103 104 105 106 107 108 109 110
+```
+
 ##### Async Generator
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/async-iterators-generators#async-generators-finally)
