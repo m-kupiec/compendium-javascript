@@ -2508,6 +2508,30 @@ const child2 = {
 child2.f(); // SyntaxError: 'super' keyword unexpected here
 ```
 
+### 💠 Generator
+
+#### Basic Syntax
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/generators)
+
+Generator function returns an iterable object (generator object) which `next` method returns an object in the format `{value: <the next yielded value>, done: <true/false>}`; both `function* f()` and `function *f()` syntaxes are correct but the first one is usually preferred:
+
+```js
+function* generateNumbers() {
+  yield 1;
+  yield 2;
+  return 3;
+}
+
+const generator = generateNumbers();
+
+console.log(generator); // Object [Generator] {}
+console.log(generator.next()); // { value: 1, done: false }
+console.log(generator.next()); // { value: 2, done: false }
+console.log(generator.next()); // { value: 3, done: true }
+console.log(generator.next()); // { value: undefined, done: true }
+```
+
 ## Classes
 
 ### 💠 Definition
