@@ -2448,31 +2448,31 @@ For a function that is an object/class method, `[[HomeObject]]` internal propert
 
 ```js
 const parent1 = {
-    f() {
-        console.log('Parent 1 line');
-    }
+  f() {
+    console.log('Parent 1 line');
+  }
 };
 
 const child1 = {
-    __proto__: parent1,
+  __proto__: parent1,
 
-    f() {
-        super.f();
-    }
+  f() {
+    super.f();
+  }
 };
 
 child1.f(); // "Parent 1 line"
 
 const parent2 = {
-    f() {
-        console.log('Parent 2 line');
-    }
+  f() {
+    console.log('Parent 2 line');
+  }
 }
 
 const child2 = {
-    __proto__: parent2,
-    
-    f: child1.f
+  __proto__: parent2,
+  
+  f: child1.f
 };
 
 child2.f(); // "Parent 1 line"
@@ -2482,27 +2482,27 @@ For object methods (but not for class methods), `[[HomeObject]]` internal proper
 
 ```js
 const parent = {
-    f: function() {
-        console.log('Parent method');
-    }
+  f: function() {
+    console.log('Parent method');
+  }
 };
 
 const child1 = {
-    __proto__: parent,
+  __proto__: parent,
 
-    f() {
-        super.f();
-    }
+  f() {
+    super.f();
+  }
 };
 
 child1.f();  // "Parent method"
 
 const child2 = {
-    __proto__: parent,
+  __proto__: parent,
 
-    f: function() {
-        super.f();
-    }
+  f: function() {
+    super.f();
+  }
 };
 
 child2.f(); // SyntaxError: 'super' keyword unexpected here
