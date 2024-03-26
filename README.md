@@ -2532,6 +2532,54 @@ console.log(generator.next()); // { value: 3, done: true }
 console.log(generator.next()); // { value: undefined, done: true }
 ```
 
+#### Using As an Iterable
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/generators#generators-are-iterable)
+
+Iterations ignore the returned value when `done: true`:
+
+```js
+function* generateNumbers1() {
+  yield 1;
+  yield 2;
+  return 3;
+}
+
+function* generateNumbers2() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+let generator = generateNumbers1();
+for (let value of generator) console.log(value); // 1 2
+
+generator = generateNumbers2();
+for (let value of generator) console.log(value); // 1 2 3
+```
+
+Using the spread syntax:
+
+```js
+function* generateNumbers1() {
+  yield 1;
+  yield 2;
+  return 3;
+}
+
+function* generateNumbers2() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+let generator = generateNumbers1();
+console.log(...generator); // 1 2
+
+generator = generateNumbers2();
+console.log(...generator); // 1 2 3
+```
+
 ## Classes
 
 ### 💠 Definition
