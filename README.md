@@ -2739,6 +2739,33 @@ Error handled.
 */
 ```
 
+#### Returning From a Generator
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/generators#generator-return)
+
+```js
+function* generate() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+const generator = generate();
+
+console.log(generator.next());
+console.log(generator.return(4));
+console.log(generator.next());
+console.log(generator.return(5));
+console.log(generator.next());
+/*
+{ value: 1, done: false }
+{ value: 4, done: true }
+{ value: undefined, done: true }
+{ value: 5, done: true }
+{ value: undefined, done: true }
+*/
+```
+
 ## Classes
 
 ### 💠 Definition
