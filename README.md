@@ -2603,6 +2603,27 @@ generator = generateNumbers2();
 console.log(...generator); // 1 2 3
 ```
 
+#### Generator Composition
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/generators#generator-composition)
+
+```js
+function* generatePartialSequence(start, end) {
+  for (let i = start; i <= end; i++) yield i;
+}
+
+console.log(...generatePartialSequence(0, 5)); // 0 1 2 3 4 5
+
+function* generateFullSequence() {
+  yield* generatePartialSequence(0, 5);
+  yield* generatePartialSequence(100, 105);
+  yield* generatePartialSequence(200, 205);
+}
+
+console.log(...generateFullSequence(0, 10));
+// 0 1 2 3 4 5 100 101 102 103 104 105 200 201 202 203 204 205
+```
+
 ## Classes
 
 ### 💠 Definition
