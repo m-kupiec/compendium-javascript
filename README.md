@@ -11,7 +11,7 @@
 - [Built-In Objects](#built-in-objects)
 - [Internal Mechanics](#internal-mechanics)
 - [Miscellaneous](#miscellaneous)
-- [Programming](#programming)
+- [Programming Techniques](#programming-techniques)
 - [Runtime Environments](#runtime-environments)
 
 ## Data
