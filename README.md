@@ -2207,6 +2207,46 @@ const iterable = {
 // 100 101 102 103 104 105 106 107 108 109 110
 ```
 
+##### Async Generator
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/async-iterators-generators#async-generators-finally)
+
+```js
+async function* generateNumbers() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+let generator = generateNumbers();
+
+(async () => {
+  console.log(await generator.next());
+  console.log(await generator.next());
+  console.log(await generator.next());
+})();
+/*
+{ value: 1, done: false }
+{ value: 2, done: false }
+{ value: 3, done: false }
+*/
+```
+
+```js
+async function* generateNumbers() {
+  for (let i = 0; i < 5; i++) {
+    await new Promise(resolve => setTimeout(resolve, 200));
+    yield i;
+  }
+}
+
+let generator = generateNumbers();
+
+(async () => {
+  for await (let value of generator) console.log(value); // 0 1 2 3 4
+})();
+```
+
 ## Functions
 
 ### 💠 Function Declaration
