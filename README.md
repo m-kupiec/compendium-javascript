@@ -836,7 +836,9 @@ const arrayLike = {
 
 #### Iterable Object
 
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/iterable)
+> 📖 [The Modern JavaScript Tutorial: Iterables](https://javascript.info/iterable)
+>
+> 📖 [The Modern JavaScript Tutorial: Generators](https://javascript.info/generators#using-generators-for-iterables)
 
 Iterables can be looped over using `for...of` and work with spread `...` syntax (while array-likes cannot)
 
@@ -869,6 +871,27 @@ const iterable = {
           }
         }
       }
+    }
+  }
+};
+
+for (let el of iterable) {
+  console.log(el)
+}
+
+// 100 101 102 103 104 105 106 107 108 109 110
+```
+
+To make the same iterable object as above, but using a generator:
+
+```js
+const iterable = {
+  start: 100,
+  finish: 110,
+
+  *[Symbol.iterator]() {
+    for (let value = this.start; value <= this.finish; value++) {
+      yield value;
     }
   }
 };
