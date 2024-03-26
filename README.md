@@ -2624,6 +2624,50 @@ console.log(...generateFullSequence(0, 10));
 // 0 1 2 3 4 5 100 101 102 103 104 105 200 201 202 203 204 205
 ```
 
+#### Passing Values Into a Generator
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/generators#yield-is-a-two-way-street)
+
+```js
+function* generate() {
+  let value1 = yield 1;
+  yield 2;
+  let value2 = yield 3;
+
+  console.log(`Generate #1: ${value1}`);
+  console.log(`Generate #2: ${value2}`);
+}
+
+let generator = generate();
+
+console.log(generator.next());
+console.log(generator.next());
+console.log(generator.next());
+console.log(generator.next());
+/*
+{ value: 1, done: false }
+{ value: 2, done: false }
+{ value: 3, done: false }
+Generate #1: undefined
+Generate #2: undefined
+{ value: undefined, done: true }
+*/
+
+generator = generate();
+console.log(generator.next());
+console.log(generator.next(4));
+console.log(generator.next());
+console.log(generator.next(5));
+/*
+{ value: 1, done: false }
+{ value: 2, done: false }
+{ value: 3, done: false }
+Generate #1: 4
+Generate #2: 5
+{ value: undefined, done: true }
+*/
+```
+
 ## Classes
 
 ### 💠 Definition
