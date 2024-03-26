@@ -2668,6 +2668,77 @@ Generate #2: 5
 */
 ```
 
+#### Throwing an Error Into a Generator
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/generators#generator-throw)
+
+```js
+function* generate() {
+  try {
+    let value1 = yield 1;
+    yield 2;
+    let value2 = yield 3;
+
+    console.log(`Generate #1: ${value1}`);
+    console.log(`Generate #2: ${value2}`);
+  } catch (error) {
+    if (error.message === "Wrong!") {
+      console.log("Error handled.");
+    }
+  }
+}
+
+let generator = generate();
+
+console.log(generator.next());
+console.log(generator.next(4));
+console.log("!!!", generator.throw(new Error("Wrong!")));
+console.log(generator.next());
+console.log(generator.next(5));
+/*
+{ value: 1, done: false }
+{ value: 2, done: false }
+Error handled.
+!!! { value: undefined, done: true }
+{ value: undefined, done: true }
+{ value: undefined, done: true }
+*/
+```
+
+Errors may be also handled outside of the generator function (leading to a slightly different output - `!!!` is not printed to the console):
+
+```js
+function* generate() {
+  let value1 = yield 1;
+  yield 2;
+  let value2 = yield 3;
+
+  console.log(`Generate #1: ${value1}`);
+  console.log(`Generate #2: ${value2}`);
+}
+
+let generator = generate();
+
+console.log(generator.next());
+console.log(generator.next(4));
+try {
+  console.log("!!!", generator.throw(new Error("Wrong!")));
+} catch (error) {
+  if (error.message === "Wrong!") {
+    console.log("Error handled.");
+  }
+}
+console.log(generator.next());
+console.log(generator.next(5));
+/*
+{ value: 1, done: false }
+{ value: 2, done: false }
+Error handled.
+{ value: undefined, done: true }
+{ value: undefined, done: true }
+*/
+```
+
 ## Classes
 
 ### 💠 Definition
