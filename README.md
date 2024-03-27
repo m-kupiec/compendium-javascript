@@ -5982,6 +5982,110 @@ PRINTED ALL AT ONCE AFTER 1000ms:
 */
 ```
 
+### 💠 Currying
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/currying-partials)
+>
+> 📖 [Codecademy | Learn Advanced JavaScript](https://www.codecademy.com/courses/learn-intermediate-javascript/articles/javascript-currying)
+
+It's a technique in which a function in a form like `f(a, b, c)` is transformed (not called) into a form like `f(a)(b)(c)`
+
+It allows easy generation of partial functions:
+
+```js
+function sum(a, b) {
+  return a + b;
+}
+
+function curry(f) {
+  return function (a) {
+    return function (b) {
+      return f(a, b);
+    }
+  }
+}
+
+console.log(sum(1)); // NaN
+
+const curriedSum = curry(sum);
+console.log(curriedSum(1)); // [Function (anonymous)]
+console.log(curriedSum(1)(2)); // 3
+
+const addTen = curriedSum(10);
+console.log(addTen(1)); // 11
+```
+
+The `curry` function from the example above may be simplified using arrow functions:
+
+```js
+function sum(a, b) {
+  return a + b;
+}
+
+function arrowCurry(f) {
+  return a => b => f(a, b);
+}
+
+console.log(sum(1)); // NaN
+
+const curriedSum = arrowCurry(sum);
+console.log(curriedSum(1)); // [Function (anonymous)]
+console.log(curriedSum(1)(2)); // 3
+
+const addTen = curriedSum(10);
+console.log(addTen(1)); // 11
+```
+
+It also allows modular function calls (handling one task per call so that the function is easier to read/debug/reuse):
+
+```js
+const databaseXYZ = [
+  { id: "01", val1: 1, val2: "A", val3: true },
+  { id: "02", val1: 2, val2: "A", val3: false },
+  { id: "03", val1: 2, val2: "B", val3: false },
+  { id: "04", val1: 2, val2: "B", val3: true }
+];
+
+function complexFilter(data, filterKey, filterValue) {
+  return data.filter(item => item[filterKey] === filterValue);
+}
+
+console.log(complexFilter(databaseXYZ, 'val3', false));
+/*
+[
+  { id: '02', val1: 2, val2: 'A', val3: false },
+  { id: '03', val1: 2, val2: 'B', val3: false }
+]
+*/
+
+function curryFilter(f) {
+  return data => filterKey => filterValue => f(data, filterKey, filterValue);
+}
+
+const curriedFilter = curryFilter(complexFilter);
+const filterDatabaseXYZ = curriedFilter(databaseXYZ);
+const filterDatabaseXYZByVal3 = filterDatabaseXYZ('val3');
+console.log(filterDatabaseXYZ); // [Function (anonymous)]
+console.log(filterDatabaseXYZByVal3); // [Function (anonymous)]
+
+const filterDatabaseXYZByFalseVal3 = filterDatabaseXYZByVal3(false);
+console.log(filterDatabaseXYZByFalseVal3);
+/*
+[
+  { id: '02', val1: 2, val2: 'A', val3: false },
+  { id: '03', val1: 2, val2: 'B', val3: false }
+]
+*/
+const filterDatabaseXYZByTrueVal3 = filterDatabaseXYZByVal3(true);
+console.log(filterDatabaseXYZByTrueVal3);
+/*
+[
+  { id: '01', val1: 1, val2: 'A', val3: true },
+  { id: '04', val1: 2, val2: 'B', val3: true }
+]
+*/
+```
+
 ## Runtime Environments
 
 ### Browser
