@@ -5445,6 +5445,31 @@ is transformed into:
 a()[b, c].d()
 ```
 
+### 💠 Executing Code From a String
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/eval)
+
+```js
+let a = 1;
+
+const result = eval(`
+  let b = 2;
+
+  function f(a, b) {
+    console.log(a + b);
+  }
+
+  f(a, b);
+
+  a += 0.1;
+
+  100 + 100;
+`); // 3
+
+console.log(result); // 200
+console.log(a); // 1.1
+```
+
 ## Programming Techniques
 
 ### 💠 Swapping the Values of Two Variables
