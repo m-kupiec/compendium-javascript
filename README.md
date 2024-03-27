@@ -5411,6 +5411,32 @@ When a function is called without an object, the value of `this` is:
 
 When not in strict mode, writing to a non-writable property will not result in an error, although the operation will not succeed
 
+##### Code String Lexical Environment
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/eval)
+
+Code executed from a string using `eval` has its own lexical environment in the strict mode:
+
+```js
+"use strict";
+
+eval(`
+  let a = 1;
+`);
+
+//console.log(a); // ReferenceError: a is not defined
+```
+
+When not in the strict mode (:warning: **Note: The following code should not result in a ReferenceError, but I could not get it to work in either a browser or Node.js**):
+
+```js
+eval(`
+  let a = 1;
+`);
+
+// console.log(a); // ReferenceError: a is not defined
+```
+
 ### 💠 Automatic semicolon insertion
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/structure#semicolon)
