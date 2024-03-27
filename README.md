@@ -6086,6 +6086,36 @@ console.log(filterDatabaseXYZByTrueVal3);
 */
 ```
 
+Advanced currying (requires the function to be curried to have a fixed number of arguments, so currying `f(...args)` is not allowed) allows to call the curried function both normally and partially:
+
+```js
+function sum(a, b, c) {
+  return a + b + c;
+}
+
+function curry(f) {
+  return function curried(...args) {
+    if (args.length < f.length) {
+      return (...args2) => curried(...args.concat(args2));
+      // OR: return (...args2) => curried.apply(this, args.concat(args2));
+    } else {
+      return f(...args);
+      // OR: return f.apply(this, args);
+    }
+  }
+}
+
+const curriedSum = curry(sum);
+console.log(curriedSum(1)); // [Function (anonymous)]
+console.log(curriedSum(1, 2)); // [Function (anonymous)]
+console.log(curriedSum(1, 2, 3)); // 6
+console.log(curriedSum(1, 2, 3, 4)); // 6
+console.log(curriedSum(1)(2)); // [Function (anonymous)]
+console.log(curriedSum(1, 2)(3)); // 6
+console.log(curriedSum(1)(2, 3)); // 6
+console.log(curriedSum(1)(2)(3)); // 6
+```
+
 ## Runtime Environments
 
 ### Browser
