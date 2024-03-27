@@ -5111,9 +5111,7 @@ console.log(new ReferenceError() instanceof Error); // true
 
 ## Internal Mechanics
 
-### Process/Execution Management
-
-#### 💠 Reference Record
+### 💠 Reference Record
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/reference-type)
 >
@@ -5142,7 +5140,7 @@ obj.f(); // 1
 (true ? obj.f : null)(); // undefined
 ```
 
-#### 💠 Hoisting
+### 💠 Hoisting
 
 > 📖 [Codecademy | Learn Intermediate JavaScript](https://www.codecademy.com/courses/learn-intermediate-javascript/articles/javascript-hoisting)
 
@@ -5174,7 +5172,7 @@ const f3 = () => {};
 console.log(typeof f3); // "function"
 ```
 
-#### 💠 Execution Context
+### 💠 Execution Context
 
 > 📖 [Codecademy | Learn Intermediate JavaScript](https://www.codecademy.com/courses/learn-intermediate-javascript/articles/javascript-concurrency-model-and-event-loop)
 >
@@ -5190,7 +5188,7 @@ Execution context data structure stores information about a given function call,
 
 Nested execution contexts are stored in the call stack (LIFO order) as frames
 
-#### 💠 Event Loop
+### 💠 Event Loop
 
 > 📖 [Codecademy | Learn Intermediate JavaScript](https://www.codecademy.com/courses/learn-intermediate-javascript/articles/javascript-concurrency-model-and-event-loop)
 >
@@ -5215,31 +5213,29 @@ console.log(4);
 // 1 4 3 2
 ```
 
-### Memory Management
-
-#### 💠 Memory Data Structures
+### 💠 Memory Data Structures
 
 > 📖 [Codecademy | Learn Intermediate JavaScript](https://www.codecademy.com/courses/learn-intermediate-javascript/articles/javascript-intro-to-memory-management)
 >
 > 📖 [Codedamn | Memory Management in JavaScript – Complete guide](https://codedamn.com/news/javascript/memory-management-complete-guide)
 
-##### The Stack
+#### The Stack
 
 Used for static memory allocation - the size of the data type (primitive data types) is known at compile time and a fixed amount of memory is reserved for it
 
 Stores (in the LIFO order) primitive values, references to non-primitive values, and function call frames
 
-##### The Heap
+#### The Heap
 
 Used for dynamic memory allocation at runtime
 
 The size of the stored data is unknown at compile time or may change during runtime (e.g. objects, functions, arrays)
 
-#### 💠 Memory Life Cycle
+### 💠 Memory Life Cycle
 
 > 📖 [Codecademy | Learn Intermediate JavaScript](https://www.codecademy.com/courses/learn-intermediate-javascript/articles/javascript-intro-to-memory-management)
 
-##### Memory Allocation
+#### Memory Allocation
 
 Memory is allocated on:
 - Variable declaration or assignment
@@ -5247,28 +5243,28 @@ Memory is allocated on:
 - Function declaration
 - Function call
 
-##### Memory in Use
+#### Memory in Use
 
 Memory is used when reading or writing the allocated memory:
 - Variable reassignment
 - Using variables
 - Passing arguments to functions
 
-##### Garbage Collection
+#### Garbage Collection
 
 JavaScript engines can use the following algorithms to release/clear memory:
 - Reference counting (counts references stored in the stack; releases allocated memory when the count is zero)
 - Mark-and-sweep (starts from the global object traversing all variables and marking the reachable ones; unmarked variables are garbage collected during the sweep phase)
 
-#### 💠 Memory Issues
+### 💠 Memory Issues
 
 > 📖 [Codecademy | Learn Intermediate JavaScript](https://www.codecademy.com/courses/learn-intermediate-javascript/articles/javascript-intro-to-memory-management)
 
-##### Memory Leak
+#### Memory Leak
 
 Occurs when unneeded memory persists
 
-###### Improper Use of Closure
+##### Improper Use of Closure
 
 ```js
 function f() {
@@ -5311,19 +5307,19 @@ console.log(objRef);
 */
 ```
 
-###### Improper Use of Scheduling Functions
+##### Improper Use of Scheduling Functions
 
 The callback function and its outer variables are kept in memory until the scheduling is cleared using `clearTimeout`/`clearInterval`
 
-###### Improper Use of Event Listeners
+##### Improper Use of Event Listeners
 
 Anonymous functions used in event listeners can be the cause of memory leaks in certain cases
 
-###### Circular References
+##### Circular References
 
 If a browser uses the reference counting algorithm for garbage collection, circular references can cause memory leaks
 
-##### Global Scope Variables
+#### Global Scope Variables
 
 ```js
 function f() {
@@ -5336,7 +5332,7 @@ f();
 console.log(window.a, window.b); // 1 2
 ```
 
-##### Frequent Garbage Collection
+#### Frequent Garbage Collection
 
 High object churn can slow down application execution due to frequent garbage collection; the object pool design pattern may be used to improve performance
 
