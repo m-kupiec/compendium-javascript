@@ -5113,6 +5113,35 @@ console.log(new ReferenceError() instanceof Error); // true
 
 ### Process/Execution Management
 
+#### 💠 Reference Record
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/reference-type)
+>
+> 📖 [ECMA-262](https://tc39.es/ecma262/#sec-reference-record-specification-type)
+
+Is a specification type, a result of a property access
+
+It passes information about the object (`this` value) and the property from the `.` to the calling parentheses `()`
+
+If not followed by the calling parentheses `()`, it is discarded (and so `this` is lost) and the property value is passed instead:
+
+```js
+const obj = {
+  val: 1,
+
+  f() {
+    console.log(this.val);
+  }
+};
+
+const g = obj.f;
+g(); // undefined
+
+obj.f(); // 1
+(obj.f)(); // 1
+(true ? obj.f : null)(); // undefined
+```
+
 #### 💠 Hoisting
 
 > 📖 [Codecademy | Learn Intermediate JavaScript](https://www.codecademy.com/courses/learn-intermediate-javascript/articles/javascript-hoisting)
