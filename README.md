@@ -5496,6 +5496,44 @@ console.log(result); // 200
 console.log(a); // 1.1
 ```
 
+Using `eval` negatively affects minification ratio as minifiers don't rename local variables potentially visible to the code string
+
+Using outer local variables in `eval` negatively affects code maintenance; if `eval` doesn't use them, call it from the global object...
+
+```js
+let a = 1;
+
+{
+  let a = 2;
+
+  eval(`console.log(a);`); // 2
+}
+```
+
+```js
+let a = 1;
+
+{
+  let a = 2;
+
+  window.eval(`console.log(a);`); // 1
+}
+```
+
+... and if `eval` uses them, replace `eval` with `new Function`:
+
+```js
+let a = 1;
+
+{
+  let a = 2;
+
+  // eval(`console.log(a);`); // 2
+  // Replace with:
+  (new Function('a', 'console.log(a)'))(a); // 2
+}
+```
+
 ## Programming Techniques
 
 ### 💠 Swapping the Values of Two Variables
