@@ -5162,6 +5162,106 @@ let start = Date.now();
 setTimeout(() => console.log(Date.now() - start), 1000); // 1008
 ```
 
+### JSON
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/json)
+
+#### 💠 JSON Format Specification
+
+Strings are double-quoted
+
+Object property names are double-quoted
+
+Supported data types:
+
+```js
+const obj = {
+  a: 1,
+  b: "2",
+  c: true,
+  d: null,
+  e: { value: 0 },
+  f: [1, 2, 3]
+}
+
+console.log(obj);
+// { a: 1, b: '2', c: true, d: null, e: { value: 0 }, f: [ 1, 2, 3 ] }
+
+console.log(JSON.stringify(obj));
+// {"a":1,"b":"2","c":true,"d":null,"e":{"value":0},"f":[1,2,3]}
+```
+
+Unsupported (ignored) data types:
+
+```js
+const obj = {
+  a: undefined,
+  b: Symbol(),
+
+  f(arg) {
+    console.log(a, b, arg);
+  }
+}
+
+console.log(obj); // { a: undefined, b: Symbol(), f: [Function: f] }
+
+console.log(JSON.stringify(obj)); // {}
+```
+
+BigInt causes an error:
+
+```js
+const obj = {
+  a: 1n
+}
+
+console.log(obj); // { a: 1n }
+
+// console.log(JSON.stringify(obj)); // TypeError: Do not know how to serialize a BigInt
+```
+
+Circular reference causes an error:
+
+```js
+const objA = { a: 1, b: 2 };
+const objB = { a: 3, b: 4 };
+
+objA.ref = objB;
+objB.ref = objA;
+
+console.log(objA);
+/*
+<ref *1> {
+  a: 1,
+  b: 2,
+  ref: { a: 3, b: 4, ref: [Circular *1] }
+}
+*/
+// console.log(JSON.stringify(objA)); // TypeError: Converting circular structure to JSON
+```
+
+#### 💠 Data Serialization (JSON Encoding)
+
+```js
+const obj = {
+  a: 1,
+  b: 2,
+
+  f(arg) {
+    console.log(a, b, arg);
+  }
+}
+
+console.log(obj); // { a: 1, b: 2, f: [Function: f] }
+
+console.log(JSON.stringify(obj)); // {"a":1,"b":2}
+```
+
+```js
+console.log(JSON.stringify([1, 2, 3])); // [1,2,3]
+console.log(JSON.stringify('string')); // "string"
+```
+
 ### Error
 
 #### 💠 Properties
