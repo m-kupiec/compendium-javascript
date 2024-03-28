@@ -5237,7 +5237,8 @@ console.log(objA);
   ref: { a: 3, b: 4, ref: [Circular *1] }
 }
 */
-// console.log(JSON.stringify(objA)); // TypeError: Converting circular structure to JSON
+// console.log(JSON.stringify(objA));
+// TypeError: Converting circular structure to JSON
 ```
 
 #### 💠 Data Serialization (JSON Encoding)
