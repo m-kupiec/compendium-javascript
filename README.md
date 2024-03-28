@@ -5357,6 +5357,49 @@ for (let obj of [objA, objB]) {
 */
 ```
 
+The third argument of `JSON.stringify` is the number of spaces (or a string) to be used to format the output string:
+
+```js
+const obj = {
+  a: 1,
+  b: {
+    b1: 2,
+    b2: 3
+  },
+  c: [4, 5]
+};
+
+console.log(JSON.stringify(obj, null, 2));
+/*
+{
+  "a": 1,
+  "b": {
+    "b1": 2,
+    "b2": 3
+  },
+  "c": [
+    4,
+    5
+  ]
+}
+*/
+
+console.log(JSON.stringify(obj, null, '|  '));
+/*
+{
+|  "a": 1,
+|  "b": {
+|  |  "b1": 2,
+|  |  "b2": 3
+|  },
+|  "c": [
+|  |  4,
+|  |  5
+|  ]
+}
+*/
+```
+
 ### Error
 
 #### 💠 Properties
