@@ -651,7 +651,7 @@ Unary `+` operator converts the operand to a number
 
 Rules:
 - Strings
-  - Whitespace (spaces, `\t`, `\n`, etc.) from the beginning and the end of the string are removed
+  - Whitespaces (spaces, `\t`, `\n`, etc.) from the beginning and the end of the string are removed
   - `"10"` is converted to `10`
   - An empty string is converted to `0`
   - String that doesn't represent a valid number is converted to `NaN`
