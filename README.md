@@ -5262,6 +5262,48 @@ console.log(JSON.stringify([1, 2, 3])); // [1,2,3]
 console.log(JSON.stringify('string')); // "string"
 ```
 
+The second argument of `JSON.stringify` can be an array of properties to encode (e.g. to exclude circular references):
+
+```js
+const objA = { a: 1, b: 2 };
+const objB = { a: 3, b: 4 };
+
+objA.ref = objB;
+objB.ref = objA;
+
+console.log(objA);
+/*
+<ref *1> {
+  a: 1,
+  b: 2,
+  ref: { a: 3, b: 4, ref: [Circular *1] }
+}
+*/
+console.log(JSON.stringify(objA, ["a", "b"]));
+// {"a":1,"b":2}
+```
+
+Nested properties must be specified if they are to be included:
+
+```js
+const objA = {
+  a: 1,
+  b: {
+    b1: 2,
+    b2: 3
+  }
+};
+const objB = {};
+
+objA.ref = objB;
+objB.ref = objA;
+
+console.log(JSON.stringify(objA, ["a", "b"]));
+// {"a":1,"b":{}}
+console.log(JSON.stringify(objA, ["a", "b", "b1"]));
+// {"a":1,"b":{"b1":2}}
+```
+
 ### Error
 
 #### 💠 Properties
