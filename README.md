@@ -5337,7 +5337,7 @@ High object churn can slow down application execution due to frequent garbage co
 
 ## Miscellaneous
 
-### 💠 ES5 & 'use strict'
+### 💠 Strict Mode
 
 #### Usage
 
