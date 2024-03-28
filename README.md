@@ -5305,6 +5305,58 @@ console.log(JSON.stringify(objA, ["a", "b", "b1"]));
 // {"a":1,"b":{"b1":2}}
 ```
 
+The second argument of `JSON.stringify` can also be a mapping function (replacer) that is to be called for each key/value pair (including nested objects and array items):
+
+```js
+const objA = {
+  a: 1,
+  b: {
+    b1: 2,
+    b2: 3
+  },
+  c: [4, 5]
+};
+const objB = {};
+
+objA.ref = objB;
+objB.ref = objA;
+
+console.log(JSON.stringify(objA, (key, value) => key === "ref" ? undefined : value));
+// {"a":1,"b":{"b1":2,"b2":3},"c":[4,5]}
+```
+
+Even the entire object can be addressed by the replacer (passed to the function as the value of the first key, which is empty):
+
+```js
+const objA = {
+  a: 1,
+  b: {
+    b1: 2,
+    b2: 3
+  },
+  c: [4, 5]
+};
+const objB = { d: 6 };
+
+for (let obj of [objA, objB]) {
+  console.log(JSON.stringify(obj, (key, value) => value));
+}
+/*
+{"a":1,"b":{"b1":2,"b2":3},"c":[4,5]}
+{"d":6}
+*/
+
+for (let obj of [objA, objB]) {
+  console.log(JSON.stringify(obj, function f(key, value) {
+    return value === objA ? "Ignored" : value;
+  }));
+}
+/*
+"Ignored"
+{"d":6}
+*/
+```
+
 ### Error
 
 #### 💠 Properties
