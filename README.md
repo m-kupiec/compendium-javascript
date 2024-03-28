@@ -1227,6 +1227,16 @@ console.log([] == 0); // true
 console.log([1] == '1'); // true
 ```
 
+Comparing BigInt numbers:
+
+```js
+console.log(2n > 1n); // true
+console.log(2n > 1); // true
+
+console.log(1n === 1); // false
+console.log(1n == 1); // true
+```
+
 ### 💠 Logical Operators
 
 > 📖 [The Modern JavaScript Tutorial: Logical operators](https://javascript.info/logical-operators)
