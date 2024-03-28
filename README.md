@@ -673,6 +673,16 @@ console.log(Number("1n")); // NaN
 console.log(Number(1n)); // 1
 ```
 
+When converted to Boolean:
+
+```js
+console.log(0n ? true : false); // false
+console.log(1n ? true : false); // true
+
+console.log(0n || 1); // 1
+console.log(1n || 1); // 1n
+```
+
 ##### Boolean
 
 Value is converted to a boolean automatically in logical operations
