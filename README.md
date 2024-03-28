@@ -623,6 +623,8 @@ When `typeof` is not sufficient, `Object.prototype.toString` can display the typ
 > 📖 [The Modern JavaScript Tutorial: Object to primitive conversion](https://javascript.info/object-toprimitive)
 >
 > 📖 [The Modern JavaScript Tutorial: Arrays](https://javascript.info/array)
+>
+> 📖 [The Modern JavaScript Tutorial: BigInt](https://javascript.info/bigint)
 
 ##### String
 
@@ -658,6 +660,18 @@ Rules:
 - `true`/`false` is converted to `1`/`0`
 - `null` is converted to `0`
 - `undefined` is converted to `NaN`
+
+##### BigInt
+
+```js
+console.log(BigInt(1)); // 1n
+
+console.log(+"1n"); // NaN
+console.log(Number("1n")); // NaN
+
+// console.log(+1n); // TypeError: Cannot convert a BigInt value to a number
+console.log(Number(1n)); // 1
+```
 
 ##### Boolean
 
