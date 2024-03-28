@@ -1139,6 +1139,8 @@ Supports only `add`/`delete`/`has` methods
 > 📖 [The Modern JavaScript Tutorial: Strings](https://javascript.info/string#comparing-strings)
 >
 > 📖 [The Modern JavaScript Tutorial: Arrays](https://javascript.info/array)
+>
+> 📖 [The Modern JavaScript Tutorial: BigInt](https://javascript.info/bigint)
 
 ### 💠 Arithmetic Operators
 
@@ -1156,6 +1158,18 @@ const obj2 = {
 
 console.log(obj1 + obj2); // "[object Object][object Object]"
 console.log(+obj1 + +obj2); // NaN
+```
+
+When used with BigInt:
+
+```js
+console.log(1n + 2n); // 3n
+console.log(1n - 1n); // 0n
+
+console.log(11n / 3n); // 3n
+
+// console.log(1 + 2n); // TypeError: Cannot mix BigInt and other types, use explicit conversions
+console.log(BigInt(1) + 2n); // 3n
 ```
 
 ### 💠 Comma
