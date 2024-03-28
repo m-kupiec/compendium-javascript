@@ -10,7 +10,6 @@
 - [Scope](#scope)
 - [Built-In Objects](#built-in-objects)
 - [Internal Mechanics](#internal-mechanics)
-- [Miscellaneous](#miscellaneous)
 - [Programming Techniques](#programming-techniques)
 
 ## Data
@@ -3779,6 +3778,71 @@ if(!String.prototype.abc) {
 console.log("def".abc()); // "abc_def"
 ```
 
+### Global Scope Objects
+
+#### 💠 Executing Code From a String
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/eval)
+
+```js
+let a = 1;
+
+const result = eval(`
+  let b = 2;
+
+  function f(a, b) {
+    console.log(a + b);
+  }
+
+  f(a, b);
+
+  a += 0.1;
+
+  100 + 100;
+`); // 3
+
+console.log(result); // 200
+console.log(a); // 1.1
+```
+
+Using `eval` negatively affects minification ratio as minifiers don't rename local variables potentially visible to the code string
+
+Using outer local variables in `eval` negatively affects code maintenance; if `eval` doesn't use them, call it from the global object...
+
+```js
+let a = 1;
+
+{
+  let a = 2;
+
+  eval(`console.log(a);`); // 2
+}
+```
+
+```js
+let a = 1;
+
+{
+  let a = 2;
+
+  window.eval(`console.log(a);`); // 1
+}
+```
+
+... and if `eval` uses them, replace `eval` with `new Function`:
+
+```js
+let a = 1;
+
+{
+  let a = 2;
+
+  // eval(`console.log(a);`); // 2
+  // Replace with:
+  (new Function('a', 'console.log(a)'))(a); // 2
+}
+```
+
 ### Global Object
 
 #### 💠 General
@@ -5110,6 +5174,164 @@ console.log(new ReferenceError() instanceof Error); // true
 
 ## Internal Mechanics
 
+### 💠 Strict Mode
+
+#### Usage
+
+> 📖 [The Modern JavaScript Tutorial: The modern mode, "use strict"](https://javascript.info/strict-mode)
+
+`'use strict'` enables modifications introduced in ES5
+
+Must be placed at the beginning of a script or a function
+
+Used in classes and modules by default
+
+Not used in the browser console by default
+
+#### Effects
+
+##### Variable Declaration
+
+> 📖 [The Modern JavaScript Tutorial: Variables](https://javascript.info/variables#variable-naming)
+
+Forces variable declaration, as it's possible to simply assign a value without a declaration when not using `'use strict'`:
+
+```js
+a = 1;
+console.log(a); // 1
+```
+
+```js
+"use strict";
+
+a = 1;
+console.log(a); // ReferenceError: a is not defined
+```
+
+Prevents accidental creation of global variables when assigning value without declaration inside a function that is called afterward:
+
+```js
+function f() {
+  a = 1;
+  var b = 2;
+}
+
+f();
+console.log(a); // 1
+// console.log(b); // ReferenceError: b is not defined
+```
+
+```js
+"use strict";
+
+function f() {
+  a = 1;
+  var b = 2;
+}
+
+f();
+// console.log(a); // ReferenceError: a is not defined
+// console.log(b); // ReferenceError: b is not defined
+```
+
+##### Function Declaration
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/function-expressions#function-expression-vs-function-declaration)
+
+Makes the function visible only within the block scope in which it was declared
+
+```js
+if (true) {
+  function f() {}
+}
+
+console.log(typeof f); // "function"
+```
+
+```js
+"use strict";
+
+if (true) {
+  function f() {}
+}
+
+console.log(typeof f); // undefined
+```
+
+##### this Value
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/object-methods#this-is-not-bound)
+
+When a function is called without an object, the value of `this` is:
+- `undefined` when in the strict mode
+- global object when not in the strict mode
+
+##### Writing to a Non-Writible Property
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/property-descriptors#non-writable)
+
+When not in strict mode, writing to a non-writable property will not result in an error, although the operation will not succeed
+
+##### Code String Lexical Environment
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/eval)
+
+Code executed from a string using `eval` has its own lexical environment in the strict mode:
+
+```js
+"use strict";
+
+eval(`
+  let a = 1;
+`);
+
+//console.log(a); // ReferenceError: a is not defined
+```
+
+When not in the strict mode (:warning: **Note: The following code should not result in a ReferenceError, but I could not get it to work in either a browser or Node.js**):
+
+```js
+eval(`
+  let a = 1;
+`);
+
+// console.log(a); // ReferenceError: a is not defined
+```
+
+### 💠 Automatic semicolon insertion
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/structure#semicolon)
+> 
+> 📖 [ECMA-262](https://tc39.es/ecma262/#sec-automatic-semicolon-insertion)
+
+Occurs an a line break in most cases
+
+#### Example Exception #1
+
+```js
+a = b + c
+(d + e).f()
+```
+
+is transformed into:
+
+```js
+a = b + c(d + e).f()
+```
+
+#### Example Exception #2
+
+```js
+a()
+[b, c].d()
+```
+
+is transformed into:
+
+```js
+a()[b, c].d()
+```
+
 ### 💠 Reference Record
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/reference-type)
@@ -5334,229 +5556,6 @@ console.log(window.a, window.b); // 1 2
 #### Frequent Garbage Collection
 
 High object churn can slow down application execution due to frequent garbage collection; the object pool design pattern may be used to improve performance
-
-## Miscellaneous
-
-### 💠 Strict Mode
-
-#### Usage
-
-> 📖 [The Modern JavaScript Tutorial: The modern mode, "use strict"](https://javascript.info/strict-mode)
-
-`'use strict'` enables modifications introduced in ES5
-
-Must be placed at the beginning of a script or a function
-
-Used in classes and modules by default
-
-Not used in the browser console by default
-
-#### Effects
-
-##### Variable Declaration
-
-> 📖 [The Modern JavaScript Tutorial: Variables](https://javascript.info/variables#variable-naming)
-
-Forces variable declaration, as it's possible to simply assign a value without a declaration when not using `'use strict'`:
-
-```js
-a = 1;
-console.log(a); // 1
-```
-
-```js
-"use strict";
-
-a = 1;
-console.log(a); // ReferenceError: a is not defined
-```
-
-Prevents accidental creation of global variables when assigning value without declaration inside a function that is called afterward:
-
-```js
-function f() {
-  a = 1;
-  var b = 2;
-}
-
-f();
-console.log(a); // 1
-// console.log(b); // ReferenceError: b is not defined
-```
-
-```js
-"use strict";
-
-function f() {
-  a = 1;
-  var b = 2;
-}
-
-f();
-// console.log(a); // ReferenceError: a is not defined
-// console.log(b); // ReferenceError: b is not defined
-```
-
-##### Function Declaration
-
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/function-expressions#function-expression-vs-function-declaration)
-
-Makes the function visible only within the block scope in which it was declared
-
-```js
-if (true) {
-  function f() {}
-}
-
-console.log(typeof f); // "function"
-```
-
-```js
-"use strict";
-
-if (true) {
-  function f() {}
-}
-
-console.log(typeof f); // undefined
-```
-
-##### this Value
-
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/object-methods#this-is-not-bound)
-
-When a function is called without an object, the value of `this` is:
-- `undefined` when in the strict mode
-- global object when not in the strict mode
-
-##### Writing to a Non-Writible Property
-
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/property-descriptors#non-writable)
-
-When not in strict mode, writing to a non-writable property will not result in an error, although the operation will not succeed
-
-##### Code String Lexical Environment
-
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/eval)
-
-Code executed from a string using `eval` has its own lexical environment in the strict mode:
-
-```js
-"use strict";
-
-eval(`
-  let a = 1;
-`);
-
-//console.log(a); // ReferenceError: a is not defined
-```
-
-When not in the strict mode (:warning: **Note: The following code should not result in a ReferenceError, but I could not get it to work in either a browser or Node.js**):
-
-```js
-eval(`
-  let a = 1;
-`);
-
-// console.log(a); // ReferenceError: a is not defined
-```
-
-### 💠 Automatic semicolon insertion
-
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/structure#semicolon)
-> 
-> 📖 [ECMA-262](https://tc39.es/ecma262/#sec-automatic-semicolon-insertion)
-
-Occurs an a line break in most cases
-
-#### Example Exception #1
-
-```js
-a = b + c
-(d + e).f()
-```
-
-is transformed into:
-
-```js
-a = b + c(d + e).f()
-```
-
-#### Example Exception #2
-
-```js
-a()
-[b, c].d()
-```
-
-is transformed into:
-
-```js
-a()[b, c].d()
-```
-
-### 💠 Executing Code From a String
-
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/eval)
-
-```js
-let a = 1;
-
-const result = eval(`
-  let b = 2;
-
-  function f(a, b) {
-    console.log(a + b);
-  }
-
-  f(a, b);
-
-  a += 0.1;
-
-  100 + 100;
-`); // 3
-
-console.log(result); // 200
-console.log(a); // 1.1
-```
-
-Using `eval` negatively affects minification ratio as minifiers don't rename local variables potentially visible to the code string
-
-Using outer local variables in `eval` negatively affects code maintenance; if `eval` doesn't use them, call it from the global object...
-
-```js
-let a = 1;
-
-{
-  let a = 2;
-
-  eval(`console.log(a);`); // 2
-}
-```
-
-```js
-let a = 1;
-
-{
-  let a = 2;
-
-  window.eval(`console.log(a);`); // 1
-}
-```
-
-... and if `eval` uses them, replace `eval` with `new Function`:
-
-```js
-let a = 1;
-
-{
-  let a = 2;
-
-  // eval(`console.log(a);`); // 2
-  // Replace with:
-  (new Function('a', 'console.log(a)'))(a); // 2
-}
-```
 
 ## Programming Techniques
 
