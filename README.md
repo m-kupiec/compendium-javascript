@@ -5429,6 +5429,19 @@ console.log(JSON.parse(json));
 // { a: 1, b: { date: '1970-01-01T00:00:00.000Z' }, c: [ 4, 5 ] }
 ```
 
+The second argument of `JSON.parse` is a mapping function (reviver) that is to be called for each key/value pair (including nested objects and array items):
+
+```js
+const json = '{"a":1,"b":{"date":"1970-01-02T10:00:00.000Z"},"c":[4,5]}';
+
+let obj = JSON.parse(json);
+console.log(obj); // { a: 1, b: { date: '1970-01-02T10:00:00.000Z' }, c: [ 4, 5 ] }
+// console.log(obj.b.date.getTime()); // TypeError: obj.b.date.getTime is not a function
+
+obj = JSON.parse(json, (key, value) => key === "date" ? new Date(value) : value);
+console.log(obj.b.date.getTime()); // obj = JSON.parse(json);
+```
+
 ### Error
 
 #### 💠 Properties
