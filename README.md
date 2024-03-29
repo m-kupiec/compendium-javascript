@@ -5401,6 +5401,25 @@ console.log(JSON.stringify(obj, null, '|  '));
 */
 ```
 
+#### 💠 Customizing JSON Encoding
+
+```js
+const obj = {
+  a: 1,
+  b: {
+    b1: 2,
+    b2: 3,
+
+    toJSON() {
+      return `${this.b1}|${this.b2}`;
+    }
+  },
+  c: [4, 5]
+};
+
+console.log(JSON.stringify(obj)); // {"a":1,"b":"2|3","c":[4,5]}
+```
+
 ### Error
 
 #### 💠 Properties
