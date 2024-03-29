@@ -5420,6 +5420,15 @@ const obj = {
 console.log(JSON.stringify(obj)); // {"a":1,"b":"2|3","c":[4,5]}
 ```
 
+#### 💠 Decoding JSON
+
+```js
+const json = '{"a":1,"b":{"date":"1970-01-01T00:00:00.000Z"},"c":[4,5]}';
+
+console.log(JSON.parse(json));
+// { a: 1, b: { date: '1970-01-01T00:00:00.000Z' }, c: [ 4, 5 ] }
+```
+
 ### Error
 
 #### 💠 Properties
