@@ -4500,6 +4500,7 @@ const b = new B();
 console.log({}.toString.call(a)); // "[object Object]"
 console.log({}.toString.call(b)); // "[object B]
 console.log(Object.prototype.toString.call(b)); // "[object B]
+console.log(b); // B { [Symbol(Symbol.toStringTag)]: 'B' }
 ```
 
 ### Array
