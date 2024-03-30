@@ -5626,6 +5626,25 @@ eval(`
 // console.log(a); // ReferenceError: a is not defined
 ```
 
+### 💠 Trailing Comma
+
+Possible in all comma-separated lists of values:
+
+```js
+let arr = [1, 2, ];
+console.log(arr.length); // 2
+arr = [1, 2, , ];
+console.log(arr.length); // 3
+arr = [1, 2, , , ];
+console.log(arr.length); // 4
+
+let obj = { a: 1, b: 2, };
+// obj = { a: 1, b: 2, , }; // SyntaxError: Unexpected token ','
+
+let f = (a, ) => a;
+// f = (a, , ) => a; // SyntaxError: Unexpected token ','
+```
+
 ### 💠 Automatic semicolon insertion
 
 > 📖 [The Modern JavaScript Tutorial](https://javascript.info/structure#semicolon)
