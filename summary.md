@@ -79,6 +79,8 @@
 
 A variable declared with `var` can be redeclared
 
+Declaring a variable without a keyword (by an assignment) is possible if not in the strict mode
+
 A variable declared with `const` cannot be reassigned
 
 ### Hoisting
