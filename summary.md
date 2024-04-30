@@ -95,14 +95,11 @@ A `let`/`const` declaration is hoisted but not initialized, so that the variable
 |-----------|-----------------|-----------------|-------------------|-----------------|-----------------|
 |           |**Module Scope** |**Global Scope** |**Module Scope**   |**Global Scope** |                 |
 |           |                 |                 |                   |**Declaration**  |**Expression**   |
-|`function` |
-|           |Not Scoped       |Not Scoped       |Scoped             |Scoped           |Scoped           |
+|`function` |Not Scoped       |Not Scoped       |Scoped             |Scoped           |Scoped           |
 |           |-                |Added to `global`|-                  |-                |-                |
-|`var`      |
-|           |Not Scoped       |Not Scoped       |Scoped             |Scoped           |Scoped           |
+|`var`      |Not Scoped       |Not Scoped       |Scoped             |Scoped           |Scoped           |
 |           |-                |Added to `global`|-                  |-                |-                |
-|No keyword |
-|           |                 |                 |***After `()`***   |***After `()`*** |***After `()`*** |
+|No keyword |                 |                 |***After `()`***   |***After `()`*** |***After `()`*** |
 |           |Not Scoped       |Not Scoped       |Not Scoped         |Not Scoped       |Not Scoped       |
 |           |Added to `global`|Added to `global`|Added to `global`  |Added to `global`|Added to `global`|
 |           |                 |                 |***Before `()`***  |***Before `()`***|***Before `()`***|
