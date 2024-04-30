@@ -72,3 +72,31 @@
 - Memory
 
 ### Techniques
+
+## Variables
+
+### Declaration
+
+A variable declared with `var` can be redeclared
+
+A variable declared with `const` cannot be reassigned
+
+### Hoisting
+
+A `var` declaration (without the assignment) is hoisted to the top of its scope and given an initial value of `undefined`
+
+No-keyword declaration (an assignment without a previous declaration) is not hoisted
+
+A `let`/`const` declaration is hoisted but not initialized, so that the variable remains in a *temporal dead zone* until the initialization code is executed
+
+### Scope
+
+...
+
+### Lexical Environment
+
+...
+
+### Closure
+
+...
