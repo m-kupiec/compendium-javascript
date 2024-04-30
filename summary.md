@@ -95,22 +95,28 @@ A `let`/`const` declaration is hoisted but not initialized, so that the variable
 
 ### Scope
 
-|Declaration |Code Block       |                 |Function           |                 |                 |
-|------------|-----------------|-----------------|-------------------|-----------------|-----------------|
-|            |**Module Scope** |**Global Scope** |**Module Scope**   |**Global Scope** |                 |
-|            |                 |                 |                   |**Declaration**  |**Expression**   |
-|`function`  |Not Scoped *     |Not Scoped *     |Scoped             |Scoped           |Scoped           |
-|            |-                |Added to `global`|-                  |-                |-                |
-|`var`       |Not Scoped       |Not Scoped       |Scoped             |Scoped           |Scoped           |
-|            |-                |Added to `global`|-                  |-                |-                |
-|No keyword *|                 |                 |***After `()`***   |***After `()`*** |***After `()`*** |
-|            |Not Scoped       |Not Scoped       |Not Scoped         |Not Scoped       |Not Scoped       |
-|            |Added to `global`|Added to `global`|Added to `global`  |Added to `global`|Added to `global`|
-|            |                 |                 |***Before `()`***  |***Before `()`***|***Before `()`***|
-|            |                 |                 |Scoped             |Scoped           |Scoped           |
-|            |                 |                 |-                  |-                |-                |
+|Declaration |Code Block       |                 |Function             |                    |                    |
+|------------|-----------------|-----------------|---------------------|--------------------|--------------------|
+|            |**Module Scope** |**Global Scope** |**Module Scope**     |**Global Scope**    |                    |
+|            |                 |                 |                     |**Declaration**     |**Expression**      |
+|`function`  |Not Scoped *     |Not Scoped *     |Scoped               |Scoped              |Scoped              |
+|            |-                |Added to `global`|-                    |-                   |-                   |
+|`var`       |Not Scoped       |Not Scoped       |Scoped               |Scoped              |Scoped              |
+|            |-                |Added to `global`|-                    |-                   |-                   |
+|No keyword *|                 |                 |***After `()`***     |***After `()`***    |***After `()`***    |
+|            |Not Scoped       |Not Scoped       |Not Scoped           |Not Scoped          |Not Scoped          |
+|            |Added to `global`|Added to `global`|Added to `global`    |Added to `global`   |Added to `global`   |
+|            |                 |                 |***Before `()`***    |***Before `()`***   |***Before `()`***   |
+|            |                 |                 |Scoped               |Scoped              |Scoped              |
+|            |                 |                 |-                    |-                   |-                   |
+|`this`      |-                |-                |Added to `global` ***|Added to `global` **|Added to `global` **|
 
 \* *Only when not in the strict mode*
+
+*Only when:*
+- \*\* *not in the strict mode*
+- \*\* *the function is called without an object*
+- \*\*\* *the function was also not declared as an arrow function (function declaration/expression/named expression)*
 
 ### Lexical Environment
 
