@@ -4,7 +4,12 @@
 
 ### Basics
 
-- Variables (Scope, Hoisting)
+- Variables
+  - Declaration
+  - Hoisting
+  - Scope
+  - Lexical Environment
+  - Closure
 - Strict Mode
 - Operators
 - Synchronous Control Flow
