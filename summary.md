@@ -18,14 +18,27 @@
 
 ### Data Collections
 
-- Arrays
 - Array-Like Objects
 - Iterable Objects
 - Async Iterable Objects
-- Maps
-- WeakMaps
-- Sets
-- WeakSets
+
+### Built-In Objects
+
+- Global Scope Objects
+- Global Object
+- Object
+- Number
+- String
+- Symbol
+- Array
+- Map
+- WeakMap
+- Set
+- WeakSet
+- Math
+- Date
+- JSON
+- Error
 
 ### Functions
 
