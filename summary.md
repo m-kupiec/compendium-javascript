@@ -108,7 +108,17 @@ A `let`/`const` declaration is hoisted but not initialized, so that the variable
 
 ### Lexical Environment
 
-...
+Every running scope (global, block, function) has its associated Lexical Environment (theoretical object existing in the specification) which consists of:
+
+- A reference to the outer lexical environment
+- An `Environment Record` object which stores as its properties:
+  - `this`
+  - local variables
+  - local function declarations
+
+Variables are stored and updated in their corresponding Lexical Environments
+
+Lexical Environment is cleaned from memory by the garbage collector when it becomes unreachable
 
 ### Closure
 
