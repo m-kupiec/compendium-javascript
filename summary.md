@@ -113,7 +113,7 @@ A `let`/`const` declaration is hoisted but not initialized, so that the variable
 
 \* *Only when not in the strict mode*
 
-*Only when:*
+\*\* *Because the value of `this` is the global object when not in the strict mode or `undefined` otherwise; Only when:*
 - \*\* *not in the strict mode*
 - \*\* *the function is called without an object*
 - \*\*\* *the function was also not declared as an arrow function (function declaration/expression/named expression)*
