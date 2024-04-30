@@ -5712,7 +5712,7 @@ obj.f(); // 1
 
 > 📖 [Codecademy | Learn Intermediate JavaScript](https://www.codecademy.com/courses/learn-intermediate-javascript/articles/javascript-hoisting)
 
-At compile time the engine allocate memory by hoisting variable names and function declarations to the top of their corresponding scopes; functions are initialized immediately while variable initializations are done in-place:
+At compile time the engine allocates memory by hoisting variable names and function declarations to the top of their corresponding scopes; functions are initialized immediately while variable initializations are done in-place:
 
 ```js
 console.log(typeof f); // "function"
