@@ -36,7 +36,7 @@ let a = 1,
 
 A variable declared with `const` cannot be reassigned
 
-A varable declared with `var` can be redeclared:
+A variable declared with `var` can be redeclared:
 
 ```js
 var a = 1;
