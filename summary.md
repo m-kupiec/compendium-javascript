@@ -91,14 +91,15 @@ A `let`/`const` declaration is hoisted but not initialized, so that the variable
 
 ### Scope
 
-A variable declared with `var`:
-- is not scoped within a code block (conditionals, loops)
-- is scoped in a function block
-
-A function/variable is added to the global object if:
-- declared using `function` (function declaration)
-- declared using `var`
-- declared without a keyword
+| Declaration | Code Block            | Function Declaration/Expression |
+|-------------|-----------------------|---------------------------------|
+| `function`  | Not Scoped            | Scoped                          |
+| `var`       | Not Scoped            | Scoped                          |
+| No keyword  | Not Scoped            | **Before Execution:**           |
+|             | `global`: <`value`>   | Scoped                          |
+|             |                       | **After Execution:**            |
+|             |                       | Not Scoped                      |
+|             |                       | `global`: <`value`>             |
 
 ### Lexical Environment
 
