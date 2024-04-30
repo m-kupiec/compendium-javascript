@@ -79,7 +79,7 @@
 
 A variable declared with `var` can be redeclared
 
-Declaring a variable without a keyword (by an assignment) is possible if not in the strict mode
+Declaring a variable without a keyword (by an assignment) is possible (no `ReferenceError`) only if not in the strict mode
 
 A variable declared with `const` cannot be reassigned
 
@@ -103,12 +103,14 @@ A `let`/`const` declaration is hoisted but not initialized, so that the variable
 |           |-                |Added to `global`|-                  |-                |-                |
 |`var`      |Not Scoped       |Not Scoped       |Scoped             |Scoped           |Scoped           |
 |           |-                |Added to `global`|-                  |-                |-                |
-|No keyword |                 |                 |***After `()`***   |***After `()`*** |***After `()`*** |
+|No keyword*|                 |                 |***After `()`***   |***After `()`*** |***After `()`*** |
 |           |Not Scoped       |Not Scoped       |Not Scoped         |Not Scoped       |Not Scoped       |
 |           |Added to `global`|Added to `global`|Added to `global`  |Added to `global`|Added to `global`|
 |           |                 |                 |***Before `()`***  |***Before `()`***|***Before `()`***|
 |           |                 |                 |Scoped             |Scoped           |Scoped           |
 |           |                 |                 |-                  |-                |-                |
+
+\* *Possible (no `ReferenceError`) only when not in the strict mode*
 
 ### Lexical Environment
 
