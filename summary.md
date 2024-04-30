@@ -122,4 +122,4 @@ Lexical Environment is cleaned from memory by the garbage collector when it beco
 
 ### Closure
 
-...
+All functions in JavaScript (if not created with `new`) are closures, i.e. they retain access to their outer variables because in a hidden `[[Environment]]` property they store a reference to the Lexical Environment in which they were created
