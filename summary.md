@@ -83,6 +83,8 @@ A variable declared with `const` cannot be reassigned
 
 ### Hoisting
 
+At compile time the engine allocates memory by hoisting variable names and function declarations to the top of their corresponding scopes; functions are initialized immediately while variable initializations are done in-place
+
 A `var` declaration (without the assignment) is hoisted to the top of its scope and given an initial value of `undefined`
 
 No-keyword "declaration" (an assignment without a previous declaration) is not hoisted
