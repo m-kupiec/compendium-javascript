@@ -91,15 +91,23 @@ A `let`/`const` declaration is hoisted but not initialized, so that the variable
 
 ### Scope
 
-| Declaration | Code Block            | Function Declaration/Expression |
-|-------------|-----------------------|---------------------------------|
-| `function`  | Not Scoped            | Scoped                          |
-| `var`       | Not Scoped            | Scoped                          |
-| No keyword  | Not Scoped            | **Before Execution:**           |
-|             | `global`: <`value`>   | Scoped                          |
-|             |                       | **After Execution:**            |
-|             |                       | Not Scoped                      |
-|             |                       | `global`: <`value`>             |
+|Declaration|Code Block       |                 |Function           |                 |                 |
+|-----------|-----------------|-----------------|-------------------|-----------------|-----------------|
+|           |**Module Scope** |**Global Scope** |**Module Scope**   |**Global Scope** |                 |
+|           |                 |                 |                   |**Declaration**  |**Expression**   |
+|`function` |
+|           |Not Scoped       |Not Scoped       |Scoped             |Scoped           |Scoped           |
+|           |-                |Added to `global`|-                  |-                |-                |
+|`var`      |
+|           |Not Scoped       |Not Scoped       |Scoped             |Scoped           |Scoped           |
+|           |-                |Added to `global`|-                  |-                |-                |
+|No keyword |
+|           |                 |                 |***After `()`***   |***After `()`*** |***After `()`*** |
+|           |Not Scoped       |Not Scoped       |Not Scoped         |Not Scoped       |Not Scoped       |
+|           |Added to `global`|Added to `global`|Added to `global`  |Added to `global`|Added to `global`|
+|           |                 |                 |***Before `()`***  |***Before `()`***|***Before `()`***|
+|           |                 |                 |Scoped             |Scoped           |Scoped           |
+|           |                 |                 |-                  |-                |-                |
 
 ### Lexical Environment
 
