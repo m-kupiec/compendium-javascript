@@ -348,7 +348,14 @@ for (;;) {
 
 ### Control Transfer
 
-...
+|Directive |Result                      |Use Case                                      |Placement           |
+|----------|----------------------------|----------------------------------------------|--------------------|
+|`break`   |Breaks the whole loop       |Evaluating condition in the middle of the loop|Inside a block      |
+|          |                            |                                              |Not allowed with `?`|
+|`continue`|Breaks the current iteration|Avoiding conditional's nesting in the loop    |Inside a loop       |
+|          |                            |                                              |Not allowed with `?`|
+
+A label may be used to `break`/`continue` from a nested loop
 
 ### Error Handling
 
