@@ -169,7 +169,20 @@ JavaScript operates on a single thread, but its asynchronous behavior is facilit
 
 ### Memory Data Structures
 
-...
+The Stack:
+- Used for static memory allocation - the size of the data type (primitive data types) is known at compile time and a fixed amount of memory is reserved for it
+- Stores (in the LIFO order):
+  - Primitive values
+  - References to non-primitive values
+  - Function call frames
+
+The Heap:
+- Used for dynamic memory allocation at runtime - the size of the stored data is unknown at compile time or may change during runtime
+- Stores:
+  - Objects
+  - Functions
+  - Arrays
+  - etc.
 
 ### Memory Life Cycle
 
