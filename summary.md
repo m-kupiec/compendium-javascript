@@ -4,16 +4,15 @@
 
 ### Basics
 
-- Code Execution
+- Code Parsing & Execution
   - Strict Mode
-  - Variable Declaration
+  - Declarations & Assignments
   - Hoisting
   - Scope
   - Lexical Environment
   - Closure
   - Execution Context
   - Event Loop
-- Memory Management
   - Memory Data Structures
   - Memory Life Cycle
 - Operators
@@ -75,7 +74,7 @@
 
 - ...
 
-## Code Execution
+## Code Parsing & Execution
 
 ### Strict Mode
 
@@ -87,7 +86,7 @@ Strict mode is:
 - Used in classes and modules by default
 - Not used in the browser console by default
 
-### Variable Declaration
+### Declarations & Assignments
 
 A variable declared with `var` can be redeclared
 
@@ -164,8 +163,6 @@ JavaScript operates on a single thread, but its asynchronous behavior is facilit
 2. The runtime environment enqueues tasks into the Event Queue, representing asynchronous operations such as I/O events or timer callbacks
 3. The Event Loop manages the execution flow by continuously checking the Call Stack's status; it dequeues tasks from the Event Queue and schedules them for execution (in an order influenced by factors such as task priorities and event types, rather than strictly adhering to a simple FIFO order)
    - `PromiseJobs` queue ("microtask queue" as called in V8) has higher priority than the callback queue
-
-## Memory Management
 
 ### Memory Data Structures
 
