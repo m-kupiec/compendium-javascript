@@ -254,4 +254,6 @@ BigInt cannot be mixed with other types (including Number) to prevent `TypeError
 
 ### Comma
 
-...
+Each of the expressions separated with a comma is evaluated and the result of the last one is returned
+
+Comma has a lower precedence than the assignment operator
