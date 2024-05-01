@@ -4,13 +4,14 @@
 
 ### Basics
 
-- Variables
-  - Declaration
+- Code Execution
+  - Strict Mode
+  - Variable Declaration
   - Hoisting
   - Scope
   - Lexical Environment
   - Closure
-- Strict Mode
+  - Execution Context
 - Operators
 - Synchronous Control Flow
 - Error Handling
@@ -73,9 +74,13 @@
 
 ### Techniques
 
-## Variables
+## Code Execution
 
-### Declaration
+### Strict Mode
+
+...
+
+### Variable Declaration
 
 A variable declared with `var` can be redeclared
 
