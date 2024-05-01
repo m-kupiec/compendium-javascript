@@ -23,7 +23,6 @@
   - Logical
   - Comparison
   - Assignment
-  - Increment/Decrement
   - Comma
 - Synchronous Control Flow
 - Error Handling
@@ -232,6 +231,8 @@ Garbage collection:
 
 BigInt cannot be mixed with other types (including Number) to prevent `TypeError`
 
+The increment `++i` returns the new value, while `i++` returns the old value
+
 ### Bitwise
 
 ...
@@ -251,10 +252,6 @@ Returns the assigned value
 Chained assignments are evaluated from right to left
 
 For each arithmetical and bitwise operator, there is a corresponding modify-and-assign operator
-
-### Increment/Decrement
-
-...
 
 ### Comma
 
