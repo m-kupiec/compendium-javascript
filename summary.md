@@ -186,4 +186,22 @@ The Heap:
 
 ### Memory Life Cycle
 
-...
+Memory allocation:
+- Variable declaration or assignment
+- Object property declaration or assignment
+- Function declaration
+- Function call
+
+Memory in use (reading from or writing to the allocated memory):
+- Using variables
+- Reassigning variables
+- Passing arguments to functions
+
+Garbage collection:
+- Releasing/clearing memory using one of the algorithms used by the given JavaScript engine:
+  - Reference counting:
+    1. Counts references stored in the stack
+    2. Releases allocated memory when the count is zero
+  - Mark-and-sweep:
+    1. Starts from the global object traversing all variables and marking the reachable ones
+    2. Unmarked variables are garbage collected during the sweep phase
