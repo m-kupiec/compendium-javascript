@@ -246,7 +246,11 @@ BigInt cannot be mixed with other types (including Number) to prevent `TypeError
 
 ### Assignment
 
-...
+Returns the assigned value
+
+Chained assignments are evaluated from right to left
+
+For each arithmetical and bitwise operator, there is a corresponding modify-and-assign operator
 
 ### Increment/Decrement
 
