@@ -252,7 +252,20 @@ Operators:
 
 ### Comparison
 
-...
+Returns a boolean
+
+Rules:
+  - Strings are compared according to the UTF-16 order
+  - Values of different types are compared after being converted (with the exception of the strict equality operator `===`) to:
+    - A primitive value if at least one of the operands is `Object`
+    - `Number`
+    - `BigInt` if one of the operands is `BigInt`
+    - `String` if at least one of the operands is `Array`
+
+Exceptions:
+- `null`, `undefined`, and `NaN` do not equal (`==`) any other value
+- `null` == `undefined`
+- `NaN` != `NaN`
 
 ### Assignment
 
