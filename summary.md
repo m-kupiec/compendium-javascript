@@ -4,7 +4,7 @@
 
 ### Basics
 
-- Code Parsing & Execution
+- **Code Parsing & Execution**
   - Automatic Semicolon Insertion
   - Trailing Commas
   - Strict Mode
@@ -17,7 +17,7 @@
   - Event Loop
   - Memory Data Structures
   - Memory Life Cycle
-- Operators
+- **Operators**
   - Arithmetic
   - Bitwise
   - Logical
