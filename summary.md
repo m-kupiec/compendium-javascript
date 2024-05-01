@@ -235,7 +235,16 @@ The increment `++i` returns the new value, while `i++` returns the old value
 
 ### Bitwise
 
-...
+Operands are treated as 32-bit integers
+
+Operators:
+- AND ( & )
+- OR ( | )
+- XOR ( ^ )
+- NOT ( ~ )
+- LEFT SHIFT ( << )
+- RIGHT SHIFT ( >> )
+- ZERO-FILL RIGHT SHIFT ( >>> )
 
 ### Logical
 
