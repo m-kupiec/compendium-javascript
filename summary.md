@@ -5,6 +5,8 @@
 ### Basics
 
 - Code Parsing & Execution
+  - Automatic Semicolon Insertion
+  - Trailing Commas
   - Strict Mode
   - Declarations & Assignments
   - Hoisting
@@ -75,6 +77,20 @@
 - ...
 
 ## Code Parsing & Execution
+
+### Automatic Semicolon Insertion
+
+Occurs an a line break in most cases with the notable exeption of a line immediately followed by:
+- A parenthesis `(...)`
+- A square bracket `[...]`
+
+### Trailing Commas
+
+Trailing commas are allowed in all comma-separated lists of values:
+- No more than one in:
+  - Object literals
+  - Function parameters list
+- Without restrictions in array literals (the array's length will be increased by the number of `n-1` trailing commas)
 
 ### Strict Mode
 
