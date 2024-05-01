@@ -12,6 +12,10 @@
   - Lexical Environment
   - Closure
   - Execution Context
+  - Event Loop
+- Memory Management
+  - Memory Data Structure
+  - Memory Life Cycle
 - Operators
 - Synchronous Control Flow
 - Error Handling
@@ -66,11 +70,6 @@
 - Ontology
 - Inheritance
 - Encapsulation
-
-### Internals
-
-- Event Loop
-- Memory
 
 ### Techniques
 
@@ -149,3 +148,17 @@ Execution context data structure stores information about a given function call,
 - the value of `this`
 
 Nested execution contexts are stored as frames in the call stack (LIFO order)
+
+### Event Loop
+
+...
+
+## Memory Management
+
+### Memory Data Structure
+
+...
+
+### Memory Life Cycle
+
+...
