@@ -79,7 +79,13 @@
 
 ### Strict Mode
 
-...
+`"use strict"`:
+- Enables modifications introduced in ES5
+- Must be placed at the beginning of a script or a function
+
+Strict mode is:
+- Used in classes and modules by default
+- Not used in the browser console by default
 
 ### Variable Declaration
 
