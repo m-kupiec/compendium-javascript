@@ -5762,10 +5762,10 @@ Nested execution contexts are stored in the call stack (LIFO order) as frames
 >
 > 📖 [Felix Gerschau | JavaScript Event Loop And Call Stack Explained](https://felixgerschau.com/javascript-event-loop-call-stack/)
 
-JavaScript is single-threaded; the Event Loop (which is a code execution management system) allows to emulate concurrency:
-1. Memory Heap and Call Stack (parts of JavaScript engine) interact with Node.js or Web APIs
-2. Node.js or Web APIs send tasks to the Event Queue
-3. Event Loop manages sending tasks from the Event Queue to the Call Stack in the FIFO order
+JavaScript operates on a single thread, but its asynchronous behavior is facilitated by the Event Loop, a code execution management system:
+1. The Memory Heap and Call Stack, components of the JavaScript engine, interact with the runtime environment, typically through its provided APIs or mechanisms
+2. The runtime environment enqueues tasks into the Event Queue, representing asynchronous operations such as I/O events or timer callbacks
+3. The Event Loop manages the execution flow by continuously checking the Call Stack's status; it dequeues tasks from the Event Queue and schedules them for execution (in an order influenced by factors such as task priorities and event types, rather than strictly adhering to a simple FIFO order)
 
 `PromiseJobs` queue ("microtask queue" as called in V8) has higher priority than the callback queue:
 
