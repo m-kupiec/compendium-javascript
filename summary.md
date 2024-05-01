@@ -18,6 +18,13 @@
   - Memory Data Structures
   - Memory Life Cycle
 - Operators
+  - Arithmetic
+  - Bitwise
+  - Logical
+  - Comparison
+  - Assignment
+  - Increment/Decrement
+  - Comma
 - Synchronous Control Flow
 - Error Handling
 
@@ -218,3 +225,33 @@ Garbage collection:
   - Mark-and-sweep:
     1. Starts from the global object traversing all variables and marking the reachable ones
     2. Unmarked variables are garbage collected during the sweep phase
+
+## Operators
+
+### Arithmetic
+
+...
+
+### Bitwise
+
+...
+
+### Logical
+
+...
+
+### Comparison
+
+...
+
+### Assignment
+
+...
+
+### Increment/Decrement
+
+...
+
+### Comma
+
+...
