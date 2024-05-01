@@ -14,7 +14,7 @@
   - Execution Context
   - Event Loop
 - Memory Management
-  - Memory Data Structure
+  - Memory Data Structures
   - Memory Life Cycle
 - Operators
 - Synchronous Control Flow
@@ -167,7 +167,7 @@ JavaScript operates on a single thread, but its asynchronous behavior is facilit
 
 ## Memory Management
 
-### Memory Data Structure
+### Memory Data Structures
 
 ...
 
