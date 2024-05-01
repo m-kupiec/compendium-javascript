@@ -24,8 +24,11 @@
   - Comparison
   - Assignment
   - Comma
-- Synchronous Control Flow
-- Error Handling
+- **Synchronous Control Flow**
+  - Conditionals
+  - Loops
+  - Control Transfer
+  - Error Handling
 
 ### Data Types
 
@@ -297,3 +300,21 @@ For each arithmetical and bitwise operator, there is a corresponding modify-and-
 Each of the expressions separated with a comma is evaluated and the result of the last one is returned
 
 Comma has a lower precedence than the assignment operator
+
+## Synchronous Control Flow
+
+### Conditionals
+
+...
+
+### Loops
+
+...
+
+### Control Transfer
+
+...
+
+### Error Handling
+
+...
