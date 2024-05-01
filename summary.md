@@ -248,17 +248,24 @@ Operators:
 
 ### Logical
 
-OR (`||`):
-1. Evaluates operands from left to right
-2. Converts each operand to `Boolean`
-3. Returns the original value of the first truthy operand (or the last one if all are falsy)
-
 AND (`&&`):
 1. Evaluates operands from left to right
 2. Converts each operand to `Boolean`
-3. Returns the original value of the first falsy operand (or the last one if all are truthy)
+3. Returns the original value of the first operand that isn't `true` after conversion (or the last one if all are truthy)
 
-The precedence of `&&` is higher than that of `||`
+OR (`||`):
+1. Evaluates operands from left to right
+2. Converts each operand to `Boolean`
+3. Returns the original value of the first operand that isn't `false` after conversion (or the last one if all are falsy)
+
+Nullish Coalescing (`??`):
+1. Evaluates operands from left to right
+2. Returns the original value of the first operand that isn't `null`/`undefined` (e.g. `0`, `NaN`, `""`, `false`)
+
+When combining multiple operators:
+- `&&` has higher precedence than `||`
+- `??` has the same precedence as `||`
+- Using `??` together with `&&`/`||` without parentheses is forbidden
 
 ### Comparison
 
