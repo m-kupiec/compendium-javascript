@@ -328,7 +328,23 @@ switch(x) {
 
 ### Loops
 
-...
+```js
+while (condition) {
+  /* ... */
+}
+```
+
+```js
+do {
+  /* ... */
+} while (condition);
+```
+
+```js
+for (;;) {
+  /* ... */
+}
+```
 
 ### Control Transfer
 
