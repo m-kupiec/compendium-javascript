@@ -305,7 +305,26 @@ Comma has a lower precedence than the assignment operator
 
 ### Conditionals
 
-...
+|Conditional|Use case                            |Note                        |
+|-----------|------------------------------------|----------------------------|
+|`?`        |Returning one of the two values     |                            |
+|`if`       |Executing different branches of code|                            |
+|`switch`   |Comparing different value variants  |The equality check is strict|
+
+```js
+switch(x) {
+  case 0:
+    /* ... */
+    break;
+
+  case 1:
+    /* ... */
+    break;
+
+  default:
+    /* ... */
+}
+```
 
 ### Loops
 
