@@ -359,4 +359,16 @@ A label may be used to `break`/`continue` from a nested loop
 
 ### Error Handling
 
-...
+```js
+try {
+  /* ... */
+  throw new Error("Message");
+  /* ... */
+} catch (error) {
+  /* ... */
+} finally {
+  /* If an error hasn't been caught, the error will break the code exexution only after the "finally" block has been executed */
+}
+```
+
+Scheduled functions are executed after the engine has already left the `try...catch` construct
