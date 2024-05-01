@@ -230,7 +230,7 @@ Garbage collection:
 
 ### Arithmetic
 
-...
+BigInt cannot be mixed with other types (including Number) to prevent `TypeError`
 
 ### Bitwise
 
