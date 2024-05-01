@@ -248,7 +248,17 @@ Operators:
 
 ### Logical
 
-...
+OR (`||`):
+1. Evaluates operands from left to right
+2. Converts each operand to `Boolean`
+3. Returns the original value of the first truthy operand (or the last one if all are falsy)
+
+AND (`&&`):
+1. Evaluates operands from left to right
+2. Converts each operand to `Boolean`
+3. Returns the original value of the first falsy operand (or the last one if all are truthy)
+
+The precedence of `&&` is higher than that of `||`
 
 ### Comparison
 
