@@ -161,7 +161,7 @@ Three types of quotes:
 
 Special characters:
 - `\n`: new line
-- `\t`: new line
+- `\t`: tab
 - `\`: special character escaping
 
 Accessing char at a non-found index results in an `undefined` value
