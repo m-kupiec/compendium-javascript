@@ -467,7 +467,21 @@ Represents a non-assigned value
 
 ### Checking
 
-...
+`typeof` operator syntax: `typeof x`/`typeof(x)`
+
+```js
+typeof 1 // "number"
+typeof 1n // "bigint"
+typeof true // "boolean"
+typeof "a" // "string"
+typeof null // "object" (*)
+typeof undefined // "undefined"
+typeof Symbol("id") // "symbol"
+typeof Math // "object"
+typeof alert // "function" (*)
+
+// * Incorrect behavior
+```
 
 ### Conversion
 
