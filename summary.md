@@ -41,7 +41,9 @@
   - Null
   - Undefined
 - Objects
-- Type Conversion
+- **Type Operations**
+  - Checking
+  - Conversion
 
 ### Data Collections
 
@@ -460,3 +462,13 @@ Represents an empty/unknown value
 ### Undefined
 
 Represents a non-assigned value
+
+## Type Operations
+
+### Checking
+
+...
+
+### Conversion
+
+...
