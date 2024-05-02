@@ -455,7 +455,7 @@ console.log(id.description); // "Description"
 
 ### Null
 
-...
+Represents an empty/unknown value
 
 ### Undefined
 
