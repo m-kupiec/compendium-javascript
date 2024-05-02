@@ -243,7 +243,7 @@ Garbage collection:
 
 ### Arithmetic
 
-BigInt cannot be mixed with other types (including Number) to prevent `TypeError`
+BigInt cannot be mixed with other types (including `Number`) to prevent `TypeError`
 
 The increment `++i` returns the new value, while `i++` returns the old value
 
