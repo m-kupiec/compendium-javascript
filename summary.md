@@ -439,7 +439,7 @@ Reading/writing:
 
 ### Boolean
 
-...
+Possible values: `true`/`false`
 
 ### Symbol
 
