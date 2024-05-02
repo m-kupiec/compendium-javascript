@@ -396,7 +396,7 @@ Possible values:
 - Integer (including `-0`)
 - Floating point
 - `Infinity`/`-Infinity`
-- `NaN` (a computational error)
+- `NaN` (represents a computational error)
 
 Decimal notations:
 - `-1000000`
