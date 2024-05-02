@@ -459,4 +459,4 @@ Represents an empty/unknown value
 
 ### Undefined
 
-...
+Represents a non-assigned value
