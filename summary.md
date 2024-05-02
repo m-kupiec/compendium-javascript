@@ -443,7 +443,15 @@ Possible values: `true`/`false`
 
 ### Symbol
 
-...
+Represents a unique identifier
+
+Symbol's description may be used for debugging:
+
+```js
+let id = Symbol("Description");
+
+console.log(id.description); // "Description"
+```
 
 ### Null
 
