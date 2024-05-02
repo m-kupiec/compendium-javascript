@@ -32,7 +32,14 @@
 
 ### Data Types
 
-- Primitives
+- **Primitives**
+  - Number
+  - BigInt
+  - String
+  - Boolean
+  - Symbol
+  - Null
+  - Undefined
 - Objects
 - Type Conversion
 
@@ -84,6 +91,8 @@
 ### Techniques
 
 - ...
+
+# Basics
 
 ## Code Parsing & Execution
 
@@ -372,3 +381,35 @@ try {
 ```
 
 Scheduled functions are executed after the engine has already left the `try...catch` construct
+
+# Data Types
+
+## Primitives
+
+### Number
+
+...
+
+### BigInt
+
+...
+
+### String
+
+...
+
+### Boolean
+
+...
+
+### Symbol
+
+...
+
+### Null
+
+...
+
+### Undefined
+
+...
