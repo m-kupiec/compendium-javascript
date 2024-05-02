@@ -388,7 +388,25 @@ Scheduled functions are executed after the engine has already left the `try...ca
 
 ### Number
 
-...
+Format:
+- Stored in a binary form in the double precision floating-point format (64-bit) in accordance with the IEEE 754 standard
+- Rounded to the nearest possible value which results in a loss of precision
+
+Possible values:
+- Integer (including `-0`)
+- Floating point
+- `Infinity`/`-Infinity`
+- `NaN` (a computational error)
+
+Decimal notations:
+- `-1000000`
+- `-1_000_000`
+- `1e-6`
+
+Non-decimal numeral systems:
+- Binary (e.g. `0b101010` for `42`)
+- Octal (e.g. `0o52` for `42`)
+- Hexadecimal (e.g. `0x2A` for `42`)
 
 ### BigInt
 
