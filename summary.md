@@ -410,7 +410,9 @@ Non-decimal numeral systems:
 
 ### BigInt
 
-...
+Intended for values outside the range of 64-bit storage, i.e. from `-9007199254740991` [`-(2`<sup>`53`</sup>` - 1)`] to `-9007199254740991` [`(2`<sup>`53`</sup>` - 1)`]
+
+Notation: `1n`
 
 ### String
 
