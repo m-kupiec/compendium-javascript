@@ -416,7 +416,26 @@ Notation: `1n`
 
 ### String
 
-...
+Stored in UTF-16 format
+
+Notations:
+- Single quotes
+- Double quotes
+- Backticks
+  - Allows multiple lines
+  - Allows template literals
+  - Allows tagged templates
+
+Special characters:
+- `\r\n`: New line (Windows text files)
+- `\n`: New line
+- `\t`: Tab
+- `\`: Special character escaping
+
+Reading/writing:
+- Is immutable (characters cannot be changed)
+- Accessing char at a non-found index results in an `undefined` value
+- Destructuring assignment: `[a, b, c] = "123"`
 
 ### Boolean
 
