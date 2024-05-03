@@ -672,7 +672,17 @@ Looping: `for (el of arr)`
 
 ### Array-Like Objects
 
-...
+An array-like object has numeric indices and the `length` property
+
+```js
+const arrayLike = {
+  0: 'a',
+  1: 'b',
+  2: 'c',
+
+  length: 3
+};
+```
 
 ### Iterable Objects
 
