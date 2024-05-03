@@ -715,7 +715,25 @@ Async iterables:
 
 ### Maps
 
-...
+A keyed collection that allows keys of any type
+
+Preserves the entry insertion order
+
+Destructuring:
+
+- Assignment:
+
+```js
+const [a, b] = map; // a and b then become two-item arrays
+```
+
+- Shallow copy:
+
+```js
+const mapCopy = new Map([...map]);
+```
+
+Looping: `for (entry of map)`
 
 ### WeakMaps
 
