@@ -874,7 +874,15 @@ Conversion rules:
 
 ## Creation
 
-...
+|                             |Syntax                                          |Notes                                                      |
+|-----------------------------|------------------------------------------------|-----------------------------------------------------------|
+|**Function Declaration**     |`function f() {}`                               |Can be called before its declaration                       |
+|**Function Expression**      |`const f = function() {}`                       |Can be called only after its creation                      |
+|                             |                                                |Allows a conditional declaration                           |
+|**Named Function Expression**|`const f = function func() {}`                  |Allows the function to call itself                         |
+|**Arrow Function**           |`const f = () => {}`                            |Convenient for simple actions or as callbacks              |
+|**Function Constructor**     |`(new Function('a', 'b', 'return a + b'))(1, 2)`|Converts strings into a function parameters and body       |
+|                             |                                                |`[[Environment]]` references the global Lexical Environment|
 
 ## Usage
 
