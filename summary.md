@@ -495,6 +495,8 @@ When a function is called without an object, the value of `this` is:
 
 ### Destructuring
 
+Assignment:
+
 ```js
 let {
   a: {
@@ -510,6 +512,12 @@ let {
 };
 
 console.log(a1, a2, f); // 1 0 [Function: f]
+```
+
+Shallow copy:
+
+```js
+let objCopy = { ...obj };
 ```
 
 ### Looping
