@@ -499,15 +499,15 @@ let {
     aOne: a1 = 1,
     aTwo: a2 = 2
   },
-  b
+  f
 } = {
   a: {
     aTwo: 0
   },
-  b: 3
+  f() {}
 };
 
-console.log(a1, a2, b); // 1 0 3
+console.log(a1, a2, f); // 1 0 [Function: f]
 ```
 
 ## Type Operations
