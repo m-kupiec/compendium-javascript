@@ -60,6 +60,27 @@
   - Checking
   - Conversion
 
+### Classes
+
+- Ontology
+- Inheritance
+- Encapsulation
+
+### Functions
+
+- Creation
+- Usage
+- Function Objects
+- Constructor Functions
+- Generators
+- Async Generators
+
+### Asynchronous Control Flow
+
+- Callback-Based
+- Promises
+- async/await
+
 ### Built-In Objects
 
 - Global Scope Objects
@@ -77,27 +98,6 @@
 - Date
 - JSON
 - Error
-
-### Functions
-
-- Creation
-- Usage
-- Function Objects
-- Constructor Functions
-- Generators
-- Async Generators
-
-### Asynchronous Control Flow
-
-- Callback-Based
-- Promises
-- async/await
-
-### Classes
-
-- Ontology
-- Inheritance
-- Encapsulation
 
 ### Techniques
 
