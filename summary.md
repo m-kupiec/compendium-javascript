@@ -641,7 +641,26 @@ Between the prototype and the inheriting object, methods are shared but the stat
 
 ### Arrays
 
-...
+`new Array(n)` creates an array with `n` empty (not even `undefined`) elements
+
+An array may be truncated by decreasing the `length` property (or cleared by assigning `0` to it)
+
+Destructuring:
+- Assignment:
+
+```js
+let [a1, , a3 = 3, ...rest] = [1, 2, , 4, 5];
+
+console.log(a1, a3, rest); // 1 3 [4, 5]
+```
+
+- Shallow copy:
+
+```js
+let arr = [...[1, 2, 3]];
+```
+
+Looping: `for (el of arr)`
 
 ### Array-Like Objects
 
