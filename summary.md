@@ -43,6 +43,7 @@
 - **Objects**
   - Properties
   - Methods
+  - Destructuring
   - ...
 - **Type Operations**
   - Checking
