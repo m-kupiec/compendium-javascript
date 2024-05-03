@@ -40,7 +40,9 @@
   - Symbol
   - Null
   - Undefined
-- Objects
+- **Objects**
+  - Properties
+  - ...
 - **Type Operations**
   - Checking
   - Conversion
@@ -449,6 +451,20 @@ Represents an empty/unknown value
 ### Undefined
 
 Represents a non-assigned value
+
+## Objects
+
+### Properties
+
+Property name can be any `String` or `Symbol`; if of any other type, it's converted to `String`
+
+The value `__proto__` must be an `Object`
+
+Properties which names would be valid integers (after conversion to number) are sorted, while the other properties are kept in creation order
+
+`in` operator checks if a property with the given name exists in the object (even if its value is `undefined`)
+
+`delete` operator is used to remove a property
 
 ## Type Operations
 
