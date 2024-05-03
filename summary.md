@@ -459,6 +459,8 @@ Represents a non-assigned value
 
 Property name can be any `String` or `Symbol`; if of any other type, it's converted to `String`
 
+Property value shorthand (`{ prop }`) may be used when the property name is the same as the property value
+
 The value `__proto__` must be an `Object`
 
 Properties which names would be valid integers (after conversion to number) are sorted, while the other properties are kept in creation order
@@ -466,6 +468,25 @@ Properties which names would be valid integers (after conversion to number) are 
 `in` operator checks if a property with the given name exists in the object (even if its value is `undefined`)
 
 `delete` operator is used to remove a property
+
+Destructiring assignment:
+
+```js
+let {
+  a: {
+    aOne: a1 = 1,
+    aTwo: a2 = 2
+  },
+  b
+} = {
+  a: {
+    aTwo: 0
+  },
+  b: 3
+};
+
+console.log(a1, a2, b); // 1 0 3
+```
 
 ### Methods
 
