@@ -705,7 +705,11 @@ Iterables (unlike array-likes):
 - Can be looped over using `for...of`
 - Work with the spread syntax (`...`)
 
-`Array` and `String` are both iterables
+Built-in iterable objects:
+- `String`
+- `Array`
+- `Map` (but not `WeakMap`)
+- `Set` (but not `WeakSet`)
 
 ### Async Iterable Objects
 
