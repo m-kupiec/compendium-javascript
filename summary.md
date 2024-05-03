@@ -705,7 +705,9 @@ Iterables (unlike array-likes):
 
 ### Async Iterable Objects
 
-...
+Async iterables:
+- Can be looped over using `for await...of`
+- Don't work with the spread syntax (`...`) (which, according to ChatGPT, would require an async `Symbol.iterator` generator method to be implemented)
 
 ## Type Operations
 
