@@ -46,6 +46,7 @@
   - Property Attributes
   - Accessor Properties
   - Methods
+  - Reference Record
   - Optional Chaining
   - Destructuring
   - Looping
@@ -548,6 +549,31 @@ let obj = {
 When a function is called without an object, the value of `this` is:
 - `undefined`, if in the strict mode
 - Global object, if not in the strict mode
+
+### Reference Record
+
+Is a specification type, a result of a property access
+
+It passes (from the `.` to the calling parentheses `()`) the value of `this` and the accessed property
+
+If not followed by the calling parentheses `()`, it is discarded (and so `this` is lost) and the property value is passed instead:
+
+```js
+const obj = {
+  val: 1,
+
+  f() {
+    console.log(this.val);
+  }
+};
+
+const g = obj.f;
+g(); // undefined
+
+obj.f(); // 1
+(obj.f)(); // 1
+(true ? obj.f : null)(); // undefined
+```
 
 ### Optional Chaining
 
