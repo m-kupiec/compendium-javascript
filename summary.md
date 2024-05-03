@@ -49,7 +49,7 @@
   - Optional Chaining
   - Destructuring
   - Looping
-  - ...
+  - Prototypal Inheritance
 - **Type Operations**
   - Checking
   - Conversion
@@ -597,6 +597,17 @@ let objCopy = { ...obj };
 ### Looping
 
 `for (key in obj)` loop includes inherited propertied and methods
+
+### Prototypal Inheritance
+
+`__proto__`:
+- A getter/setter for `[[Prototype]]` (a hidden property that either references to another object (the prototype) or is `null`)
+- Its value must be an `Object` or `null` (or the assignment will be ignored); assigning in a circle will result in an error
+- Outdated (moved to Annex B - optional for non-browser environments); since 2022 is allowed in object literals
+
+Changing `[[Prototype]]` of an existing object is a very slow operation; `[[Prototype]]` should usually be set at the time of object creation
+
+Between the prototype and the inheriting object, methods are shared but the state is not, e.g. assigning value to a non-existing property (which does exist in the prototype) will result in adding this property to the immediate object (not the prototype)
 
 ## Type Operations
 
