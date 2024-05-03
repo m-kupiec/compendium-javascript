@@ -42,6 +42,7 @@
   - Undefined
 - **Objects**
   - Properties
+  - Methods
   - ...
 - **Type Operations**
   - Checking
@@ -465,6 +466,28 @@ Properties which names would be valid integers (after conversion to number) are 
 `in` operator checks if a property with the given name exists in the object (even if its value is `undefined`)
 
 `delete` operator is used to remove a property
+
+### Methods
+
+```js
+let obj = {
+  f: function() {
+    /* ... */
+  }
+}
+```
+
+```js
+let obj = {
+  f() {
+    /* ... */
+  }
+}
+```
+
+When a function is called without an object, the value of `this` is:
+- `undefined`, if in the strict mode
+- Global object, if not in the strict mode
 
 ## Type Operations
 
