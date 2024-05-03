@@ -43,6 +43,7 @@
 - **Objects**
   - Properties
   - Methods
+  - Optional Chaining
   - Destructuring
   - Looping
   - Referencing
@@ -493,6 +494,24 @@ let obj = {
 When a function is called without an object, the value of `this` is:
 - `undefined`, if in the strict mode
 - Global object, if not in the strict mode
+
+### Optional Chaining
+
+This special syntax contruct stops the evaluation if the preceding value (of a declared variables) is `undefined`/`null` and returns `undefined`
+
+Syntax:
+- Accessing a property that may not exist:
+  - `?.<propertyName>` (for dot notation)
+  - `?.["<propertyName>"]` (for square bracket notation)
+- Calling a method that may not exist:
+  - `<methodName>.?.()`
+
+Use cases:
+- Can be used for:
+  - Reading
+  - Deleting
+- Can't be used for:
+  - Setting a value
 
 ### Destructuring
 
