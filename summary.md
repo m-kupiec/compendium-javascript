@@ -603,15 +603,23 @@ let {
     aOne: a1 = 1,
     aTwo: a2 = 2
   },
-  f
+
+  f,
+
+  ...rest
 } = {
   a: {
     aTwo: 0
   },
-  f() {}
+
+  f() {},
+
+  g1() {},
+  g2() {},
 };
 
-console.log(a1, a2, f); // 1 0 [Function: f]
+console.log(a1, a2, f, rest);
+// 1 0 [Function: f] { g1: [Function: g1], g2: [Function: g2] }
 ```
 
 Shallow copy:
