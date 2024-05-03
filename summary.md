@@ -42,6 +42,7 @@
   - Undefined
 - **Objects**
   - Properties
+  - Property Flags
   - Methods
   - Optional Chaining
   - Destructuring
@@ -472,6 +473,15 @@ Properties which names would be valid integers (after conversion to number) are 
 `in` operator checks if a property with the given name exists in the object (even if its value is `undefined`)
 
 `delete` operator is used to remove a property
+
+### Property Flags
+
+Each property has three attributes ("flags"), all set to `true` by default:
+- `writable` (specifying if the property value can be changed)
+- `enumerable` (specifying if the property is to be listed in loops)
+- `configurable` (specifying if the property can be deleted or its attributes modified)
+  - it does not affect the possibility of changing the property value which is regulated by the `writable` attribute
+  - even if set to `false`, it still allows to change `writable` from `true` to `false` (only in this direction) to strengthen security
 
 ### Methods
 
