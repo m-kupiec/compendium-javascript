@@ -492,10 +492,11 @@ Properties which names would be valid integers (after conversion to number) are 
 Each data property has four attributes ("flags"), the last three all set to `true` by default:
 - `value`
 - `writable` (specifying if the property value can be changed)
+  - When not in the strict mode, writing to a non-writable property will not result in an error, although the operation will not succeed
 - `enumerable` (specifying if the property is to be listed in loops)
 - `configurable` (specifying if the property can be deleted or its attributes modified)
-  - it does not affect the possibility of changing the property value which is regulated by the `writable` attribute
-  - even if set to `false`, it still allows to change `writable` from `true` to `false` (only in this direction) to strengthen security
+  - It does not affect the possibility of changing the property value which is regulated by the `writable` attribute
+  - Even if set to `false`, it still allows to change `writable` from `true` to `false` (only in this direction) to strengthen security
 
 ### Accessor Properties
 
