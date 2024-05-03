@@ -461,6 +461,21 @@ Represents a non-assigned value
 
 ## Objects
 
+### Referencing
+
+```js
+let sourceObj = { a: 1 };
+
+let arr = [sourceObj];
+let obj = sourceObj;
+
+sourceObj = null;
+console.log(arr[0] === sourceObj); // false
+console.log(obj === sourceObj); // false
+console.log(arr[0]); // [object Object] { a: 1 }
+console.log(obj); // [object Object] { a: 1 }
+```
+
 ### Properties
 
 Property name can be any `String` or `Symbol`; if of any other type, it's converted to `String`
@@ -584,21 +599,6 @@ let objCopy = { ...obj };
 ### Looping
 
 `for (key in obj)` loop includes inherited propertied and methods
-
-### Referencing
-
-```js
-let sourceObj = { a: 1 };
-
-let arr = [sourceObj];
-let obj = sourceObj;
-
-sourceObj = null;
-console.log(arr[0] === sourceObj); // false
-console.log(obj === sourceObj); // false
-console.log(arr[0]); // [object Object] { a: 1 }
-console.log(obj); // [object Object] { a: 1 }
-```
 
 ## Type Operations
 
