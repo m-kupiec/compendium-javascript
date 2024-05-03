@@ -745,7 +745,25 @@ Looping: `for (entry of map)`
 
 ### Sets
 
-...
+A collection of unique values
+
+Preserves the value insertion order
+
+Destructuring:
+
+- Assignment:
+
+```js
+const [a, b] = set; // a and b then become singular values
+```
+
+- Shallow copy:
+
+```js
+const setCopy = new Set([...set]);
+```
+
+Looping: `for (value of set)`
 
 ### WeakSets
 
