@@ -52,13 +52,13 @@
   - Looping
   - Prototypal Inheritance
 - **Data Collections**
-  - Arrays
   - Array-Like Objects
   - Iterable Objects
   - Async Iterable Objects
+  - Arrays
   - Maps
-  - WeakMaps
   - Sets
+  - WeakMaps
   - WeakSets
 - **Type Operations**
   - Checking
@@ -651,6 +651,38 @@ Between the prototype and the inheriting object, methods are shared but the stat
 
 ## Data Collections
 
+### Array-Like Objects
+
+An array-like object has numeric indices and the `length` property
+
+```js
+const arrayLike = {
+  0: 'a',
+  1: 'b',
+  2: 'c',
+
+  length: 3
+};
+```
+
+### Iterable Objects
+
+Iterables (unlike array-likes):
+- Can be looped over using `for...of`
+- Work with the spread syntax (`...`)
+
+Built-in iterable objects:
+- `String`
+- `Array`
+- `Map` (but not `WeakMap`)
+- `Set` (but not `WeakSet`)
+
+### Async Iterable Objects
+
+Async iterables:
+- Can be looped over using `for await...of`
+- Don't work with the spread syntax (`...`) (which, according to ChatGPT, would require an async `Symbol.iterator` generator method to be implemented)
+
 ### Arrays
 
 `new Array(n)` creates an array with `n` empty (not even `undefined`) elements
@@ -685,38 +717,6 @@ let arr = [...[1, 2, 3]];
 
 Looping: `for (el of arr)`
 
-### Array-Like Objects
-
-An array-like object has numeric indices and the `length` property
-
-```js
-const arrayLike = {
-  0: 'a',
-  1: 'b',
-  2: 'c',
-
-  length: 3
-};
-```
-
-### Iterable Objects
-
-Iterables (unlike array-likes):
-- Can be looped over using `for...of`
-- Work with the spread syntax (`...`)
-
-Built-in iterable objects:
-- `String`
-- `Array`
-- `Map` (but not `WeakMap`)
-- `Set` (but not `WeakSet`)
-
-### Async Iterable Objects
-
-Async iterables:
-- Can be looped over using `for await...of`
-- Don't work with the spread syntax (`...`) (which, according to ChatGPT, would require an async `Symbol.iterator` generator method to be implemented)
-
 ### Maps
 
 A keyed collection that allows keys of any type
@@ -739,10 +739,6 @@ const mapCopy = new Map([...map]);
 
 Looping: `for (entry of map)`
 
-### WeakMaps
-
-...
-
 ### Sets
 
 A collection of unique values
@@ -764,6 +760,10 @@ const setCopy = new Set([...set]);
 ```
 
 Looping: `for (value of set)`
+
+### WeakMaps
+
+...
 
 ### WeakSets
 
