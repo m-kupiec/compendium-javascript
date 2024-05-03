@@ -64,26 +64,29 @@
   - Checking
   - Conversion
 
-### Classes
-
-- Ontology
-- Inheritance
-- Encapsulation
-
 ### Functions
 
 - Creation
 - Usage
 - Function Objects
 - Constructor Functions
-- Generators
-- Async Generators
+
+### Classes
+
+- Ontology
+- Inheritance
+- Encapsulation
 
 ### Asynchronous Control Flow
 
 - Callback-Based
 - Promises
 - async/await
+
+### Generators
+
+- Generators
+- Async Generators
 
 ### Built-In Objects
 
