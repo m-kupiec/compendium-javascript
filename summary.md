@@ -637,6 +637,24 @@ Changing `[[Prototype]]` of an existing object is a very slow operation; `[[Prot
 
 Between the prototype and the inheriting object, methods are shared but the state is not, e.g. assigning value to a non-existing property (which does exist in the prototype) will result in adding this property to the immediate object (not the prototype)
 
+## Data Collections
+
+### Arrays
+
+...
+
+### Array-Like Objects
+
+...
+
+### Iterable Objects
+
+...
+
+### Async Iterable Objects
+
+...
+
 ## Type Operations
 
 ### Checking
