@@ -56,6 +56,10 @@
   - Array-Like Objects
   - Iterable Objects
   - Async Iterable Objects
+  - Maps
+  - WeakMaps
+  - Sets
+  - WeakSets
 - **Type Operations**
   - Checking
   - Conversion
@@ -708,6 +712,22 @@ Iterables (unlike array-likes):
 Async iterables:
 - Can be looped over using `for await...of`
 - Don't work with the spread syntax (`...`) (which, according to ChatGPT, would require an async `Symbol.iterator` generator method to be implemented)
+
+### Maps
+
+...
+
+### WeakMaps
+
+...
+
+### Sets
+
+...
+
+### WeakSets
+
+...
 
 ## Type Operations
 
