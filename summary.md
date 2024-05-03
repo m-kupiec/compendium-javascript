@@ -41,6 +41,7 @@
   - Null
   - Undefined
 - **Objects**
+  - Referencing
   - Properties
   - Property Attributes
   - Accessor Properties
@@ -48,7 +49,6 @@
   - Optional Chaining
   - Destructuring
   - Looping
-  - Referencing
   - ...
 - **Type Operations**
   - Checking
