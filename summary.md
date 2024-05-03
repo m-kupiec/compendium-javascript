@@ -243,8 +243,6 @@ Garbage collection:
 
 ### Arithmetic
 
-BigInt cannot be mixed with other types (including `Number`) to prevent `TypeError`
-
 The increment `++i` returns the new value, while `i++` returns the old value
 
 ### Bitwise
@@ -285,18 +283,7 @@ When combining multiple operators:
 
 Returns a boolean
 
-Rules:
-  - Strings are compared according to the UTF-16 order
-  - Values of different types are compared after being converted (with the exception of the strict equality operator `===`) to:
-    - A primitive value if at least one of the operands is `Object`
-    - `Number`
-    - `BigInt` if one of the operands is `BigInt`
-    - `String` if at least one of the operands is `Array`
-
-Exceptions:
-- `null`, `undefined`, and `NaN` do not equal (`==`) any other value
-- `null` == `undefined`
-- `NaN` != `NaN`
+Strings are compared according to the UTF-16 order
 
 ### Assignment
 
@@ -485,4 +472,74 @@ typeof alert // "function" (*)
 
 ### Conversion
 
-...
+Unary-operator conversions:
+- To `Number`: `+`/`-`
+  - Irregurality: `+(`<`BigInt`>`)` &rightarrow; `TypeError`
+- To `Boolean`: `!`/`!!`
+
+Automatic conversions:
+- Binary `+`:
+  1. `Symbol` cannot be one of the operands (if it is, there will be an attempt to automatically convert it to `Number`/`String` which will result in `TypeError`)
+  2. If one of the operands is `BigInt`, to prevent `TypeError`, the other one must also be `BigInt` or `String`/`Object`/`Array`
+  3. Otherwise, if one of the operands is `String`/`Object`/`Array`, they are both converted to `String` (even if the second one is `BigInt`)
+  4. Otherwise, if both the operands are either `Number`/`Boolean`/`null`/`undefined`, they are both converted to `Number`
+- Binary `-`, `*`, `/`:
+  1. `Symbol` cannot be one of the operands (if it is, there will be an attempt to automatically convert it to `Number` which will result in `TypeError`)
+  2. If one of the operands is `BigInt`, to prevent `TypeError`, the other one must also be `BigInt` (not even `String`/`Object`/`Array`)
+  3. Otherwise, if both the operands are either `Number`/`String`/`Boolean`/`null`/`undefined`/`Object`/`Array`, they are both converted to `Number`
+- Comparison (`<`, `>`)
+  1. `Symbol` cannot be one of the operands (if it is, there will be an attempt to automatically convert it to `Number` which will result in `TypeError`)
+  2. If one of the operands is `BigInt`, the other one is converted to `BigInt`
+  3. Otherwise, if one of the operands is either `Number`/`Boolean`/`null`/`undefined`, they are both converted to `Number`
+  4. Otherwise, if both the operands are either `String`/`Object`/`Array`, they are both converted to `String`
+- Regular equality check (`==`):
+  1. Although `Symbol` can be one of the operands (with any other type as the second one), it does not equal (`==`) any other value
+  2. `NaN`, `null`, and `undefined` do not equal (`==`) any other value
+     - Examples:
+       - `NaN != NaN`
+       - `null != 0`; `null != 0n`
+     - Irreguralities:
+       - `null === null`
+       - `undefined === undefined`
+       - `null == undefined` (while naturally still: `null !== undefined`)
+  3. If one of the operands is `BigInt`, the other one is converted to `BigInt`
+  4. Otherwise, if one of the operands is either `Number`/`Boolean`/`null`/`undefined`, they are both converted to `Number`
+  5. Otherwise, if both the operands are either `String`/`Object`/`Array`, they are both converted to `String`
+
+Conversion rules:
+- To `Number`:
+  - `0.0`/`0.`/`0n` &rightarrow; `0`
+  - `""`/`" "` &rightarrow; `0`; `"2"`/`"2."` &rightarrow; `2`; `"2.2"` &rightarrow; `2.2`; `"2n"` &rightarrow; `NaN`
+  - `false` &rightarrow; `0`; `true` &rightarrow; `1`
+  - `null` &rightarrow; `0`
+  - `undefined` &rightarrow; `NaN`
+  - `Symbol()` &rightarrow; `TypeError`
+  - `{}` &rightarrow; `NaN`
+  - `[]` &rightarrow; `0`; `[2]`/`[2.]` &rightarrow; `2`; `[0, 0]` &rightarrow; `NaN`
+- To `BigInt`:
+  - `0`/`0.0`/`0.` &rightarrow; `0n`; `0.2`/`Infinity`/`NaN` &rightarrow; `RangeError`
+  - `""`/`" "`/`"0"` &rightarrow; `0n`; `"2"` &rightarrow; `2n`; `"2."`/`"2n"` &rightarrow; `SyntaxError`
+  - `false` &rightarrow; `0n`; `true` &rightarrow; `1n`
+  - `null` &rightarrow; `TypeError`
+  - `undefined` &rightarrow; `TypeError`
+  - `Symbol()` &rightarrow; `TypeError`
+  - `{}` &rightarrow; `SyntaxError` (`{}` is firstly converted to `String`)
+  - `[]` &rightarrow; `0n`; `[2]`/`[2.]` &rightarrow; `2n`; `[2n]` &rightarrow; `2n`; `[0, 0]` &rightarrow; `SyntaxError`
+- To `String`:
+  - `NaN` &rightarrow; `"NaN"`
+  - `0n` &rightarrow; `"0"`
+  - `false` &rightarrow; `"false"`
+  - `null` &rightarrow; `"null"`
+  - `undefined` &rightarrow; `"undefined"`
+  - `Symbol("Description")` &rightarrow; `"Symbol(Description)"`
+  - `{}` &rightarrow; `"[object Object]"`
+  - `[0, 0]` &rightarrow; `"0,0"`
+- To `Boolean`
+  - `-0`/`0`/`NaN` &rightarrow; `false`; `-2`/`2`/`-Infinity`/`Infinity` &rightarrow; `true`
+  - `-0n`/`0n` &rightarrow; `false`; `-2n`/`2n` &rightarrow; `true`
+  - `""` &rightarrow; `false`; `" "`/`"0"` &rightarrow; `true`
+  - `null` &rightarrow; `false`
+  - `undefined` &rightarrow; `false`
+  - `Symbol()` &rightarrow; `true`
+  - `{}` &rightarrow; `true`
+  - `[]`/`[0]`/`[false]` &rightarrow; `true`
