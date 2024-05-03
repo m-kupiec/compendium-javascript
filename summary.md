@@ -44,6 +44,7 @@
   - Properties
   - Methods
   - Destructuring
+  - Looping
   - ...
 - **Type Operations**
   - Checking
@@ -510,6 +511,10 @@ let {
 
 console.log(a1, a2, f); // 1 0 [Function: f]
 ```
+
+### Looping
+
+`for (key in obj)` loop includes inherited propertied and methods
 
 ## Type Operations
 
