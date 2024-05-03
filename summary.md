@@ -482,8 +482,6 @@ Property name can be any `String` or `Symbol`; if of any other type, it's conver
 
 Property value shorthand (`{ prop }`) may be used when the property name is the same as the property value
 
-The value `__proto__` must be an `Object`
-
 Properties which names would be valid integers (after conversion to number) are sorted, while the other properties are kept in creation order
 
 `in` operator checks if a property with the given name exists in the object (even if its value is `undefined`)
