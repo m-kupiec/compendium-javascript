@@ -869,3 +869,21 @@ Conversion rules:
   - `Symbol()` &rightarrow; `true`
   - `{}` &rightarrow; `true`
   - `[]`/`[0]`/`[false]` &rightarrow; `true`
+
+# Functions
+
+## Creation
+
+...
+
+## Usage
+
+...
+
+## Function Objects
+
+...
+
+## Constructor Functions
+
+...
