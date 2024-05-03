@@ -697,7 +697,11 @@ const arrayLike = {
 
 ### Iterable Objects
 
-...
+Iterables (unlike array-likes):
+- Can be looped over using `for...of`
+- Work with the spread syntax (`...`)
+
+`Array` and `String` are both iterables
 
 ### Async Iterable Objects
 
