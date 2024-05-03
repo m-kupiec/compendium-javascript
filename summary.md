@@ -651,6 +651,17 @@ Between the prototype and the inheriting object, methods are shared but the stat
 
 `new Array(n)` creates an array with `n` empty (not even `undefined`) elements
 
+When accessing an array's element, the value put in square brackets is converted to `String`:
+
+```js
+let arr = [true];
+
+console.log(arr[0], arr[0n], arr["0"]);
+// true true true
+console.log(arr[""], arr[false], arr[null], arr[undefined], arr[Symbol()], arr[{}]);
+// undefined undefined undefined undefined undefined undefined
+```
+
 An array may be truncated by decreasing the `length` property (or cleared by assigning `0` to it)
 
 Destructuring:
