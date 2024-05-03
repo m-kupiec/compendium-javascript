@@ -595,7 +595,9 @@ let objCopy = { ...obj };
 
 ### Looping
 
-`for (key in obj)` loop includes inherited propertied and methods
+`for (key in obj)` loop:
+- Includes inherited propertied and methods
+- Doesn't include symbolic properties
 
 ### Prototypal Inheritance
 
