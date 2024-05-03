@@ -469,25 +469,6 @@ Properties which names would be valid integers (after conversion to number) are 
 
 `delete` operator is used to remove a property
 
-Destructiring assignment:
-
-```js
-let {
-  a: {
-    aOne: a1 = 1,
-    aTwo: a2 = 2
-  },
-  b
-} = {
-  a: {
-    aTwo: 0
-  },
-  b: 3
-};
-
-console.log(a1, a2, b); // 1 0 3
-```
-
 ### Methods
 
 ```js
@@ -509,6 +490,25 @@ let obj = {
 When a function is called without an object, the value of `this` is:
 - `undefined`, if in the strict mode
 - Global object, if not in the strict mode
+
+### Destructuring
+
+```js
+let {
+  a: {
+    aOne: a1 = 1,
+    aTwo: a2 = 2
+  },
+  b
+} = {
+  a: {
+    aTwo: 0
+  },
+  b: 3
+};
+
+console.log(a1, a2, b); // 1 0 3
+```
 
 ## Type Operations
 
