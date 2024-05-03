@@ -50,15 +50,14 @@
   - Destructuring
   - Looping
   - Prototypal Inheritance
+- **Data Collections**
+  - Arrays
+  - Array-Like Objects
+  - Iterable Objects
+  - Async Iterable Objects
 - **Type Operations**
   - Checking
   - Conversion
-
-### Data Collections
-
-- Array-Like Objects
-- Iterable Objects
-- Async Iterable Objects
 
 ### Built-In Objects
 
