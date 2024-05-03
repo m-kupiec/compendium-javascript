@@ -42,7 +42,8 @@
   - Undefined
 - **Objects**
   - Properties
-  - Property Flags
+  - Property Attributes
+  - Accessor Properties
   - Methods
   - Optional Chaining
   - Destructuring
@@ -474,14 +475,44 @@ Properties which names would be valid integers (after conversion to number) are 
 
 `delete` operator is used to remove a property
 
-### Property Flags
+### Property Attributes
 
-Each property has three attributes ("flags"), all set to `true` by default:
+Each data property has four attributes ("flags"), the last three all set to `true` by default:
+- `value`
 - `writable` (specifying if the property value can be changed)
 - `enumerable` (specifying if the property is to be listed in loops)
 - `configurable` (specifying if the property can be deleted or its attributes modified)
   - it does not affect the possibility of changing the property value which is regulated by the `writable` attribute
   - even if set to `false`, it still allows to change `writable` from `true` to `false` (only in this direction) to strengthen security
+
+### Accessor Properties
+
+Functions that execute on getting/setting a data property value
+
+```js
+const obj = {
+  _val: 1,
+
+  get val() {
+    return this._val;
+  },
+
+  set val(value) {
+    this._val = value;
+  }
+};
+```
+
+Accessor property's attributes:
+- Removed:
+  - ~~`value`~~
+  - ~~`writable`~~
+- Added:
+  - `get`: `[Function]`/`undefined`
+  - `set`: `[Function]`/`undefined`
+- Remaining:
+  - `enumerable`
+  - `writable`
 
 ### Methods
 
