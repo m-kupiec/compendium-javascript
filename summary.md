@@ -763,7 +763,9 @@ Looping: `for (value of set)`
 
 ### WeakMaps
 
-...
+Requires an object for a property (or will result in `TypeError`)
+
+A key is removed from the `WeakMap` and memory when there no longer exists any reference to it
 
 ### WeakSets
 
