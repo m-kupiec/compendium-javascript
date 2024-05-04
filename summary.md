@@ -895,6 +895,8 @@ Parameters and arguments:
 Function object properties:
 - `name`
 - `length`: number of parameters (not arguments); doesn't count the `...rest` parameter
+- `prototype`: its value is an object containing only one property (`constructor`) that points to the function itself:
+  - `f.prototype.constructor === f`
 - Custom properties may be added as well
 
 Returned value:
