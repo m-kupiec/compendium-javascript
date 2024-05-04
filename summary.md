@@ -67,7 +67,6 @@
 ### Functions
 
 - Creation & Usage
-- Function Objects
 - Constructor Functions
 
 ### Classes
@@ -896,13 +895,14 @@ Parameters and arguments:
 - Destructuring an object of arguments:
   - `function f({ arg1: a = 1, b = 2 } = {}) { return a + b; } f({ arg1: 3 });`
 
+Function object properties:
+- `name`
+- `length`: number of parameters (not arguments); doesn't count the `...rest` parameter
+- Custom properties may be added as well
+
 Returned value:
 - Empty or no `return` results in returning `undefined`
 - A semicolon is automatially placed at the end of a line containing the `return` keyword
-
-## Function Objects
-
-...
 
 ## Constructor Functions
 
