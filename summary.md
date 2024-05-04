@@ -66,8 +66,10 @@
 
 ### Functions
 
-- Creation & Usage
+- Regular Functions
 - Constructor Functions
+- Generators
+- Async Generators
 
 ### Classes
 
@@ -80,11 +82,6 @@
 - Callback-Based
 - Promises
 - async/await
-
-### Generators
-
-- Generators
-- Async Generators
 
 ### Built-In Objects
 
@@ -872,7 +869,7 @@ Conversion rules:
 
 # Functions
 
-## Creation & Usage
+## Regular Functions
 
 |                             |Syntax                                          |Notes                                                      |
 |-----------------------------|------------------------------------------------|-----------------------------------------------------------|
@@ -905,5 +902,13 @@ Returned value:
 - A semicolon is automatially placed at the end of a line containing the `return` keyword
 
 ## Constructor Functions
+
+...
+
+## Generators
+
+...
+
+## Async Generators
 
 ...
