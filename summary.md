@@ -688,7 +688,9 @@ Async iterables:
 
 ### Arrays
 
-`new Array(n)` creates an array with `n` empty (not even `undefined`) elements
+Empty elements:
+- `new Array(n)` creates an array with `n` empty (not even `undefined`) elements
+- `let arr = []; arr[n] = true;` creates an array with `n-1` empty (not even `undefined`) elements
 
 When accessing an array's element, the value put in square brackets is converted to `String`:
 
