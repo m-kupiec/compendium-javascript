@@ -66,8 +66,7 @@
 
 ### Functions
 
-- Creation
-- Usage
+- Creation & Usage
 - Function Objects
 - Constructor Functions
 
@@ -874,7 +873,7 @@ Conversion rules:
 
 # Functions
 
-## Creation
+## Creation & Usage
 
 |                             |Syntax                                          |Notes                                                      |
 |-----------------------------|------------------------------------------------|-----------------------------------------------------------|
@@ -886,9 +885,20 @@ Conversion rules:
 |**Function Constructor**     |`(new Function('a', 'b', 'return a + b'))(1, 2)`|Converts strings into a function parameters and body       |
 |                             |                                                |`[[Environment]]` references the global Lexical Environment|
 
-## Usage
+Parameters and arguments:
+- The spread syntax (`...`) may be used in the list of function's arguments
+- Gathering the remaining arguments into an array:
+    - `function f(a, b, ...rest) {}`
+    - `...` must be placed at the end of the list of parameters
+- Accessing all the arguments:
+  - `arguments` (an automatically created array-like object)
+  - Does not work for arrow functions' arguments
+- Destructuring an object of arguments:
+  - `function f({ arg1: a = 1, b = 2 } = {}) { return a + b; } f({ arg1: 3 });`
 
-...
+Returned value:
+- Empty or no `return` results in returning `undefined`
+- A semicolon is automatially placed at the end of a line containing the `return` keyword
 
 ## Function Objects
 
