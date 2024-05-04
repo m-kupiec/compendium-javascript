@@ -903,7 +903,26 @@ Returned value:
 
 ## Constructor Functions
 
-...
+Creation/usage rules:
+- The first letter of the function name must be capital
+- Should be executed with the `new` operator
+  - `new.target` is sometimes used (e.g. `function f() { if (!new.target) { return new f(); } }`) to test whether the function was called with `new` by returning:
+    - `undefined` if the function was called without `new`
+    - the function itself if it was called with `new`
+- When executing with the `new` operator, parentheses may be omitted, but it's not a good practice
+- Arrow function cannot be used as a constructor function because of not having `this` but rather taking it from the global Lexical Environment
+
+Function object properties:
+- The object strored in the `prototype` property will be set as the prototype for the object created with the constructor function
+- Since by default `F.prototype.constructor === F`: `const f = new F()` &rightarrow; `f.constructor === F`
+  - The default `prototype.constructor` property can be overridden:
+    - `F.prototype = {}` &rightarrow; `const f = new F()` &rightarrow; `f.constructor !== F` & `typeof F1.prototype.constructor === "function"`
+
+Returned value:
+- Does not have the `return` statement as it returns `this`
+- If there is a `return` statement then it returns:
+  - an object passed with the `return`
+  - `this`, if the `return` is not passing an object
 
 ## Generators
 
