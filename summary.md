@@ -2,7 +2,7 @@
 
 ## TOC
 
-### Basics
+### Operation
 
 - **Code Parsing & Execution**
   - Automatic Semicolon Insertion
@@ -24,13 +24,8 @@
   - Comparison
   - Assignment
   - Comma
-- **Synchronous Control Flow**
-  - Conditionals
-  - Loops
-  - Control Transfer
-  - Error Handling
 
-### Data Types
+### Data
 
 - **Primitives**
   - Number
@@ -64,23 +59,25 @@
   - Checking
   - Conversion
 
-### Functions
+### Code Structures
 
-- Regular Functions
-- Constructor Functions
-- Generators
-
-### Classes
-
-- Ontology
-- Inheritance
-- Encapsulation
-
-### Asynchronous Control Flow
-
-- Callback-Based
-- Promises
-- async/await
+- **Functions**
+  - Regular Functions
+  - Constructor Functions
+  - Generators
+- **Classes**
+  - Ontology
+  - Inheritance
+  - Encapsulation
+- **Synchronous Control Flow**
+  - Conditionals
+  - Loops
+  - Control Transfer
+  - Error Handling
+- **Asynchronous Control Flow**
+  - Callback-Based
+  - Promises
+  - async/await
 
 ### Built-In Objects
 
@@ -104,7 +101,7 @@
 
 - ...
 
-# Basics
+# Operation
 
 ## Code Parsing & Execution
 
@@ -308,78 +305,6 @@ For each arithmetical and bitwise operator, there is a corresponding modify-and-
 Each of the expressions separated with a comma is evaluated and the result of the last one is returned
 
 Comma has a lower precedence than the assignment operator
-
-## Synchronous Control Flow
-
-### Conditionals
-
-|Conditional|Use case                            |Note                        |
-|-----------|------------------------------------|----------------------------|
-|`?`        |Returning one of the two values     |                            |
-|`if`       |Executing different branches of code|                            |
-|`switch`   |Comparing different value variants  |The equality check is strict|
-
-```js
-switch(x) {
-  case 0:
-    /* ... */
-    break;
-
-  case 1:
-    /* ... */
-    break;
-
-  default:
-    /* ... */
-}
-```
-
-### Loops
-
-```js
-while (condition) {
-  /* ... */
-}
-```
-
-```js
-do {
-  /* ... */
-} while (condition);
-```
-
-```js
-for (;;) {
-  /* ... */
-}
-```
-
-### Control Transfer
-
-|Directive |Result                      |Use Case                                      |Placement           |
-|----------|----------------------------|----------------------------------------------|--------------------|
-|`break`   |Breaks the whole loop       |Evaluating condition in the middle of the loop|Inside a block      |
-|          |                            |                                              |Not allowed with `?`|
-|`continue`|Breaks the current iteration|Avoiding conditional's nesting in the loop    |Inside a loop       |
-|          |                            |                                              |Not allowed with `?`|
-
-A label may be used to `break`/`continue` from a nested loop
-
-### Error Handling
-
-```js
-try {
-  /* ... */
-  throw new Error("Message");
-  /* ... */
-} catch (error) {
-  /* ... */
-} finally {
-  /* If an error hasn't been caught, the error will break the code exexution only after the "finally" block has been executed */
-}
-```
-
-Scheduled functions are executed after the engine has already left the `try...catch` construct
 
 # Data Types
 
@@ -866,9 +791,11 @@ Conversion rules:
   - `{}` &rightarrow; `true`
   - `[]`/`[0]`/`[false]` &rightarrow; `true`
 
-# Functions
+# Code Structures
 
-## Regular Functions
+## Functions
+
+### Regular Functions
 
 |                             |Syntax                                          |Notes                                                      |
 |-----------------------------|------------------------------------------------|-----------------------------------------------------------|
@@ -902,7 +829,7 @@ Returned value:
 - Empty or no `return` results in returning `undefined`
 - A semicolon is automatially placed at the end of a line containing the `return` keyword
 
-## Constructor Functions
+### Constructor Functions
 
 Creation/usage rules:
 - The first letter of the function name must be capital
@@ -925,7 +852,7 @@ Returned value:
   - an object passed with the `return`
   - `this`, if the `return` is not passing an object
 
-## Generators
+### Generators
 
 Generator function:
 - Syntax: `function* f()` (preferred) or `function *f()`
@@ -1105,3 +1032,103 @@ try {
 Error handled
 */
 ```
+
+## Classes
+
+### Ontology
+
+...
+
+### Inheritance
+
+...
+
+### Encapsulation
+
+...
+
+## Synchronous Control Flow
+
+### Conditionals
+
+|Conditional|Use case                            |Note                        |
+|-----------|------------------------------------|----------------------------|
+|`?`        |Returning one of the two values     |                            |
+|`if`       |Executing different branches of code|                            |
+|`switch`   |Comparing different value variants  |The equality check is strict|
+
+```js
+switch(x) {
+  case 0:
+    /* ... */
+    break;
+
+  case 1:
+    /* ... */
+    break;
+
+  default:
+    /* ... */
+}
+```
+
+### Loops
+
+```js
+while (condition) {
+  /* ... */
+}
+```
+
+```js
+do {
+  /* ... */
+} while (condition);
+```
+
+```js
+for (;;) {
+  /* ... */
+}
+```
+
+### Control Transfer
+
+|Directive |Result                      |Use Case                                      |Placement           |
+|----------|----------------------------|----------------------------------------------|--------------------|
+|`break`   |Breaks the whole loop       |Evaluating condition in the middle of the loop|Inside a block      |
+|          |                            |                                              |Not allowed with `?`|
+|`continue`|Breaks the current iteration|Avoiding conditional's nesting in the loop    |Inside a loop       |
+|          |                            |                                              |Not allowed with `?`|
+
+A label may be used to `break`/`continue` from a nested loop
+
+### Error Handling
+
+```js
+try {
+  /* ... */
+  throw new Error("Message");
+  /* ... */
+} catch (error) {
+  /* ... */
+} finally {
+  /* If an error hasn't been caught, the error will break the code exexution only after the "finally" block has been executed */
+}
+```
+
+Scheduled functions are executed after the engine has already left the `try...catch` construct
+
+## Asynchronous Control Flow
+
+### Callback-Based
+
+...
+
+### Promises
+
+...
+
+### async/await
+
+...
