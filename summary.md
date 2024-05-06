@@ -1123,7 +1123,67 @@ Scheduled functions are executed after the engine has already left the `try...ca
 
 ### Callback-Based
 
-...
+Rules:
+- A callback function is passed as an argument to the function that has asynchronous code
+- The first argument of the callback functions is reserved for an error
+
+```js
+function asyncF(string, callback) {
+  setTimeout(() => {
+    try {
+      if (Math.random() > 0.5) throw new Error("Error");
+
+      callback(null, string);
+    } catch (error) {
+      callback(error);
+    }
+  });
+}
+
+function callbackF(error, val) {
+  console.log(error ? error.message : val);
+}
+
+asyncF("Test", callbackF); // "Test"
+asyncF("Test", callbackF); // "Error message"
+asyncF("Test", callbackF); // "Test"
+```
+
+Nested callbacks:
+
+```js
+function firstAsyncF(string, callback) {
+  setTimeout(() => {
+    try {
+      if (Math.random() > 0.5) throw new Error("Error at Step 1");
+
+      secondAsyncF(string, callback);
+    } catch (error) {
+      callback(error);
+    }
+  });
+}
+
+function secondAsyncF(string, callback) {
+  setTimeout(() => {
+    try {
+      if (Math.random() > 0.5) throw new Error("Error at Step 2");
+
+      callback(null, string);
+    } catch (error) {
+      callback(error);
+    }
+  });
+}
+
+function callbackF(error, val) {
+  console.log(error ? error.message : val);
+}
+
+firstAsyncF("Full Success", callbackF); // "Error at Step 1"
+firstAsyncF("Full Success", callbackF); // "Error at Step 2"
+firstAsyncF("Full Success", callbackF); // "Full Success"
+```
 
 ### Promises
 
