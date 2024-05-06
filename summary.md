@@ -69,7 +69,6 @@
 - Regular Functions
 - Constructor Functions
 - Generators
-- Async Generators
 
 ### Classes
 
@@ -928,8 +927,181 @@ Returned value:
 
 ## Generators
 
-...
+Generator function:
+- Syntax: `function* f()` (preferred) or `function *f()`
+- Returns a generator object
+- Yielding another generator object is possible (generator composition)
 
-## Async Generators
+Generator object:
+- Is an iterable
+- `next` method returns `{ value: <the next yielded value>, done: <true/false> }`
+- `for...of` and the spread syntax (`...`) used on the object ignore the value returned with `return` (because it has `done: true`)
 
-...
+Basic example:
+
+```js
+function* generateNumbers() {
+  yield 1;
+  yield 2;
+  yield 3; /* OR: return 3; then: `done: true` */
+}
+
+const generator = generateNumbers();
+
+console.log(generator); // Object [Generator] {}
+console.log(generator.next()); // { value: 1, done: false }
+console.log(generator.next()); // { value: 2, done: false }
+console.log(generator.next()); // { value: 3, done: false }
+console.log(generator.next()); // { value: undefined, done: true }
+```
+
+Async generator:
+
+```js
+async function* generateNumbers() {
+  for (let i = 0; i < 5; i++) {
+    yield await new Promise(resolve => setTimeout(resolve, 200, i));
+  }
+}
+
+let generator = generateNumbers();
+
+(async () => {
+  for await (let value of generator) console.log(value); // 0 1 2 3 4
+})();
+```
+
+Stopping a generator with a specific condition:
+
+```js
+function* generate() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+const generator = generate();
+
+console.log(generator.next());
+console.log(generator.return(4));
+console.log(generator.next());
+console.log(generator.return(5));
+console.log(generator.next());
+/*
+{ value: 1, done: false }
+{ value: 4, done: true }
+{ value: undefined, done: true }
+{ value: 5, done: true }
+{ value: undefined, done: true }
+*/
+```
+
+Passing values into a generator:
+
+```js
+function* generate() {
+  let passed1 = yield 1;
+  yield 2;
+  let passed2 = yield 3;
+
+  console.log(`Passed #1: ${passed1}`);
+
+  yield 4;
+  
+  console.log(`Passed #2: ${passed2}`);
+}
+
+let generator = generate();
+
+console.log(generator.next());
+console.log(generator.next());
+console.log(generator.next());
+console.log(generator.next());
+/*
+{ value: 1, done: false }
+{ value: 2, done: false }
+{ value: 3, done: false }
+Passed #1: undefined
+{ value: 4, done: false }
+*/
+
+generator = generate();
+console.log(generator.next());
+console.log(generator.next());
+console.log(generator.next());
+console.log(generator.next());
+console.log(generator.next());
+/*
+{ value: 1, done: false }
+{ value: 2, done: false }
+{ value: 3, done: false }
+Passed #1: undefined
+{ value: 4, done: false }
+Passed #2: undefined
+{ value: undefined, done: true }
+*/
+
+generator = generate();
+console.log(generator.next());
+console.log(generator.next(4));
+console.log(generator.next());
+console.log(generator.next(5));
+console.log(generator.next());
+/*
+{ value: 1, done: false }
+{ value: 2, done: false }
+{ value: 3, done: false }
+Passed #1: 4
+{ value: 4, done: false }
+Passed #2: 5
+{ value: undefined, done: true }
+*/
+```
+
+Throwing an error into a generator (inside or outside the generator function):
+
+```js
+function* generate() {
+  try {
+    yield 1;
+    yield 2;
+    yield 3;
+  } catch (error) {
+    console.log("Error handled");
+  }
+}
+
+let generator = generate();
+
+console.log(generator.next());
+console.log("Error occurred", generator.throw(new Error()));
+console.log(generator.next());
+/*
+{ value: 1, done: false }
+Error handled
+Error occurred { value: undefined, done: true }
+{ value: undefined, done: true }
+*/
+```
+
+```js
+function* generate() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+let generator = generate();
+
+try {
+  console.log(generator.next());
+  console.log("Error occurred", generator.throw(new Error()));
+  console.log(generator.next());
+} catch (error) {
+  console.log("Error handled");
+}
+/*
+{ value: 1, done: false }
+Error handled
+*/
+```
