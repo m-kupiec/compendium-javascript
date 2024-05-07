@@ -81,8 +81,7 @@
 
 ### Built-In Objects & Classes
 
-- Global Scope Objects
-- Global Object
+- `globalThis`
 - Object
 - Number
 - String
