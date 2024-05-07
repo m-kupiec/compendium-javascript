@@ -91,6 +91,7 @@
   - `Object.is`
   - `Object.getOwnPropertyDescriptor`/`Object.getOwnPropertyDescriptors`
   - `Object.defineProperty()`/`Object.defineProperties()`
+  - `Object.preventExtensions`/`Object.seal`/`Object.freeze`
   - `Object.setPrototypeOf`/`Object.getPrototypeOf`/`Object.create`
   - `Object.assign`
 - **`Number`**
@@ -1559,6 +1560,18 @@ console.log(Object.getOwnPropertyDescriptors(obj));
 }
 */
 ```
+
+### `Object.preventExtensions`/`Object.seal`/`Object.freeze`
+
+These methods work for the whole object:
+- `Object.preventExtensions` disallows adding new properties
+- `Object.seal()` sets `configurable` attribute to `false` for all properties
+- `Object.freeze()` sets `configurable` and `writable` attributes to `false` for all properties
+
+These corresponding methods return `true` or `false`:
+- `Object.isExtensible()`
+- `Object.isSealed()`
+- `Object.isFrozen()`
 
 ### `Object.setPrototypeOf`/`Object.getPrototypeOf`/`Object.create`
 
