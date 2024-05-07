@@ -92,6 +92,7 @@
   - `Object.getOwnPropertyDescriptor`/`Object.getOwnPropertyDescriptors`
   - `Object.defineProperty()`/`Object.defineProperties()`
   - `Object.setPrototypeOf`/`Object.getPrototypeOf`/`Object.create`
+  - `Object.assign`
 - `Number`
 - `BigInt`
 - `String`
@@ -1591,6 +1592,19 @@ console.log(Object.getOwnPropertyDescriptors(obj));
 }
 */
 ```
+
+### `Object.assign`
+
+`Object.assign(<target>, <...sources>)`:
+- Returns a modified `<target>` containing copied properties from all the `<sources>`
+- Special features:
+  - Copies symbol properties
+- Limitations:
+  - Properties that are objects are copied by reference
+  - Doesn't copy:
+    - Non-enumerable properties
+    - Accessor properties
+    - Inherited properties
 
 ## `Number`
 
