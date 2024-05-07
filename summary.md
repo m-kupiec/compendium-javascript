@@ -88,6 +88,7 @@
 - `Object`
   - `Object.setPrototypeOf`/`Object.getPrototypeOf`/`Object.create`
   - `Object.prototype`
+  - `Object.prototype.toString`
 - `Number`
 - `BigInt`
 - `String`
@@ -1502,6 +1503,37 @@ console.log({}.toString === Object.prototype.toString); // true
 
 ```js
 console.log(Object.prototype.__proto__); // null
+```
+
+### `Object.prototype.toString`
+
+Can display the type of:
+- Primitives
+- Built-in objects
+- Objects with `Symbol.toStringTag`
+
+```js
+console.log({}.toString === Object.prototype.toString);             // true
+
+console.log({}.toString.call(1));                                   // "[object Number]"
+console.log({}.toString.call(1n));                                  // "[object BigInt]"
+console.log({}.toString.call(true));                                // "[object Boolean]"
+console.log({}.toString.call(""));                                  // "[object String]"
+console.log({}.toString.call(null));                                // "[object Null]"
+console.log({}.toString.call(undefined));                           // "[object Undefined]"
+console.log({}.toString.call({}));                                  // "[object Object]"
+console.log({}.toString.call({ [Symbol.toStringTag]: "Custom" }));  // "[object Custom]""
+console.log({}.toString.call(Symbol()));                            // "[object Symbol]"
+console.log({}.toString.call(new Array()));                         // "[object Array]""
+console.log({}.toString.call(new Map()));                           // "[object Map]""
+console.log({}.toString.call(new WeakMap()));                       // "[object WeakMap]""
+console.log({}.toString.call(new Set()));                           // "[object Set]""
+console.log({}.toString.call(new WeakSet()));                       // "[object WeakSet]""
+console.log({}.toString.call(new Promise((resolve) => {})));        // "[object Promise]""
+console.log({}.toString.call(() => {}));                            // "[object Function]""
+console.log({}.toString.call(new SyntaxError()));                   // "[object Error]""    (*)
+
+                                                                    // (*) Interesting case
 ```
 
 ## `Number`
