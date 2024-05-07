@@ -1388,7 +1388,64 @@ console.log(parseInt("111", 2)); // 7
 
 ### `eval`
 
-...
+```js
+let a = 1;
+
+const result = eval(`
+  let b = 2;
+
+  function f(a, b) {
+    console.log(a + b);
+  }
+
+  f(a, b);
+
+  a += 0.1;
+
+  100 + 100;
+`); // 3
+
+console.log(result); // 200
+console.log(a); // 1.1
+```
+
+Using `eval` negatively affects minification ratio as minifiers don't rename local variables potentially visible to the code string
+
+Using outer local variables in `eval` negatively affects code maintenance; if `eval` doesn't use them, call it from the global object...
+
+```js
+let a = 1;
+
+{
+  let a = 2;
+
+  eval(`console.log(a);`); // 2
+}
+```
+
+```js
+let a = 1; // Executed in the global context (not in a module)
+
+{
+  let a = 2;
+
+  globalThis.eval(`console.log(a);`); // 1
+}
+```
+
+... and if `eval` uses them, replace `eval` with `new Function`:
+
+```js
+let a = 1;
+
+{
+  let a = 2;
+
+  // eval(`console.log(a);`); // 2
+  // Replace with:
+  (new Function('a', 'console.log(a)'))(a); // 2
+}
+```
 
 ## `Object`
 
