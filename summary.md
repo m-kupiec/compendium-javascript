@@ -1518,6 +1518,8 @@ console.log(Object.is(0, -0)); // false
 
 Property descriptor is an object containing the property value and all its flags
 
+`Object.getOwnPropertyDescriptors` allows to list non-enumerable property descriptors
+
 ```js
 const obj = {
   a: 1,
