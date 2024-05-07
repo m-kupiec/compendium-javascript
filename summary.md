@@ -1187,7 +1187,62 @@ firstAsyncF("Full Success", callbackF); // "Full Success"
 
 ### Promises
 
-...
+Syntax:
+- The executor function is passed as an argument to the promise constructor and is executed automatically
+- Two callbacks (`resolve` and `reject`) are passed as arguments to the executor function to be later called with `value` or `error` respectively
+- The promise constructor returns an object which has these inaccessible internal properties:
+  - `state`: `pending` or settled (`fulfilled`/`rejected`)
+  - `result`: `undefined`/`value`/`error`
+- Consuming functions can be registered using these methods:
+  - `finally` for executing finalizing procedures whether the promise was resolved or rejected
+    - Doesn't return anything by default
+    - Any returns are ignored
+    - However, it's possible to throw an error that will be passed to the next handler instead of any previous result/error
+  - `then` which receives two callbacks as its arguments
+    - The first callback (success handler, `onFulfilled`) receives the result if the promise was resolved
+    - The second callback (failure handler, `onRejected`) receives the error if the promise was rejected
+  - `catch` which receives the failure handler as its argument
+- Any handler added to an already settled promise will run immediately
+
+```js
+const promise = new Promise((resolve, reject) => {
+  if (Math.random() > 0.5) {
+    resolve("Success");
+  } else {
+    reject("Failure");
+  }
+});
+
+promise
+  .finally(() => console.log("Finalizing..."))
+  .then((value) => console.log(value))
+  .catch((error) => console.error(error));
+```
+
+Error handling:
+- Errors coming from the code of the executor function or the promise handlers are automatically treated as a promise rejection
+- If an error is successfully handled by a handler, the next success handler runs; if an error is not handled, the next failure handler runs
+- If a promise rejection is not handled, a global error occurs, which can be caught in the browser using the `unhandledrejection` event (which would fire when the microtask queue is empty):
+
+```js
+window.addEventListener('unhandledrejection', (e) => {
+  console.log("Gloabl error occured!", e.promise, e.reason);
+});
+
+new Promise((resolve, reject) => reject(new Error()))
+  .then(() => console.log("Success!"));
+
+/*
+"Gloabl error occured!"
+[object Promise] { ... }
+[object Error] { ... }
+*/
+```
+
+- Rules for handling errors:
+  - `catch` should be used where/when handling expected errors is possible; unknown errors should be rethrown
+  - `catch` may be omitted if errors cannot be handled
+  - `unhandledrejection` (in the browser runtime environment) event handler should be used to inform (users, server) about unhandled errors
 
 ### async/await
 
