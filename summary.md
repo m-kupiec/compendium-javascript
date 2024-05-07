@@ -1229,6 +1229,29 @@ promise
   .catch((error) => console.error(error));
 ```
 
+Promise chaining/composition:
+- Success/failure handler used in `then` may create and return
+  - A new promise
+  - A "thenable" object (an object containing `then` method; doesn't need to inherit from `Promise`) which will be treated as a promise
+- `then` always returns a new promise
+
+```js
+new Promise(resolve => resolve("Ok"))
+  .then(result => {})
+  .then(result => console.log(result));
+// undefined
+
+new Promise(resolve => resolve("Ok"))
+  .then(result => { return 0; })
+  .then(result => console.log(result));
+// 0
+
+new Promise(resolve => resolve("Ok"))
+  .then(result => { return new Promise(resolve => resolve(result)); })
+  .then(result => console.log(result));
+// "Ok"
+```
+
 Error handling:
 - Errors coming from the code of the executor function or the promise handlers are automatically treated as a promise rejection
 - If an error is successfully handled by a handler, the next success handler runs; if an error is not handled, the next failure handler runs
