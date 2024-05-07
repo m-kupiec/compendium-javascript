@@ -82,6 +82,9 @@
 ### Built-In Objects & Classes
 
 - `globalThis`
+  - `isFinite`/`isNaN`
+  - `parseInt`/`parseFloat`
+  - `eval`
 - Object
 - Number
 - String
@@ -1356,6 +1359,16 @@ Error handling (either by `try...catch` or `catch` method):
 # Built-In Objects & Classes
 
 ## `globalThis`
+
+### `isFinite`/`isNaN`
+
+...
+
+### `parseInt`/`parseFloat`
+
+...
+
+### `eval`
 
 ...
 
