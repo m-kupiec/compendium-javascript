@@ -99,6 +99,7 @@
 - `Math`
 - `Date`
 - `JSON`
+- `Function`
 - `Error`
 
 ### Techniques
@@ -1500,6 +1501,10 @@ let a = 1;
 ...
 
 ## `JSON`
+
+...
+
+## `Function`
 
 ...
 
