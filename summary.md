@@ -207,6 +207,16 @@ JavaScript operates on a single thread, but its asynchronous behavior is facilit
 3. The Event Loop manages the execution flow by continuously checking the Call Stack's status; it dequeues tasks from the Event Queue and schedules them for execution (in an order influenced by factors such as task priorities and event types, rather than strictly adhering to a simple FIFO order)
    - `PromiseJobs` queue ("microtask queue" as called in V8) has higher priority than the callback queue
 
+```js
+setTimeout(console.log, 0, 5);
+Promise.resolve().then(() => console.log(1));
+Promise.resolve().then(() => console.log(2))
+  .then(() => console.log(3));
+console.log(4);
+
+// 4 1 2 3 5
+```
+
 ### Memory Data Structures
 
 The Stack:
