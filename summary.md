@@ -1352,3 +1352,61 @@ Error handling (either by `try...catch` or `catch` method):
   .catch(error => console.log(error.message));
 // Failure
 ```
+
+# Built-In Objects & Classes
+
+## `globalThis`
+
+...
+
+## Object
+
+...
+
+## Number
+
+...
+
+## String
+
+...
+
+## Symbol
+
+...
+
+## Array
+
+...
+
+## Map
+
+...
+
+## WeakMap
+
+...
+
+## Set
+
+...
+
+## WeakSet
+
+...
+
+## Math
+
+...
+
+## Date
+
+...
+
+## JSON
+
+...
+
+## Error
+
+...
