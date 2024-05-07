@@ -86,6 +86,7 @@
   - `parseInt`/`parseFloat`
   - `eval`
 - `Object`
+  - `Object.setPrototypeOf`/`Object.getPrototypeOf`/`Object.create`
 - `Number`
 - `BigInt`
 - `String`
@@ -1450,7 +1451,41 @@ let a = 1;
 
 ## `Object`
 
-...
+### `Object.setPrototypeOf`/`Object.getPrototypeOf`/`Object.create`
+
+- `Object.setPrototypeOf`/`Object.getPrototypeOf` allows to set/get object `[[Prototype]]` in a modern way:
+
+```js
+const objProto = { a: 1 };
+const obj = { b: 2 };
+
+Object.setPrototypeOf(obj, objProto);
+console.log(Object.getPrototypeOf(obj)); // [object Object] { a: 1 }
+```
+
+- `Object.create` allows to create a new object with a specified `[[Prototype]]` and optionally with additional specified property descriptors:
+
+```js
+const objProto = { a: 1 };
+
+const obj = Object.create(objProto, {
+  b: {
+    value: 2
+  }
+});
+console.log(Object.getPrototypeOf(obj)); // [object Object] { a: 1 }
+console.log(Object.getOwnPropertyDescriptors(obj));
+/*
+[object Object] {
+  b: [object Object] {
+    configurable: false,
+    enumerable: false,
+    value: 2,
+    writable: false
+  }
+}
+*/
+```
 
 ## `Number`
 
