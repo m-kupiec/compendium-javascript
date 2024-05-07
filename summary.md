@@ -87,6 +87,7 @@
   - `eval`
 - `Object`
   - `Object.setPrototypeOf`/`Object.getPrototypeOf`/`Object.create`
+  - `Object.prototype`
 - `Number`
 - `BigInt`
 - `String`
@@ -1485,6 +1486,22 @@ console.log(Object.getOwnPropertyDescriptors(obj));
   }
 }
 */
+```
+
+### `Object.prototype`
+
+- All objects inherit from `Object.prototype`:
+
+```js
+console.log(Function.prototype.__proto__ === Object.prototype); // true
+console.log({}.__proto__ === Object.prototype); // true
+console.log({}.toString === Object.prototype.toString); // true
+```
+
+- The value of `[[Prototype]]` for `Object.prototype` is `null`:
+
+```js
+console.log(Object.prototype.__proto__); // null
 ```
 
 ## `Number`
