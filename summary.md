@@ -1368,7 +1368,22 @@ Error handling (either by `try...catch` or `catch` method):
 
 ### `parseInt`/`parseFloat`
 
-...
+- Extracting a number from a string:
+
+```js
+console.log(parseInt("1 USD")); // 1
+console.log(parseFloat("1.5 USD")); // 1.5
+
+console.log(parseInt("$1")); // NaN
+console.log(parseFloat("$1.5")); // NaN
+```
+
+- Converting a number from a non-decimal numeral system:
+
+```js
+console.log(parseInt("0xff")); // 255
+console.log(parseInt("111", 2)); // 7
+```
 
 ### `eval`
 
