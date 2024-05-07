@@ -90,6 +90,7 @@
   - `Object.prototype`
   - `Object.prototype.toString`
   - `Object.is`
+  - `Object.getOwnPropertyDescriptor`/`Object.getOwnPropertyDescriptors`
 - `Number`
 - `BigInt`
 - `String`
@@ -1544,6 +1545,28 @@ Differs from strict comparison `===` in two edge cases:
 ```js
 console.log(Object.is(NaN, NaN)); // true
 console.log(Object.is(0, -0)); // false
+```
+
+### `Object.getOwnPropertyDescriptor`/`Object.getOwnPropertyDescriptors`
+
+Property descriptor is an object containing the property value and all its flags
+
+```js
+const obj = {
+  a: 1,
+  b: 2
+};
+
+console.log(Object.getOwnPropertyDescriptor(obj, 'a'));
+// { value: 1, writable: true, enumerable: true, configurable: true }
+
+console.log(Object.getOwnPropertyDescriptors(obj));
+/*
+{
+  a: { value: 1, writable: true, enumerable: true, configurable: true },
+  b: { value: 2, writable: true, enumerable: true, configurable: true }
+}
+*/
 ```
 
 ## `Number`
