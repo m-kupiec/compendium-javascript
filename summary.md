@@ -79,7 +79,7 @@
   - Promises
   - async/await
 
-### Built-In Objects
+### Built-In Objects & Classes
 
 - Global Scope Objects
 - Global Object
