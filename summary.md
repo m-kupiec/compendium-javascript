@@ -1362,7 +1362,9 @@ Error handling (either by `try...catch` or `catch` method):
 
 ### `isFinite`/`isNaN`
 
-...
+`isFinite(<value>)` checks whether a value converted to a number is not `NaN`/`Infinity`/`-Infinity`
+
+`isNaN(<value>)` checks whether a value converted to a number is `NaN`
 
 ### `parseInt`/`parseFloat`
 
