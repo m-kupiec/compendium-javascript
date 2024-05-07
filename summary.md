@@ -111,7 +111,8 @@
 
 ### Programming Techniques
 
-- ...
+- **Objects**
+  - Shallow Cloning Objects
 
 # Operation
 
@@ -1665,3 +1666,33 @@ console.log(Object.getOwnPropertyDescriptors(obj));
 ## `Error`
 
 ...
+
+# Programming Techniques
+
+## Objects
+
+### Shallow Cloning Objects
+
+- Method #1: `Object.assign`
+
+```js
+Object.assign(clonedObj1, obj);
+```
+
+- Method #2: A combination of `Object.defineProperties` and `Object.getOwnPropertyDescriptors`
+
+```js
+Object.defineProperties(clonedObj, Object.getOwnPropertyDescriptors(obj));
+```
+
+- Method #3: A combination of `Object.create`, `Object.getPrototypeOf`, and `Object.getOwnPropertyDescriptors`
+
+```js
+const clonedObj = Object.create(Object.getPrototypeOf(obj), Object.getOwnPropertyDescriptors(obj));
+```
+
+|Method|Attributes|Symbolic|Non-enumerable|Accessor|`[[Prototype]]`|
+|:----:|:--------:|:------:|:------------:|:------:|:-------------:|
+|#1    |-         |`Yes`   |-             |-       |-              |
+|#2    |`Yes`     |`Yes`   |`Yes`         |`Yes`   |-              |
+|#3    |`Yes`     |`Yes`   |`Yes`         |`Yes`   |`Yes`          |
