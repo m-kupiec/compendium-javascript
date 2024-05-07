@@ -85,19 +85,21 @@
   - `isFinite`/`isNaN`
   - `parseInt`/`parseFloat`
   - `eval`
-- Object
-- Number
-- String
-- Symbol
-- Array
-- Map
-- WeakMap
-- Set
-- WeakSet
-- Math
-- Date
-- JSON
-- Error
+- `Object`
+- `Number`
+- `BigInt`
+- `String`
+- `Boolean`
+- `Symbol`
+- `Array`
+- `Map`
+- `WeakMap`
+- `Set`
+- `WeakSet`
+- `Math`
+- `Date`
+- `JSON`
+- `Error`
 
 ### Techniques
 
@@ -1388,54 +1390,62 @@ console.log(parseInt("111", 2)); // 7
 
 ...
 
-## Object
+## `Object`
 
 ...
 
-## Number
+## `Number`
 
 ...
 
-## String
+## `BigInt`
 
 ...
 
-## Symbol
+## `String`
 
 ...
 
-## Array
+## `Boolean`
 
 ...
 
-## Map
+## `Symbol`
 
 ...
 
-## WeakMap
+## `Array`
 
 ...
 
-## Set
+## `Map`
 
 ...
 
-## WeakSet
+## `WeakMap`
 
 ...
 
-## Math
+## `Set`
 
 ...
 
-## Date
+## `WeakSet`
 
 ...
 
-## JSON
+## `Math`
 
 ...
 
-## Error
+## `Date`
+
+...
+
+## `JSON`
+
+...
+
+## `Error`
 
 ...
