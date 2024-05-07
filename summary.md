@@ -89,6 +89,7 @@
   - `Object.setPrototypeOf`/`Object.getPrototypeOf`/`Object.create`
   - `Object.prototype`
   - `Object.prototype.toString`
+  - `Object.is`
 - `Number`
 - `BigInt`
 - `String`
@@ -1534,6 +1535,15 @@ console.log({}.toString.call(() => {}));                            // "[object 
 console.log({}.toString.call(new SyntaxError()));                   // "[object Error]""    (*)
 
                                                                     // (*) Interesting case
+```
+
+### `Object.is`
+
+Differs from strict comparison `===` in two edge cases:
+
+```js
+console.log(Object.is(NaN, NaN)); // true
+console.log(Object.is(0, -0)); // false
 ```
 
 ## `Number`
