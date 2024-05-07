@@ -91,6 +91,7 @@
   - `Object.prototype.toString`
   - `Object.is`
   - `Object.getOwnPropertyDescriptor`/`Object.getOwnPropertyDescriptors`
+  - `Object.defineProperty()`/`Object.defineProperties()`
 - `Number`
 - `BigInt`
 - `String`
@@ -1565,6 +1566,28 @@ console.log(Object.getOwnPropertyDescriptors(obj));
 {
   a: { value: 1, writable: true, enumerable: true, configurable: true },
   b: { value: 2, writable: true, enumerable: true, configurable: true }
+}
+*/
+```
+
+### `Object.defineProperty()`/`Object.defineProperties()`
+
+Creating/modifying property attributes (with all the flags set to `false` by default):
+
+```js
+const obj = {};
+
+Object.defineProperties(obj, {
+  'a': { value: 1 },
+  'b': { value: 2, writable: true }
+});
+Object.defineProperty(obj, 'b', { value: 3 });
+
+console.log(Object.getOwnPropertyDescriptors(obj));
+/*
+{
+  a: { value: 1, writable: false, enumerable: false, configurable: false },
+  b: { value: 3, writable: true, enumerable: false, configurable: false }
 }
 */
 ```
