@@ -109,7 +109,7 @@
 - `Function`
 - `Error`
 
-### Techniques
+### Programming Techniques
 
 - ...
 
