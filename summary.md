@@ -81,11 +81,11 @@
 
 ### Built-In Objects & Classes
 
-- `globalThis`
+- **`globalThis`**
   - `isFinite`/`isNaN`
   - `parseInt`/`parseFloat`
   - `eval`
-- `Object`
+- **`Object`**
   - `Object.prototype`
   - `Object.prototype.toString`
   - `Object.is`
@@ -93,21 +93,21 @@
   - `Object.defineProperty()`/`Object.defineProperties()`
   - `Object.setPrototypeOf`/`Object.getPrototypeOf`/`Object.create`
   - `Object.assign`
-- `Number`
-- `BigInt`
-- `String`
-- `Boolean`
-- `Symbol`
-- `Array`
-- `Map`
-- `WeakMap`
-- `Set`
-- `WeakSet`
-- `Math`
-- `Date`
-- `JSON`
-- `Function`
-- `Error`
+- **`Number`**
+- **`BigInt`**
+- **`String`**
+- **`Boolean`**
+- **`Symbol`**
+- **`Array`**
+- **`Map`**
+- **`WeakMap`**
+- **`Set`**
+- **`WeakSet`**
+- **`Math`**
+- **`Date`**
+- **`JSON`**
+- **`Function`**
+- **`Error`**
 
 ### Programming Techniques
 
