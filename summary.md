@@ -1279,4 +1279,77 @@ new Promise((resolve, reject) => reject(new Error()))
 
 ### async/await
 
-...
+`async` function always returns a promise - values other than a promise are wrapped in a resolved promise
+
+`await`:
+- Pauses the function execution until the promise is settled &rightarrow; Returns the result/error
+- To avoid `SyntaxError`, `await` must be either:
+  - Placed in an `async` function
+  - Wrapped into an anonymous `async` function
+  - Used at a module top-level
+- Can also be used with "thenables"
+
+```js
+async function asyncF() {
+  return await new Promise((resolve, reject) => setTimeout(() => {
+    if (Math.random() > 0.5) {
+      resolve("Success");
+    } else {
+      reject(new Error("Failure"));
+    }
+  }));
+}
+
+asyncF().then(console.log, console.error); // "Success" OR "Error: Failure"
+```
+
+The syntax also works for object/class methods:
+
+```js
+class Cl {
+  async f() {
+    return await Promise.resolve("Ok!");
+  }
+}
+
+new Cl()
+  .f()
+  .then(console.log); // "Ok!"
+```
+
+Promise chaining/composition:
+
+```js
+// USING 'THEN' METHOD:
+new Promise(resolve => resolve("Ok!"))
+  .then(result => { return new Promise(resolve => resolve (result)) })
+  .then(result => console.log(result));
+// "Ok!"
+
+// USING ASYNC/AWAIT SYNTAX:
+(async () => {
+  const result1 = await new Promise(resolve => resolve("Ok!"));
+  const result2 = await new Promise(resolve => resolve(result1));
+  console.log(result2);
+})();
+// "Ok!"
+```
+
+Error handling (either by `try...catch` or `catch` method):
+
+```js
+(async () => {
+  try {
+    let val = await Promise.reject(new Error("Failure"));
+  } catch (error) {
+    console.error(error.message);
+  }
+})();
+// Failure
+
+(async function f() {
+  return await Promise.reject(new Error("Failure"));
+})()
+  .catch(error => console.log(error.message));
+// Failure
+```
