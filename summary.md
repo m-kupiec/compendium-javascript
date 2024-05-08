@@ -89,11 +89,11 @@
   - `Object.prototype`
   - `Object.prototype.toString`
   - `Object.is`
-  - `Object.keys`/`Object.values`/`Object.entries`/`Object.fromEntries`
-  - `Object.getOwnPropertyDescriptor`/`Object.getOwnPropertyDescriptors`
-  - `Object.defineProperty`/`Object.defineProperties`
-  - `Object.preventExtensions`/`Object.seal`/`Object.freeze`
-  - `Object.setPrototypeOf`/`Object.getPrototypeOf`/`Object.create`
+  - `Object.`<`keys`/`values`/`entries`/`fromEntries`>
+  - `Object.`<`getOwnPropertyDescriptor`/`getOwnPropertyDescriptors`>
+  - `Object.`<`defineProperty`/`defineProperties`>
+  - `Object.`<`preventExtensions`/`seal`/`freeze`>
+  - `Object.`<`setPrototypeOf`/`getPrototypeOf`/`create`>
   - `Object.assign`
 - **`Number`**
 - **`BigInt`**
@@ -1518,7 +1518,7 @@ console.log(Object.is(NaN, NaN)); // true
 console.log(Object.is(0, -0)); // false
 ```
 
-### `Object.keys`/`Object.values`/`Object.entries`/`Object.fromEntries`
+### `Object.`<`keys`/`values`/`entries`/`fromEntries`>
 
 Do not include:
 - Symbolic properties
@@ -1528,7 +1528,7 @@ Do not include:
 
 `Object.fromEntries` returns an object
 
-### `Object.getOwnPropertyDescriptor`/`Object.getOwnPropertyDescriptors`
+### `Object.`<`getOwnPropertyDescriptor`/`getOwnPropertyDescriptors`>
 
 Property descriptor is an object containing the property value and all its flags
 
@@ -1552,7 +1552,7 @@ console.log(Object.getOwnPropertyDescriptors(obj));
 */
 ```
 
-### `Object.defineProperty`/`Object.defineProperties`
+### `Object.`<`defineProperty`/`defineProperties`>
 
 Creating/modifying property attributes (with all the flags set to `false` by default):
 
@@ -1574,7 +1574,7 @@ console.log(Object.getOwnPropertyDescriptors(obj));
 */
 ```
 
-### `Object.preventExtensions`/`Object.seal`/`Object.freeze`
+### `Object.`<`preventExtensions`/`seal`/`freeze`>
 
 These methods work for the whole object:
 - `Object.preventExtensions` disallows adding new properties
@@ -1586,7 +1586,7 @@ These corresponding methods return `true` or `false`:
 - `Object.isSealed()`
 - `Object.isFrozen()`
 
-### `Object.setPrototypeOf`/`Object.getPrototypeOf`/`Object.create`
+### `Object.`<`setPrototypeOf`/`getPrototypeOf`/`create`>
 
 - `Object.setPrototypeOf`/`Object.getPrototypeOf` allows to set/get object `[[Prototype]]` in a modern way:
 
