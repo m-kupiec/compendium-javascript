@@ -98,6 +98,7 @@
 - **`Number`**
 - **`BigInt`**
 - **`String`**
+  - `String.prototype.localeCompare`
   - `String.prototype.`<`indexOf`/`lastIndexOf`/`includes`/`startsWith`/`endsWith`>
   - `String.prototype.`<`at`/`slice`>
   - `String.prototype.`<`toLowerCase`/`toUpperCase`>
@@ -1645,6 +1646,17 @@ console.log(Object.getOwnPropertyDescriptors(obj));
 ...
 
 ## `String`
+
+### `String.prototype.localeCompare`
+
+- Compares two strings according to the ECMA-402 internationalization standard
+- Can be customized by additional parameters
+
+```js
+console.log("a".localeCompare("b") < 0); // true
+console.log("b".localeCompare("b") === 0); // true
+console.log("b".localeCompare("a") > 0); // true
+```
 
 ### `String.prototype.`<`indexOf`/`lastIndexOf`/`includes`/`startsWith`/`endsWith`>
 
