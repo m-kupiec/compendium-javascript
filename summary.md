@@ -132,6 +132,7 @@
 - **`Promise`**
   - `Promise.`<`all`/`allSettled`>
   - `Promise.`<`race`/`any`>
+  - `Promise.`<`resolve`/`reject`>
 - **`Error`**
 
 ### Programming Techniques
@@ -2029,6 +2030,16 @@ console.log(
 - Returns a promise which either:
   - Rejects with with `AggregateError` object which stores an array of all the source promises errors in its `errors` property, or
   - Resolves with a single result
+
+### `Promise.`<`resolve`/`reject`>
+
+`Promise.resolve`:
+- Returns a promise resolved with the passed value
+- Used if `async`/`await` is not supported but a function must return a promise
+
+`Promise.reject`:
+- Returns a promise rejected with the passed error
+- Almost never used
 
 ## `Error`
 
