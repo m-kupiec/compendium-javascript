@@ -127,6 +127,7 @@
 - **`Date`**
 - **`JSON`**
   - `JSON.stringify`
+  - `JSON.parse`
 - **`Function`**
 - **`Error`**
 
@@ -1955,6 +1956,23 @@ const obj = {
 };
 
 console.log(JSON.stringify(obj)); // {"a":1,"b":"2|3","c":[4,5]}
+```
+
+### `JSON.parse`
+
+The second (optional) argument is a mapping function (reviver) that is to be called for each key/value pair (including nested objects and array items)
+
+```js
+const json = '{"a":1,"b":{"date":"1970-01-02T10:00:00.000Z"},"c":[4,5]}';
+
+console.log(JSON.parse(json));
+// { a: 1, b: { date: '1970-01-02T10:00:00.000Z' }, c: [ 4, 5 ] }
+
+console.log(
+  JSON.parse(json, (key, value) => key === "date" ? new Date(value) : value)
+    .b.date.getTime()
+);
+// 122400000
 ```
 
 ## `Function`
