@@ -129,6 +129,8 @@
   - `JSON.stringify`
   - `JSON.parse`
 - **`Function`**
+- **`Promise`**
+  - `Promise.`<`all`/`allSettled`>
 - **`Error`**
 
 ### Programming Techniques
@@ -1978,6 +1980,31 @@ console.log(
 ## `Function`
 
 ...
+
+## `Promise`
+
+### `Promise.`<`all`/`allSettled`>
+
+`Promise.all`:
+- Executes many promises concurrently until:
+  - All are resolved, or
+  - Any of them is rejected
+    - Then the resulting promise is immediately rejected while remaining source promises operations continue with their results being ignored
+- Takes an iterable of:
+  - Promises, or
+  - Values to be passed "as is" to the resulting promise
+- Returns a promise which either:
+  - Rejects with a single error, or
+  - Resolves with an array of results (ordered as the source promises)
+
+`Promise.allSettled`:
+- Executes many promises concurrently until all are settled (resolved/rejected)
+- Takes an iterable of:
+  - Promises, or
+  - Values to be passed "as is" to the resulting promise
+- Returns a promise which resolves with an array of objects (ordered as the source promises):
+  - `{ status: "fulfilled", value: <result> }` for each fulfilled promise, or
+  - `{ status: "rejected", reason: <error> }` for each rejected promise
 
 ## `Error`
 
