@@ -130,6 +130,7 @@
   - `JSON.parse`
 - **`Function`**
   - `Function.prototype.`<`call`/`apply`>
+  - `Function.prototype.bind`
 - **`Promise`**
   - `Promise.`<`all`/`allSettled`>
   - `Promise.`<`race`/`any`>
@@ -1987,6 +1988,12 @@ console.log(
 Calling a function with a specified context (`this`):
 - `call(<this>, <...args>)` receives its arguments as a list
 - `apply(<this>, <[...args]>)` receives its arguments as an `Array`/array-like object
+
+### `Function.prototype.bind`
+
+Returns a function bound to:
+- A specified context (`this`) passed as the first argument (may be `null`)
+- A specified list of arguments passed after the first argument
 
 ## `Promise`
 
