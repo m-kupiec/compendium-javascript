@@ -124,6 +124,7 @@
 - **`Set`**
 - **`WeakSet`**
 - **`Math`**
+  - Other Methods
 - **`Date`**
 - **`JSON`**
   - `JSON.stringify`
@@ -1892,7 +1893,26 @@ Allows to make an array (shallow copy) from an iterable or an array-like object
 
 ## `Math`
 
-...
+### Other Methods
+
+```js
+console.log(Object.keys(Object.getOwnPropertyDescriptors(Math)));
+/*
+[
+  'abs',    'acos',    'acosh',  'asin',
+  'asinh',  'atan',    'atanh',  'atan2',
+  'ceil',   'cbrt',    'expm1',  'clz32',
+  'cos',    'cosh',    'exp',    'floor',
+  'fround', 'hypot',   'imul',   'log',
+  'log1p',  'log2',    'log10',  'max',
+  'min',    'pow',     'random', 'round',
+  'sign',   'sin',     'sinh',   'sqrt',
+  'tan',    'tanh',    'trunc',  'E',
+  'LN10',   'LN2',     'LOG10E', 'LOG2E',
+  'PI',     'SQRT1_2', 'SQRT2'
+]
+*/
+```
 
 ## `Date`
 
