@@ -98,9 +98,8 @@
 - **`Number`**
 - **`BigInt`**
 - **`String`**
-  - `String.prototype.at`
   - `String.prototype.`<`indexOf`/`lastIndexOf`/`includes`/`startsWith`/`endsWith`>
-  - `String.prototype.slice`
+  - `String.prototype.`<`at`/`slice`>
   - `String.prototype.`<`toLowerCase`/`toUpperCase`>
 - **`Boolean`**
 - **`Symbol`**
@@ -1647,13 +1646,6 @@ console.log(Object.getOwnPropertyDescriptors(obj));
 
 ## `String`
 
-### `String.prototype.at`
-
-```js
-console.log("123".at(0)); // "1"
-console.log("123".at(-1)); // "3"
-```
-
 ### `String.prototype.`<`indexOf`/`lastIndexOf`/`includes`/`startsWith`/`endsWith`>
 
 ```js
@@ -1677,9 +1669,12 @@ console.log("abcd".endsWith("cd")); // true
 console.log("abcd".endsWith("bc", 3)); // true
 ```
 
-### `String.prototype.slice`
+### `String.prototype.`<`at`/`slice`>
 
 ```js
+console.log("123".at(0)); // "1"
+console.log("123".at(-1)); // "3"
+
 console.log("abcd".slice(1)); // "bcd"
 console.log("abcd".slice(-1)); // "d"
 console.log("abcd".slice(1, 2)); // "b"
