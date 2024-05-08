@@ -108,6 +108,7 @@
   - `Array.prototype.`<`at`/`slice`>
   - `Array.prototype.`<`push`/`pop`/`unshift`/`shift`>
   - `Array.prototype.concat`
+  - `Array.prototype.`<`sort`/`reverse`>
 - **`Map`**
 - **`WeakMap`**
 - **`Set`**
@@ -1753,6 +1754,20 @@ console.log(arr); // [1, 2, 3]
 
 ```js
 console.log([1, 2].concat([3, 4, [5, 6]], 7, 8)); // [ 1, 2, 3, 4, [ 5, 6 ], 7, 8 ]
+```
+
+### `Array.prototype.`<`sort`/`reverse`>
+
+Theses methods modify the array and return it
+
+`Array.prototype.sort` sorts the elements as being converted to `String` so an ordering function may be needed:
+
+```js
+console.log([1, 2, 10].sort()); // [1, 10, 2]
+console.log([1, 2, 10].sort((a, b) => a - b)); // [1, 2, 10]
+
+console.log(["a", "ą", "z"].sort()); // ["a", "z", "ą"]
+console.log(["a", "ą", "z"].sort((a, b) => a.localeCompare(b))); // ["a", "ą", "z"]
 ```
 
 ## `Map`
