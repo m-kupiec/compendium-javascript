@@ -110,6 +110,7 @@
   - `Array.prototype.`<`push`/`pop`/`unshift`/`shift`>
   - `Array.prototype.concat`
   - `Array.prototype.`<`sort`/`reverse`>
+  - `Array.prototype.`<`toString`/`join`/`split`>
   - `Array.from`
 - **`Map`**
 - **`WeakMap`**
@@ -1798,6 +1799,17 @@ console.log([1, 2, 10].sort((a, b) => a - b)); // [1, 2, 10]
 
 console.log(["a", "ą", "z"].sort()); // ["a", "z", "ą"]
 console.log(["a", "ą", "z"].sort((a, b) => a.localeCompare(b))); // ["a", "ą", "z"]
+```
+
+### `Array.prototype.`<`toString`/`join`/`split`>
+
+```js
+console.log([1, 2, 3].toString()); // "1,2,3"
+
+console.log([1, 2, 3].join(", ")); // "1, 2, 3"
+
+console.log("1, 2, 3".split(", ")); // ["1", "2", "3"]
+console.log("1, 2, 3".split(", ", 2)); // ["1", "2"]
 ```
 
 ### `Array.from`
