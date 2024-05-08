@@ -1916,15 +1916,18 @@ Allows to make an array (shallow copy) from an iterable or an array-like object
 
 Constructor: `new Map(<entries>)`
 
-`Map.prototype` properties:
-- `size`
-
 `Map.prototype` methods:
 - `set(<key>, <value>)`
 - `has(<key>)` returns `Boolean`
 - `get(<key>)` returns the value for a given key
 - `delete(<key>)`
 - `clear()`
+- `keys()`
+- `values()`
+- `entries()`
+
+`Map.prototype` properties:
+- `size`
 
 ## `WeakMap`
 
