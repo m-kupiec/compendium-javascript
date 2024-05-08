@@ -105,6 +105,7 @@
 - **`Boolean`**
 - **`Symbol`**
 - **`Array`**
+  - `Array.prototype.`<`indexOf`/`lastIndexOf`/`includes`>
   - `Array.prototype.`<`at`/`slice`>
   - `Array.prototype.`<`push`/`pop`/`unshift`/`shift`>
   - `Array.prototype.concat`
@@ -1722,6 +1723,26 @@ console.log("abc".toUpperCase()); // "ABC"
 ...
 
 ## `Array`
+
+### `Array.prototype.`<`indexOf`/`lastIndexOf`/`includes`>
+
+```js
+const arr = [1, 2, 3, 1];
+
+console.log(arr.indexOf(4)); // -1
+console.log(arr.indexOf(1)); // 0
+console.log(arr.indexOf(1, 1)); // 3
+
+console.log(arr.lastIndexOf(4)); // -1
+console.log(arr.lastIndexOf(1)); // 3
+console.log(arr.lastIndexOf(1, 1)); // 0
+
+console.log(arr.includes(2)); // true
+console.log(arr.includes(2, 2)); // false
+
+console.log([NaN].indexOf(NaN)); // -1 (doesn't work for NaN)
+console.log([NaN].includes(NaN)); // true (works for NaN)
+```
 
 ### `Array.prototype.`<`at`/`slice`>
 
