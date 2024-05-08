@@ -124,6 +124,7 @@
 - **`Set`**
 - **`WeakSet`**
 - **`Math`**
+  - `Math.`<`floor`/`ceil`/`round`/`trunc`>
   - Other Methods
 - **`Date`**
 - **`JSON`**
@@ -1892,6 +1893,17 @@ Allows to make an array (shallow copy) from an iterable or an array-like object
 ...
 
 ## `Math`
+
+### `Math.`<`floor`/`ceil`/`round`/`trunc`>
+
+Rounding to `Integer`:
+
+```js
+console.log(Math.floor(1.5), Math.floor(-1.5)); // 1, -2
+console.log(Math.ceil(1.5), Math.ceil(-1.5)); // 2, -1
+console.log(Math.round(1.5), Math.round(-1.5)); // 2, -1
+console.log(Math.trunc(1.5), Math.trunc(-1.5)); // 1, -1
+```
 
 ### Other Methods
 
