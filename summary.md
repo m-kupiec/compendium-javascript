@@ -125,6 +125,7 @@
 - **`WeakSet`**
 - **`Math`**
   - `Math.`<`floor`/`ceil`/`round`/`trunc`>
+  - `Math.random()`
   - Other Methods
 - **`Date`**
 - **`JSON`**
@@ -1904,6 +1905,10 @@ console.log(Math.ceil(1.5), Math.ceil(-1.5)); // 2, -1
 console.log(Math.round(1.5), Math.round(-1.5)); // 2, -1
 console.log(Math.trunc(1.5), Math.trunc(-1.5)); // 1, -1
 ```
+
+### `Math.random()`
+
+Returns a random number from the interval `<0; 1)`
 
 ### Other Methods
 
