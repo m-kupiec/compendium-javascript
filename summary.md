@@ -2043,7 +2043,17 @@ console.log(
 
 ## `Error`
 
-...
+Properties:
+- `name`
+- `message`
+- `stack`
+
+Inheriting error objects:
+- `AggregateError`
+- `RangeError`
+- `ReferenceError`
+- `SyntaxError`
+- `TypeError`
 
 # Programming Techniques
 
