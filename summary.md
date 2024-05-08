@@ -129,6 +129,7 @@
   - `JSON.stringify`
   - `JSON.parse`
 - **`Function`**
+  - `Function.prototype.`<`call`/`apply`>
 - **`Promise`**
   - `Promise.`<`all`/`allSettled`>
   - `Promise.`<`race`/`any`>
@@ -1981,7 +1982,11 @@ console.log(
 
 ## `Function`
 
-...
+### `Function.prototype.`<`call`/`apply`>
+
+Calling a function with a specified context (`this`):
+- `call(<this>, <...args>)` receives its arguments as a list
+- `apply(<this>, <[...args]>)` receives its arguments as an `Array`/array-like object
 
 ## `Promise`
 
