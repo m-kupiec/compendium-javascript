@@ -1687,6 +1687,7 @@ console.log("abcd".endsWith("bc", 3)); // true
 console.log("123".at(0)); // "1"
 console.log("123".at(-1)); // "3"
 
+console.log("abcd".slice()); // "abcd"
 console.log("abcd".slice(1)); // "bcd"
 console.log("abcd".slice(-1)); // "d"
 console.log("abcd".slice(1, 2)); // "b"
