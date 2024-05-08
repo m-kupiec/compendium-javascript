@@ -100,6 +100,7 @@
 - **`String`**
   - `String.prototype.at`
   - `String.prototype.`<`indexOf`/`lastIndexOf`/`includes`/`startsWith`/`endsWith`>
+  - `String.prototype.slice`
 - **`Boolean`**
 - **`Symbol`**
 - **`Array`**
@@ -1673,6 +1674,15 @@ console.log("abcd".startsWith("bc", 1)); // true
 
 console.log("abcd".endsWith("cd")); // true
 console.log("abcd".endsWith("bc", 3)); // true
+```
+
+### `String.prototype.slice`
+
+```js
+console.log("abcd".slice(1)); // "bcd"
+console.log("abcd".slice(-1)); // "d"
+console.log("abcd".slice(1, 2)); // "b"
+console.log("abcd".slice(-3, -2)); // "b"
 ```
 
 ## `Boolean`
