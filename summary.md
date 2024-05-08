@@ -105,6 +105,7 @@
 - **`Boolean`**
 - **`Symbol`**
 - **`Array`**
+  - `Array.prototype.`<`at`/`slice`>
 - **`Map`**
 - **`WeakMap`**
 - **`Set`**
@@ -1711,7 +1712,22 @@ console.log("abc".toUpperCase()); // "ABC"
 
 ## `Array`
 
-...
+### `Array.prototype.`<`at`/`slice`>
+
+```js
+console.log([1, 2, 3].at(0)); // "1"
+console.log([1, 2, 3].at(-1)); // "3"
+```
+
+```js
+const arr = [1, 2, 3, 4];
+
+console.log(arr.slice()); // [1, 2, 3, 4] (clone of the array)
+console.log(arr.slice(1)); // [2, 3, 4]
+console.log(arr.slice(-1)); // [4]
+console.log(arr.slice(1, 2)); // [2]
+console.log(arr.slice(-3, -2)); // [2]
+```
 
 ## `Map`
 
