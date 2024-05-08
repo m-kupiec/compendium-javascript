@@ -91,7 +91,7 @@
   - `Object.is`
   - `Object.keys`/`Object.values`/`Object.entries`/`Object.fromEntries`
   - `Object.getOwnPropertyDescriptor`/`Object.getOwnPropertyDescriptors`
-  - `Object.defineProperty()`/`Object.defineProperties()`
+  - `Object.defineProperty`/`Object.defineProperties`
   - `Object.preventExtensions`/`Object.seal`/`Object.freeze`
   - `Object.setPrototypeOf`/`Object.getPrototypeOf`/`Object.create`
   - `Object.assign`
@@ -1550,7 +1550,7 @@ console.log(Object.getOwnPropertyDescriptors(obj));
 */
 ```
 
-### `Object.defineProperty()`/`Object.defineProperties()`
+### `Object.defineProperty`/`Object.defineProperties`
 
 Creating/modifying property attributes (with all the flags set to `false` by default):
 
