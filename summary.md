@@ -1928,7 +1928,20 @@ Constructor: `new Map(<entries>)`
 
 ## `WeakMap`
 
-...
+Supports:
+- `set(<key>, <value>)`
+- `has(<key>)`
+- `get(<key>)`
+- `delete(<key>)`
+
+Doesn't support:
+- `Map.prototype` methods:
+  - `clear()`
+  - `keys()`
+  - `values()`
+  - `entries()`
+- `Map.prototype` properties:
+  - `size`
 
 ## `Set`
 
