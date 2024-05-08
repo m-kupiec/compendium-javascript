@@ -1927,6 +1927,7 @@ Constructor: `new Map(<entries>)`
 - `keys()`
 - `values()`
 - `entries()`
+- `forEach((<value>, <key>, <map>) => <callback body>)` honors the insertion order
 
 `Map.prototype` properties:
 - `size`
@@ -1945,6 +1946,7 @@ Doesn't support:
   - `keys()`
   - `values()`
   - `entries()`
+  - `forEach(<callback>)`
 - `Map.prototype` properties:
   - `size`
 
