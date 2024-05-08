@@ -111,6 +111,7 @@
   - `Array.prototype.concat`
   - `Array.prototype.`<`sort`/`reverse`>
   - `Array.prototype.`<`toString`/`join`/`split`>
+  - `Array.isArray`
   - `Array.from`
 - **`Map`**
 - **`WeakMap`**
@@ -1811,6 +1812,15 @@ console.log([1, 2, 3].join(", ")); // "1, 2, 3"
 console.log("1, 2, 3".split(", ")); // ["1", "2", "3"]
 console.log("1, 2, 3".split(", ", 2)); // ["1", "2"]
 ```
+
+### `Array.isArray`
+
+```js
+console.log(typeof []); // "object"
+
+console.log(Array.isArray([])); // true
+```
+
 
 ### `Array.from`
 
