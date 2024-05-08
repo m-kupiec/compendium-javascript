@@ -110,6 +110,7 @@
   - `Array.prototype.`<`push`/`pop`/`unshift`/`shift`>
   - `Array.prototype.concat`
   - `Array.prototype.`<`sort`/`reverse`>
+  - `Array.from`
 - **`Map`**
 - **`WeakMap`**
 - **`Set`**
@@ -1798,6 +1799,10 @@ console.log([1, 2, 10].sort((a, b) => a - b)); // [1, 2, 10]
 console.log(["a", "ą", "z"].sort()); // ["a", "z", "ą"]
 console.log(["a", "ą", "z"].sort((a, b) => a.localeCompare(b))); // ["a", "ą", "z"]
 ```
+
+### `Array.from`
+
+Allows to make an array (shallow copy) from an iterable or an array-like object
 
 ## `Map`
 
