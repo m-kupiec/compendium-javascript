@@ -97,6 +97,7 @@
   - `Object.assign`
 - **`Number`**
   - `Number.prototype.`<`toString`/`toFixed`>
+  - Other `Number.prototype` Methods
 - **`BigInt`**
 - **`String`**
   - `String.prototype.localeCompare`
@@ -1681,6 +1682,23 @@ Rounding a float number:
 
 ```js
 console.log((1.2345).toFixed(2)); // "1.23"
+```
+
+### Other `Number.prototype` Methods
+
+```js
+console.log(Object.keys(Object.getOwnPropertyDescriptors(Number.prototype)));
+/*
+[
+  'constructor',
+  'toExponential',
+  'toFixed',
+  'toPrecision',
+  'toString',
+  'valueOf',
+  'toLocaleString'
+]
+*/
 ```
 
 ## `BigInt`
