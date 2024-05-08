@@ -748,6 +748,8 @@ Requires an object for a property (or will result in `TypeError`)
 
 A key is removed from the `WeakMap` and memory when there no longer exists any reference to it
 
+It's not possible to list its entries/iterate over it
+
 ### WeakSets
 
 Requires an object for a value (or will result in `TypeError`)
