@@ -99,6 +99,7 @@
 - **`BigInt`**
 - **`String`**
   - `String.prototype.at`
+  - `String.prototype.`<`indexOf`/`lastIndexOf`/`includes`/`startsWith`/`endsWith`>
 - **`Boolean`**
 - **`Symbol`**
 - **`Array`**
@@ -1649,6 +1650,29 @@ console.log(Object.getOwnPropertyDescriptors(obj));
 ```js
 console.log("123".at(0)); // "1"
 console.log("123".at(-1)); // "3"
+```
+
+### `String.prototype.`<`indexOf`/`lastIndexOf`/`includes`/`startsWith`/`endsWith`>
+
+```js
+console.log("abcd-abcd".indexOf("e")); // -1
+console.log("abcd-abcd".indexOf("ab")); // 0
+console.log("abcd-abcd".indexOf("ab", 1)); // 5
+
+console.log("abcd-abcd".lastIndexOf("e")); // -1
+console.log("abcd-abcd".lastIndexOf("ab")); // 5
+console.log("abcd-abcd".lastIndexOf("ab", 4)); // 0
+```
+
+```js
+console.log("abcd".includes("ab")); // true
+console.log("abcd".includes("ab", 1)); // false
+
+console.log("abcd".startsWith("ab")); // true
+console.log("abcd".startsWith("bc", 1)); // true
+
+console.log("abcd".endsWith("cd")); // true
+console.log("abcd".endsWith("bc", 3)); // true
 ```
 
 ## `Boolean`
