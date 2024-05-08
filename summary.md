@@ -89,6 +89,7 @@
   - `Object.prototype`
   - `Object.prototype.toString`
   - `Object.is`
+  - `Object.keys`/`Object.values`/`Object.entries`/`Object.fromEntries`
   - `Object.getOwnPropertyDescriptor`/`Object.getOwnPropertyDescriptors`
   - `Object.defineProperty()`/`Object.defineProperties()`
   - `Object.preventExtensions`/`Object.seal`/`Object.freeze`
@@ -1514,6 +1515,16 @@ Differs from strict comparison `===` in two edge cases:
 console.log(Object.is(NaN, NaN)); // true
 console.log(Object.is(0, -0)); // false
 ```
+
+### `Object.keys`/`Object.values`/`Object.entries`/`Object.fromEntries`
+
+Do not include:
+- Symbolic properties
+- Inherited properties
+
+`Object.keys`/`Object.values`/`Object.entries` return an array
+
+`Object.fromEntries` returns an object
 
 ### `Object.getOwnPropertyDescriptor`/`Object.getOwnPropertyDescriptors`
 
