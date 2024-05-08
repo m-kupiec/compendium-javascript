@@ -96,6 +96,7 @@
   - `Object.`<`setPrototypeOf`/`getPrototypeOf`/`create`>
   - `Object.assign`
 - **`Number`**
+  - `Number.prototype.`<`toString`/`toFixed`>
 - **`BigInt`**
 - **`String`**
   - `String.prototype.localeCompare`
@@ -1665,7 +1666,22 @@ console.log(Object.getOwnPropertyDescriptors(obj));
 
 ## `Number`
 
-...
+### `Number.prototype.`<`toString`/`toFixed`>
+
+To call a method directly on an integer, `..` must be used
+
+Converting a number from a non-decimal numeral system:
+
+```js
+console.log(255..toString(2)); // "11111111"
+console.log(255..toString(16)); // "ff"
+```
+
+Rounding a float number:
+
+```js
+console.log((1.2345).toFixed(2)); // "1.23"
+```
 
 ## `BigInt`
 
