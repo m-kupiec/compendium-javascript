@@ -106,6 +106,7 @@
 - **`Symbol`**
 - **`Array`**
   - `Array.prototype.`<`at`/`slice`>
+  - `Array.prototype.`<`push`/`pop`/`unshift`/`shift`>
 - **`Map`**
 - **`WeakMap`**
 - **`Set`**
@@ -1727,6 +1728,24 @@ console.log(arr.slice(1)); // [2, 3, 4]
 console.log(arr.slice(-1)); // [4]
 console.log(arr.slice(1, 2)); // [2]
 console.log(arr.slice(-3, -2)); // [2]
+```
+
+### `Array.prototype.`<`push`/`pop`/`unshift`/`shift`>
+
+```js
+const arr = [1, 2, 3];
+
+console.log(arr.push(4)); // 4
+console.log(arr); // [1, 2, 3, 4]
+
+console.log(arr.pop()); // 4
+console.log(arr); // [1, 2, 3]
+
+console.log(arr.unshift(0)); // 0 (length)
+console.log(arr); // [0, 1, 2, 3]
+
+console.log(arr.shift()); // 0
+console.log(arr); // [1, 2, 3]
 ```
 
 ## `Map`
