@@ -1662,6 +1662,14 @@ console.log("b".localeCompare("b") === 0); // true
 console.log("b".localeCompare("a") > 0); // true
 ```
 
+Doesn't work well with numbers:
+
+```js
+console.log("2".localeCompare("10") < 0); // false
+// console.log(2..localeCompare(10)); // TypeError
+console.log(String.prototype.localeCompare.call(2, 10) < 0); // false
+```
+
 ### `String.prototype.`<`indexOf`/`lastIndexOf`/`includes`/`startsWith`/`endsWith`>
 
 ```js
