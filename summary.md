@@ -126,6 +126,7 @@
 - **`Math`**
 - **`Date`**
 - **`JSON`**
+  - `JSON.stringify`
 - **`Function`**
 - **`Error`**
 
@@ -1892,7 +1893,69 @@ Allows to make an array (shallow copy) from an iterable or an array-like object
 
 ## `JSON`
 
-...
+### `JSON.stringify`
+
+|Data Type         |Support    |
+|------------------|-----------|
+|`Number`          |Yes        |
+|`BigInt`          |`TypeError`|
+|`String`          |Yes        |
+|`Boolean`         |Yes        |
+|`Symbol`          |*Ignored*  |
+|`null`            |Yes        |
+|`undefined`       |*Ignored*  |
+|`Object`          |Yes        |
+|Circural Reference|`TypeError`|
+|`Function`        |*Ignored*  |
+|`Array`           |Yes        |
+
+Output formatting:
+- Strings are double-quoted
+- Object property names are double-quoted
+- All whitespace is removed by default (can be configured in the third argument)
+
+The second (optional; e.g. to exclude circular references) argument of `JSON.stringify` can be:
+- An array of explicitly specified property names to encode:
+  - Property names must be passed as `String` each
+  - Nested properties must be specified if they are to be included
+- A mapping function (replacer)
+  - To be called for each key/value pair (including nested objects and array items), e.g.:
+    - `(key, value) => key === "ref" ? undefined : value)`
+  - To address the entire object (which is passed to the function as the value of the first key, an empty one), e.g.:
+
+```js
+const objA = { a: 1 };
+const objB = [2];
+
+for (let obj of [objA, objB]) {
+  console.log(JSON.stringify(obj, (key, value) => value === objA ? null : value));
+}
+// null
+// [2]
+```
+
+The third (optional) argument of `JSON.stringify` is the number of spaces (or a string) to be used to format the output string, e.g.:
+  - `JSON.stringify(obj, null, 2)`
+  - `JSON.stringify(obj, null, '  ')`
+
+Customizing JSON encoding:
+
+```js
+const obj = {
+  a: 1,
+  b: {
+    b1: 2,
+    b2: 3,
+
+    toJSON() {
+      return `${this.b1}|${this.b2}`;
+    }
+  },
+  c: [4, 5]
+};
+
+console.log(JSON.stringify(obj)); // {"a":1,"b":"2|3","c":[4,5]}
+```
 
 ## `Function`
 
