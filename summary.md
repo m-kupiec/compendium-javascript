@@ -98,6 +98,7 @@
 - **`Number`**
 - **`BigInt`**
 - **`String`**
+  - `String.prototype.at`
 - **`Boolean`**
 - **`Symbol`**
 - **`Array`**
@@ -1643,7 +1644,12 @@ console.log(Object.getOwnPropertyDescriptors(obj));
 
 ## `String`
 
-...
+### `String.prototype.at`
+
+```js
+console.log("123".at(0)); // "1"
+console.log("123".at(-1)); // "3"
+```
 
 ## `Boolean`
 
