@@ -111,6 +111,12 @@
   - `Array.prototype.concat`
   - `Array.prototype.`<`sort`/`reverse`>
   - `Array.prototype.`<`toString`/`join`/`split`>
+  - `Array.prototype`'s Iterative Methods
+    - `Array.prototype.forEach`
+    - `Array.prototype.`<`find`/`findLast`/`findIndex`/`findLastIndex`>
+    - `Array.prototype.`<`some`/`every`>
+    - `Array.prototype.`<`filter`/`map`>
+    - `Array.prototype.`<`reduce`/`reduceRight`>
   - `Array.isArray`
   - `Array.from`
 - **`Map`**
@@ -1811,6 +1817,40 @@ console.log([1, 2, 3].join(", ")); // "1, 2, 3"
 
 console.log("1, 2, 3".split(", ")); // ["1", "2", "3"]
 console.log("1, 2, 3".split(", ", 2)); // ["1", "2"]
+```
+
+### `Array.prototype`'s Iterative Methods
+
+All iterative methods except `reduce`/`reduceRight` accept `thisArg` (which then becomes `this` for the callback function) as an argument in addition to a callback function
+
+```js
+arr = [{a: 1}, {a: 2}, {a: 3}];
+
+arr.forEach((item, index, array) => console.log(item.a)); // 1 2 3
+
+console.log(arr.find((item, index, array) => item.a === 4));  // undefined
+console.log(arr.find((item, index, array) => item.a > 1));    // { a: 2 }
+console.log(arr.findLast((item, index, array) => item.a < 3)); // { a: 2 }
+
+console.log(arr.findIndex((item, index, array) => item.a === 4)); // -1
+console.log(arr.findIndex((item, index, array) => item.a > 1));   // 1
+console.log(arr.findLastIndex((item, index, array) => item.a < 3)); // 1
+
+console.log(arr.some((item, index, array) => item.a < 3));  // true
+console.log(arr.every((item, index, array) => item.a > 0)); // true
+
+console.log(arr.filter((item, index, array) => item.a > 1));  // [ { a: 2 }, { a: 3 } ]
+console.log(arr.map((item, index, array) => item.a * 2));     // [ 2, 4, 6 ]
+
+console.log(arr.reduce((accumulator, item, index, array) => accumulator += item.a, ""));      // "123"
+console.log(arr.reduceRight((accumulator, item, index, array) => accumulator += item.a, "")); // "321"
+
+// console.log([].reduce((accumulator, item, index, array) => accumulator += 1));
+// TypeError: Reduce of empty array with no initial value
+console.log(arr.reduce((accumulator, item, index, array) => accumulator += item.a));
+// "[object Object]23"
+console.log(arr.reduceRight((accumulator, item, index, array) => accumulator += item.a));
+// "[object Object]21"
 ```
 
 ### `Array.isArray`
