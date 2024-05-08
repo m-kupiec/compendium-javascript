@@ -131,6 +131,7 @@
 - **`Function`**
 - **`Promise`**
   - `Promise.`<`all`/`allSettled`>
+  - `Promise.`<`race`/`any`>
 - **`Error`**
 
 ### Programming Techniques
@@ -2005,6 +2006,29 @@ console.log(
 - Returns a promise which resolves with an array of objects (ordered as the source promises):
   - `{ status: "fulfilled", value: <result> }` for each fulfilled promise, or
   - `{ status: "rejected", reason: <error> }` for each rejected promise
+
+### `Promise.`<`race`/`any`>
+
+`Promise.race`:
+- Executes many promises concurrently until any first of them is settled (resolved/rejected)
+  - The remaining source promises operations continue with their results being ignored
+- Takes an iterable of:
+  - Promises, or
+  - Values to be passed "as is" (but then only the first one will be passed)
+- Returns a promise which either:
+  - Rejects with a single error, or
+  - Resolves with a single result
+
+`Promise.any`:
+- Executes many promises concurrently until:
+  - Any first of them is resolved, or
+  - All are rejected
+- Takes an iterable of:
+  - Promises, or
+  - Values to be passed "as is" (but then only the first one will be passed)
+- Returns a promise which either:
+  - Rejects with with `AggregateError` object which stores an array of all the source promises errors in its `errors` property, or
+  - Resolves with a single result
 
 ## `Error`
 
