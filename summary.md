@@ -106,6 +106,7 @@
   - `String.prototype.`<`toLowerCase`/`toUpperCase`>
 - **`Boolean`**
 - **`Symbol`**
+  - `Symbol.for`
 - **`Array`**
   - `Array.prototype.`<`indexOf`/`lastIndexOf`/`includes`>
   - `Array.prototype.`<`at`/`slice`>
@@ -1779,7 +1780,9 @@ console.log("abc".toUpperCase()); // "ABC"
 
 ## `Symbol`
 
-...
+### `Symbol.for`
+
+`Symbol.for(<description>)` is used to access (or create when absent) a global symbol with unique description (accessible from anywhere in the code) from the global symbol registry
 
 ## `Array`
 
