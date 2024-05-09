@@ -1937,10 +1937,11 @@ Constructor: `new Map(<iterable with key-value pairs>)`
 ## `WeakMap`
 
 Supports:
-- `set(<key>, <value>)`
-- `has(<key>)`
-- `get(<key>)`
-- `delete(<key>)`
+- `Map.prototype` methods:
+  - `set(<key>, <value>)`
+  - `has(<key>)`
+  - `get(<key>)`
+  - `delete(<key>)`
 
 Doesn't support:
 - `Map.prototype` methods:
