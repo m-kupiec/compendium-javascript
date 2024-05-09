@@ -1958,8 +1958,8 @@ Constructor: `new Set(<iterable>)`
 
 `Set.prototype` methods:
 - `add(<value>)`
-- `has(<key>)` returns `Boolean`
-- `delete(<key>)`
+- `has(<value>)` returns `Boolean`
+- `delete(<value>)`
 - `clear()`
 - `keys()`
 - `values()`
