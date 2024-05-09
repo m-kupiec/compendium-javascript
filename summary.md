@@ -1954,7 +1954,20 @@ Doesn't support:
 
 ## `Set`
 
-...
+Constructor: `new Set(<iterable>)`
+
+`Set.prototype` methods:
+- `add(<value>)`
+- `has(<key>)` returns `Boolean`
+- `delete(<key>)`
+- `clear()`
+- `keys()`
+- `values()`
+- `entries()`
+- `forEach((<value>, <valueAgain>, <set>) => <callback body>)` honors the insertion order
+
+`Set.prototype` properties:
+- `size`
 
 ## `WeakSet`
 
