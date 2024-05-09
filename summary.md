@@ -107,6 +107,7 @@
 - **`Boolean`**
 - **`Symbol`**
   - `Symbol.for`
+  - `Symbol.toStringTag`
 - **`Array`**
   - `Array.prototype.`<`indexOf`/`lastIndexOf`/`includes`>
   - `Array.prototype.`<`at`/`slice`>
@@ -1783,6 +1784,17 @@ console.log("abc".toUpperCase()); // "ABC"
 ### `Symbol.for`
 
 `Symbol.for(<description>)` is used to access (or create when absent) a global symbol with unique description (accessible from anywhere in the code) from the global symbol registry
+
+### `Symbol.toStringTag`
+
+Customizing `Object.prototype.toString`:
+
+```js
+const obj = { [Symbol.toStringTag]: "obj" };
+
+console.log({}.toString());   // "[object Object]"
+console.log(obj.toString());  // [object obj]
+```
 
 ## `Array`
 
