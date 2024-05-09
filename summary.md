@@ -1971,7 +1971,21 @@ Constructor: `new Set(<iterable>)`
 
 ## `WeakSet`
 
-...
+Supports:
+- `Set.prototype` methods:
+  - `add(<value>)`
+  - `has(<value>)`
+  - `delete(<value>)`
+
+Doesn't support:
+- `Set.prototype` methods:
+  - `clear()`
+  - `keys()`
+  - `values()`
+  - `entries()`
+  - `forEach(<callback>)`
+- `Set.prototype` properties:
+  - `size`
 
 ## `Math`
 
