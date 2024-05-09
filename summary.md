@@ -756,6 +756,8 @@ Requires an object for a value (or will result in `TypeError`)
 
 A value is removed from the `WeakSet` and memory when there no longer exists any reference to it
 
+It's not possible to list its values/iterate over it
+
 ## Type Operations
 
 ### Checking
