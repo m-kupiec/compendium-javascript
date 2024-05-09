@@ -1918,7 +1918,7 @@ Allows to make an array (shallow copy) from an iterable or an array-like object
 
 ## `Map`
 
-Constructor: `new Map(<entries>)`
+Constructor: `new Map(<iterable with key-value pairs>)`
 
 `Map.prototype` methods:
 - `set(<key>, <value>)`
