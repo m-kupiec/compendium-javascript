@@ -3845,6 +3845,37 @@ Why choose explicit lists instead of importing everything?
 >
 > [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/import-export)
 
+##### Using `export default`
+
+```js
+// a.js
+
+export default class A { /* ... */ }
+```
+
+```js
+// main.js
+
+import A from './a.js';             /* FOR: export default */
+/* import { A } from './a.js'; */   /* FOR: export */
+
+let a = new A();
+```
+
+The default export may have no name:
+
+```js
+export default class { /* ... */ }
+```
+
+```js
+export default function() { /* ... */ }
+```
+
+```js
+export default [1, 2, 3];
+```
+
 #### Features
 
 > The object import.meta contains the information about the current module
