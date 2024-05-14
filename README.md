@@ -3788,6 +3788,10 @@ All functions in JavaScript (if not created with `new`) are closures, i.e. they 
 
 #### Syntax Variants
 
+##### General
+
+The `import`/`export` statements cannot be placed in a code block
+
 ##### Export
 
 ```js
@@ -3817,7 +3821,7 @@ export { longFunctionName as f };
 ```js
 // main.js
 
-import { f } from './module.js';
+import { f } from './module.js'; /* Or placed at the bottom of the script */
 
 f();
 ```
