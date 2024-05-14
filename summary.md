@@ -212,7 +212,7 @@ A `let`/`const` declaration is hoisted but not initialized, so that the variable
 |            |                 |                 |***Before `()`***    |***Before `()`***   |***Before `()`***   |
 |            |                 |                 |Scoped               |Scoped              |Scoped              |
 |            |                 |                 |-                    |-                   |-                   |
-|`this`      |-                |-                |Added to `global` ***|Added to `global` **|Added to `global` **|
+|`this`      |-                |Added to `global`|Added to `global` ***|Added to `global` **|Added to `global` **|
 
 \* *Only when not in the strict mode*
 
