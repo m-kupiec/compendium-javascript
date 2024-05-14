@@ -3869,9 +3869,17 @@ Code execution:
 
 Contents:
 
-> A module may contain a class or a library of functions for a specific purpose.
+> In practice, there are mainly two kinds of modules.
+> 1. Modules that contain a library, pack of functions . . .
+> 2. Modules that declare a single entity, e.g. a module user.js exports only class User.
 >
-> [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/modules-intro)
+> Mostly, the second approach is preferred, so that every “thing” resides in its own module.
+>
+> Naturally, that requires a lot of files, as everything wants its own module, but that’s not a problem at all. Actually, code navigation becomes easier if files are well-named and structured into folders.
+>
+> Modules provide a special `export default` (“the default export”) syntax to make the “one thing per module” way look better.
+>
+> [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/import-export)
 
 Modular code structure:
 
