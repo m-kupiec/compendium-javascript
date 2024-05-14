@@ -3895,6 +3895,29 @@ export default function() { /* ... */ }
 export default [1, 2, 3];
 ```
 
+##### Using `export ... from`
+
+```js
+// main.js
+
+export { f } from './f.js';
+export { default as A } from './a.js';
+```
+
+> The notable difference of `export ... from` compared to `import/export` is that re-exported modules aren’t available in the current file.
+>
+> [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/import-export)
+
+Limitations for re-exporting the default exports:
+
+```js
+// main.js
+
+// export A from './a.js';        // SyntaxError
+export * from './a.js';           // Doesn't include the default export
+export { default } from './a.js'; // Required as the above line includes only named exports
+```
+
 #### Features
 
 > The object import.meta contains the information about the current module
