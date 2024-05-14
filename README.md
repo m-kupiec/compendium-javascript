@@ -3939,6 +3939,21 @@ Exports:
 >
 > [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/import-export)
 
+> Named exports force us to use exactly the right name to import . . . While for a default export, we always choose the name when importing . . . So team members may use different names to import the same thing, and that’s not good. . . . Usually, to avoid that and keep the code consistent, there’s a rule that imported variables should correspond to file names, e.g:
+>
+> ```js
+> import User from './user.js';
+> import LoginForm from './loginForm.js';
+> import func from '/path/to/func.js';
+> ...
+> ```
+>
+> Still, some teams consider it a serious drawback of default exports. So they prefer to always use named exports. Even if only a single thing is exported, it’s still exported under a name, without `default`.
+>
+> That also makes re-export . . . a little bit easier.
+>
+> [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/import-export)
+
 Modular code structure:
 
 > There’s a rule: top-level module code should be used for initialization, creation of module-specific internal data structures. If we need to make something callable multiple times – we should export it as a function
