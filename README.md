@@ -3784,6 +3784,129 @@ f2(); // 1
 
 All functions in JavaScript (if not created with `new`) are closures, i.e. they remember where they were created and can access their outer variables
 
+### 💠 Modules
+
+#### Syntax Variants
+
+##### Export
+
+```js
+// module.js
+
+export function f() { /* ... */ }
+```
+
+```js
+// module.js
+
+function f() { /* ... */ }
+
+export { f }; /* Or placed at the top of the script */
+```
+
+```js
+// module.js
+
+function longFunctionName() { /* ... */ }
+
+export { longFunctionName as f };
+```
+
+##### Import
+
+```js
+// main.js
+
+import { f } from './module.js';
+
+f();
+```
+
+```js
+// main.js
+
+import { f as moduleFunction } from './module.js';
+
+moduleFunction();
+```
+
+```js
+// main.js
+
+import * as module from './module.js';
+
+module.f();
+```
+
+Why choose explicit lists instead of importing everything?
+
+> 1. Explicitly listing what to import gives shorter names: sayHi() instead of say.sayHi().
+> 2. Explicit list of imports gives better overview of the code structure: what is used and where. It makes code support and refactoring easier.
+>
+> [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/import-export)
+
+#### Features
+
+> The object import.meta contains the information about the current module
+>
+> [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/modules-intro)
+
+Modules use the strict mode
+
+Scope:
+
+> Each module has its own top-level scope. In other words, top-level variables and functions from a module are not seen in other scripts.
+>
+> [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/modules-intro)
+
+Code execution:
+
+> If the same module is imported into multiple other modules, its code is executed only once, upon the first import. Then its exports are given to all further importers.
+>
+> [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/modules-intro)
+
+#### Best Practices
+
+Contents:
+
+> A module may contain a class or a library of functions for a specific purpose.
+>
+> [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/modules-intro)
+
+Modular code structure:
+
+> There’s a rule: top-level module code should be used for initialization, creation of module-specific internal data structures. If we need to make something callable multiple times – we should export it as a function
+>
+> [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/modules-intro)
+
+A pattern with a configuration object:
+
+```js
+// config.js
+
+export let config = { };
+
+export function f() {
+  console.log(config.message);
+}
+```
+
+```js
+// init.js
+
+import { config } from './config.js';
+
+config.message = '...';
+```
+
+```js
+// use.js
+
+import { f } from './config.js';
+
+f(); // "..."
+```
+
 ## Built-In Objects
 
 ### General
