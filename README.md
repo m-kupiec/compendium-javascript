@@ -3994,6 +3994,20 @@ Code execution:
 
 #### Best Practices
 
+Separation of concerns:
+
+> This modular strategy is sometimes called *separation of concerns*
+>
+> . . .
+>
+> By isolating code into separate files, called modules, you can:
+> - find, fix, and debug code more easily.
+> - reuse and recycle defined logic in different parts of your application.
+> - keep information private and protected from other modules.
+> - prevent pollution of the global namespace and potential naming collisions, by cautiously selecting variables and behavior we load into a program.
+>
+> [Learn Intermediate JavaScript (Accessed: May 14, 2024)](https://www.codecademy.com/courses/learn-intermediate-javascript/articles/implementing-modules-using-es-6-syntax)
+
 Contents:
 
 > In practice, there are mainly two kinds of modules.
