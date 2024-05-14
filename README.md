@@ -3877,7 +3877,15 @@ Contents:
 >
 > Naturally, that requires a lot of files, as everything wants its own module, but that’s not a problem at all. Actually, code navigation becomes easier if files are well-named and structured into folders.
 >
+> [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/import-export)
+
+Exports:
+
 > Modules provide a special `export default` (“the default export”) syntax to make the “one thing per module” way look better.
+>
+> . . .
+>
+> Technically, we may have both default and named exports in a single module, but in practice people usually don’t mix them. A module has either named exports or the default one.
 >
 > [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/import-export)
 
