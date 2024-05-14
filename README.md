@@ -3845,7 +3845,7 @@ Why choose explicit lists instead of importing everything?
 >
 > [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/import-export)
 
-##### Using `export default`
+##### Using `export default` & `as default`
 
 ```js
 // a.js
@@ -3854,12 +3854,31 @@ export default class A { /* ... */ }
 ```
 
 ```js
+// functions.js
+
+function f() { /* ... */ }
+
+function additionalF() { /* ... */ }
+
+export { f as default, additionalF };
+```
+
+```js
 // main.js
 
-import A from './a.js';             /* FOR: export default */
+import A from './a.js';             /* FOR: export default; could be a different name */
 /* import { A } from './a.js'; */   /* FOR: export */
 
-let a = new A();
+import { default as f, additionalF } from './functions.js';
+```
+
+```js
+// main.js
+
+import * as functions from './functions.js';
+
+functions.default();
+functions.additionalF();
 ```
 
 The default export may have no name:
