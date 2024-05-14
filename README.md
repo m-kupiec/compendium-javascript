@@ -3922,6 +3922,56 @@ export * from './a.js';           // Doesn't include the default export
 export { default } from './a.js'; // Required as the above line includes only named exports
 ```
 
+##### The `import` Expression
+
+> The `import(module)` expression loads the module and returns a promise that resolves into a module object that contains all its exports.
+>
+> It can be called from any place in the code.
+>
+> [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/modules-dynamic-imports)
+
+```js
+// module.mjs
+
+export default function f() { /* ... */ }
+
+export function additionalF() { /* ... */ }
+```
+
+```js
+// main.mjs
+
+let modulePath = './module.js';
+
+let module = await import(modulePath);
+
+module.default();
+module.additionalF();
+```
+
+Or:
+
+```js
+// main.mjs
+
+let modulePath = './module.mjs';
+
+let { default: f, additionalF } = await import(modulePath);
+
+f();
+additionalF();
+```
+
+> Dynamic imports work in regular scripts, they don’t require `script type="module"`.
+>
+> [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/modules-dynamic-imports)
+
+> Although `import()` looks like a function call, it’s a special syntax that just happens to use parentheses (similar to `super()`).
+>
+> So we can’t copy `import` to a variable or use `call/apply` with it. It’s not a function.
+>
+> [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/modules-dynamic-imports)
+
 #### Features
 
 > The object import.meta contains the information about the current module
