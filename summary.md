@@ -1655,6 +1655,69 @@ const cl = new Cl();
 cl.ab(1); // 1
 ```
 
+#### Class Fields
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/class#class-fields)
+
+Class fields are not set in the `prototype` but on the individual objects:
+
+```js
+class Cl {
+  a = 1;
+
+  f() {
+    console.log(this.a);
+  }
+}
+
+const cl = new Cl();
+
+console.log(cl); // [object Object] { a: 1 }
+cl.f(); // 1
+```
+
+This allows to define methods (using `f = () => {...}`) that will not lose `this` when passed as callbacks to another context:
+
+```js
+class Cl1 {
+  constructor(a) {
+    this.a = a;
+  }
+
+  f() {
+    console.log(this.a);
+  }
+}
+
+class Cl2 {
+  constructor(a) {
+    this.a = a;
+  }
+
+  f = function () {
+    console.log(this.a);
+  };
+}
+
+class Cl3 {
+  constructor(a) {
+    this.a = a;
+  }
+
+  f = () => {
+    console.log(this.a);
+  };
+}
+
+const cl1 = new Cl1(1);
+const cl2 = new Cl2(1);
+const cl3 = new Cl3(1);
+
+setTimeout(cl1.f); // undefined
+setTimeout(cl2.f); // undefined
+setTimeout(cl3.f); // 1
+```
+
 ### Inheritance
 
 ...
