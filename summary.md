@@ -105,6 +105,7 @@
   - `String.prototype.`<`indexOf`/`lastIndexOf`/`includes`/`startsWith`/`endsWith`>
   - `String.prototype.`<`at`/`slice`>
   - `String.prototype.`<`toLowerCase`/`toUpperCase`>
+  - `String.prototype.repeat`
 - **`Boolean`**
 - **`Symbol`**
   - `Symbol.for`
@@ -3016,6 +3017,12 @@ console.log("abcd".slice(-3, -2)); // "b"
 ```js
 console.log("ABC".toLowerCase()); // "abc"
 console.log("abc".toUpperCase()); // "ABC"
+```
+
+### `String.prototype.repeat`
+
+```js
+console.log("ab_".repeat(3)); // ab_ab_ab_
 ```
 
 ## `Boolean`
