@@ -1171,6 +1171,14 @@ typeof alert; // "function" (*)
 
 ### Conversion
 
+#### General
+
+There are three hints (variants of type conversion):
+
+- `"string"` when doing operations that expect string (e.g. alert, obj[indexingObj])
+- `"number"` when using arithmetic operators (except binary plus) or greater/less comparison
+- `"default"` when using the binary plus or loose comparison (with a string/number/symbol); implemented for all built-in objects except `Date` in the same way as `"number"`
+
 Unary-operator conversions:
 
 - To `Number`: `+`/`-`
@@ -1245,6 +1253,50 @@ Conversion rules:
   - `Symbol()` &rightarrow; `true`
   - `{}` &rightarrow; `true`
   - `[]`/`[0]`/`[false]` &rightarrow; `true`
+
+#### Object-to-Primitive Conversion
+
+Firstly, `[Symbol.toPrimitive](hint)` is called (if exists; must return a primitive value or will result in error); otherwise, for `"string"` hint, `toString`/`valueOf` (depending on which is found and returns a primitive; `valueOf` returns the calling object itself by default, so then it's ignored; these functions may return a non-primitive value without causing an error but simply the result being ignored) is called; or, for `"number"`/`"default"` hint, `valueOf`/`toString` is called
+
+Using `toString`/`valueOf`:
+
+```js
+const obj = {
+  a: "Aaa",
+  b: 100,
+  Aaa: "!",
+
+  toString() {
+    return this.a;
+  },
+
+  valueOf() {
+    return this.b;
+  },
+};
+
+console.log(obj[obj]); // "!"
+console.log(obj - 1); // 99
+console.log(obj + " USD"); // "100 USD"
+```
+
+Using `toString` only (to handle all object-to-primitive conversions at once):
+
+```js
+const obj = {
+  a: "Aaa",
+  b: 100,
+  Aaa: "!",
+
+  toString() {
+    return this.a;
+  },
+};
+
+console.log(obj[obj]); // "!"
+console.log(obj - 1); // NaN
+console.log(obj + " USD"); // "Aaa USD"
+```
 
 # Code Structures
 
