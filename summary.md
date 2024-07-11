@@ -1718,6 +1718,88 @@ setTimeout(cl2.f); // undefined
 setTimeout(cl3.f); // 1
 ```
 
+#### Static Properties and Methods
+
+> 📖 [The Modern JavaScript Tutorial: Static properties and methods](https://javascript.info/static-properties-methods)
+>
+> 📖 [The Modern JavaScript Tutorial: Extending built-in classes](https://javascript.info/extend-natives#no-static-inheritance-in-built-ins)
+
+##### Static Methods
+
+Static methods are such that do not belong to particular class objects but rather to the whole class itself (are not available in particular instances of the class but rather are called from the class itself):
+
+```js
+class Abc {
+  constructor(val) {
+    this.val = val;
+  }
+
+  static f(a, b) {
+    return +a.val - +b.val;
+  }
+}
+
+const objA = new Abc(1);
+const objB = new Abc(2);
+
+console.log(Abc.f(objA, objB)); // -1
+console.log(objA.f); // undefined
+```
+
+Static methods may be used as factory methods or for executing database operations (search, save, remove)
+
+##### Static Properties
+
+```js
+class Cl {
+  a = 1;
+  static b = 2;
+}
+
+const cl = new Cl();
+
+console.log(cl.a); // 1
+console.log(cl.b); // undefined
+
+console.log(Cl.a); // undefined
+console.log(Cl.b); // 2
+
+Cl.c = 3;
+console.log(Cl.c); // 3
+```
+
+##### Static Properties/Methods Inheritance
+
+Static properties/methods are inherited
+
+```js
+class Abc {
+  constructor(val) {
+    this.val = val;
+  }
+
+  static f(a, b) {
+    return +a.val - +b.val;
+  }
+}
+
+class Def extends Abc {}
+
+const objA = new Abc(1);
+const objB = new Abc(2);
+
+console.log(Abc.f(objA, objB)); // -1
+console.log(Def.f(objA, objB)); // -1
+```
+
+This does not apply to built-in objects for which static fields are not inherited:
+
+```js
+console.log(Array.prototype.__proto__ === Object.prototype); // true
+console.log(Object.keys); // function keys() { [native code] }
+console.log(Array.keys); // undefined
+```
+
 ### Inheritance
 
 > 📖 [The Modern JavaScript Tutorial: Class inheritance](https://javascript.info/class-inheritance)
