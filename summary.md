@@ -111,6 +111,7 @@
   - `Symbol.toStringTag`
   - `[Symbol.toPrimitive]`
   - `[Symbol.iterator]`
+  - `[Symbol.asyncIterator]`
 - **`Array`**
   - `Array.prototype.`<`indexOf`/`lastIndexOf`/`includes`>
   - `Array.prototype.`<`at`/`slice`>
@@ -3143,6 +3144,74 @@ while (true) {
 }
 
 // "a" "b" "c"
+```
+
+### `[Symbol.asyncIterator]`
+
+The `Symbol.asyncIterator` method must return an iterator object with the `next` method
+
+The `next` method (may be declared as `async` to be able to use `await` and wrap values other than a promise in a resolved promise) must return a promise to be fulfilled with the next value
+
+```js
+const iterable = {
+  start: 100,
+  finish: 110,
+
+  [Symbol.asyncIterator]() {
+    return {
+      nextValue: this.start,
+      endValue: this.finish,
+
+      async next() {
+        await new Promise((resolve) => setTimeout(resolve, 200));
+
+        if (this.nextValue > this.endValue) {
+          return {
+            done: true,
+          };
+        } else {
+          return {
+            done: false,
+            value: this.nextValue++,
+          };
+        }
+      },
+    };
+  },
+};
+
+(async () => {
+  for await (let el of iterable) {
+    console.log(el);
+  }
+})();
+
+// 100 101 102 103 104 105 106 107 108 109 110
+```
+
+To make the same async iterable object as above, but using a generator:
+
+```js
+const iterable = {
+  start: 100,
+  finish: 110,
+
+  async *[Symbol.asyncIterator]() {
+    for (let value = this.start; value <= this.finish; value++) {
+      await new Promise((resolve) => setTimeout(resolve, 200));
+
+      yield value;
+    }
+  },
+};
+
+(async () => {
+  for await (let el of iterable) {
+    console.log(el);
+  }
+})();
+
+// 100 101 102 103 104 105 106 107 108 109 110
 ```
 
 ## `Array`
