@@ -193,6 +193,212 @@ A variable declared with `const` cannot be reassigned
 
 ### Modules
 
+#### Syntax Variants
+
+##### General
+
+The `import`/`export` statements cannot be placed in a code block
+
+##### Export
+
+```js
+// module.js
+
+export function f() {
+  /* ... */
+}
+```
+
+```js
+// module.js
+
+function f() {
+  /* ... */
+}
+
+export { f }; /* Or placed at the top of the script */
+```
+
+```js
+// module.js
+
+function longFunctionName() {
+  /* ... */
+}
+
+export { longFunctionName as f };
+```
+
+##### Import
+
+```js
+// main.js
+
+import { f } from "./module.js"; /* Or placed at the bottom of the script */
+
+f();
+```
+
+```js
+// main.js
+
+import { f as moduleFunction } from "./module.js";
+
+moduleFunction();
+```
+
+```js
+// main.js
+
+import * as module from "./module.js";
+
+module.f();
+```
+
+Why choose explicit lists instead of importing everything?
+
+> 1. Explicitly listing what to import gives shorter names: sayHi() instead of say.sayHi().
+> 2. Explicit list of imports gives better overview of the code structure: what is used and where. It makes code support and refactoring easier.
+>
+> [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/import-export)
+
+##### Using `export default` & `as default`
+
+```js
+// a.js
+
+export default class A {
+  /* ... */
+}
+```
+
+```js
+// functions.js
+
+function f() {
+  /* ... */
+}
+
+function additionalF() {
+  /* ... */
+}
+
+export { f as default, additionalF };
+```
+
+```js
+// main.js
+
+import A from "./a.js"; /* FOR: export default; could be a different name */
+/* import { A } from './a.js'; */ /* FOR: export */
+
+import { default as f, additionalF } from "./functions.js";
+```
+
+```js
+// main.js
+
+import * as functions from "./functions.js";
+
+functions.default();
+functions.additionalF();
+```
+
+The default export may have no name:
+
+```js
+export default class {
+  /* ... */
+}
+```
+
+```js
+export default function () {
+  /* ... */
+}
+```
+
+```js
+export default [1, 2, 3];
+```
+
+##### Using `export ... from`
+
+```js
+// main.js
+
+export { f } from "./f.js";
+export { default as A } from "./a.js";
+```
+
+> The notable difference of `export ... from` compared to `import/export` is that re-exported modules aren’t available in the current file.
+>
+> [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/import-export)
+
+Limitations for re-exporting the default exports:
+
+```js
+// main.js
+
+// export A from './a.js';        // SyntaxError
+export * from "./a.js"; // Doesn't include the default export
+export { default } from "./a.js"; // Required as the above line includes only named exports
+```
+
+##### The `import` Expression
+
+> The `import(module)` expression loads the module and returns a promise that resolves into a module object that contains all its exports.
+>
+> It can be called from any place in the code.
+>
+> [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/modules-dynamic-imports)
+
+```js
+// module.mjs
+
+export default function f() {
+  /* ... */
+}
+
+export function additionalF() {
+  /* ... */
+}
+```
+
+```js
+// main.mjs
+
+let modulePath = "./module.js";
+
+let module = await import(modulePath);
+
+module.default();
+module.additionalF();
+```
+
+Or:
+
+```js
+// main.mjs
+
+let modulePath = "./module.mjs";
+
+let { default: f, additionalF } = await import(modulePath);
+
+f();
+additionalF();
+```
+
+> Dynamic imports work in regular scripts, they don’t require `script type="module"`.
+>
+> [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/modules-dynamic-imports)
+
+> Although `import()` looks like a function call, it’s a special syntax that just happens to use parentheses (similar to `super()`).
+>
+> So we can’t copy `import` to a variable or use `call/apply` with it. It’s not a function.
+>
+> [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/modules-dynamic-imports)
+
 #### Features
 
 Modules use the strict mode
