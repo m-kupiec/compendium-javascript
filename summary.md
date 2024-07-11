@@ -161,6 +161,8 @@
 
 - **Objects**
   - Shallow Cloning Objects
+- **Classes**
+  - Binding `this`
 
 # Operation
 
@@ -3952,3 +3954,46 @@ const clonedObj = Object.create(
 |   #1   |     -      |  `Yes`   |       -        |    -     |        -        |
 |   #2   |   `Yes`    |  `Yes`   |     `Yes`      |  `Yes`   |        -        |
 |   #3   |   `Yes`    |  `Yes`   |     `Yes`      |  `Yes`   |      `Yes`      |
+
+## Classes
+
+### Binding `this`
+
+> in JavaScript, it’s common to write something like the following pattern:
+>
+> ```js
+> class Person {
+>   name: string;
+>   constructor(name: string) {
+>     this.name = name;
+>     this.greet = this.greet.bind(this);
+>   }
+>   greet() {
+>     console.log(`Hello, my name is ${this.name}.`);
+>   }
+> }
+> ```
+>
+> Alternatively, `greet` might be declared as a property initialized to an arrow function.
+>
+> ```js
+> class Person {
+>   name: string;
+>   constructor(name: string) {
+>     this.name = name;
+>   }
+>   greet = () => {
+>     console.log(`Hello, my name is ${this.name}.`);
+>   };
+> }
+> ```
+>
+> This code is written to ensure that `this` isn’t re-bound if `greet` is called as a stand-alone function or passed as a callback.
+>
+> ```js
+> const greet = new Person("Ray").greet;
+> // We don't want this to fail!
+> greet();
+> ```
+>
+> [TypeScript](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html)
