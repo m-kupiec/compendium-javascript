@@ -3458,6 +3458,27 @@ Inheriting error objects:
 - `SyntaxError`
 - `TypeError`
 
+Extending `Error` object:
+
+```js
+class MyError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = this.constructor.name;
+  }
+}
+
+class MyParticularError extends MyError {
+  constructor(message) {
+    super(message);
+  }
+}
+
+const err = new MyParticularError("Something went wrong...");
+
+console.log(err.name, err.message); // "MyParticularError" "Something went wrong..."
+```
+
 # Programming Techniques
 
 ## Objects
