@@ -25,6 +25,7 @@
   - Comparison
   - Assignment
   - Comma
+  - `void`
 
 ### Data
 
@@ -710,6 +711,36 @@ For each arithmetical and bitwise operator, there is a corresponding modify-and-
 Each of the expressions separated with a comma is evaluated and the result of the last one is returned
 
 Comma has a lower precedence than the assignment operator
+
+### `void`
+
+> The `void` operator evaluates the given expression and then returns `undefined`.
+>
+> ```js
+> const output = void 1;
+> console.log(output);
+> // Expected output: undefined
+>
+> void console.log("expression evaluated");
+> // Expected output: "expression evaluated"
+>
+> void (function iife() {
+>   console.log("iife is executed");
+> })();
+> // Expected output: "iife is executed"
+>
+> void function test() {
+>   console.log("test function executed");
+> };
+> try {
+>   test();
+> } catch (e) {
+>   console.log("test function is not defined");
+>   // Expected output: "test function is not defined"
+> }
+> ```
+>
+> [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 
 # Data Types
 
