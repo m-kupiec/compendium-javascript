@@ -213,6 +213,95 @@ Code execution:
 >
 > [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/modules-intro)
 
+#### Best Practices
+
+Separation of concerns:
+
+> This modular strategy is sometimes called _separation of concerns_
+>
+> . . .
+>
+> By isolating code into separate files, called modules, you can:
+>
+> - find, fix, and debug code more easily.
+> - reuse and recycle defined logic in different parts of your application.
+> - keep information private and protected from other modules.
+> - prevent pollution of the global namespace and potential naming collisions, by cautiously selecting variables and behavior we load into a program.
+>
+> [Learn Intermediate JavaScript (Accessed: May 14, 2024)](https://www.codecademy.com/courses/learn-intermediate-javascript/articles/implementing-modules-using-es-6-syntax)
+
+Contents:
+
+> In practice, there are mainly two kinds of modules.
+>
+> 1. Modules that contain a library, pack of functions . . .
+> 2. Modules that declare a single entity, e.g. a module user.js exports only class User.
+>
+> Mostly, the second approach is preferred, so that every “thing” resides in its own module.
+>
+> Naturally, that requires a lot of files, as everything wants its own module, but that’s not a problem at all. Actually, code navigation becomes easier if files are well-named and structured into folders.
+>
+> [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/import-export)
+
+Exports:
+
+> Modules provide a special `export default` (“the default export”) syntax to make the “one thing per module” way look better.
+>
+> . . .
+>
+> Technically, we may have both default and named exports in a single module, but in practice people usually don’t mix them. A module has either named exports or the default one.
+>
+> [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/import-export)
+
+> Named exports force us to use exactly the right name to import . . . While for a default export, we always choose the name when importing . . . So team members may use different names to import the same thing, and that’s not good. . . . Usually, to avoid that and keep the code consistent, there’s a rule that imported variables should correspond to file names, e.g:
+>
+> ```js
+> import User from './user.js';
+> import LoginForm from './loginForm.js';
+> import func from '/path/to/func.js';
+> ...
+> ```
+>
+> Still, some teams consider it a serious drawback of default exports. So they prefer to always use named exports. Even if only a single thing is exported, it’s still exported under a name, without `default`.
+>
+> That also makes re-export . . . a little bit easier.
+>
+> [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/import-export)
+
+Modular code structure:
+
+> There’s a rule: top-level module code should be used for initialization, creation of module-specific internal data structures. If we need to make something callable multiple times – we should export it as a function
+>
+> [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/modules-intro)
+
+A pattern with a configuration object:
+
+```js
+// config.js
+
+export let config = {};
+
+export function f() {
+  console.log(config.message);
+}
+```
+
+```js
+// init.js
+
+import { config } from "./config.js";
+
+config.message = "...";
+```
+
+```js
+// use.js
+
+import { f } from "./config.js";
+
+f(); // "..."
+```
+
 ### Hoisting
 
 At compile time the engine allocates memory by hoisting variable names and function declarations to the top of their corresponding scopes; functions are initialized immediately while variable initializations are done in-place
