@@ -3641,6 +3641,21 @@ console.log(+date); // 475977600000
 console.log(+date + 100 - date); // 100
 ```
 
+#### Microseconds Support
+
+> JavaScript itself does not have a way to measure time in microseconds (1 millionth of a second), but most environments provide it. For instance, browser has `performance.now()` that gives the number of milliseconds from the start of page loading with microsecond precision (3 digits after the point):
+>
+> ```js
+> alert(`Loading started ${performance.now()}ms ago`);
+> // Something like: "Loading started 34731.26000000001ms ago"
+> // .26 is microseconds (260 microseconds)
+> // more than 3 digits after the decimal point are precision errors, only the first 3 are correct
+> ```
+>
+> Node.js has `microtime` module and other ways. Technically, almost any device and environment allows to get more precision, it’s just not in `Date`.
+>
+> [The Modern JavaScript Tutorial](https://javascript.info/date)
+
 ## `JSON`
 
 ### `JSON.stringify`
