@@ -1564,6 +1564,59 @@ However, `class` is not just a 'syntactic sugar' for defining constructor functi
 - a class uses the strict mode
 - there are also many other features brought by the `class` syntax
 
+#### Class Expression
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/class#class-expression)
+
+```js
+let Cl = class {
+  constructor(a) {
+    this.a = a;
+  }
+};
+
+let cl = new Cl(1);
+console.log(cl); // [object Object] { a: 1 }
+```
+
+In named class expressions, the class name is visible inside the body:
+
+```js
+let Cl1 = class Cl2 {
+  f() {
+    alert(Cl2);
+  }
+};
+
+let cl1 = new Cl1(1);
+
+cl1.f();
+/*
+class Cl2 {
+  f() {
+    alert(Cl2);
+  }
+};
+*/
+```
+
+Classes can be also made dynamically:
+
+```js
+function f() {
+  return class {
+    g(a) {
+      console.log(a);
+    }
+  };
+}
+
+const Cl = f();
+const cl1 = new Cl();
+
+cl1.g(1); // 1
+```
+
 ### Inheritance
 
 ...
