@@ -1502,8 +1502,6 @@ Error handled
 
 #### Definition
 
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/class)
-
 There's no comma between class methods
 
 `new` calls `constructor` method
@@ -1596,8 +1594,6 @@ However, `class` is not just a 'syntactic sugar' for defining constructor functi
 
 #### Class Expression
 
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/class#class-expression)
-
 ```js
 let Cl = class {
   constructor(a) {
@@ -1649,8 +1645,6 @@ cl1.g(1); // 1
 
 #### Getters/Setters
 
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/class#getters-setters)
-
 ```js
 class Cl {
   get a() {
@@ -1671,8 +1665,6 @@ Getters and setters are created in the class `prototype`
 
 #### Computed Method Name
 
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/class#computed-names)
-
 ```js
 class Cl {
   ["a" + "b"](c) {
@@ -1686,8 +1678,6 @@ cl.ab(1); // 1
 ```
 
 #### Class Fields
-
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/class#class-fields)
 
 Class fields are not set in the `prototype` but on the individual objects:
 
@@ -1749,10 +1739,6 @@ setTimeout(cl3.f); // 1
 ```
 
 #### Static Properties and Methods
-
-> 📖 [The Modern JavaScript Tutorial: Static properties and methods](https://javascript.info/static-properties-methods)
->
-> 📖 [The Modern JavaScript Tutorial: Extending built-in classes](https://javascript.info/extend-natives#no-static-inheritance-in-built-ins)
 
 ##### Static Methods
 
@@ -1831,12 +1817,6 @@ console.log(Array.keys); // undefined
 ```
 
 ### Inheritance
-
-> 📖 [The Modern JavaScript Tutorial: Class inheritance](https://javascript.info/class-inheritance)
->
-> 📖 [The Modern JavaScript Tutorial: Extending built-in classes](https://javascript.info/extend-natives)
->
-> 📖 [The Modern JavaScript Tutorial: Class checking: "instanceof"](https://javascript.info/instanceof)
 
 #### Extending Classes
 
@@ -2281,8 +2261,6 @@ console.log(c instanceof C); // true
 ```
 
 ### Encapsulation
-
-> 📖 [The Modern JavaScript Tutorial](https://javascript.info/private-protected-properties-methods)
 
 Public fields are accessible from anywhere; protected fields are accessible only inside the class and the inheriting classes; private fields are accessible only inside the class
 
