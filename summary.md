@@ -140,6 +140,7 @@
   - Contructor
   - `Date.prototype.get*`
   - `Date.prototype.set*`
+  - `Date.now`
   - Miscellaneous
 - **`JSON`**
   - `JSON.stringify`
@@ -3588,6 +3589,16 @@ date.setUTCMilliseconds(700); console.log(date); // 1985-01-04T00:10:45.700Z
 date.setTime(0); console.log(date); // 1970-01-01T00:00:00.000Z
 ```
 <!-- prettier-ignore-end -->
+
+### `Date.now`
+
+`Date.now` static method doesn't create a new object so it's faster and more memory-efficient than its semantically equivalent `new Date().getTime()`
+
+```js
+let start = Date.now();
+
+setTimeout(() => console.log(Date.now() - start), 1000); // 1008
+```
 
 ### Miscellaneous
 
