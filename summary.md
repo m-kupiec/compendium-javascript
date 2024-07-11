@@ -138,6 +138,7 @@
   - Other Methods
 - **`Date`**
   - Contructor
+  - `Date.prototype.get*`
 - **`JSON`**
   - `JSON.stringify`
   - `JSON.parse`
@@ -3516,6 +3517,37 @@ To parse the date (number of milliseconds from 01.01.1970 UTC+0) from a string u
 ```js
 console.log(Date.parse("1985-01-01T16:00:45.800Z")); // 473443245800
 console.log(Date.parse("1985-01-01_16:00:45.800Z")); // NaN
+```
+
+### `Date.prototype.get*`
+
+Accessing date components:
+
+```js
+const date = new Date();
+
+// The result is in GMT/UTC+0:
+console.log(date); // 2024-03-25T15:38:46.686Z
+
+//The result (if not in the UTC format) is in the local time zone:
+console.log(date.getFullYear()); // 2024
+console.log(date.getUTCFullYear()); // 2024
+console.log(date.getMonth()); // 2 (counting from 0 to 11)
+console.log(date.getUTCMonth()); // 2 (counting from 0 to 11)
+console.log(date.getDate()); // 25 (day of the month)
+console.log(date.getUTCDate()); // 25 (day of the month)
+console.log(date.getHours()); // 16
+console.log(date.getUTCHours()); // 15
+console.log(date.getMinutes()); // 38
+console.log(date.getUTCMinutes()); // 38
+console.log(date.getSeconds()); // 46
+console.log(date.getUTCSeconds()); // 46
+console.log(date.getMilliseconds()); // 686
+console.log(date.getUTCMilliseconds()); // 686
+
+console.log(date.getDay()); // 1 (Tuesday; counting from Sunday as 0 to Saturday as 6)
+console.log(date.getTime()); // 1711381126686 (a number of milliseconds from 01-01-1970 UTC+0)
+console.log(date.getTimezoneOffset()); // -60 (the difference between UTC and the local time zone, in minutes)
 ```
 
 ## `JSON`
