@@ -140,6 +140,7 @@
   - Contructor
   - `Date.prototype.get*`
   - `Date.prototype.set*`
+  - Miscellaneous
 - **`JSON`**
   - `JSON.stringify`
   - `JSON.parse`
@@ -3587,6 +3588,25 @@ date.setUTCMilliseconds(700); console.log(date); // 1985-01-04T00:10:45.700Z
 date.setTime(0); console.log(date); // 1970-01-01T00:00:00.000Z
 ```
 <!-- prettier-ignore-end -->
+
+### Miscellaneous
+
+Date autocorrection:
+
+```js
+let date = new Date("1985-01-31");
+
+console.log(date); // 1985-01-31T00:00:00.000Z
+
+date.setDate(32);
+console.log(date); // 1985-02-01T00:00:00.000Z
+
+date.setDate(0); // The minimal day-of-the-month value is 1, so the last day of the previous month will be set
+console.log(date); // 1985-01-31T00:00:00.000Z
+
+date.setDate(date.getDate() + 1);
+console.log(date); // 1985-02-01T00:00:00.000Z
+```
 
 ## `JSON`
 
