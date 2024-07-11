@@ -157,12 +157,14 @@
 ### Automatic Semicolon Insertion
 
 Occurs an a line break in most cases with the notable exeption of a line immediately followed by:
+
 - A parenthesis `(...)`
 - A square bracket `[...]`
 
 ### Trailing Commas
 
 Trailing commas are allowed in all comma-separated lists of values:
+
 - No more than one in:
   - Object literals
   - Function parameters list
@@ -171,10 +173,12 @@ Trailing commas are allowed in all comma-separated lists of values:
 ### Strict Mode
 
 `"use strict"`:
+
 - Enables modifications introduced in ES5
 - Must be placed at the beginning of a script or a function
 
 Strict mode is:
+
 - Used in classes and modules by default
 - Not used in the browser console by default
 
@@ -194,32 +198,33 @@ A `var` declaration (without the assignment) is hoisted to the top of its scope 
 
 No-keyword "declaration" (an assignment without a previous declaration) is not hoisted
 
-A `let`/`const` declaration is hoisted but not initialized, so that the variable remains in a *temporal dead zone* until the initialization code is executed
+A `let`/`const` declaration is hoisted but not initialized, so that the variable remains in a _temporal dead zone_ until the initialization code is executed
 
 ### Scope
 
-|Declaration |Code Block       |                 |Function             |                    |                    |
-|------------|-----------------|-----------------|---------------------|--------------------|--------------------|
-|            |**Module Scope** |**Global Scope** |**Module Scope**     |**Global Scope**    |                    |
-|            |                 |                 |                     |**Declaration**     |**Expression**      |
-|`function`  |Not Scoped *     |Not Scoped *     |Scoped               |Scoped              |Scoped              |
-|            |-                |Added to `global`|-                    |-                   |-                   |
-|`var`       |Not Scoped       |Not Scoped       |Scoped               |Scoped              |Scoped              |
-|            |-                |Added to `global`|-                    |-                   |-                   |
-|No keyword *|                 |                 |***After `()`***     |***After `()`***    |***After `()`***    |
-|            |Not Scoped       |Not Scoped       |Not Scoped           |Not Scoped          |Not Scoped          |
-|            |Added to `global`|Added to `global`|Added to `global`    |Added to `global`   |Added to `global`   |
-|            |                 |                 |***Before `()`***    |***Before `()`***   |***Before `()`***   |
-|            |                 |                 |Scoped               |Scoped              |Scoped              |
-|            |                 |                 |-                    |-                   |-                   |
-|`this`      |-                |Added to `global`|Added to `global` ***|Added to `global` **|Added to `global` **|
+| Declaration   | Code Block        |                   | Function                 |                        |                        |
+| ------------- | ----------------- | ----------------- | ------------------------ | ---------------------- | ---------------------- |
+|               | **Module Scope**  | **Global Scope**  | **Module Scope**         | **Global Scope**       |                        |
+|               |                   |                   |                          | **Declaration**        | **Expression**         |
+| `function`    | Not Scoped \*     | Not Scoped \*     | Scoped                   | Scoped                 | Scoped                 |
+|               | -                 | Added to `global` | -                        | -                      | -                      |
+| `var`         | Not Scoped        | Not Scoped        | Scoped                   | Scoped                 | Scoped                 |
+|               | -                 | Added to `global` | -                        | -                      | -                      |
+| No keyword \* |                   |                   | **_After `()`_**         | **_After `()`_**       | **_After `()`_**       |
+|               | Not Scoped        | Not Scoped        | Not Scoped               | Not Scoped             | Not Scoped             |
+|               | Added to `global` | Added to `global` | Added to `global`        | Added to `global`      | Added to `global`      |
+|               |                   |                   | **_Before `()`_**        | **_Before `()`_**      | **_Before `()`_**      |
+|               |                   |                   | Scoped                   | Scoped                 | Scoped                 |
+|               |                   |                   | -                        | -                      | -                      |
+| `this`        | -                 | Added to `global` | Added to `global` \*\*\* | Added to `global` \*\* | Added to `global` \*\* |
 
-\* *Only when not in the strict mode*
+\* _Only when not in the strict mode_
 
-\*\* *Because the value of `this` is the global object when not in the strict mode or `undefined` otherwise; Only when:*
-- \*\* *not in the strict mode*
-- \*\* *the function is called without an object*
-- \*\*\* *the function was also not declared as an arrow function (function declaration/expression/named expression)*
+\*\* _Because the value of `this` is the global object when not in the strict mode or `undefined` otherwise; Only when:_
+
+- \*\* _not in the strict mode_
+- \*\* _the function is called without an object_
+- \*\*\* _the function was also not declared as an arrow function (function declaration/expression/named expression)_
 
 ### Lexical Environment
 
@@ -242,6 +247,7 @@ All functions in JavaScript (if not created with `new`) are closures, i.e. they 
 ### Execution Context
 
 Execution context data structure stores information about a given function call, including:
+
 - current place in the control flow
 - current variables
 - the value of `this`
@@ -251,6 +257,7 @@ Nested execution contexts are stored as frames in the call stack (LIFO order)
 ### Event Loop
 
 JavaScript operates on a single thread, but its asynchronous behavior is facilitated by the Event Loop, a code execution management system:
+
 1. The Memory Heap and Call Stack, components of the JavaScript engine, interact with the runtime environment, typically through its provided APIs or mechanisms
 2. The runtime environment enqueues tasks into the Event Queue, representing asynchronous operations such as I/O events or timer callbacks
 3. The Event Loop manages the execution flow by continuously checking the Call Stack's status; it dequeues tasks from the Event Queue and schedules them for execution (in an order influenced by factors such as task priorities and event types, rather than strictly adhering to a simple FIFO order)
@@ -259,7 +266,8 @@ JavaScript operates on a single thread, but its asynchronous behavior is facilit
 ```js
 setTimeout(console.log, 0, 5);
 Promise.resolve().then(() => console.log(1));
-Promise.resolve().then(() => console.log(2))
+Promise.resolve()
+  .then(() => console.log(2))
   .then(() => console.log(3));
 console.log(4);
 
@@ -269,6 +277,7 @@ console.log(4);
 ### Memory Data Structures
 
 The Stack:
+
 - Used for static memory allocation - the size of the data type (primitive data types) is known at compile time and a fixed amount of memory is reserved for it
 - Stores (in the LIFO order):
   - Primitive values
@@ -276,6 +285,7 @@ The Stack:
   - Function call frames
 
 The Heap:
+
 - Used for dynamic memory allocation at runtime - the size of the stored data is unknown at compile time or may change during runtime
 - Stores:
   - Objects
@@ -286,17 +296,20 @@ The Heap:
 ### Memory Life Cycle
 
 Memory allocation:
+
 - Variable declaration or assignment
 - Object property declaration or assignment
 - Function declaration
 - Function call
 
 Memory in use (reading from or writing to the allocated memory):
+
 - Using variables
 - Reassigning variables
 - Passing arguments to functions
 
 Garbage collection:
+
 - Releasing/clearing memory using one of the algorithms used by the given JavaScript engine:
   - Reference counting:
     1. Counts references stored in the stack
@@ -316,6 +329,7 @@ The increment `++i` returns the new value, while `i++` returns the old value
 Operands are treated as 32-bit integers
 
 Operators:
+
 - AND ( & )
 - OR ( | )
 - XOR ( ^ )
@@ -327,20 +341,24 @@ Operators:
 ### Logical
 
 AND (`&&`):
+
 1. Evaluates operands from left to right
 2. Converts each operand to `Boolean`
 3. Returns the original value of the first operand that isn't `true` after conversion (or the last one if all are truthy)
 
 OR (`||`):
+
 1. Evaluates operands from left to right
 2. Converts each operand to `Boolean`
 3. Returns the original value of the first operand that isn't `false` after conversion (or the last one if all are falsy)
 
 Nullish Coalescing (`??`):
+
 1. Evaluates operands from left to right
 2. Returns the original value of the first operand that isn't `null`/`undefined` (e.g. `0`, `NaN`, `""`, `false`)
 
 When combining multiple operators:
+
 - `&&` has higher precedence than `||`
 - `??` has the same precedence as `||`
 - Using `??` together with `&&`/`||` without parentheses is forbidden
@@ -372,21 +390,25 @@ Comma has a lower precedence than the assignment operator
 ### Number
 
 Format:
+
 - Stored in a binary form in the double precision floating-point format (64-bit) in accordance with the IEEE 754 standard
 - Rounded to the nearest possible value which results in a loss of precision
 
 Possible values:
+
 - Integer (including `-0`)
 - Floating point
 - `Infinity`/`-Infinity`
 - `NaN` (represents a computational error)
 
 Decimal notations:
+
 - `-1000000`
 - `-1_000_000`
 - `1e-6`
 
 Non-decimal numeral systems:
+
 - Binary (e.g. `0b101010` for `42`)
 - Octal (e.g. `0o52` for `42`)
 - Hexadecimal (e.g. `0x2A` for `42`)
@@ -402,6 +424,7 @@ Notation: `1n`
 Stored in UTF-16 format
 
 Notations:
+
 - Single quotes
 - Double quotes
 - Backticks
@@ -410,12 +433,14 @@ Notations:
   - Allows tagged templates
 
 Special characters:
+
 - `\r\n`: New line (Windows text files)
 - `\n`: New line
 - `\t`: Tab
 - `\`: Special character escaping
 
 Reading/writing:
+
 - Is immutable (characters cannot be changed)
 - Accessing char at a non-found index results in an `undefined` value
 - Destructuring assignment: `[a, b, c] = "123"`
@@ -476,6 +501,7 @@ Properties which names would be valid integers (after conversion to number) are 
 ### Property Attributes
 
 Each data property has four attributes ("flags"), the last three all set to `true` by default:
+
 - `value`
 - `writable` (specifying if the property value can be changed)
   - When not in the strict mode, writing to a non-writable property will not result in an error, although the operation will not succeed
@@ -498,11 +524,12 @@ const obj = {
 
   set val(value) {
     this._val = value;
-  }
+  },
 };
 ```
 
 Accessor property's attributes:
+
 - Removed:
   - ~~`value`~~
   - ~~`writable`~~
@@ -517,21 +544,22 @@ Accessor property's attributes:
 
 ```js
 let obj = {
-  f: function() {
+  f: function () {
     /* ... */
-  }
-}
+  },
+};
 ```
 
 ```js
 let obj = {
   f() {
     /* ... */
-  }
-}
+  },
+};
 ```
 
 When a function is called without an object, the value of `this` is:
+
 - `undefined`, if in the strict mode
 - Global object, if not in the strict mode
 
@@ -549,14 +577,14 @@ const obj = {
 
   f() {
     console.log(this.val);
-  }
+  },
 };
 
 const g = obj.f;
 g(); // undefined
 
 obj.f(); // 1
-(obj.f)(); // 1
+obj.f(); // 1
 (true ? obj.f : null)(); // undefined
 ```
 
@@ -565,6 +593,7 @@ obj.f(); // 1
 This special syntax contruct stops the evaluation if the preceding value (of a declared variables) is `undefined`/`null` and returns `undefined`
 
 Syntax:
+
 - Accessing a property that may not exist:
   - `?.<propertyName>` (for dot notation)
   - `?.["<propertyName>"]` (for square bracket notation)
@@ -572,6 +601,7 @@ Syntax:
   - `<methodName>.?.()`
 
 Use cases:
+
 - Can be used for:
   - Reading
   - Deleting
@@ -584,17 +614,14 @@ Assignment:
 
 ```js
 let {
-  a: {
-    aOne: a1 = 1,
-    aTwo: a2 = 2
-  },
+  a: { aOne: a1 = 1, aTwo: a2 = 2 },
 
   f,
 
   ...rest
 } = {
   a: {
-    aTwo: 0
+    aTwo: 0,
   },
 
   f() {},
@@ -616,12 +643,14 @@ let objCopy = { ...obj };
 ### Looping
 
 `for (key in obj)` loop:
+
 - Includes inherited propertied and methods
 - Doesn't include symbolic properties
 
 ### Prototypal Inheritance
 
 `__proto__`:
+
 - A getter/setter for `[[Prototype]]` (a hidden property that either references to another object (the prototype) or is `null`)
 - Its value must be an `Object` or `null` (or the assignment will be ignored); assigning in a circle will result in an error
 - Outdated (moved to Annex B - optional for non-browser environments); since 2022 is allowed in object literals
@@ -638,21 +667,23 @@ An array-like object has numeric indices and the `length` property
 
 ```js
 const arrayLike = {
-  0: 'a',
-  1: 'b',
-  2: 'c',
+  0: "a",
+  1: "b",
+  2: "c",
 
-  length: 3
+  length: 3,
 };
 ```
 
 ### Iterable Objects
 
 Iterables (unlike array-likes):
+
 - Can be looped over using `for...of`
 - Work with the spread syntax (`...`)
 
 Built-in iterable objects:
+
 - `String`
 - `Array`
 - `Map` (but not `WeakMap`)
@@ -661,12 +692,14 @@ Built-in iterable objects:
 ### Async Iterable Objects
 
 Async iterables:
+
 - Can be looped over using `for await...of`
 - Don't work with the spread syntax (`...`) (which, according to ChatGPT, would require an async `Symbol.iterator` generator method to be implemented)
 
 ### Arrays
 
 Empty elements:
+
 - `new Array(n)` creates an array with `n` empty (not even `undefined`) elements
 - `let arr = []; arr[n] = true;` creates an array with `n-1` empty (not even `undefined`) elements
 
@@ -677,13 +710,21 @@ let arr = [true];
 
 console.log(arr[0], arr[0n], arr["0"]);
 // true true true
-console.log(arr[""], arr[false], arr[null], arr[undefined], arr[Symbol()], arr[{}]);
+console.log(
+  arr[""],
+  arr[false],
+  arr[null],
+  arr[undefined],
+  arr[Symbol()],
+  arr[{}]
+);
 // undefined undefined undefined undefined undefined undefined
 ```
 
 An array may be truncated by decreasing the `length` property (or cleared by assigning `0` to it)
 
 Destructuring:
+
 - Assignment:
 
 ```js
@@ -767,15 +808,15 @@ It's not possible to list its values/iterate over it
 `typeof` operator syntax: `typeof x`/`typeof(x)`
 
 ```js
-typeof 1 // "number"
-typeof 1n // "bigint"
-typeof true // "boolean"
-typeof "a" // "string"
-typeof null // "object" (*)
-typeof undefined // "undefined"
-typeof Symbol("id") // "symbol"
-typeof Math // "object"
-typeof alert // "function" (*)
+typeof 1; // "number"
+typeof 1n; // "bigint"
+typeof true; // "boolean"
+typeof "a"; // "string"
+typeof null; // "object" (*)
+typeof undefined; // "undefined"
+typeof Symbol("id"); // "symbol"
+typeof Math; // "object"
+typeof alert; // "function" (*)
 
 // * Incorrect behavior
 ```
@@ -783,11 +824,13 @@ typeof alert // "function" (*)
 ### Conversion
 
 Unary-operator conversions:
+
 - To `Number`: `+`/`-`
   - Irregurality: `+(`<`BigInt`>`)` &rightarrow; `TypeError`
 - To `Boolean`: `!`/`!!`
 
 Automatic conversions:
+
 - Binary `+`:
   1. `Symbol` cannot be one of the operands (if it is, there will be an attempt to automatically convert it to `Number`/`String` which will result in `TypeError`)
   2. If one of the operands is `BigInt`, to prevent `TypeError`, the other one must also be `BigInt` or `String`/`Object`/`Array`
@@ -817,6 +860,7 @@ Automatic conversions:
   5. Otherwise, if both the operands are either `String`/`Object`/`Array`, they are both converted to `String`
 
 Conversion rules:
+
 - To `Number`:
   - `0.0`/`0.`/`0n` &rightarrow; `0`
   - `""`/`" "` &rightarrow; `0`; `"2"`/`"2."` &rightarrow; `2`; `"2.2"` &rightarrow; `2.2`; `"2n"` &rightarrow; `NaN`
@@ -860,21 +904,22 @@ Conversion rules:
 
 ### Regular Functions
 
-|                             |Syntax                                          |Notes                                                      |
-|-----------------------------|------------------------------------------------|-----------------------------------------------------------|
-|**Function Declaration**     |`function f() {}`                               |Can be called before its declaration                       |
-|**Function Expression**      |`const f = function() {}`                       |Can be called only after its creation                      |
-|                             |                                                |Allows a conditional declaration                           |
-|**Named Function Expression**|`const f = function func() {}`                  |Allows the function to call itself                         |
-|**Arrow Function**           |`const f = () => {}`                            |Convenient for simple actions or as callbacks              |
-|**Function Constructor**     |`(new Function('a', 'b', 'return a + b'))(1, 2)`|Converts strings into a function parameters and body       |
-|                             |                                                |`[[Environment]]` references the global Lexical Environment|
+|                               | Syntax                                           | Notes                                                       |
+| ----------------------------- | ------------------------------------------------ | ----------------------------------------------------------- |
+| **Function Declaration**      | `function f() {}`                                | Can be called before its declaration                        |
+| **Function Expression**       | `const f = function() {}`                        | Can be called only after its creation                       |
+|                               |                                                  | Allows a conditional declaration                            |
+| **Named Function Expression** | `const f = function func() {}`                   | Allows the function to call itself                          |
+| **Arrow Function**            | `const f = () => {}`                             | Convenient for simple actions or as callbacks               |
+| **Function Constructor**      | `(new Function('a', 'b', 'return a + b'))(1, 2)` | Converts strings into a function parameters and body        |
+|                               |                                                  | `[[Environment]]` references the global Lexical Environment |
 
 Parameters and arguments:
+
 - The spread syntax (`...`) may be used in the list of function's arguments
 - Gathering the remaining arguments into an array:
-    - `function f(a, b, ...rest) {}`
-    - `...` must be placed at the end of the list of parameters
+  - `function f(a, b, ...rest) {}`
+  - `...` must be placed at the end of the list of parameters
 - Accessing all the arguments:
   - `arguments` (an automatically created array-like object)
   - Does not work for arrow functions' arguments
@@ -882,6 +927,7 @@ Parameters and arguments:
   - `function f({ arg1: a = 1, b = 2 } = {}) { return a + b; } f({ arg1: 3 });`
 
 Function object properties:
+
 - `name`
 - `length`: number of parameters (not arguments); doesn't count the `...rest` parameter
 - `prototype`: its value is an object containing only one property (`constructor`) that points to the function itself:
@@ -889,12 +935,14 @@ Function object properties:
 - Custom properties may be added as well
 
 Returned value:
+
 - Empty or no `return` results in returning `undefined`
 - A semicolon is automatially placed at the end of a line containing the `return` keyword
 
 ### Constructor Functions
 
 Creation/usage rules:
+
 - The first letter of the function name must be capital
 - Should be executed with the `new` operator
   - `new.target` is sometimes used (e.g. `function f() { if (!new.target) { return new f(); } }`) to test whether the function was called with `new` by returning:
@@ -904,12 +952,14 @@ Creation/usage rules:
 - Arrow function cannot be used as a constructor function because of not having `this` but rather taking it from the global Lexical Environment
 
 Function object properties:
+
 - The object strored in the `prototype` property will be set as the prototype for the object created with the constructor function
 - Since by default `F.prototype.constructor === F`: `const f = new F()` &rightarrow; `f.constructor === F`
   - The default `prototype.constructor` property can be overridden:
     - `F.prototype = {}` &rightarrow; `const f = new F()` &rightarrow; `f.constructor !== F` & `typeof F1.prototype.constructor === "function"`
 
 Returned value:
+
 - Does not have the `return` statement as it returns `this`
 - If there is a `return` statement then it returns:
   - an object passed with the `return`
@@ -918,11 +968,13 @@ Returned value:
 ### Generators
 
 Generator function:
+
 - Syntax: `function* f()` (preferred) or `function *f()`
 - Returns a generator object
 - Yielding another generator object is possible (generator composition)
 
 Generator object:
+
 - Is an iterable
 - `next` method returns `{ value: <the next yielded value>, done: <true/false> }`
 - `for...of` and the spread syntax (`...`) used on the object ignore the value returned with `return` (because it has `done: true`)
@@ -950,7 +1002,7 @@ Async generator:
 ```js
 async function* generateNumbers() {
   for (let i = 0; i < 5; i++) {
-    yield await new Promise(resolve => setTimeout(resolve, 200, i));
+    yield await new Promise((resolve) => setTimeout(resolve, 200, i));
   }
 }
 
@@ -997,7 +1049,7 @@ function* generate() {
   console.log(`Passed #1: ${passed1}`);
 
   yield 4;
-  
+
   console.log(`Passed #2: ${passed2}`);
 }
 
@@ -1114,14 +1166,14 @@ Error handled
 
 ### Conditionals
 
-|Conditional|Use case                            |Note                        |
-|-----------|------------------------------------|----------------------------|
-|`?`        |Returning one of the two values     |                            |
-|`if`       |Executing different branches of code|                            |
-|`switch`   |Comparing different value variants  |The equality check is strict|
+| Conditional | Use case                             | Note                         |
+| ----------- | ------------------------------------ | ---------------------------- |
+| `?`         | Returning one of the two values      |                              |
+| `if`        | Executing different branches of code |                              |
+| `switch`    | Comparing different value variants   | The equality check is strict |
 
 ```js
-switch(x) {
+switch (x) {
   case 0:
     /* ... */
     break;
@@ -1131,7 +1183,7 @@ switch(x) {
     break;
 
   default:
-    /* ... */
+  /* ... */
 }
 ```
 
@@ -1157,12 +1209,12 @@ for (;;) {
 
 ### Control Transfer
 
-|Directive |Result                      |Use Case                                      |Placement           |
-|----------|----------------------------|----------------------------------------------|--------------------|
-|`break`   |Breaks the whole loop       |Evaluating condition in the middle of the loop|Inside a block      |
-|          |                            |                                              |Not allowed with `?`|
-|`continue`|Breaks the current iteration|Avoiding conditional's nesting in the loop    |Inside a loop       |
-|          |                            |                                              |Not allowed with `?`|
+| Directive  | Result                       | Use Case                                       | Placement            |
+| ---------- | ---------------------------- | ---------------------------------------------- | -------------------- |
+| `break`    | Breaks the whole loop        | Evaluating condition in the middle of the loop | Inside a block       |
+|            |                              |                                                | Not allowed with `?` |
+| `continue` | Breaks the current iteration | Avoiding conditional's nesting in the loop     | Inside a loop        |
+|            |                              |                                                | Not allowed with `?` |
 
 A label may be used to `break`/`continue` from a nested loop
 
@@ -1187,6 +1239,7 @@ Scheduled functions are executed after the engine has already left the `try...ca
 ### Callback-Based
 
 Rules:
+
 - A callback function is passed as an argument to the function that has asynchronous code
 - The first argument of the callback functions is reserved for an error
 
@@ -1251,6 +1304,7 @@ firstAsyncF("Full Success", callbackF); // "Full Success"
 ### Promises
 
 Syntax:
+
 - The executor function is passed as an argument to the promise constructor and is executed automatically
 - Two callbacks (`resolve` and `reject`) are passed as arguments to the executor function to be later called with `value` or `error` respectively
 - The promise constructor returns an object which has these inaccessible internal properties:
@@ -1283,40 +1337,47 @@ promise
 ```
 
 Promise chaining/composition:
+
 - Success/failure handler used in `then` may create and return
   - A new promise
   - A "thenable" object (an object containing `then` method; doesn't need to inherit from `Promise`) which will be treated as a promise
 - `then` always returns a new promise
 
 ```js
-new Promise(resolve => resolve("Ok"))
-  .then(result => {})
-  .then(result => console.log(result));
+new Promise((resolve) => resolve("Ok"))
+  .then((result) => {})
+  .then((result) => console.log(result));
 // undefined
 
-new Promise(resolve => resolve("Ok"))
-  .then(result => { return 0; })
-  .then(result => console.log(result));
+new Promise((resolve) => resolve("Ok"))
+  .then((result) => {
+    return 0;
+  })
+  .then((result) => console.log(result));
 // 0
 
-new Promise(resolve => resolve("Ok"))
-  .then(result => { return new Promise(resolve => resolve(result)); })
-  .then(result => console.log(result));
+new Promise((resolve) => resolve("Ok"))
+  .then((result) => {
+    return new Promise((resolve) => resolve(result));
+  })
+  .then((result) => console.log(result));
 // "Ok"
 ```
 
 Error handling:
+
 - Errors coming from the code of the executor function or the promise handlers are automatically treated as a promise rejection
 - If an error is successfully handled by a handler, the next success handler runs; if an error is not handled, the next failure handler runs
 - If a promise rejection is not handled, a global error occurs, which can be caught in the browser using the `unhandledrejection` event (which would fire when the microtask queue is empty):
 
 ```js
-window.addEventListener('unhandledrejection', (e) => {
+window.addEventListener("unhandledrejection", (e) => {
   console.log("Gloabl error occured!", e.promise, e.reason);
 });
 
-new Promise((resolve, reject) => reject(new Error()))
-  .then(() => console.log("Success!"));
+new Promise((resolve, reject) => reject(new Error())).then(() =>
+  console.log("Success!")
+);
 
 /*
 "Gloabl error occured!"
@@ -1335,6 +1396,7 @@ new Promise((resolve, reject) => reject(new Error()))
 `async` function always returns a promise - values other than a promise are wrapped in a resolved promise
 
 `await`:
+
 - Pauses the function execution until the promise is settled &rightarrow; Returns the result/error
 - To avoid `SyntaxError`, `await` must be either:
   - Placed in an `async` function
@@ -1344,13 +1406,15 @@ new Promise((resolve, reject) => reject(new Error()))
 
 ```js
 async function asyncF() {
-  return await new Promise((resolve, reject) => setTimeout(() => {
-    if (Math.random() > 0.5) {
-      resolve("Success");
-    } else {
-      reject(new Error("Failure"));
-    }
-  }));
+  return await new Promise((resolve, reject) =>
+    setTimeout(() => {
+      if (Math.random() > 0.5) {
+        resolve("Success");
+      } else {
+        reject(new Error("Failure"));
+      }
+    })
+  );
 }
 
 asyncF().then(console.log, console.error); // "Success" OR "Error: Failure"
@@ -1365,24 +1429,24 @@ class Cl {
   }
 }
 
-new Cl()
-  .f()
-  .then(console.log); // "Ok!"
+new Cl().f().then(console.log); // "Ok!"
 ```
 
 Promise chaining/composition:
 
 ```js
 // USING 'THEN' METHOD:
-new Promise(resolve => resolve("Ok!"))
-  .then(result => { return new Promise(resolve => resolve (result)) })
-  .then(result => console.log(result));
+new Promise((resolve) => resolve("Ok!"))
+  .then((result) => {
+    return new Promise((resolve) => resolve(result));
+  })
+  .then((result) => console.log(result));
 // "Ok!"
 
 // USING ASYNC/AWAIT SYNTAX:
 (async () => {
-  const result1 = await new Promise(resolve => resolve("Ok!"));
-  const result2 = await new Promise(resolve => resolve(result1));
+  const result1 = await new Promise((resolve) => resolve("Ok!"));
+  const result2 = await new Promise((resolve) => resolve(result1));
   console.log(result2);
 })();
 // "Ok!"
@@ -1402,8 +1466,7 @@ Error handling (either by `try...catch` or `catch` method):
 
 (async function f() {
   return await Promise.reject(new Error("Failure"));
-})()
-  .catch(error => console.log(error.message));
+})().catch((error) => console.log(error.message));
 // Failure
 ```
 
@@ -1492,7 +1555,7 @@ let a = 1;
 
   // eval(`console.log(a);`); // 2
   // Replace with:
-  (new Function('a', 'console.log(a)'))(a); // 2
+  new Function("a", "console.log(a)")(a); // 2
 }
 ```
 
@@ -1517,32 +1580,33 @@ console.log(Object.prototype.__proto__); // null
 ### `Object.prototype.toString`
 
 Can display the type of:
+
 - Primitives
 - Built-in objects
 - Objects with `Symbol.toStringTag`
 
 ```js
-console.log({}.toString === Object.prototype.toString);             // true
+console.log({}.toString === Object.prototype.toString); // true
 
-console.log({}.toString.call(1));                                   // "[object Number]"
-console.log({}.toString.call(1n));                                  // "[object BigInt]"
-console.log({}.toString.call(true));                                // "[object Boolean]"
-console.log({}.toString.call(""));                                  // "[object String]"
-console.log({}.toString.call(null));                                // "[object Null]"
-console.log({}.toString.call(undefined));                           // "[object Undefined]"
-console.log({}.toString.call({}));                                  // "[object Object]"
-console.log({}.toString.call({ [Symbol.toStringTag]: "Custom" }));  // "[object Custom]""
-console.log({}.toString.call(Symbol()));                            // "[object Symbol]"
-console.log({}.toString.call(new Array()));                         // "[object Array]""
-console.log({}.toString.call(new Map()));                           // "[object Map]""
-console.log({}.toString.call(new WeakMap()));                       // "[object WeakMap]""
-console.log({}.toString.call(new Set()));                           // "[object Set]""
-console.log({}.toString.call(new WeakSet()));                       // "[object WeakSet]""
-console.log({}.toString.call(new Promise((resolve) => {})));        // "[object Promise]""
-console.log({}.toString.call(() => {}));                            // "[object Function]""
-console.log({}.toString.call(new SyntaxError()));                   // "[object Error]""    (*)
+console.log({}.toString.call(1)); // "[object Number]"
+console.log({}.toString.call(1n)); // "[object BigInt]"
+console.log({}.toString.call(true)); // "[object Boolean]"
+console.log({}.toString.call("")); // "[object String]"
+console.log({}.toString.call(null)); // "[object Null]"
+console.log({}.toString.call(undefined)); // "[object Undefined]"
+console.log({}.toString.call({})); // "[object Object]"
+console.log({}.toString.call({ [Symbol.toStringTag]: "Custom" })); // "[object Custom]""
+console.log({}.toString.call(Symbol())); // "[object Symbol]"
+console.log({}.toString.call(new Array())); // "[object Array]""
+console.log({}.toString.call(new Map())); // "[object Map]""
+console.log({}.toString.call(new WeakMap())); // "[object WeakMap]""
+console.log({}.toString.call(new Set())); // "[object Set]""
+console.log({}.toString.call(new WeakSet())); // "[object WeakSet]""
+console.log({}.toString.call(new Promise((resolve) => {}))); // "[object Promise]""
+console.log({}.toString.call(() => {})); // "[object Function]""
+console.log({}.toString.call(new SyntaxError())); // "[object Error]""    (*)
 
-                                                                    // (*) Interesting case
+// (*) Interesting case
 ```
 
 ### `Object.is`
@@ -1557,6 +1621,7 @@ console.log(Object.is(0, -0)); // false
 ### `Object.`<`keys`/`values`/`entries`/`fromEntries`>
 
 Do not include:
+
 - Symbolic properties
 - Inherited properties
 
@@ -1573,10 +1638,10 @@ Property descriptor is an object containing the property value and all its flags
 ```js
 const obj = {
   a: 1,
-  b: 2
+  b: 2,
 };
 
-console.log(Object.getOwnPropertyDescriptor(obj, 'a'));
+console.log(Object.getOwnPropertyDescriptor(obj, "a"));
 // { value: 1, writable: true, enumerable: true, configurable: true }
 
 console.log(Object.getOwnPropertyDescriptors(obj));
@@ -1596,10 +1661,10 @@ Creating/modifying property attributes (with all the flags set to `false` by def
 const obj = {};
 
 Object.defineProperties(obj, {
-  'a': { value: 1 },
-  'b': { value: 2, writable: true }
+  a: { value: 1 },
+  b: { value: 2, writable: true },
 });
-Object.defineProperty(obj, 'b', { value: 3 });
+Object.defineProperty(obj, "b", { value: 3 });
 
 console.log(Object.getOwnPropertyDescriptors(obj));
 /*
@@ -1613,11 +1678,13 @@ console.log(Object.getOwnPropertyDescriptors(obj));
 ### `Object.`<`preventExtensions`/`seal`/`freeze`>
 
 These methods work for the whole object:
+
 - `Object.preventExtensions` disallows adding new properties
 - `Object.seal()` sets `configurable` attribute to `false` for all properties
 - `Object.freeze()` sets `configurable` and `writable` attributes to `false` for all properties
 
 These corresponding methods return `true` or `false`:
+
 - `Object.isExtensible()`
 - `Object.isSealed()`
 - `Object.isFrozen()`
@@ -1641,8 +1708,8 @@ const objProto = { a: 1 };
 
 const obj = Object.create(objProto, {
   b: {
-    value: 2
-  }
+    value: 2,
+  },
 });
 console.log(Object.getPrototypeOf(obj)); // [object Object] { a: 1 }
 console.log(Object.getOwnPropertyDescriptors(obj));
@@ -1661,6 +1728,7 @@ console.log(Object.getOwnPropertyDescriptors(obj));
 ### `Object.assign`
 
 `Object.assign(<target>, <...sources>)`:
+
 - Returns a modified `<target>` containing copied properties from all the `<sources>`
 - Special features:
   - Copies symbol properties
@@ -1680,8 +1748,8 @@ To call a method directly on an integer, `..` must be used
 Converting a number from a non-decimal numeral system:
 
 ```js
-console.log(255..toString(2)); // "11111111"
-console.log(255..toString(16)); // "ff"
+console.log((255).toString(2)); // "11111111"
+console.log((255).toString(16)); // "ff"
 ```
 
 Rounding a float number:
@@ -1792,8 +1860,8 @@ Customizing `Object.prototype.toString`:
 ```js
 const obj = { [Symbol.toStringTag]: "obj" };
 
-console.log({}.toString());   // "[object Object]"
-console.log(obj.toString());  // [object obj]
+console.log({}.toString()); // "[object Object]"
+console.log(obj.toString()); // [object obj]
 ```
 
 ## `Array`
@@ -1889,32 +1957,43 @@ console.log("1, 2, 3".split(", ", 2)); // ["1", "2"]
 All iterative methods except `reduce`/`reduceRight` accept `thisArg` (which then becomes `this` for the callback function) as an argument in addition to a callback function
 
 ```js
-arr = [{a: 1}, {a: 2}, {a: 3}];
+arr = [{ a: 1 }, { a: 2 }, { a: 3 }];
 
 arr.forEach((item, index, array) => console.log(item.a)); // 1 2 3
 
-console.log(arr.find((item, index, array) => item.a === 4));  // undefined
-console.log(arr.find((item, index, array) => item.a > 1));    // { a: 2 }
+console.log(arr.find((item, index, array) => item.a === 4)); // undefined
+console.log(arr.find((item, index, array) => item.a > 1)); // { a: 2 }
 console.log(arr.findLast((item, index, array) => item.a < 3)); // { a: 2 }
 
 console.log(arr.findIndex((item, index, array) => item.a === 4)); // -1
-console.log(arr.findIndex((item, index, array) => item.a > 1));   // 1
+console.log(arr.findIndex((item, index, array) => item.a > 1)); // 1
 console.log(arr.findLastIndex((item, index, array) => item.a < 3)); // 1
 
-console.log(arr.some((item, index, array) => item.a < 3));  // true
+console.log(arr.some((item, index, array) => item.a < 3)); // true
 console.log(arr.every((item, index, array) => item.a > 0)); // true
 
-console.log(arr.filter((item, index, array) => item.a > 1));  // [ { a: 2 }, { a: 3 } ]
-console.log(arr.map((item, index, array) => item.a * 2));     // [ 2, 4, 6 ]
+console.log(arr.filter((item, index, array) => item.a > 1)); // [ { a: 2 }, { a: 3 } ]
+console.log(arr.map((item, index, array) => item.a * 2)); // [ 2, 4, 6 ]
 
-console.log(arr.reduce((accumulator, item, index, array) => accumulator += item.a, ""));      // "123"
-console.log(arr.reduceRight((accumulator, item, index, array) => accumulator += item.a, "")); // "321"
+console.log(
+  arr.reduce((accumulator, item, index, array) => (accumulator += item.a), "")
+); // "123"
+console.log(
+  arr.reduceRight(
+    (accumulator, item, index, array) => (accumulator += item.a),
+    ""
+  )
+); // "321"
 
 // console.log([].reduce((accumulator, item, index, array) => accumulator += 1));
 // TypeError: Reduce of empty array with no initial value
-console.log(arr.reduce((accumulator, item, index, array) => accumulator += item.a));
+console.log(
+  arr.reduce((accumulator, item, index, array) => (accumulator += item.a))
+);
 // "[object Object]23"
-console.log(arr.reduceRight((accumulator, item, index, array) => accumulator += item.a));
+console.log(
+  arr.reduceRight((accumulator, item, index, array) => (accumulator += item.a))
+);
 // "[object Object]21"
 ```
 
@@ -1926,7 +2005,6 @@ console.log(typeof []); // "object"
 console.log(Array.isArray([])); // true
 ```
 
-
 ### `Array.from`
 
 Allows to make an array (shallow copy) from an iterable or an array-like object
@@ -1936,6 +2014,7 @@ Allows to make an array (shallow copy) from an iterable or an array-like object
 Constructor: `new Map(<iterable with key-value pairs>)`
 
 `Map.prototype` methods:
+
 - `set(<key>, <value>)`
 - `has(<key>)` returns `Boolean`
 - `get(<key>)` returns the value for a given key
@@ -1947,11 +2026,13 @@ Constructor: `new Map(<iterable with key-value pairs>)`
 - `forEach((<value>, <key>, <map>) => <callback body>)` honors the insertion order
 
 `Map.prototype` properties:
+
 - `size`
 
 ## `WeakMap`
 
 Supports:
+
 - `Map.prototype` methods:
   - `set(<key>, <value>)`
   - `has(<key>)`
@@ -1959,6 +2040,7 @@ Supports:
   - `delete(<key>)`
 
 Doesn't support:
+
 - `Map.prototype` methods:
   - `clear()`
   - `keys()`
@@ -1973,6 +2055,7 @@ Doesn't support:
 Constructor: `new Set(<iterable>)`
 
 `Set.prototype` methods:
+
 - `add(<value>)`
 - `has(<value>)` returns `Boolean`
 - `delete(<value>)`
@@ -1983,17 +2066,20 @@ Constructor: `new Set(<iterable>)`
 - `forEach((<value>, <valueAgain>, <set>) => <callback body>)` honors the insertion order
 
 `Set.prototype` properties:
+
 - `size`
 
 ## `WeakSet`
 
 Supports:
+
 - `Set.prototype` methods:
   - `add(<value>)`
   - `has(<value>)`
   - `delete(<value>)`
 
 Doesn't support:
+
 - `Set.prototype` methods:
   - `clear()`
   - `keys()`
@@ -2058,26 +2144,28 @@ console.log(Object.keys(Object.getOwnPropertyDescriptors(Math)));
 
 ### `JSON.stringify`
 
-|Data Type         |Support    |
-|------------------|-----------|
-|`Number`          |Yes        |
-|`BigInt`          |`TypeError`|
-|`String`          |Yes        |
-|`Boolean`         |Yes        |
-|`Symbol`          |*Ignored*  |
-|`null`            |Yes        |
-|`undefined`       |*Ignored*  |
-|`Object`          |Yes        |
-|Circural Reference|`TypeError`|
-|`Function`        |*Ignored*  |
-|`Array`           |Yes        |
+| Data Type          | Support     |
+| ------------------ | ----------- |
+| `Number`           | Yes         |
+| `BigInt`           | `TypeError` |
+| `String`           | Yes         |
+| `Boolean`          | Yes         |
+| `Symbol`           | _Ignored_   |
+| `null`             | Yes         |
+| `undefined`        | _Ignored_   |
+| `Object`           | Yes         |
+| Circural Reference | `TypeError` |
+| `Function`         | _Ignored_   |
+| `Array`            | Yes         |
 
 Output formatting:
+
 - Strings are double-quoted
 - Object property names are double-quoted
 - All whitespace is removed by default (can be configured in the third argument)
 
 The second (optional; e.g. to exclude circular references) argument of `JSON.stringify` can be:
+
 - An array of explicitly specified property names to encode:
   - Property names must be passed as `String` each
   - Nested properties must be specified if they are to be included
@@ -2091,15 +2179,18 @@ const objA = { a: 1 };
 const objB = [2];
 
 for (let obj of [objA, objB]) {
-  console.log(JSON.stringify(obj, (key, value) => value === objA ? null : value));
+  console.log(
+    JSON.stringify(obj, (key, value) => (value === objA ? null : value))
+  );
 }
 // null
 // [2]
 ```
 
 The third (optional) argument of `JSON.stringify` is the number of spaces (or a string) to be used to format the output string, e.g.:
-  - `JSON.stringify(obj, null, 2)`
-  - `JSON.stringify(obj, null, '  ')`
+
+- `JSON.stringify(obj, null, 2)`
+- `JSON.stringify(obj, null, '  ')`
 
 Customizing JSON encoding:
 
@@ -2112,9 +2203,9 @@ const obj = {
 
     toJSON() {
       return `${this.b1}|${this.b2}`;
-    }
+    },
   },
-  c: [4, 5]
+  c: [4, 5],
 };
 
 console.log(JSON.stringify(obj)); // {"a":1,"b":"2|3","c":[4,5]}
@@ -2131,8 +2222,9 @@ console.log(JSON.parse(json));
 // { a: 1, b: { date: '1970-01-02T10:00:00.000Z' }, c: [ 4, 5 ] }
 
 console.log(
-  JSON.parse(json, (key, value) => key === "date" ? new Date(value) : value)
-    .b.date.getTime()
+  JSON.parse(json, (key, value) =>
+    key === "date" ? new Date(value) : value
+  ).b.date.getTime()
 );
 // 122400000
 ```
@@ -2142,12 +2234,14 @@ console.log(
 ### `Function.prototype.`<`call`/`apply`>
 
 Calling a function with a specified context (`this`):
+
 - `call(<this>, <...args>)` receives its arguments as a list
 - `apply(<this>, <[...args]>)` receives its arguments as an `Array`/array-like object
 
 ### `Function.prototype.bind`
 
 Returns a function bound to:
+
 - A specified context (`this`) passed as the first argument (may be `null`)
 - A specified list of arguments passed after the first argument
 
@@ -2156,6 +2250,7 @@ Returns a function bound to:
 ### `Promise.`<`all`/`allSettled`>
 
 `Promise.all`:
+
 - Executes many promises concurrently until:
   - All are resolved, or
   - Any of them is rejected
@@ -2168,6 +2263,7 @@ Returns a function bound to:
   - Resolves with an array of results (ordered as the source promises)
 
 `Promise.allSettled`:
+
 - Executes many promises concurrently until all are settled (resolved/rejected)
 - Takes an iterable of:
   - Promises, or
@@ -2179,6 +2275,7 @@ Returns a function bound to:
 ### `Promise.`<`race`/`any`>
 
 `Promise.race`:
+
 - Executes many promises concurrently until any first of them is settled (resolved/rejected)
   - The remaining source promises operations continue with their results being ignored
 - Takes an iterable of:
@@ -2189,6 +2286,7 @@ Returns a function bound to:
   - Resolves with a single result
 
 `Promise.any`:
+
 - Executes many promises concurrently until:
   - Any first of them is resolved, or
   - All are rejected
@@ -2202,21 +2300,25 @@ Returns a function bound to:
 ### `Promise.`<`resolve`/`reject`>
 
 `Promise.resolve`:
+
 - Returns a promise resolved with the passed value
 - Used if `async`/`await` is not supported but a function must return a promise
 
 `Promise.reject`:
+
 - Returns a promise rejected with the passed error
 - Almost never used
 
 ## `Error`
 
 Properties:
+
 - `name`
 - `message`
 - `stack`
 
 Inheriting error objects:
+
 - `AggregateError`
 - `RangeError`
 - `ReferenceError`
@@ -2244,11 +2346,14 @@ Object.defineProperties(clonedObj, Object.getOwnPropertyDescriptors(obj));
 - Method #3: A combination of `Object.create`, `Object.getPrototypeOf`, and `Object.getOwnPropertyDescriptors`
 
 ```js
-const clonedObj = Object.create(Object.getPrototypeOf(obj), Object.getOwnPropertyDescriptors(obj));
+const clonedObj = Object.create(
+  Object.getPrototypeOf(obj),
+  Object.getOwnPropertyDescriptors(obj)
+);
 ```
 
-|Method|Attributes|Symbolic|Non-enumerable|Accessor|`[[Prototype]]`|
-|:----:|:--------:|:------:|:------------:|:------:|:-------------:|
-|#1    |-         |`Yes`   |-             |-       |-              |
-|#2    |`Yes`     |`Yes`   |`Yes`         |`Yes`   |-              |
-|#3    |`Yes`     |`Yes`   |`Yes`         |`Yes`   |`Yes`          |
+| Method | Attributes | Symbolic | Non-enumerable | Accessor | `[[Prototype]]` |
+| :----: | :--------: | :------: | :------------: | :------: | :-------------: |
+|   #1   |     -      |  `Yes`   |       -        |    -     |        -        |
+|   #2   |   `Yes`    |  `Yes`   |     `Yes`      |  `Yes`   |        -        |
+|   #3   |   `Yes`    |  `Yes`   |     `Yes`      |  `Yes`   |      `Yes`      |
