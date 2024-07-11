@@ -110,6 +110,7 @@
   - `Symbol.for`
   - `Symbol.toStringTag`
   - `[Symbol.toPrimitive]`
+  - `[Symbol.iterator]`
 - **`Array`**
   - `Array.prototype.`<`indexOf`/`lastIndexOf`/`includes`>
   - `Array.prototype.`<`at`/`slice`>
@@ -3063,6 +3064,83 @@ console.log(obj + " USD");
 "default"
 "100 USD"
 */
+```
+
+### `[Symbol.iterator]`
+
+The `Symbol.iterator` method must return an iterator object with the `next` method
+
+The `next` method must return an object in the following form: `{done: Boolean, value: nextValue}`
+
+```js
+const iterable = {
+  start: 100,
+  finish: 110,
+
+  [Symbol.iterator]() {
+    return {
+      nextValue: this.start,
+      endValue: this.finish,
+
+      next() {
+        if (this.nextValue > this.endValue) {
+          return {
+            done: true,
+          };
+        } else {
+          return {
+            done: false,
+            value: this.nextValue++,
+          };
+        }
+      },
+    };
+  },
+};
+
+for (let el of iterable) {
+  console.log(el);
+}
+
+// 100 101 102 103 104 105 106 107 108 109 110
+```
+
+To make the same iterable object as above, but using a generator:
+
+```js
+const iterable = {
+  start: 100,
+  finish: 110,
+
+  *[Symbol.iterator]() {
+    for (let value = this.start; value <= this.finish; value++) {
+      yield value;
+    }
+  },
+};
+
+for (let el of iterable) {
+  console.log(el);
+}
+
+// 100 101 102 103 104 105 106 107 108 109 110
+```
+
+Iterator can be used explicitly:
+
+```js
+const string = "abc";
+
+const iterator = string[Symbol.iterator]();
+
+while (true) {
+  let result = iterator.next();
+
+  if (result.done) break;
+  console.log(result.value);
+}
+
+// "a" "b" "c"
 ```
 
 ## `Array`
