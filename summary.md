@@ -9,6 +9,7 @@
   - Trailing Commas
   - Strict Mode
   - Declarations & Assignments
+  - Modules
   - Hoisting
   - Scope
   - Lexical Environment
@@ -189,6 +190,28 @@ A variable declared with `var` can be redeclared
 Declaring a variable without a keyword (by an assignment) is possible (no `ReferenceError`) only if not in the strict mode
 
 A variable declared with `const` cannot be reassigned
+
+### Modules
+
+#### Features
+
+Modules use the strict mode
+
+> The object `import.meta` contains the information about the current module
+>
+> [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/modules-intro)
+
+Scope:
+
+> Each module has its own top-level scope. In other words, top-level variables and functions from a module are not seen in other scripts.
+>
+> [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/modules-intro)
+
+Code execution:
+
+> If the same module is imported into multiple other modules, its code is executed only once, upon the first import. Then its exports are given to all further importers.
+>
+> [The Modern JavaScript Tutorial (Accessed: May 14, 2024)](https://javascript.info/modules-intro)
 
 ### Hoisting
 
