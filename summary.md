@@ -1915,6 +1915,37 @@ console.log(Object.keys); // function keys() { [native code] }
 console.log(Array.keys); // undefined
 ```
 
+#### Initialization Order
+
+> The order that JavaScript classes initialize can be surprising in some cases. Let’s consider this code:
+>
+> ```js
+> class Base {
+>   name = "base";
+>   constructor() {
+>     console.log("My name is " + this.name);
+>   }
+> }
+>
+> class Derived extends Base {
+>   name = "derived";
+> }
+>
+> // Prints "base", not "derived"
+> const d = new Derived();
+> ```
+>
+> What happened here? The order of class initialization, as defined by JavaScript, is:
+>
+> - The base class fields are initialized
+> - The base class constructor runs
+> - The derived class fields are initialized
+> - The derived class constructor runs
+>
+> This means that the base class constructor saw its own value for `name` during its own constructor, because the derived class field initializations hadn’t run yet.
+>
+> [TypeScript](https://www.typescriptlang.org/docs/handbook/2/classes.html)
+
 ### Inheritance
 
 #### Extending Classes
