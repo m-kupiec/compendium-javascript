@@ -1038,6 +1038,8 @@ Built-in iterable objects:
 - `Map` (but not `WeakMap`)
 - `Set` (but not `WeakSet`)
 
+To make an object iterable, add the `[Symbol.iterator]` method
+
 ### Async Iterable Objects
 
 Async iterables:
