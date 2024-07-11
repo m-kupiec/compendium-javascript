@@ -977,6 +977,36 @@ Changing `[[Prototype]]` of an existing object is a very slow operation; `[[Prot
 
 Between the prototype and the inheriting object, methods are shared but the state is not, e.g. assigning value to a non-existing property (which does exist in the prototype) will result in adding this property to the immediate object (not the prototype)
 
+For object methods (but not for class methods), `[[HomeObject]]` internal property is set only when using `f()` (not `f: function()`) syntax for defining the method:
+
+```js
+const parent = {
+  f: function () {
+    console.log("Parent method");
+  },
+};
+
+const child1 = {
+  __proto__: parent,
+
+  f() {
+    super.f();
+  },
+};
+
+child1.f(); // "Parent method"
+
+const child2 = {
+  __proto__: parent,
+
+  f: function () {
+    super.f();
+  },
+};
+
+child2.f(); // SyntaxError: 'super' keyword unexpected here
+```
+
 ## Data Collections
 
 ### Array-Like Objects
