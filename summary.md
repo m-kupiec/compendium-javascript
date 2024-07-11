@@ -137,6 +137,7 @@
   - `Math.random()`
   - Other Methods
 - **`Date`**
+  - Contructor
 - **`JSON`**
   - `JSON.stringify`
   - `JSON.parse`
@@ -3488,7 +3489,34 @@ console.log(Object.keys(Object.getOwnPropertyDescriptors(Math)));
 
 ## `Date`
 
-...
+### Contructor
+
+Creating a date:
+
+```js
+// The result is in GMT/UTC+0:
+
+console.log(new Date()); // 2024-03-25T15:12:21.469Z
+
+console.log(new Date(0)); // 1970-01-01T00:00:00.000Z
+console.log(new Date(-1000 * 60 * 60 * 24)); // 1969-12-31T00:00:00.000Z
+
+console.log(new Date("2024-03-25")); //2024-03-25T00:00:00.000Z
+console.log(new Date("2024-03-25 16:00")); // 2024-03-25T15:00:00.000Z
+
+// The result is in GTM/UTC+0 (but could be 1 hour less if during daylight saving time (DTS)):
+
+// The month is provided as a 0-11 number
+console.log(new Date(2024, 0)); // 2023-12-31T23:00:00.000Z
+console.log(new Date(2024, 3, 25, 16, 10, 15, 900)); // 2024-04-25T14:10:15.900Z
+```
+
+To parse the date (number of milliseconds from 01.01.1970 UTC+0) from a string using `Date.parse`, the string must be in the `YYYY-MM-DDTHH:mm:ss.sssZ` format (or in its shorter variants, the shortest one being `YYYY`); `T` is the delimeter; `Z` accepts `+-hh:mm` format to denote time zone other than UTC+0
+
+```js
+console.log(Date.parse("1985-01-01T16:00:45.800Z")); // 473443245800
+console.log(Date.parse("1985-01-01_16:00:45.800Z")); // NaN
+```
 
 ## `JSON`
 
