@@ -109,6 +109,7 @@
 - **`Symbol`**
   - `Symbol.for`
   - `Symbol.toStringTag`
+  - `[Symbol.toPrimitive]`
 - **`Array`**
   - `Array.prototype.`<`indexOf`/`lastIndexOf`/`includes`>
   - `Array.prototype.`<`at`/`slice`>
@@ -3025,6 +3026,41 @@ const obj = { [Symbol.toStringTag]: "obj" };
 
 console.log({}.toString()); // "[object Object]"
 console.log(obj.toString()); // [object obj]
+```
+
+### `[Symbol.toPrimitive]`
+
+Object-to-primitive conversion:
+
+```js
+const obj = {
+  a: "Aaa",
+  b: 100,
+  Aaa: "!",
+
+  [Symbol.toPrimitive](hint) {
+    console.log(hint);
+    return hint == "string" ? this.a : this.b;
+  },
+};
+
+console.log(obj[obj]);
+/*
+"string"
+"!"
+*/
+
+console.log(obj - 1);
+/*
+"number"
+99
+*/
+
+console.log(obj + " USD");
+/*
+"default"
+"100 USD"
+*/
 ```
 
 ## `Array`
