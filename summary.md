@@ -1470,7 +1470,99 @@ Error handled
 
 ### Ontology
 
-...
+#### Definition
+
+> 📖 [The Modern JavaScript Tutorial](https://javascript.info/class)
+
+There's no comma between class methods
+
+`new` calls `constructor` method
+
+`class` creates a function:
+
+- the function name is taken from the class name
+- the function code is taken from the `constructor` method
+- the function stores class methods in the `prototype`
+
+```js
+class Cl {
+  constructor(a) {
+    this.a = a;
+  }
+
+  f() {
+    alert(this.a);
+  }
+}
+
+const cl = new Cl(1);
+cl.f(); // 1
+
+console.log(typeof Cl); // "function"
+console.log(Cl === Cl.prototype.constructor); // true
+console.log(Cl.prototype.f); // f() { alert(this.a); }
+console.log(Object.getOwnPropertyNames(Cl.prototype)); // ["constructor", "f"]
+```
+
+`class` syntax can be rewritten in the following way:
+
+```js
+class Cl1 {
+  constructor(a) {
+    this.a = a;
+  }
+
+  f() {
+    console.log(this.a);
+  }
+}
+
+const cl1 = new Cl1(1);
+cl1.f(); // 1
+
+// ---
+// Rewritten without using `class` syntax:
+// ---
+
+function Cl2(a) {
+  this.a = a;
+}
+
+Cl2.prototype.f = function () {
+  console.log(this.a);
+};
+
+const cl2 = new Cl2(1);
+cl2.f(); // 1
+```
+
+The relationship between a class and its instance is that of an object that inherits properties and methods from the class:
+
+```js
+class Cl {
+  constructor(a) {
+    this.a = a;
+  }
+
+  f() {}
+}
+
+const cl = new Cl(1);
+
+console.log(cl); // [object Object] { a: 1 }
+console.log(cl.__proto__ === Cl.prototype); // true
+console.log(cl.__proto__.constructor === Cl); // true
+console.log(cl.__proto__.constructor === Cl.prototype.constructor); // true
+console.log(cl.__proto__.f === cl.f); // true
+console.log(cl.__proto__.f === Cl.prototype.f); // true
+```
+
+However, `class` is not just a 'syntactic sugar' for defining constructor function together with its `prototype` methods:
+
+- the function created using `class` syntax has an internal `[[IsClassConstructor]]` property set to `true` which requires the function to be called with `new` (among other things)
+- all class methods are non-enumerable
+- a class uses the strict mode
+- there are also many other features brought by the `class` syntax
 
 ### Inheritance
 
