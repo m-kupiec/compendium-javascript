@@ -116,6 +116,7 @@
 - **`Array`**
   - `Array.prototype.`<`indexOf`/`lastIndexOf`/`includes`>
   - `Array.prototype.`<`at`/`slice`>
+  - `Array.prototype.fill`
   - `Array.prototype.`<`push`/`pop`/`unshift`/`shift`>
   - `Array.prototype.concat`
   - `Array.prototype.`<`sort`/`reverse`>
@@ -3264,6 +3265,25 @@ console.log(arr.slice(-1)); // [4]
 console.log(arr.slice(1, 2)); // [2]
 console.log(arr.slice(-3, -2)); // [2]
 ```
+
+### `Array.prototype.fill`
+
+> ```js
+> const array1 = [1, 2, 3, 4];
+>
+> // Fill with 0 from position 2 until position 4
+> console.log(array1.fill(0, 2, 4));
+> // Expected output: Array [1, 2, 0, 0]
+>
+> // Fill with 5 from position 1
+> console.log(array1.fill(5, 1));
+> // Expected output: Array [1, 5, 5, 5]
+>
+> console.log(array1.fill(6));
+> // Expected output: Array [6, 6, 6, 6]
+> ```
+>
+> [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill)
 
 ### `Array.prototype.`<`push`/`pop`/`unshift`/`shift`>
 
