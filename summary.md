@@ -86,6 +86,7 @@
 - **`globalThis`**
   - `isFinite`/`isNaN`
   - `parseInt`/`parseFloat`
+  - `structuredClone`
   - `eval`
 - **`Object`**
   - `Object.prototype`
@@ -2738,6 +2739,18 @@ console.log(parseFloat("$1.5")); // NaN
 console.log(parseInt("0xff")); // 255
 console.log(parseInt("111", 2)); // 7
 ```
+
+### `structuredClone`
+
+```js
+let clone = structuredClone(obj);
+```
+
+"clones the object with all nested properties. . . . supports circular references, when an object property references the object itself (directly or via a chain or references)." ([The Modern JavaScript Tutorial](https://javascript.info/object-copy))
+
+"can clone most data types, such as objects, arrays, primitive values." ([The Modern JavaScript Tutorial](https://javascript.info/object-copy))
+
+"Function properties aren’t supported." ([The Modern JavaScript Tutorial](https://javascript.info/object-copy))
 
 ### `eval`
 
