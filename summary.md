@@ -67,6 +67,7 @@
   - Regular Functions
   - Constructor Functions
   - Generators
+  - Tagged Templates
 - **Classes**
   - Ontology
   - Inheritance
@@ -1595,6 +1596,24 @@ try {
 Error handled
 */
 ```
+
+### Tagged Templates
+
+"A more advanced form of template literals are _tagged_ templates." ([MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals))
+
+> a tagged template literal may not result in a string; it can be used with a custom tag function to perform whatever operations you want on the different parts of the template literal.
+>
+> ```js
+> // . . .
+>
+> tagFunction`string text ${expression} string text`;
+> ```
+>
+> . . . `tagFunction`: If specified, it will be called with the template strings array and substitution expressions, and the return value becomes the value of the template literal.
+>
+> . . . To supply a function of your own, precede the template literal with a function name; the result is called a tagged template. In that case, the template literal is passed to your tag function, where you can then perform whatever operations you want on the different parts of the template literal.
+>
+> [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
 
 ## Classes
 
