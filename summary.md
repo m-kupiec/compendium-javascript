@@ -1640,6 +1640,14 @@ Error handled
 >
 > [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
 
+> ```js
+> console.log`Hello`; // [ 'Hello' ]
+> console.log.bind(1, 2)`Hello`; // 2 [ 'Hello' ]
+> new Function("console.log(arguments)")`Hello`; // [Arguments] { '0': [ 'Hello' ] }
+> ```
+>
+> [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+
 ## Classes
 
 ### Ontology
