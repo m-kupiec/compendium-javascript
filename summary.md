@@ -1601,6 +1601,31 @@ Error handled
 
 "A more advanced form of template literals are _tagged_ templates." ([MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals))
 
+"Tags allow you to parse template literals with a function. The first argument of a tag function contains an array of string values. The remaining arguments are related to the expressions. The tag function can then perform whatever operations on these arguments you wish, and return the manipulated string. . . .Alternatively, it can return something completely different" ([MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals))
+
+> ```js
+> const person = "Mike";
+> const age = 28;
+>
+> function myTag(strings, personExp, ageExp) {
+>   const str0 = strings[0]; // "That "
+>   const str1 = strings[1]; // " is a "
+>   const str2 = strings[2]; // "."
+>
+>   const ageStr = ageExp < 100 ? "youngster" : "centenarian";
+>
+>   // We can even return a string built using a template literal
+>   return `${str0}${personExp}${str1}${ageStr}${str2}`;
+> }
+>
+> const output = myTag`That ${person} is a ${age}.`;
+>
+> console.log(output);
+> // That Mike is a youngster.
+> ```
+>
+> [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+
 > a tagged template literal may not result in a string; it can be used with a custom tag function to perform whatever operations you want on the different parts of the template literal.
 >
 > ```js
