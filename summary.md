@@ -961,7 +961,7 @@ Syntax:
   - `?.<propertyName>` (for dot notation)
   - `?.["<propertyName>"]` (for square bracket notation)
 - Calling a method that may not exist:
-  - `<methodName>.?.()`
+  - `<methodName>?.()`
 
 Use cases:
 
