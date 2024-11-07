@@ -535,21 +535,21 @@ A `let`/`const` declaration is hoisted but not initialized, so that the variable
 
 ### Scope
 
-| Declaration   | Code Block        |                   | Function                 |                        |                        |
-| ------------- | ----------------- | ----------------- | ------------------------ | ---------------------- | ---------------------- |
-|               | **Module Scope**  | **Global Scope**  | **Module Scope**         | **Global Scope**       |                        |
-|               |                   |                   |                          | **Declaration**        | **Expression**         |
-| `function`    | Not Scoped \*     | Not Scoped \*     | Scoped                   | Scoped                 | Scoped                 |
-|               | -                 | Added to `global` | -                        | -                      | -                      |
-| `var`         | Not Scoped        | Not Scoped        | Scoped                   | Scoped                 | Scoped                 |
-|               | -                 | Added to `global` | -                        | -                      | -                      |
-| No keyword \* |                   |                   | **_After `()`_**         | **_After `()`_**       | **_After `()`_**       |
-|               | Not Scoped        | Not Scoped        | Not Scoped               | Not Scoped             | Not Scoped             |
-|               | Added to `global` | Added to `global` | Added to `global`        | Added to `global`      | Added to `global`      |
-|               |                   |                   | **_Before `()`_**        | **_Before `()`_**      | **_Before `()`_**      |
-|               |                   |                   | Scoped                   | Scoped                 | Scoped                 |
-|               |                   |                   | -                        | -                      | -                      |
-| `this`        | -                 | Added to `global` | Added to `global` \*\*\* | Added to `global` \*\* | Added to `global` \*\* |
+| Declaration   | Code Block        |                      | Function                 |                        |                        |
+| ------------- | ----------------- | -------------------- | ------------------------ | ---------------------- | ---------------------- |
+|               | **Module Scope**  | **Global Scope**     | **Module Scope**         | **Global Scope**       |                        |
+|               |                   |                      |                          | **Declaration**        | **Expression**         |
+| `function`    | Not Scoped \*     | Not Scoped \*        | Scoped                   | Scoped                 | Scoped                 |
+|               | -                 | Added to `global` \* | -                        | -                      | -                      |
+| `var`         | Not Scoped        | Not Scoped           | Scoped                   | Scoped                 | Scoped                 |
+|               | -                 | Added to `global`    | -                        | -                      | -                      |
+| No keyword \* |                   |                      | **_After `()`_**         | **_After `()`_**       | **_After `()`_**       |
+|               | Not Scoped        | Not Scoped           | Not Scoped               | Not Scoped             | Not Scoped             |
+|               | Added to `global` | Added to `global`    | Added to `global`        | Added to `global`      | Added to `global`      |
+|               |                   |                      | **_Before `()`_**        | **_Before `()`_**      | **_Before `()`_**      |
+|               |                   |                      | Scoped                   | Scoped                 | Scoped                 |
+|               |                   |                      | -                        | -                      | -                      |
+| `this`        | -                 | Added to `global`    | Added to `global` \*\*\* | Added to `global` \*\* | Added to `global` \*\* |
 
 \* _Only when not in the strict mode_
 
