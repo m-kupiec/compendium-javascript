@@ -172,7 +172,7 @@
 
 ### Automatic Semicolon Insertion
 
-Occurs an a line break in most cases with the notable exeption of a line immediately followed by:
+Occurs on a line break in most cases with the notable exeption of a line immediately followed by:
 
 - A parenthesis `(...)`
 - A square bracket `[...]`
