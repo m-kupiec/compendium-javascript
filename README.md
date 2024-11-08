@@ -1,6 +1,10 @@
-# JavaScript Reference Summary
+# JavaScript Compendium
 
-## TOC
+Welcome to the _JavaScript Compendium_, part of the _[Front-End Compendia](https://github.com/m-kupiec/compendia/blob/main/README.md)_ project—a collection of comprehensive, Markdown-based notebooks that provide in-depth explorations of front-end development. This compendium delves into JavaScript fundamentals and advanced concepts, offering insights into parsing, execution, asynchronous programming, type operations, and JavaScript’s built-in objects. By covering both core principles and nuanced details, this resource serves as a guide for developers seeking to deepen their understanding of JavaScript from the ground up.
+
+This compendium is one of several in the _[Front-End Compendia](https://github.com/m-kupiec/compendia/blob/main/README.md)_ project, each focused on a different technology. To explore additional topics like React, TypeScript, and upcoming subjects, visit [the main repository](https://github.com/m-kupiec/compendia/blob/main/README.md) for the full Table of Contents.
+
+## Table of Contents
 
 ### Operation
 
