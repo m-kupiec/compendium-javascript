@@ -3126,8 +3126,6 @@ console.log(Object.keys(Object.getOwnPropertyDescriptors(Number.prototype)));
 
 ## `BigInt`
 
-...
-
 ## `String`
 
 ### `String.prototype.localeCompare`
