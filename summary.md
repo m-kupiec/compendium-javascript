@@ -3198,8 +3198,6 @@ console.log("ab_".repeat(3)); // ab_ab_ab_
 
 ## `Boolean`
 
-...
-
 ## `Symbol`
 
 ### `Symbol.for`
